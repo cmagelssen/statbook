@@ -13,7 +13,7 @@ $$
 data_i = (modell) + error_i
 $$
 
-**Data** er den avhengige variabelen som vi har målt hos alle deltakerne og som vi kan bruke en modell til å predikere. Å predikere er et verb som benyttes mye i statistikken, og er synonymt med å forutsi. Min måte å tenke på det er at vi ønsker å si hva en person hadde som faktisk observasjon på den målte avhengig variabelen. Legg også merke til den lille *i*-en som står bak data og error i ligningen. Denne betyr individ, og sier at vi kan predikere et individ sin skår på den avhengige variabelen med modellen som vi har bygget.  **Modell** er egentlig bare en representasjon av denne dataen, mens **error** er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data). Dette blir kanskje mer konkret om vi bruker et eksempel: 
+**Data** er den avhengige variabelen som vi har målt hos alle deltakerne og som vi kan bruke en modell til å predikere. Å predikere er et verb som benyttes mye i statistikken, og er synonymt med å forutsi. Min måte å tenke på det er at vi ønsker å si hva en person hadde som faktisk observasjon på den målte avhengig variabelen. Legg også merke til dedsn lille *i*-en som står bak data og error i ligningen. Denne betyr individ, og sier at vi kan predikere et individ sin skår på den avhengige variabelen med modellen som vi har bygget.  **Modell** er egentlig bare en representasjon av denne dataen, mens **error** er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data). Dette blir kanskje mer konkret om vi bruker et eksempel: 
 
 La oss si at du er lege og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen er 37 så dette blir modellen din. 
 
@@ -291,7 +291,7 @@ ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
 
 
 ## H1: Alternativ modell (alternativ hypotese)
-I forrige avsnitt sa vi at **null-hypotesen (H0)** reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi regnet oss frem til at denne modellen ga oss en Som of Squared error på 3243.784.
+I forrige avsnitt sa vi at **null-hypotesen (H0)** representerer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi regnet oss frem til at denne modellen ga oss en Som of Squared error på 3243.784.
 
 $$
 Y_i = (b_0) + error_i
@@ -309,7 +309,7 @@ Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med 0 og 1.
 $$
 Fremgang.1RM_i = b_0 + b_1(Gruppe) + error_i
 $$ 
-For å fokusere på holde dette på et overordnet nivå, så vil jeg gi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal gå gjennom hvordan vi regner ut disse verdiene.
+For å fokusere på holde dette på et overordnet nivå, så vil jeg gi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal vi gå gjennom hvordan vi regner ut disse verdiene.
 
 $$
 Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
@@ -372,7 +372,21 @@ dummykodet.dat <- dat %>%
 knitr::kable(head(dummykodet.dat), digits = 3, caption = "Dummy koding")
 ```
 
+I forrige oppgave regnet du ut error for ett enkelt individ. Men vi er interessert i den totale erroren for modellen. Formelen for denne er: 
 
+total error in den alternative modellen:
+
+
+SS_R = $sum_{n=1}^N(observert_i - modell_i)^2$ 
+
+Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler
+
+`r fitb("2527.50")`
+
+```{r}
+aov(rm ~ dummykodet, dummykodet.dat)
+
+```
 
 
 
