@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  31 MAR 2021 19:07
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  31 MAR 2021 23:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -840,22 +840,29 @@ File: 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 [28] [29]
 File: 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf>
-[30] [31]
+[30] [31] [32]
+Chapter 5.
+File: 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type
+ pdf)
+<use 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf>
+[33
+
+]
 No file _main.bbl.
-[32] (./_main.aux)
+[34] (./_main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 02496667B4B017730D1C3735AC2D0FC2;2893.
+(rerunfilecheck)             Checksum: 5D5E2C39DBA292FCEBC0D3967387D1E3;3109.
  ) 
 Here is how much of TeX's memory you used:
- 16373 strings out of 478922
- 292183 string characters out of 5865756
- 769758 words of memory out of 5000000
- 36003 multiletter control sequences out of 15000+600000
+ 16383 strings out of 478922
+ 292639 string characters out of 5865756
+ 769866 words of memory out of 5000000
+ 36011 multiletter control sequences out of 15000+600000
  407417 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,983b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (32 pages).
+Output written on _main.pdf (34 pages).
