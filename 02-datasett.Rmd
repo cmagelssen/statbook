@@ -1,6 +1,6 @@
-# Datasett
+# Datasett {#datasett}
 
-### Bør man trene med ett eller flere sett i styrketrening?
+## Bør man trene med ett eller flere sett i styrketrening?
 Et spørsmål mange treningsentusiaster lurer på er hvor mange serier som er best å gjennnomføre for å få maksimal treningseffekt i styrketrening. Noen mener at ett sett er tilstrekkelig, mens andre mener at et hardere treningstimuli er nødvendig og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke dette er deres egen Bent Rønnestad.
 
 Eksperimentet ble gjennomført som et **between-subject design** med to grupper: en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis **1L-3U** og **3L-1U** (L=lower; U=Upper). De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskerne ville så se hva som ga best fremgang på 1RM. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser. De fant at 3L-1U hadde større fremgang enn 1L-3U fra pre til post (41 vs 21 % endring). Denne forskjellen var signifikant ved en uavhengig t-test. Med andre ord kan det se ut til at det kan lønne seg å trene flere sett per styrketreningsøkt.
@@ -49,7 +49,7 @@ Før du går videre er det greit at du gjør deg kjent med datasettet som vi har
 3. Hvilke to verdier kan variabelen gruppe? `r fitb(ett.sett)` og `r fitb(tre.sett)`
 
 
-### Regne gjennomsnitt for de to gruppene
+## Regne gjennomsnitt for de to gruppene
 Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene ("tre.sett" vs. ett.sett) på % fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å gjøre dette i R:
 
 ```{r}
@@ -73,7 +73,7 @@ knitr::kable(
 Hvilken gruppe hadde mest fremgang?
 `r mcq(c("ett.sett", answer = "tre.sett"))``
 
-### Figur av datasettet
+## Figur av datasettet
 Vi kan også presentere dataen i en figur. For denne typen data er det veldig vanlig å bruke et **stolpediagram**:
 
 ```{r echo=FALSE, nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}

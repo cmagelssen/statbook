@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Datasett | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</title>
+  <title>Chapter 2 Datasett | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Datasett | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta property="og:title" content="Chapter 2 Datasett | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Datasett | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta name="twitter:title" content="Chapter 2 Datasett | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -144,9 +144,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
-<li class="chapter" data-level="2.0.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.0.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
-<li class="chapter" data-level="2.0.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.0.2</b> Regne gjennomsnitt for de to gruppene</a></li>
-<li class="chapter" data-level="2.0.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.0.3</b> Figur av datasettet</a></li>
+<li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
+<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Regne gjennomsnitt for de to gruppene</a></li>
+<li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
 <ul>
@@ -164,15 +164,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
 <li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
+<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="finne-verdiene.html"><a href="finne-verdiene.html"><i class="fa fa-check"></i><b>5</b> Finne verdiene</a></li>
-<li class="chapter" data-level="6" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html"><i class="fa fa-check"></i><b>6</b> Koding av kategoriske variabler</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#dummykoding-1"><i class="fa fa-check"></i><b>6.1</b> Dummykoding</a></li>
-<li class="chapter" data-level="6.2" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#kontrastkoding-1"><i class="fa fa-check"></i><b>6.2</b> Kontrastkoding</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="hvilken-modell-skal-vi-velge.html"><a href="hvilken-modell-skal-vi-velge.html"><i class="fa fa-check"></i><b>7</b> Hvilken modell skal vi velge?</a></li>
-<li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -189,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</a>
           </h1>
         </div>
 
@@ -199,8 +192,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="datasett" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Datasett</h1>
-<div id="bør-man-trene-med-ett-eller-flere-sett-i-styrketrening" class="section level3" number="2.0.1">
-<h3><span class="header-section-number">2.0.1</span> Bør man trene med ett eller flere sett i styrketrening?</h3>
+<div id="bør-man-trene-med-ett-eller-flere-sett-i-styrketrening" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Bør man trene med ett eller flere sett i styrketrening?</h2>
 <p>Et spørsmål mange treningsentusiaster lurer på er hvor mange serier som er best å gjennnomføre for å få maksimal treningseffekt i styrketrening. Noen mener at ett sett er tilstrekkelig, mens andre mener at et hardere treningstimuli er nødvendig og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke dette er deres egen Bent Rønnestad.</p>
 <p>Eksperimentet ble gjennomført som et <strong>between-subject design</strong> med to grupper: en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis <strong>1L-3U</strong> og <strong>3L-1U</strong> (L=lower; U=Upper). De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskerne ville så se hva som ga best fremgang på 1RM. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser. De fant at 3L-1U hadde større fremgang enn 1L-3U fra pre til post (41 vs 21 % endring). Denne forskjellen var signifikant ved en uavhengig t-test. Med andre ord kan det se ut til at det kan lønne seg å trene flere sett per styrketreningsøkt.</p>
 <p><img src="design.png" alt="Slik designet Rønnestad et al. (2007) sin studie" />
@@ -353,8 +346,8 @@ Vi har ikke tilgang til dette datasettet, men jeg har simulert dette datasettet 
 <li>Hvilke to verdier kan variabelen gruppe? <input class='solveme nospaces' size='16' data-answer='["17.7057638370199","17.0718080302549","18.2681093615135","25.4259377149549","32.7031295498412","19.1022595928954","22.2382713536142","22.271482686717","26.1788902838443","20.3485695627797","23.5277295683526","17.9596634385675"]'/> og <input class='solveme nospaces' size='16' data-answer='["40.4670449581874","49.0722254597917","47.941314229415","44.5138887937954","52.2875012402161","40.0175020520785","49.4842510826695","29.2104780554838","40.5929265524391","37.5867620268333","35.4265054014307","42.4935413884811"]'/></li>
 </ol>
 </div>
-<div id="regne-gjennomsnitt-for-de-to-gruppene" class="section level3" number="2.0.2">
-<h3><span class="header-section-number">2.0.2</span> Regne gjennomsnitt for de to gruppene</h3>
+<div id="regne-gjennomsnitt-for-de-to-gruppene" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Regne gjennomsnitt for de to gruppene</h2>
 <p>Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene (“tre.sett” vs. ett.sett) på % fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å gjøre dette i R:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="datasett.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#jeg lager et oobjekt som heter mean_rm </span></span>
 <span id="cb2-2"><a href="datasett.html#cb2-2" aria-hidden="true" tabindex="-1"></a>mean_rm <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
@@ -386,8 +379,8 @@ Vi har ikke tilgang til dette datasettet, men jeg har simulert dette datasettet 
 <p>Hvilken gruppe hadde mest fremgang?
 <select class='solveme' data-answer='["tre.sett"]'> <option></option> <option>ett.sett</option> <option>tre.sett</option></select>`</p>
 </div>
-<div id="figur-av-datasettet" class="section level3" number="2.0.3">
-<h3><span class="header-section-number">2.0.3</span> Figur av datasettet</h3>
+<div id="figur-av-datasettet" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Figur av datasettet</h2>
 <p>Vi kan også presentere dataen i en figur. For denne typen data er det veldig vanlig å bruke et <strong>stolpediagram</strong>:</p>
 <div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
 <img src="02-datasett_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />

@@ -37,7 +37,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)},
+  pdftitle={Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)},
   pdfauthor={Christian Magelssen},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -148,7 +148,7 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)}
+\title{Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)}
 \author{Christian Magelssen}
 \date{2021-03-31}
 
@@ -166,13 +166,15 @@ I dette kapittelet skal vi lære å bygge statistiske modeller for å teste om \
 
 En variabel kan sies å være \textbf{kontinuerlig} når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle det; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.
 
-\textbf{Grupper} defineres i psykologifaget som en samling mennesker som deler bestemte karakterstikker. Det kan være spillere på et fotballag, individer på et treningssenter, eller menn og kvinner. Dette er også eksempler på naturlig inndelte grupper i samfunnet. Noen ganger kan det være interessant å se om disse gruppene er forskjellige. For eksempel kan det være interessant å se om individer som trener på treningssenter er sterkere enn de som ikke trener på treningssenter. Men i eksperimenter er vi som oftest interessert i om to grupper, som var like før behandling, har blitt forskjellige etter behandling. Vi randomiserer individer i to ulike grupper, slik at vi sikrer at vi blander disse individene godt (f.eks kjønn, motivasjon, interesser). Hvis eksperimentet har blitt gjennomført godt at det ikke er noen andre forklaringer på at disse to gruppene har blitt forskjellige etter intervensjonsperioden, så kan vi trekke en slutning om disse to gruppene trolig ikke kommer fra samme populasjon lenger; eksperimentet har gjort at disse to gruppene trolig kommer fra to forskjellige populasjoner.
+\textbf{Grupper} defineres i psykologifaget som en samling mennesker som deler bestemte karakterstikker. Det kan være spillere på et fotballag, individer på et treningssenter, eller menn og kvinner. Dette er også eksempler på naturlig inndelte grupper i samfunnet. Noen ganger kan det være interessant å se om disse gruppene er forskjellige. For eksempel kan det være interessant å se om individer som trener på treningssenter er sterkere enn de som ikke trener på treningssenter.
+
+Andre ganger kan det være interessant å teste om to grupper, som var like før et eksperiment, har blitt forskjellige fordi vi har behandlet dem ulikt. Vi randomiserer individer i to ulike grupper, slik at vi sikrer at vi blander disse individene godt (f.eks kjønn, motivasjon, interesser). Hvis eksperimentet har blitt gjennomført godt at det ikke er noen andre forklaringer på at disse to gruppene har blitt forskjellige etter intervensjonsperioden, så kan vi trekke en slutning om disse to gruppene trolig ikke kommer fra samme populasjon lenger; eksperimentet har gjort at disse to gruppene trolig kommer fra to forskjellige populasjoner.
 
 \hypertarget{datasett}{%
 \chapter{Datasett}\label{datasett}}
 
 \hypertarget{buxf8r-man-trene-med-ett-eller-flere-sett-i-styrketrening}{%
-\subsection{Bør man trene med ett eller flere sett i styrketrening?}\label{buxf8r-man-trene-med-ett-eller-flere-sett-i-styrketrening}}
+\section{Bør man trene med ett eller flere sett i styrketrening?}\label{buxf8r-man-trene-med-ett-eller-flere-sett-i-styrketrening}}
 
 Et spørsmål mange treningsentusiaster lurer på er hvor mange serier som er best å gjennnomføre for å få maksimal treningseffekt i styrketrening. Noen mener at ett sett er tilstrekkelig, mens andre mener at et hardere treningstimuli er nødvendig og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke dette er deres egen Bent Rønnestad.
 
@@ -250,7 +252,7 @@ Før du går videre er det greit at du gjør deg kjent med datasettet som vi har
 \end{enumerate}
 
 \hypertarget{regne-gjennomsnitt-for-de-to-gruppene}{%
-\subsection{Regne gjennomsnitt for de to gruppene}\label{regne-gjennomsnitt-for-de-to-gruppene}}
+\section{Regne gjennomsnitt for de to gruppene}\label{regne-gjennomsnitt-for-de-to-gruppene}}
 
 Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene (``tre.sett'' vs.~ett.sett) på \% fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å gjøre dette i R:
 
@@ -287,7 +289,7 @@ Hvilken gruppe hadde mest fremgang?
 ett.sett tre.sett`
 
 \hypertarget{figur-av-datasettet}{%
-\subsection{Figur av datasettet}\label{figur-av-datasettet}}
+\section{Figur av datasettet}\label{figur-av-datasettet}}
 
 Vi kan også presentere dataen i en figur. For denne typen data er det veldig vanlig å bruke et \textbf{stolpediagram}:
 
@@ -869,7 +871,7 @@ Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut re
 \hypertarget{h1-alternativ-modell-alternativ-hypotese}{%
 \section{H1: Alternativ modell (alternativ hypotese)}\label{h1-alternativ-modell-alternativ-hypotese}}
 
-I forrige avsnitt sa vi at \textbf{null-hypotesen (H0)} reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi regnet oss frem til at denne modellen ga oss en Som of Squared error på 3243.784.
+I forrige avsnitt sa vi at \textbf{null-hypotesen (H0)} reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.
 
 \[
 Y_i = (b_0) + error_i
@@ -882,7 +884,7 @@ Spørsmålet vi skal stille i dette avsnittet er om vi kan redusere error fra de
 \[
 Y_i = (b_0 + b_1X_i) + error
 \]
-Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med 0 og 1.
+Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med tallene 0 og 1.
 
 \[
 Fremgang.1RM_i = b_0 + b_1(Gruppe) + error_i
@@ -912,6 +914,30 @@ Fremgang.1RM_i = 21.90 + b1(20.52*1) + error_i
 \[
 Fremgang.1RM_i = 42.48 + error_i
 \]
+Visualisert fremstilt blir modellen vår seendes slik ut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(dat, }\FunctionTok{aes}\NormalTok{(dummykodet, rm, }\AttributeTok{color=}\NormalTok{dummykodet)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{60}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.2}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{geom =} \StringTok{"line"}\NormalTok{, }\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{group =} \DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{linetype=}\StringTok{"dotted"}\NormalTok{, }\AttributeTok{size=}\FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"\% fremgang 1RM underkropp"}\NormalTok{, }\AttributeTok{x=}\StringTok{"Dummykodet variabel"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-9-1} 
+
+}
+
+\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-9}
+\end{figure}
+
 \textbf{Oppgaver}
 Tabellen under viser 6 individer som tilhørte treningsgruppe. Du ser deres faktiske fremgang i 1RM kolonnen. La oss bruke det vi har lært til å predikere disse personene sin fremgang. Vi bruker samme modell som over
 
@@ -956,7 +982,7 @@ bo er (norskt ord) for gruppen som er kodet med 0. b1 er (norsk ord) mellom grup
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-10}Dummy koding}
+\caption{\label{tab:unnamed-chunk-11}Dummy koding}
 \centering
 \begin{tabular}[t]{r|l|r|r}
 \hline
@@ -977,300 +1003,92 @@ individ & gruppe & rm & dummykodet\\
 \end{tabular}
 \end{table}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\NormalTok{test1 }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(gruppe, rm, }\AttributeTok{color=}\NormalTok{gruppe)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{geom =} \StringTok{"line"}\NormalTok{, }\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{group =} \DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"red"}\NormalTok{, }\AttributeTok{linetype=}\StringTok{"dotted"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_bw}\NormalTok{()}
+I forrige oppgave regnet du ut error for ett enkelt individ. Men vi er interessert i den totale erroren for modellen. Formelen for denne er:
 
+total error in den alternative modellen:
 
-\NormalTok{avg.rm }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{rm)}
-\NormalTok{test2 }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(gruppe, rm, }\AttributeTok{color=}\NormalTok{gruppe)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept=}\NormalTok{avg.rm, }\AttributeTok{linetype=}\StringTok{"dotted"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_bw}\NormalTok{()}
+SS\_R = \(\sum_{n=1}^N (observert_i - modell_i)^2\)
 
-\FunctionTok{library}\NormalTok{(cowplot)}
-
-\FunctionTok{plot\_grid}\NormalTok{(test1, test2, }\AttributeTok{nrow =} \DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-11-1} 
-
-}
-
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-11}
-\end{figure}
+Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler
 
 \hypertarget{variansanalyse-anova-tabell}{%
 \section{Variansanalyse (ANOVA-tabell)}\label{variansanalyse-anova-tabell}}
 
-Nå som vi har regnet ut hvor mye error som var i modellen ved å bruke mean, skal vi lære å analysere denne erroren. Tabellen vi skal lage heter en ANOVA-tabell.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-Her fikk jeg en intercept på 21.90 og en slope på 20.52. La oss prøve å få disse to til.
-
-\[
-Y = b0 + b1 + error
-\]
-
-\hypertarget{finne-verdiene}{%
-\chapter{Finne verdiene}\label{finne-verdiene}}
-
-For å estimere parameterne i modellen kan vi bruke verktøy vi allerede har lært. Vi gir likevel en grundig innføring her. Målet er at disse modelene er selvstendige, slik at du ikke trenger å gå tilbake til andre kapitler. Med andre ord, absolutt alt du trenger skal finnes her.
-
-I den enkleste modellen (null-hypotesen) estimerte vi kun ett enkelt parameter, memlig \textbf{mean}. Den modellen sa at vi kun trenger mean til å predikere individenes fremgang i RM.
-
-\[
-Y_i = b0 + error_i
-\]
-Vi kan nå spørre oss om det er en relasjon mellom prediktorvariabelen vår (Gruppe) og fremgang i 1RM. Vi kan da bruke til lineære modellen som vi har brukt tidligere.\\
-\[
-Y_i = (b0 + b1) + error_i
-\]
-Denne ligningen sier at et individs skår kan bli prediktert fra modell som består av b0 og b1, pluss error. b1 kvantifiserer relasjonen mellom en prediktovariabelelen og utfallet - både hvor \textbf{sterkt} og hvilken \textbf{retning} dette forholdet har. Mens b0 sier hvilken verdi utfallet har når utfallsvariabelen er null eller 0.
-
-I figuren under ser du tre modeller som har samme b0, men forskjellige b1. Studer figurene og svar på spørsmålene under.
+Nå som vi har regnet ut hvor mye error det er i hver av disse modellene - null-modellen og den alternative modellen - er det klart for å gjøre en sammenligning av disse modellene. Modellene vi sammenligner er om alternative-modellen reduserer error mer enn null-modellen. Fra figurene under kan det slik ut; linjen til høyre ser ut til å ligge nærmere observasjonene enn linjen i figuren til venstre.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{06-finneb_files/figure-latex/unnamed-chunk-1-1} 
+{\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-12-1} 
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-1}
+\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-12}
 \end{figure}
+
+\textbf{The total sum of squares (SST)} = \textbf{3243.784}
+(SST) er hvor mye error vi får ved å bruke null-modellen.
+
+\textbf{The residual sum of squares (SSR)} = \textbf{716.3}
+(dette er hvor mye error som er igjen etter at vi brukte modellen vår)
+
+En naturlig ting å gjøre er å regne hvor mye error den alternative modellen vår har redusert error med. Man kaller denne for \textbf{The model sum of squares (SSM)}:
+
+\textbf{The model sum of squares (SSM)} = \textbf{(SST)} - \textbf{(SSR)} =
+
+Hvis vi regner hvor mye error modellen vår har redusert error med, så kan vi se at modellen vår har redusert error med 78 \%. Dette er ekstremt mye, og det er sjeldent man finner en så høy prosent. Denne verdien har mange forskjellige navn i statistikken, *proportional reduction in error (PRE)``, R2 og n2''. Og den er viktig. Jeg velger å bruke R2.
+
+\[
+R2 = (SS_T - SS_R) / SS_T
+\]
+\[
+R2 = (3243.784 - 716.3) / 3243.784 
+\]
+
+\[
+R2 = 0.7791826
+\]
+Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOVA-tabell de. Her ser du de samme verdiene som vi har regnet manuelt.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(webex)}
-\end{Highlighting}
-\end{Shaded}
-
-1 2 3 Nå vet dere hva b1 representerer.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{06-finneb_files/figure-latex/unnamed-chunk-3-1} 
-
-}
-
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-3}
-\end{figure}
-
-SCP is the relationship between two variables
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{relationship }\OtherTok{\textless{}{-}}\NormalTok{ dummykodet.dat }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{avg.x =} \FunctionTok{mean}\NormalTok{(dummykodet),}
-         \AttributeTok{x.avg.x =}\NormalTok{ dummykodet }\SpecialCharTok{{-}}\NormalTok{ avg.x,}
-         \AttributeTok{avg.rm =} \FunctionTok{mean}\NormalTok{(rm),}
-         \AttributeTok{rm.avg.rm =}\NormalTok{ rm }\SpecialCharTok{{-}}\NormalTok{ avg.rm, }
-         \AttributeTok{ssc =}\NormalTok{ x.avg.x }\SpecialCharTok{*}\NormalTok{ rm.avg.rm, }
-         \AttributeTok{sum.ssc =} \FunctionTok{sum}\NormalTok{(ssc),}
-         \AttributeTok{ssx =} \FunctionTok{sum}\NormalTok{(x.avg.x}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{),}
-         \AttributeTok{tot =}\NormalTok{ sum.ssc }\SpecialCharTok{/}\NormalTok{ ssx}
-\NormalTok{         )}
-\NormalTok{relationship}
+\CommentTok{\#aov er en forkortolse for analysis of variance (ANOVA)}
+\CommentTok{\#dette er funksjon som kommer mer R.}
+\FunctionTok{aov}\NormalTok{(rm }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dummykodet, dat)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 24 x 12
-##    individ gruppe    rm dummykodet avg.x x.avg.x avg.rm rm.avg.rm   ssc sum.ssc
-##      <int> <chr>  <dbl>      <dbl> <dbl>   <dbl>  <dbl>     <dbl> <dbl>   <dbl>
-##  1       1 "tre.~  40.5          1   0.5     0.5   32.2      8.30  4.15    123.
-##  2       2 "tre.~  49.1          1   0.5     0.5   32.2     16.9   8.45    123.
-##  3       3 "tre.~  47.9          1   0.5     0.5   32.2     15.8   7.89    123.
-##  4       4 "tre.~  44.5          1   0.5     0.5   32.2     12.4   6.18    123.
-##  5       5 "tre.~  52.3          1   0.5     0.5   32.2     20.1  10.1     123.
-##  6       6 "tre.~  40.0          1   0.5     0.5   32.2      7.86  3.93    123.
-##  7       7 "tre.~  49.5          1   0.5     0.5   32.2     17.3   8.66    123.
-##  8       8 "tre.~  29.2          1   0.5     0.5   32.2     -2.95 -1.48    123.
-##  9       9 "tre.~  40.6          1   0.5     0.5   32.2      8.43  4.22    123.
-## 10      10 "tre.~  37.6          1   0.5     0.5   32.2      5.42  2.71    123.
-## # ... with 14 more rows, and 2 more variables: ssx <dbl>, tot <dbl>
+## Call:
+##    aov(formula = rm ~ dummykodet, data = dat)
+## 
+## Terms:
+##                 dummykodet Residuals
+## Sum of Squares   2527.4962  716.2875
+## Deg. of Freedom          1        22
+## 
+## Residual standard error: 5.706008
+## Estimated effects may be unbalanced
 \end{verbatim}
 
-\hypertarget{koding-av-kategoriske-variabler-1}{%
-\chapter{Koding av kategoriske variabler}\label{koding-av-kategoriske-variabler-1}}
+\hypertarget{f-test}{%
+\section{F-test}\label{f-test}}
 
-I tabellen på s. kan du se at vi har en tabell med tre kolonner: en kolonne for hver variabel vi har i vårt datasett. Variabelen \textbf{gruppe} er en kategorisk vaiabel som har to ulike verdier: ``ett.sett'' og ``tre.sett''. Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles disse denne typen data for et tekstobjekt, ``strings'' (python/javascript) eller ``characters'' (R). På norsk kalles disse verdiene for ord. Uansett navn er problemet at vi ikke kan putte ord inn i en statistisk modell; vi er nødt til å representere denne kategoriske vaiabelen med tallverdier. Det er flere måter å gjøre dette på, men de forskjellige måtene gir ulik resultat. Derfor må vi vie en god del tid på dette. Vi går gjennom to måter å gjøre dette på.
-
-\hypertarget{dummykoding-1}{%
-\section{Dummykoding}\label{dummykoding-1}}
-
-En vanlig metode kalles \textbf{dummykoding} eller \textbf{treatment-koding}. Den går ut på å lage en eller flere variabler med 0 og 1 som de to mulige verdiene. Antall variabler vi trenger avhenger av antall grupper vi vil sammenligne. Siden vårt datasett kun inneholder to grupper, så trenger vi kun en variabel. Vi kan den ene gruppen og den andre 1. Hovedregelen er at vi gir 0 til baselinegruppe og 1 til den eksperimentelle gruppen. Vi gir derfor 0 til 1.sett-gruppen og 1 til 3.sett-gruppen. Gjør dette før du går videre.
-
-I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruke følgende kode:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#lager et nytt objekt som heter dummykodet.dat}
-\NormalTok{dummykodet.dat }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%}
-  \CommentTok{\# her lager jeg en ny kolonne som heter dummykoder. If gruppe == \textquotesingle{}ett.sett\textquotesingle{}, gi verdien 0, else gi de 1.}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dummykodet =} \FunctionTok{if\_else}\NormalTok{(gruppe }\SpecialCharTok{==} \StringTok{"ett.sett"}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-I jamovi ville jeg sett følgende video: \url{https://www.youtube.com/watch?v=iITxK27LfZk}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-4}Dummy koding}
-\centering
-\begin{tabular}[t]{r|l|r|r}
-\hline
-individ & gruppe & rm & dummykodet\\
-\hline
-1 & tre.sett & 40.467 & 1\\
-\hline
-2 & tre.sett & 49.072 & 1\\
-\hline
-3 & tre.sett & 47.941 & 1\\
-\hline
-4 & tre.sett & 44.514 & 1\\
-\hline
-5 & tre.sett & 52.288 & 1\\
-\hline
-6 & tre.sett & 40.018 & 1\\
-\hline
-7 & tre.sett & 49.484 & 1\\
-\hline
-8 & tre.sett & 29.210 & 1\\
-\hline
-9 & tre.sett & 40.593 & 1\\
-\hline
-10 & tre.sett & 37.587 & 1\\
-\hline
-11 & tre.sett & 35.427 & 1\\
-\hline
-12 & tre.sett & 42.494 & 1\\
-\hline
-13 & ett.sett & 17.706 & 0\\
-\hline
-14 & ett.sett & 17.072 & 0\\
-\hline
-15 & ett.sett & 18.268 & 0\\
-\hline
-16 & ett.sett & 25.426 & 0\\
-\hline
-17 & ett.sett & 32.703 & 0\\
-\hline
-18 & ett.sett & 19.102 & 0\\
-\hline
-19 & ett.sett & 22.238 & 0\\
-\hline
-20 & ett.sett & 22.271 & 0\\
-\hline
-21 & ett.sett & 26.179 & 0\\
-\hline
-22 & ett.sett & 20.349 & 0\\
-\hline
-23 & ett.sett & 23.528 & 0\\
-\hline
-24 & ett.sett & 17.960 & 0\\
-\hline
-\end{tabular}
-\end{table}
-
-\hypertarget{kontrastkoding-1}{%
-\section{Kontrastkoding}\label{kontrastkoding-1}}
-
-Kontrastkoding er et alternativ til dummykoding. Det er en regel som er viktig å følge for å ha en gyldig kontrastkode, og det er at summen av kontrastkodene blir 0. For eksempel er -0.5 og 0.5 gyldige kontrastkoder fordi summen av disse blir 0. Det samme er -10 og +10. 0 og 1 derimot, slik vi har med en dummykodet variabel, er ikke er en gyldig kontrastkode fordi summen av disse blir 1. \textbf{Hvilke verdier vi velger å bruke på vår kontrastkodede variabel betyr ingenting for den statistiske test vi gjennomfører, men gjør at vi må fortolke resultatene litt forskjellig}. Med en kontrastkode på +10 og -10 er det en 20 enhets forskjell, mens det ved +0.5 og -0.5 kun er enhet forskjell.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#lager et nytt objekt som heter dummykodet.dat}
-\NormalTok{kontrastkodet.dat }\OtherTok{\textless{}{-}}\NormalTok{ dummykodet.dat }\SpecialCharTok{\%\textgreater{}\%}
-  \CommentTok{\# her lager jeg en ny kolonne som heter kontrastkodet. If gruppe == \textquotesingle{}ett.sett\textquotesingle{}, gi verdien {-}0.5, else gi de +0.5}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{kontrastkodet =} \FunctionTok{if\_else}\NormalTok{(gruppe }\SpecialCharTok{==} \StringTok{"ett.sett"}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{, }\SpecialCharTok{+}\FloatTok{0.5}\NormalTok{)}
-\NormalTok{         )}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-6}Kontrastkoding}
-\centering
-\begin{tabular}[t]{r|l|r|r|r}
-\hline
-individ & gruppe & rm & dummykodet & kontrastkodet\\
-\hline
-1 & tre.sett & 40.467 & 1 & 0.5\\
-\hline
-2 & tre.sett & 49.072 & 1 & 0.5\\
-\hline
-3 & tre.sett & 47.941 & 1 & 0.5\\
-\hline
-4 & tre.sett & 44.514 & 1 & 0.5\\
-\hline
-5 & tre.sett & 52.288 & 1 & 0.5\\
-\hline
-6 & tre.sett & 40.018 & 1 & 0.5\\
-\hline
-7 & tre.sett & 49.484 & 1 & 0.5\\
-\hline
-8 & tre.sett & 29.210 & 1 & 0.5\\
-\hline
-9 & tre.sett & 40.593 & 1 & 0.5\\
-\hline
-10 & tre.sett & 37.587 & 1 & 0.5\\
-\hline
-11 & tre.sett & 35.427 & 1 & 0.5\\
-\hline
-12 & tre.sett & 42.494 & 1 & 0.5\\
-\hline
-13 & ett.sett & 17.706 & 0 & -0.5\\
-\hline
-14 & ett.sett & 17.072 & 0 & -0.5\\
-\hline
-15 & ett.sett & 18.268 & 0 & -0.5\\
-\hline
-16 & ett.sett & 25.426 & 0 & -0.5\\
-\hline
-17 & ett.sett & 32.703 & 0 & -0.5\\
-\hline
-18 & ett.sett & 19.102 & 0 & -0.5\\
-\hline
-19 & ett.sett & 22.238 & 0 & -0.5\\
-\hline
-20 & ett.sett & 22.271 & 0 & -0.5\\
-\hline
-21 & ett.sett & 26.179 & 0 & -0.5\\
-\hline
-22 & ett.sett & 20.349 & 0 & -0.5\\
-\hline
-23 & ett.sett & 23.528 & 0 & -0.5\\
-\hline
-24 & ett.sett & 17.960 & 0 & -0.5\\
-\hline
-\end{tabular}
-\end{table}
-
-Spørsmålet dere sikkert lurer på er hvorfor vi dummykoder og kontrastkoder gruppe-variabelen vår. Det korte svaret er at vo gjør det fordi vi skal se at disse to måtene å kode på produserer forskjellige svar.
-
-\hypertarget{hvilken-modell-skal-vi-velge}{%
-\chapter{Hvilken modell skal vi velge?}\label{hvilken-modell-skal-vi-velge}}
-
-Her tenker jeg å si litt om at vi har ulike muligheter.
-
-\hypertarget{appendix-appendices}{%
-\appendix}
-
+\begin{verbatim}
+## # A tibble: 24 x 6
+##       ss sum.ss mod.m  error sum.error   pre
+##    <dbl>  <dbl> <dbl>  <dbl>     <dbl> <dbl>
+##  1  8.30  3244.  42.4   3.81      716. 0.779
+##  2 16.9   3244.  42.4  44.3       716. 0.779
+##  3 15.8   3244.  42.4  30.5       716. 0.779
+##  4 12.4   3244.  42.4   4.38      716. 0.779
+##  5 20.1   3244.  42.4  97.4       716. 0.779
+##  6  7.86  3244.  42.4   5.77      716. 0.779
+##  7 17.3   3244.  42.4  49.9       716. 0.779
+##  8 -2.95  3244.  42.4 174.        716. 0.779
+##  9  8.43  3244.  42.4   3.34      716. 0.779
+## 10  5.42  3244.  42.4  23.4       716. 0.779
+## # ... with 14 more rows
+\end{verbatim}
 
   \bibliography{book.bib,packages.bib}
 

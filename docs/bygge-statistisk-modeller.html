@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Bygge statistisk modeller | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</title>
+  <title>Chapter 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Bygge statistisk modeller | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta property="og:title" content="Chapter 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Bygge statistisk modeller | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta name="twitter:title" content="Chapter 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="koding-av-kategoriske-variabler.html"/>
-<link rel="next" href="finne-verdiene.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -144,9 +144,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
-<li class="chapter" data-level="2.0.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.0.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
-<li class="chapter" data-level="2.0.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.0.2</b> Regne gjennomsnitt for de to gruppene</a></li>
-<li class="chapter" data-level="2.0.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.0.3</b> Figur av datasettet</a></li>
+<li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
+<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Regne gjennomsnitt for de to gruppene</a></li>
+<li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
 <ul>
@@ -164,15 +164,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
 <li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
+<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="finne-verdiene.html"><a href="finne-verdiene.html"><i class="fa fa-check"></i><b>5</b> Finne verdiene</a></li>
-<li class="chapter" data-level="6" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html"><i class="fa fa-check"></i><b>6</b> Koding av kategoriske variabler</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#dummykoding-1"><i class="fa fa-check"></i><b>6.1</b> Dummykoding</a></li>
-<li class="chapter" data-level="6.2" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#kontrastkoding-1"><i class="fa fa-check"></i><b>6.2</b> Kontrastkoding</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="hvilken-modell-skal-vi-velge.html"><a href="hvilken-modell-skal-vi-velge.html"><i class="fa fa-check"></i><b>7</b> Hvilken modell skal vi velge?</a></li>
-<li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -189,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</a>
           </h1>
         </div>
 
@@ -742,7 +735,7 @@ Figure 4.4: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 <div id="h1-alternativ-modell-alternativ-hypotese" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> H1: Alternativ modell (alternativ hypotese)</h2>
-<p>I forrige avsnitt sa vi at <strong>null-hypotesen (H0)</strong> reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi regnet oss frem til at denne modellen ga oss en Som of Squared error på 3243.784.</p>
+<p>I forrige avsnitt sa vi at <strong>null-hypotesen (H0)</strong> reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.</p>
 <p><span class="math display">\[
 Y_i = (b_0) + error_i
 \]</span>
@@ -753,7 +746,7 @@ Fremgang.1RM_i = (mean) + error_i
 <span class="math display">\[
 Y_i = (b_0 + b_1X_i) + error
 \]</span>
-Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med 0 og 1.</p>
+Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med tallene 0 og 1.</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = b_0 + b_1(Gruppe) + error_i
 \]</span>
@@ -779,7 +772,22 @@ Fremgang.1RM_i = 21.90 + b1(20.52*1) + error_i
 <span class="math display">\[
 Fremgang.1RM_i = 42.48 + error_i
 \]</span>
-<strong>Oppgaver</strong>
+Visualisert fremstilt blir modellen vår seendes slik ut:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="bygge-statistisk-modeller.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(dummykodet, rm, <span class="at">color=</span>dummykodet)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="bygge-statistisk-modeller.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb5-3"><a href="bygge-statistisk-modeller.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="bygge-statistisk-modeller.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="bygge-statistisk-modeller.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb5-6"><a href="bygge-statistisk-modeller.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="at">fun =</span> mean, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>, <span class="at">size=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="bygge-statistisk-modeller.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;% fremgang 1RM underkropp&quot;</span>, <span class="at">x=</span><span class="st">&quot;Dummykodet variabel&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="bygge-statistisk-modeller.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="04-h0_files/figure-html/unnamed-chunk-9-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 4.5: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p><strong>Oppgaver</strong>
 Tabellen under viser 6 individer som tilhørte treningsgruppe. Du ser deres faktiske fremgang i 1RM kolonnen. La oss bruke det vi har lært til å predikere disse personene sin fremgang. Vi bruker samme modell som over</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
@@ -803,7 +811,7 @@ a) Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 </ol>
 <p>bo er <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (norskt ord) for gruppen som er kodet med 0. b1 er <input class='solveme nospaces' size='11' data-answer='["forskjellen"]'/> (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1. b0 + b1<input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (norsk ord) for gruppen som er kodet med 1.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-10">Table 4.1: </span>Dummy koding</caption>
+<caption><span id="tab:unnamed-chunk-11">Table 4.1: </span>Dummy koding</caption>
 <thead>
 <tr class="header">
 <th align="right">individ</th>
@@ -851,39 +859,68 @@ a) Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="bygge-statistisk-modeller.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb5-2"><a href="bygge-statistisk-modeller.html#cb5-2" aria-hidden="true" tabindex="-1"></a>test1 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="bygge-statistisk-modeller.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(gruppe, rm, <span class="at">color=</span>gruppe)) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="bygge-statistisk-modeller.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb5-5"><a href="bygge-statistisk-modeller.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="at">fun =</span> mean, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
-<span id="cb5-6"><a href="bygge-statistisk-modeller.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb5-7"><a href="bygge-statistisk-modeller.html#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="bygge-statistisk-modeller.html#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="bygge-statistisk-modeller.html#cb5-9" aria-hidden="true" tabindex="-1"></a>avg.rm <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>rm)</span>
-<span id="cb5-10"><a href="bygge-statistisk-modeller.html#cb5-10" aria-hidden="true" tabindex="-1"></a>test2 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> </span>
-<span id="cb5-11"><a href="bygge-statistisk-modeller.html#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(gruppe, rm, <span class="at">color=</span>gruppe)) <span class="sc">+</span> </span>
-<span id="cb5-12"><a href="bygge-statistisk-modeller.html#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb5-13"><a href="bygge-statistisk-modeller.html#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span>avg.rm, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
-<span id="cb5-14"><a href="bygge-statistisk-modeller.html#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb5-15"><a href="bygge-statistisk-modeller.html#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="bygge-statistisk-modeller.html#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
-<span id="cb5-17"><a href="bygge-statistisk-modeller.html#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="bygge-statistisk-modeller.html#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(test1, test2, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
-<img src="04-h0_files/figure-html/unnamed-chunk-11-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">
-Figure 4.5: <strong>CAPTION THIS FIGURE!!</strong>
-</p>
-</div>
+<p>I forrige oppgave regnet du ut error for ett enkelt individ. Men vi er interessert i den totale erroren for modellen. Formelen for denne er:</p>
+<p>total error in den alternative modellen:</p>
+<p>SS_R = <span class="math inline">\(\sum_{n=1}^N (observert_i - modell_i)^2\)</span></p>
+<p>Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler</p>
+<p><input class='solveme nospaces' size='7' data-answer='["2527.50"]'/></p>
 </div>
 <div id="variansanalyse-anova-tabell" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Variansanalyse (ANOVA-tabell)</h2>
-<p>Nå som vi har regnet ut hvor mye error som var i modellen ved å bruke mean, skal vi lære å analysere denne erroren. Tabellen vi skal lage heter en ANOVA-tabell.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="bygge-statistisk-modeller.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<p>Her fikk jeg en intercept på 21.90 og en slope på 20.52. La oss prøve å få disse to til.</p>
+<p>Nå som vi har regnet ut hvor mye error det er i hver av disse modellene - null-modellen og den alternative modellen - er det klart for å gjøre en sammenligning av disse modellene. Modellene vi sammenligner er om alternative-modellen reduserer error mer enn null-modellen. Fra figurene under kan det slik ut; linjen til høyre ser ut til å ligge nærmere observasjonene enn linjen i figuren til venstre.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="04-h0_files/figure-html/unnamed-chunk-12-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 4.6: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p><strong>The total sum of squares (SS<sub>T</sub>)</strong> = <strong>3243.784</strong>
+(SS<sub>T</sub>) er hvor mye error vi får ved å bruke null-modellen.</p>
+<p><strong>The residual sum of squares (SS<sub>R</sub>)</strong> = <strong>716.3</strong>
+(dette er hvor mye error som er igjen etter at vi brukte modellen vår)</p>
+<p>En naturlig ting å gjøre er å regne hvor mye error den alternative modellen vår har redusert error med. Man kaller denne for <strong>The model sum of squares (SS<sub>M</sub>)</strong>:</p>
+<p><strong>The model sum of squares (SS<sub>M</sub>)</strong> = <strong>(SS<sub>T</sub>)</strong> - <strong>(SS<sub>R</sub>)</strong> = <input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></p>
+<p>Hvis vi regner hvor mye error modellen vår har redusert error med, så kan vi se at modellen vår har redusert error med 78 %. Dette er ekstremt mye, og det er sjeldent man finner en så høy prosent. Denne verdien har mange forskjellige navn i statistikken, *proportional reduction in error (PRE)“, R2 og n2.” Og den er viktig. Jeg velger å bruke R2.</p>
 <p><span class="math display">\[
-Y = b0 + b1 + error
+R2 = (SS_T - SS_R) / SS_T
+\]</span>
+<span class="math display">\[
+R2 = (3243.784 - 716.3) / 3243.784 
 \]</span></p>
+<p><span class="math display">\[
+R2 = 0.7791826
+\]</span>
+Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOVA-tabell de. Her ser du de samme verdiene som vi har regnet manuelt.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="bygge-statistisk-modeller.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
+<span id="cb6-2"><a href="bygge-statistisk-modeller.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
+<span id="cb6-3"><a href="bygge-statistisk-modeller.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat)</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = rm ~ dummykodet, data = dat)
+## 
+## Terms:
+##                 dummykodet Residuals
+## Sum of Squares   2527.4962  716.2875
+## Deg. of Freedom          1        22
+## 
+## Residual standard error: 5.706008
+## Estimated effects may be unbalanced</code></pre>
+</div>
+<div id="f-test" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> F-test</h2>
+<pre><code>## # A tibble: 24 x 6
+##       ss sum.ss mod.m  error sum.error   pre
+##    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1  8.30  3244.  42.4   3.81      716. 0.779
+##  2 16.9   3244.  42.4  44.3       716. 0.779
+##  3 15.8   3244.  42.4  30.5       716. 0.779
+##  4 12.4   3244.  42.4   4.38      716. 0.779
+##  5 20.1   3244.  42.4  97.4       716. 0.779
+##  6  7.86  3244.  42.4   5.77      716. 0.779
+##  7 17.3   3244.  42.4  49.9       716. 0.779
+##  8 -2.95  3244.  42.4 174.        716. 0.779
+##  9  8.43  3244.  42.4   3.34      716. 0.779
+## 10  5.42  3244.  42.4  23.4       716. 0.779
+## # … with 14 more rows</code></pre>
 
 </div>
 </div>
@@ -997,8 +1034,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="koding-av-kategoriske-variabler.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="finne-verdiene.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="koding-av-kategoriske-variabler.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

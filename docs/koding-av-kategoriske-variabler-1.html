@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Koding av kategoriske variabler | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</title>
+  <title>Chapter 5 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Koding av kategoriske variabler | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta property="og:title" content="Chapter 5 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Koding av kategoriske variabler | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta name="twitter:title" content="Chapter 5 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="finne-verdiene.html"/>
-<link rel="next" href="hvilken-modell-skal-vi-velge.html"/>
+<link rel="prev" href="bygge-statistisk-modeller.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -144,9 +144,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
-<li class="chapter" data-level="2.0.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.0.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
-<li class="chapter" data-level="2.0.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.0.2</b> Regne gjennomsnitt for de to gruppene</a></li>
-<li class="chapter" data-level="2.0.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.0.3</b> Figur av datasettet</a></li>
+<li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
+<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Regne gjennomsnitt for de to gruppene</a></li>
+<li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
 <ul>
@@ -164,15 +164,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
 <li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
+<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="finne-verdiene.html"><a href="finne-verdiene.html"><i class="fa fa-check"></i><b>5</b> Finne verdiene</a></li>
-<li class="chapter" data-level="6" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html"><i class="fa fa-check"></i><b>6</b> Koding av kategoriske variabler</a>
+<li class="chapter" data-level="5" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html"><i class="fa fa-check"></i><b>5</b> Koding av kategoriske variabler</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#dummykoding-1"><i class="fa fa-check"></i><b>6.1</b> Dummykoding</a></li>
-<li class="chapter" data-level="6.2" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#kontrastkoding-1"><i class="fa fa-check"></i><b>6.2</b> Kontrastkoding</a></li>
+<li class="chapter" data-level="5.1" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#dummykoding-1"><i class="fa fa-check"></i><b>5.1</b> Dummykoding</a></li>
+<li class="chapter" data-level="5.2" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#kontrastkoding-1"><i class="fa fa-check"></i><b>5.2</b> Kontrastkoding</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="hvilken-modell-skal-vi-velge.html"><a href="hvilken-modell-skal-vi-velge.html"><i class="fa fa-check"></i><b>7</b> Hvilken modell skal vi velge?</a></li>
-<li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -189,7 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</a>
           </h1>
         </div>
 
@@ -197,17 +195,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="koding-av-kategoriske-variabler-1" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Koding av kategoriske variabler</h1>
+<div id="koding-av-kategoriske-variabler-1" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Koding av kategoriske variabler</h1>
 <p>I tabellen på s. kan du se at vi har en tabell med tre kolonner: en kolonne for hver variabel vi har i vårt datasett. Variabelen <strong>gruppe</strong> er en kategorisk vaiabel som har to ulike verdier: “ett.sett” og “tre.sett.” Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles disse denne typen data for et tekstobjekt, “strings” (python/javascript) eller “characters” (R). På norsk kalles disse verdiene for ord. Uansett navn er problemet at vi ikke kan putte ord inn i en statistisk modell; vi er nødt til å representere denne kategoriske vaiabelen med tallverdier. Det er flere måter å gjøre dette på, men de forskjellige måtene gir ulik resultat. Derfor må vi vie en god del tid på dette. Vi går gjennom to måter å gjøre dette på.</p>
-<div id="dummykoding-1" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Dummykoding</h2>
+<div id="dummykoding-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Dummykoding</h2>
 <p>En vanlig metode kalles <strong>dummykoding</strong> eller <strong>treatment-koding</strong>. Den går ut på å lage en eller flere variabler med 0 og 1 som de to mulige verdiene. Antall variabler vi trenger avhenger av antall grupper vi vil sammenligne. Siden vårt datasett kun inneholder to grupper, så trenger vi kun en variabel. Vi kan den ene gruppen og den andre 1. Hovedregelen er at vi gir 0 til baselinegruppe og 1 til den eksperimentelle gruppen. Vi gir derfor 0 til 1.sett-gruppen og 1 til 3.sett-gruppen. Gjør dette før du går videre.</p>
 <p>I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruke følgende kode:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="koding-av-kategoriske-variabler-1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
-<span id="cb10-2"><a href="koding-av-kategoriske-variabler-1.html#cb10-2" aria-hidden="true" tabindex="-1"></a>dummykodet.dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="koding-av-kategoriske-variabler-1.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter dummykoder. If gruppe == &#39;ett.sett&#39;, gi verdien 0, else gi de 1.</span></span>
-<span id="cb10-4"><a href="koding-av-kategoriske-variabler-1.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummykodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="koding-av-kategoriske-variabler-1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
+<span id="cb9-2"><a href="koding-av-kategoriske-variabler-1.html#cb9-2" aria-hidden="true" tabindex="-1"></a>dummykodet.dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="koding-av-kategoriske-variabler-1.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter dummykoder. If gruppe == &#39;ett.sett&#39;, gi verdien 0, else gi de 1.</span></span>
+<span id="cb9-4"><a href="koding-av-kategoriske-variabler-1.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummykodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
 <p>I jamovi ville jeg sett følgende video: <a href="https://www.youtube.com/watch?v=iITxK27LfZk" class="uri">https://www.youtube.com/watch?v=iITxK27LfZk</a></p>
 <table>
 <caption><span id="tab:unnamed-chunk-4">Table 3.1: </span>Dummy koding</caption>
@@ -367,14 +365,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="kontrastkoding-1" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Kontrastkoding</h2>
+<div id="kontrastkoding-1" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Kontrastkoding</h2>
 <p>Kontrastkoding er et alternativ til dummykoding. Det er en regel som er viktig å følge for å ha en gyldig kontrastkode, og det er at summen av kontrastkodene blir 0. For eksempel er -0.5 og 0.5 gyldige kontrastkoder fordi summen av disse blir 0. Det samme er -10 og +10. 0 og 1 derimot, slik vi har med en dummykodet variabel, er ikke er en gyldig kontrastkode fordi summen av disse blir 1. <strong>Hvilke verdier vi velger å bruke på vår kontrastkodede variabel betyr ingenting for den statistiske test vi gjennomfører, men gjør at vi må fortolke resultatene litt forskjellig</strong>. Med en kontrastkode på +10 og -10 er det en 20 enhets forskjell, mens det ved +0.5 og -0.5 kun er <input class='solveme nospaces' size='1' data-answer='["1"]'/> enhet forskjell.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="koding-av-kategoriske-variabler-1.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
-<span id="cb11-2"><a href="koding-av-kategoriske-variabler-1.html#cb11-2" aria-hidden="true" tabindex="-1"></a>kontrastkodet.dat <span class="ot">&lt;-</span> dummykodet.dat <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="koding-av-kategoriske-variabler-1.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter kontrastkodet. If gruppe == &#39;ett.sett&#39;, gi verdien -0.5, else gi de +0.5</span></span>
-<span id="cb11-4"><a href="koding-av-kategoriske-variabler-1.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kontrastkodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">+</span><span class="fl">0.5</span>)</span>
-<span id="cb11-5"><a href="koding-av-kategoriske-variabler-1.html#cb11-5" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="koding-av-kategoriske-variabler-1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
+<span id="cb10-2"><a href="koding-av-kategoriske-variabler-1.html#cb10-2" aria-hidden="true" tabindex="-1"></a>kontrastkodet.dat <span class="ot">&lt;-</span> dummykodet.dat <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="koding-av-kategoriske-variabler-1.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter kontrastkodet. If gruppe == &#39;ett.sett&#39;, gi verdien -0.5, else gi de +0.5</span></span>
+<span id="cb10-4"><a href="koding-av-kategoriske-variabler-1.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kontrastkodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">+</span><span class="fl">0.5</span>)</span>
+<span id="cb10-5"><a href="koding-av-kategoriske-variabler-1.html#cb10-5" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-6">Table 2.2: </span>Kontrastkoding</caption>
 <thead>
@@ -671,8 +669,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="finne-verdiene.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hvilken-modell-skal-vi-velge.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bygge-statistisk-modeller.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

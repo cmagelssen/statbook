@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Koding av kategoriske variabler | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</title>
+  <title>Chapter 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Koding av kategoriske variabler | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta property="og:title" content="Chapter 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Koding av kategoriske variabler | Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)" />
+  <meta name="twitter:title" content="Chapter 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -144,9 +144,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
-<li class="chapter" data-level="2.0.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.0.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
-<li class="chapter" data-level="2.0.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.0.2</b> Regne gjennomsnitt for de to gruppene</a></li>
-<li class="chapter" data-level="2.0.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.0.3</b> Figur av datasettet</a></li>
+<li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
+<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Regne gjennomsnitt for de to gruppene</a></li>
+<li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
 <ul>
@@ -164,15 +164,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
 <li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
+<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="finne-verdiene.html"><a href="finne-verdiene.html"><i class="fa fa-check"></i><b>5</b> Finne verdiene</a></li>
-<li class="chapter" data-level="6" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html"><i class="fa fa-check"></i><b>6</b> Koding av kategoriske variabler</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#dummykoding-1"><i class="fa fa-check"></i><b>6.1</b> Dummykoding</a></li>
-<li class="chapter" data-level="6.2" data-path="koding-av-kategoriske-variabler-1.html"><a href="koding-av-kategoriske-variabler-1.html#kontrastkoding-1"><i class="fa fa-check"></i><b>6.2</b> Kontrastkoding</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="hvilken-modell-skal-vi-velge.html"><a href="hvilken-modell-skal-vi-velge.html"><i class="fa fa-check"></i><b>7</b> Hvilken modell skal vi velge?</a></li>
-<li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -189,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske prediktorvariabler (t-tester, ANOVA)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</a>
           </h1>
         </div>
 
