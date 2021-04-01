@@ -90,6 +90,7 @@ ggplot(dat, aes(gruppe, rm, fill=gruppe)) +
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les [@weissgerber_beyond_2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
 **Oppgave**
+
 a) "Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
 
 b) Høyden på stolpen representerer `r fitb("gjennomsnittet")` (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
