@@ -346,142 +346,7 @@ I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruk
 \end{Highlighting}
 \end{Shaded}
 
-I jamovi ville jeg sett følgende video: \url{https://www.youtube.com/watch?v=iITxK27LfZk}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-4}Dummy koding}
-\centering
-\begin{tabular}[t]{r|l|r|r}
-\hline
-individ & gruppe & rm & dummykodet\\
-\hline
-1 & tre.sett & 40.467 & 1\\
-\hline
-2 & tre.sett & 49.072 & 1\\
-\hline
-3 & tre.sett & 47.941 & 1\\
-\hline
-4 & tre.sett & 44.514 & 1\\
-\hline
-5 & tre.sett & 52.288 & 1\\
-\hline
-6 & tre.sett & 40.018 & 1\\
-\hline
-7 & tre.sett & 49.484 & 1\\
-\hline
-8 & tre.sett & 29.210 & 1\\
-\hline
-9 & tre.sett & 40.593 & 1\\
-\hline
-10 & tre.sett & 37.587 & 1\\
-\hline
-11 & tre.sett & 35.427 & 1\\
-\hline
-12 & tre.sett & 42.494 & 1\\
-\hline
-13 & ett.sett & 17.706 & 0\\
-\hline
-14 & ett.sett & 17.072 & 0\\
-\hline
-15 & ett.sett & 18.268 & 0\\
-\hline
-16 & ett.sett & 25.426 & 0\\
-\hline
-17 & ett.sett & 32.703 & 0\\
-\hline
-18 & ett.sett & 19.102 & 0\\
-\hline
-19 & ett.sett & 22.238 & 0\\
-\hline
-20 & ett.sett & 22.271 & 0\\
-\hline
-21 & ett.sett & 26.179 & 0\\
-\hline
-22 & ett.sett & 20.349 & 0\\
-\hline
-23 & ett.sett & 23.528 & 0\\
-\hline
-24 & ett.sett & 17.960 & 0\\
-\hline
-\end{tabular}
-\end{table}
-
-\hypertarget{kontrastkoding}{%
-\section{Kontrastkoding}\label{kontrastkoding}}
-
-Kontrastkoding er et alternativ til dummykoding. Det er en regel som er viktig å følge for å ha en gyldig kontrastkode, og det er at summen av kontrastkodene blir 0. For eksempel er -0.5 og 0.5 gyldige kontrastkoder fordi summen av disse blir 0. Det samme er -10 og +10. 0 og 1 derimot, slik vi har med en dummykodet variabel, er ikke er en gyldig kontrastkode fordi summen av disse blir 1. \textbf{Hvilke verdier vi velger å bruke på vår kontrastkodede variabel betyr ingenting for den statistiske test vi gjennomfører, men gjør at vi må fortolke resultatene litt forskjellig}. Med en kontrastkode på +10 og -10 er det en 20 enhets forskjell, mens det ved +0.5 og -0.5 kun er enhet forskjell.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#lager et nytt objekt som heter dummykodet.dat}
-\NormalTok{kontrastkodet.dat }\OtherTok{\textless{}{-}}\NormalTok{ dummykodet.dat }\SpecialCharTok{\%\textgreater{}\%}
-  \CommentTok{\# her lager jeg en ny kolonne som heter kontrastkodet. If gruppe == \textquotesingle{}ett.sett\textquotesingle{}, gi verdien {-}0.5, else gi de +0.5}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{kontrastkodet =} \FunctionTok{if\_else}\NormalTok{(gruppe }\SpecialCharTok{==} \StringTok{"ett.sett"}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{, }\SpecialCharTok{+}\FloatTok{0.5}\NormalTok{)}
-\NormalTok{         )}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-6}Kontrastkoding}
-\centering
-\begin{tabular}[t]{r|l|r|r|r}
-\hline
-individ & gruppe & rm & dummykodet & kontrastkodet\\
-\hline
-1 & tre.sett & 40.467 & 1 & 0.5\\
-\hline
-2 & tre.sett & 49.072 & 1 & 0.5\\
-\hline
-3 & tre.sett & 47.941 & 1 & 0.5\\
-\hline
-4 & tre.sett & 44.514 & 1 & 0.5\\
-\hline
-5 & tre.sett & 52.288 & 1 & 0.5\\
-\hline
-6 & tre.sett & 40.018 & 1 & 0.5\\
-\hline
-7 & tre.sett & 49.484 & 1 & 0.5\\
-\hline
-8 & tre.sett & 29.210 & 1 & 0.5\\
-\hline
-9 & tre.sett & 40.593 & 1 & 0.5\\
-\hline
-10 & tre.sett & 37.587 & 1 & 0.5\\
-\hline
-11 & tre.sett & 35.427 & 1 & 0.5\\
-\hline
-12 & tre.sett & 42.494 & 1 & 0.5\\
-\hline
-13 & ett.sett & 17.706 & 0 & -0.5\\
-\hline
-14 & ett.sett & 17.072 & 0 & -0.5\\
-\hline
-15 & ett.sett & 18.268 & 0 & -0.5\\
-\hline
-16 & ett.sett & 25.426 & 0 & -0.5\\
-\hline
-17 & ett.sett & 32.703 & 0 & -0.5\\
-\hline
-18 & ett.sett & 19.102 & 0 & -0.5\\
-\hline
-19 & ett.sett & 22.238 & 0 & -0.5\\
-\hline
-20 & ett.sett & 22.271 & 0 & -0.5\\
-\hline
-21 & ett.sett & 26.179 & 0 & -0.5\\
-\hline
-22 & ett.sett & 20.349 & 0 & -0.5\\
-\hline
-23 & ett.sett & 23.528 & 0 & -0.5\\
-\hline
-24 & ett.sett & 17.960 & 0 & -0.5\\
-\hline
-\end{tabular}
-\end{table}
-
-Spørsmålet dere sikkert lurer på er hvorfor vi dummykoder og kontrastkoder gruppe-variabelen vår. Det korte svaret er at vo gjør det fordi vi skal se at disse to måtene å kode på produserer forskjellige svar.
+I jamovi ville jeg sett følgende video:
 
 \hypertarget{bygge-statistisk-modeller}{%
 \chapter{Bygge statistisk modeller}\label{bygge-statistisk-modeller}}
@@ -1239,7 +1104,11 @@ proportional reduction in error (PRE), R\^{}2 og n\^{}2. Men de referer alle til
 \end{quote}
 \end{quote}
 
-Det kan høres ut som at en errorrduksjon på 78 \% er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra \(Y_i = b_0\) til \(Y_i = b_0 + b_1X_i\). Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra \(Y_i = b_0\) til \(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\). Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi \textbf{Mean Squared Error (MSE)}. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.
+\begin{quote}
+\begin{quote}
+Det kan høres ut som at en errorreduksjon på 78 \% er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra \(Y_i = b_0\) til \(Y_i = b_0 + b_1X_i\). Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra \(Y_i = b_0\) til \(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\). Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi \textbf{Mean Squared Error (MSE)}. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.
+\end{quote}
+\end{quote}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}

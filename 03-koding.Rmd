@@ -27,24 +27,9 @@ dummykodet.dat <- dat %>%
   # her lager jeg en ny kolonne som heter dummykoder. If gruppe == 'ett.sett', gi verdien 0, else gi de 1.
   mutate(dummykodet = if_else(gruppe == "ett.sett", 0, 1))
 ```
-I jamovi ville jeg sett følgende video: https://www.youtube.com/watch?v=iITxK27LfZk
-```{r echo=FALSE}
-knitr::kable(dummykodet.dat, digits = 3, caption = "Dummy koding")
-```
-## Kontrastkoding
-Kontrastkoding er et alternativ til dummykoding. Det er en regel som er viktig å følge for å ha en gyldig kontrastkode, og det er at summen av kontrastkodene blir 0. For eksempel er -0.5 og 0.5 gyldige kontrastkoder fordi summen av disse blir 0. Det samme er -10 og +10. 0 og 1 derimot, slik vi har med en dummykodet variabel, er ikke er en gyldig kontrastkode fordi summen av disse blir 1. **Hvilke verdier vi velger å bruke på vår kontrastkodede variabel betyr ingenting for den statistiske test vi gjennomfører, men gjør at vi må fortolke resultatene litt forskjellig**. Med en kontrastkode på +10 og -10 er det en 20 enhets forskjell, mens det ved +0.5 og -0.5 kun er `r fitb(1)` enhet forskjell. 
 
 
-```{r}
-#lager et nytt objekt som heter dummykodet.dat
-kontrastkodet.dat <- dummykodet.dat %>%
-  # her lager jeg en ny kolonne som heter kontrastkodet. If gruppe == 'ett.sett', gi verdien -0.5, else gi de +0.5
-  mutate(kontrastkodet = if_else(gruppe == "ett.sett", -0.5, +0.5)
-         )
-```
+I jamovi ville jeg sett følgende video: 
 
-```{r echo=FALSE}
-knitr::kable(kontrastkodet.dat, digits = 3, caption = "Kontrastkoding")
-```
-Spørsmålet dere sikkert lurer på er hvorfor vi dummykoder og kontrastkoder gruppe-variabelen vår. Det korte svaret er at vo gjør det fordi vi skal se at disse to måtene å kode på produserer forskjellige svar.
+<iframe width="797" height="457" src="https://www.youtube.com/embed/iITxK27LfZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

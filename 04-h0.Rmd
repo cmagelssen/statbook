@@ -508,7 +508,7 @@ e. Hva er (**SS<sub>M</sub>** / **(SS<sub>T</sub>)**) * 100?
 >>proportional reduction in error (PRE), R^2 og n^2. Men de referer alle til det samme og kommer med 'output' fra testen dere kjører. 
 
 
-Det kan høres ut som at en errorrduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra $Y_i = b_0$ til $Y_i = b_0 + b_1X_i$. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra $Y_i = b_0$ til $Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i$. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi **Mean Squared Error (MSE)**. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.  
+>>Det kan høres ut som at en errorreduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra $Y_i = b_0$ til $Y_i = b_0 + b_1X_i$. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra $Y_i = b_0$ til $Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i$. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi **Mean Squared Error (MSE)**. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.  
 
 f. Regn ut **Mean Squared Error (MSE)** og putt den inn i ANOVA-tabellen. 
 

@@ -146,7 +146,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html#dummykoding"><i class="fa fa-check"></i><b>3.1</b> Dummykoding</a></li>
-<li class="chapter" data-level="3.2" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html#kontrastkoding"><i class="fa fa-check"></i><b>3.2</b> Kontrastkoding</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
@@ -838,14 +837,14 @@ Fremgang.1RM_i = 21.90 + b1(20.52*1) + error_i
 Fremgang.1RM_i = 42.48 + error_i
 \]</span>
 Visualisert fremstilt blir modellen vår seendes slik ut:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="bygge-statistisk-modeller.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(dummykodet, rm, <span class="at">color=</span>dummykodet)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="bygge-statistisk-modeller.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb5-3"><a href="bygge-statistisk-modeller.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="bygge-statistisk-modeller.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="bygge-statistisk-modeller.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb5-6"><a href="bygge-statistisk-modeller.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="at">fun =</span> mean, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>, <span class="at">size=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb5-7"><a href="bygge-statistisk-modeller.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;% fremgang 1RM underkropp&quot;</span>, <span class="at">x=</span><span class="st">&quot;Dummykodet variabel&quot;</span>) <span class="sc">+</span></span>
-<span id="cb5-8"><a href="bygge-statistisk-modeller.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="bygge-statistisk-modeller.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(dummykodet, rm, <span class="at">color=</span>dummykodet)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="bygge-statistisk-modeller.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb4-3"><a href="bygge-statistisk-modeller.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="bygge-statistisk-modeller.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="bygge-statistisk-modeller.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb4-6"><a href="bygge-statistisk-modeller.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="at">fun =</span> mean, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>, <span class="at">size=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="bygge-statistisk-modeller.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;% fremgang 1RM underkropp&quot;</span>, <span class="at">x=</span><span class="st">&quot;Dummykodet variabel&quot;</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="bygge-statistisk-modeller.html#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-9-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1022,7 +1021,11 @@ Figur 4.6: <strong>CAPTION THIS FIGURE!!</strong>
 <p>proportional reduction in error (PRE), R^2 og n^2. Men de referer alle til det samme og kommer med ‘output’ fra testen dere kjører.</p>
 </blockquote>
 </blockquote>
-<p>Det kan høres ut som at en errorrduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i\)</span>. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\)</span>. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi <strong>Mean Squared Error (MSE)</strong>. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.</p>
+<blockquote>
+<blockquote>
+<p>Det kan høres ut som at en errorreduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i\)</span>. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\)</span>. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi <strong>Mean Squared Error (MSE)</strong>. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.</p>
+</blockquote>
+</blockquote>
 <ol start="6" style="list-style-type: lower-alpha">
 <li>Regn ut <strong>Mean Squared Error (MSE)</strong> og putt den inn i ANOVA-tabellen.</li>
 </ol>
@@ -1034,9 +1037,9 @@ Figur 4.6: <strong>CAPTION THIS FIGURE!!</strong>
 <ol start="8" style="list-style-type: lower-alpha">
 <li>I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv <em>p</em>-verdien din inn i?</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="bygge-statistisk-modeller.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
-<span id="cb6-2"><a href="bygge-statistisk-modeller.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
-<span id="cb6-3"><a href="bygge-statistisk-modeller.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="bygge-statistisk-modeller.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
+<span id="cb5-2"><a href="bygge-statistisk-modeller.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
+<span id="cb5-3"><a href="bygge-statistisk-modeller.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat))</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## dummykodet   1 2527.5  2527.5   77.63 1.15e-08 ***
 ## Residuals   22  716.3    32.6                     
