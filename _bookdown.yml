@@ -6,9 +6,9 @@ delete_merged_file: true
 clean: []
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: "Kapittel "
   label:
-    fig: 'Figure '
+    fig: 'Figur '
     tab: 'Table '
     eq: 'Equation '
     thm: 'Theorem '

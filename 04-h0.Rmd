@@ -50,6 +50,12 @@ $$
 data = (modell) + error
 $$
 $$
+data = (b_0) + error
+$$
+
+
+
+$$
 Y_i = (b_0 + b_1X_i) + error
 $$
 Her er $ **Y_i** $ den avhengige variabelen som vi faktisk har målt for et individ, *i*. **X_i** er dette individets faktiske måling på variabel X, som vi ofte kaller for prediktorvariabel. Som det fremgår av den siste ligningen har også $ b1 $ hektet på seg. Denne forteller oss forholdet mellom prediktorvariabelen (Xi) og den avhengig variabelen (). Vi skriver den liten liten *b* fordi dette er noe vi estimerer fra et utvalg. **b0** er vår prediksjon når Xi er **null** og **0**. 

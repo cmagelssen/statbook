@@ -1,12 +1,14 @@
 # Datasett {#datasett}
 
 ## Bør man trene med ett eller flere sett i styrketrening?
-Et spørsmål mange treningsentusiaster lurer på er hvor mange serier som er best å gjennnomføre for å få maksimal treningseffekt i styrketrening. Noen mener at ett sett er tilstrekkelig, mens andre mener at et hardere treningstimuli er nødvendig og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke dette er deres egen Bent Rønnestad.
+Mange treningsentusiaster lurer på hvor mange serier som er best å gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen mener at ett sett er tilstrekkelig, mens andre mener at et hardere treningstimuli er nødvendig og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad.
 
-Eksperimentet ble gjennomført som et **between-subject design** med to grupper: en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis **1L-3U** og **3L-1U** (L=lower; U=Upper). De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskerne ville så se hva som ga best fremgang på 1RM. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser. De fant at 3L-1U hadde større fremgang enn 1L-3U fra pre til post (41 vs 21 % endring). Denne forskjellen var signifikant ved en uavhengig t-test. Med andre ord kan det se ut til at det kan lønne seg å trene flere sett per styrketreningsøkt.
+Eksperimentet ble gjennomført som et **between-subject design** med to grupper: en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis **1L-3U** og **3L-1U** (L=lower; U=Upper). 
+
+De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1RM på underkroppsøvelser. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser.
 
 ![Slik designet Rønnestad et al. (2007) sin studie](design.png)
-Vi har ikke tilgang til dette datasettet, men jeg har simulert dette datasettet i R basert på verdiene jeg fant i artikkelen. Datasettet blir tilnærmet likt, men siden det er en simulering blir det aldri helt identisk. Datasettet ser du i tabellen under.
+Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i R basert på verdiene som ble oppgitt i artikkelen. Datasettet blir tilnærmet likt, men siden det er en simulering blir det aldri helt identisk. Datasettet ser du i tabellen under.
 
 ```{r echo=FALSE, include=FALSE}
 library(tidyverse)
@@ -42,14 +44,16 @@ dat <- tibble(individ = seq(1:24),
               gruppe = rep(c("tre.sett ", "ett.sett"), c(length(tre.sett), length(ett.sett))),
               rm = c(tre.sett , ett.sett))
 ```
+
+**Oppgave** 
 Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
 
-1. Hvor mange kolonner er det i tabellen over? `r fitb(3)`
-2. Hvor mange deltakere var med i studien? `r fitb(25)`
-3. Hvilke to verdier kan variabelen gruppe? `r fitb(ett.sett)` og `r fitb(tre.sett)`
+a) Hvor mange kolonner er det i tabellen over? `r fitb(3)`
+b) Hvor mange deltakere var med i studien? `r fitb(25)`
+c) Hvilke to verdier kan variabelen gruppe? `r fitb(ett.sett)` og `r fitb(tre.sett)`
 
 
-## Regne gjennomsnitt for de to gruppene
+## Gjennomsnitt for de to gruppene
 Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene ("tre.sett" vs. ett.sett) på % fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å gjøre dette i R:
 
 ```{r}
@@ -68,9 +72,8 @@ knitr::kable(
   caption = 'Gjennomsnittlige %-vis fremgang for de to gruppene'
 )
 ```
-
-
-Hvilken gruppe hadde mest fremgang?
+**Oppgave**
+a) Hvilken gruppe hadde mest fremgang?
 `r mcq(c("ett.sett", answer = "tre.sett"))``
 
 ## Figur av datasettet
@@ -86,4 +89,11 @@ ggplot(dat, aes(gruppe, rm, fill=gruppe)) +
 ```
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les [Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
-"Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. Høyden på stolpen representerer `r fitb("gjennomsnittet")` (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen. Man blir dermed `r mcq(c("ikke lurt", answer = "lurt"))` ved å bruke et stolpediagram". Et stolpediagram viser heller ikke `r mcq(c("standard error", "standardavvik", "CI", answer = "fordelingen av observasjonene"))`, og dette spesielt være problematisk ved `r mcq(c("store", answer = "små"))`. Derfor anbefaler forfatterne i artikkelen at man viser dataen mer ved å for eksempel bruke et `r mcq(c("bar graph", answer = "scatterplot"))`. Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta $SD/sqrt(N)$, så ved store utvalg vil standard error være `r mcq(c("høyt", answer = "lite"))`. Standardavviket er kun $sqrt(varians/n-1)$, så denne vil i`r mcq(c("større", answer = "mindre"))` grad være påvirket av utvalgsstørrelsen".
+**Oppgave**
+a) "Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
+b) Høyden på stolpen representerer `r fitb("gjennomsnittet")` (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+c) Et stolpediagram viser ikke `r mcq(c("standard error", "standardavvik", "CI", answer = "fordelingen av observasjonene"))`, og dette spesielt være problematisk ved `r mcq(c("store", answer = "små"))`. 
+d) Forfatterne av artikkelen anbefaler mer bruk av `r mcq(c("bar graph", answer = "scatterplot"))` for kontinuerlige variabler.
+e) Ofte er det brukt error sammen med stolpediagram. 
+
+Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta $SD/sqrt(N)$, så ved store utvalg vil standard error være `r mcq(c("høyt", answer = "lite"))`. Standardavviket er kun $sqrt(varians/n-1)$, så denne vil i`r mcq(c("større", answer = "mindre"))` grad være påvirket av utvalgsstørrelsen".
