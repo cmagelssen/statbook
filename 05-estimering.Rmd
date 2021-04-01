@@ -1,6 +1,5 @@
 # Hvordan finne linjen i modellen?
-Nå som vi har fått en forståelse for hvordan vi kan bygge statistiske modeller og teste disse er tid for å finne hvilken linje vi skal bruke. Frem til nå har dere fått $ b_0 $ og $ b_1 $ av meg. Sannheten er at linjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Men hvordan skal vi plassere linjen slik at den reduserer error så mye? En tilnærming kan være å gjette seg fram til hva $b_0$ og $b_1$ skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. Vi prøver dette:
-
+Nå som vi er kjent med hvordan vi kan bygge og teste statistiske modeller, er det på tide å vise hvordan vi finner regresjonslinjen som vi skal bruke. Mer presist, hvilke verdier skal vi ha for *b*<sub>0</sub> og *b*<sub>1</sub> som beskriver denne linjen? Hittil har dere fått disse verdiene av meg, men det vi skal lære nå er hvordan vi kan regne ut disse verdiene for hånd. En viktig sannhet om denne linjen er at regresjonslinjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Med andre ord, verdiene på *b*<sub>0</sub> og *b*<sub>1</sub> (som beskriver denne linjen) er slik at det er umulig å redusere error mer. Spørsmålet er hvordan vi finner verdiene på *b*<sub>0</sub> og *b*<sub>1</sub> som beskriver denne linjen. En tilnærming kan være å gjette seg fram til hva $b_0$ og $b_1$ skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. I figuren under har jeg prøvd tre ulike modeller, og regner ut hvor mye sum of squared error disse gir.
 
 ```{r echo=FALSE}
 library(tidyverse)
@@ -73,7 +72,27 @@ plot_grid(a,b, c, nrow = 1)
 
 
 ```
-Vi kan holde på slik frem og frem og tilbake til vi finner vi faktisk den linjen som reduserer error mest mulig. Det er bare å teste nok verdier. **Minste kvadraters metode** garanterer oss at vi finne linjen som reduserer error mest mulig. Vi ser at linjen til venstre ga oss en error på. Jeg har laget en video som viser hvordan jeg kan gjøre dette.
+**Oppgave**
+a) Hvilken av modellene over gir mest sum of squared error? (SS<sub>Model</sub>)
+
+`r mcq(c(answer = "b0=30 b1=7", "b0=25 b1=28", "b0=10 b1=30"))`
+
+Vi kan holde på slik med slik prøving-og-feiling til vi faktisk finner linjen som reduserer error mest. Det er bare å teste nok verdier. **Minste kvadraters metode** garanterer oss å alltid gi oss er svar. Jeg har laget en video til dere som viser vi kan prøve-og-feile til vi kommer frem til en løsning (se denne):
+
+<iframe width="798" height="457" src="https://www.youtube.com/embed/kWVtce7YDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Det er en mer effektiv måte å løse dette problemet på. For å finne **b<sub>1</sub>** kan vi bruke følgende formel: 
+
+$$ b_1 = \frac{SCP}{SS_x} $$
+Her var det et nytt begrep, **SCP**. SCP står for sum of cross-product deviations. Det brukes til å finne relasjonen mellom to variabler, og er grunnlaget for en rekke utregninger i statistikken, så det kan være lurt å lære seg. SCP finner ut av om en person som er over eller under gjennomsnittet på en variabel, også er over eller under gjennomsnittet på den andre variabelen. 
+
+$$ SCP = \frac{\sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} $$
+$\bar{x}$ er gjennomsnittet på x-variabelen (gruppe), mens $\bar{y}$ er gjennomsnittet for y-variabelen (1RM).
+
+
+
+
+
 
 Vi kan også en generell formell for å løse dette problemet på. Det første vi må gjøre er å regne noe som heter **sum of cross-product deviations (SCP)**. Formelen for dette er others are negative, so they’ll cancel out. Instead we
 square the deviances before adding them up. We want to do something similar here, but at the

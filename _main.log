@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  31 MAR 2021 23:17
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  1 APR 2021 10:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -822,19 +822,28 @@ Chapter 3.
 
 ]
 Chapter 4.
-[17]
+[17] [18]
 File: 04-h0_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-2-1.pdf>
-[18]
+[19]
 File: 04-h0_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-3-1.pdf>
-[19] [20]
+[20]
 File: 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf>
-[21] [22] [23] [24] [25]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (72.79453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.2.  MODELLBYGGING MED ‘NULL-HYPOTHESIS SIGNIFICANCE TESTING (
+NHST)’ \TU/lmr/m/n/10 21
+ []
+
+[21] [22] [23] [24] [25] [26]
 File: 04-h0_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-8-1.pdf>
-[26] [27]
+[27]
 File: 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf>
 [28] [29]
@@ -847,22 +856,22 @@ File: 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type
 <use 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf>
 [33
 
-]
-No file _main.bbl.
-[34] (./_main.aux)
+] [34] (./_main.bbl [35] [36
+
+]) [37] (./_main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 5D5E2C39DBA292FCEBC0D3967387D1E3;3109.
+(rerunfilecheck)             Checksum: 069A4D01B7D18A3424AA6B278053AA21;3219.
  ) 
 Here is how much of TeX's memory you used:
- 16383 strings out of 478922
- 292639 string characters out of 5865756
- 769866 words of memory out of 5000000
- 36011 multiletter control sequences out of 15000+600000
+ 16392 strings out of 478922
+ 292864 string characters out of 5865756
+ 769976 words of memory out of 5000000
+ 36018 multiletter control sequences out of 15000+600000
  407417 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,8n,122p,983b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,8n,122p,1031b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (34 pages).
+Output written on _main.pdf (37 pages).

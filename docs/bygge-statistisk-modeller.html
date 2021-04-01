@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <title>Kapittel 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 4 Bygge statistisk modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-03-31" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,13 +51,8 @@
 
 
 
-<meta property="og:title" content="psyTeachR Book Template">
-<meta property="og:description" content="Guide for psyTeachR course books.">
-<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
-<meta property="og:url" content="https://psyteachr.github.io/book-template/">
-<meta property="twitter:card" content="summary_large_image">
-
-<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+<meta property="og:title" content="Christian Magelssen">
+<meta property="og:description" content="Statistikkbok">
 
 
 <style type="text/css">
@@ -138,14 +133,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Book Template</a></li>
+<li><a href="./">Bygge modeller for kategorisk data</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
-<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Regne gjennomsnitt for de to gruppene</a></li>
+<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Gjennomsnitt for de to gruppene</a></li>
 <li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
@@ -155,7 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#om-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Om modellbygging</a>
+<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hensikten-med-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Hensikten med modellbygging</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#test-kunnskapen-din"><i class="fa fa-check"></i><b>4.1.1</b> Test kunnskapen din</a></li>
 <li class="chapter" data-level="4.1.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#test-kunnskapen-din-1"><i class="fa fa-check"></i><b>4.1.2</b> Test kunnskapen din</a></li>
@@ -165,6 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
 <li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
 <li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
+<li class="chapter" data-level="4.7" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.7</b> T-test</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>5</b> Hvordan finne linjen i modellen?</a></li>
 <li class="divider"></li>
@@ -172,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     target="blank"><img alt="Creative Commons License" 
     style="border-width:0" 
     src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
-<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+<li><a href="cmagelssen.bo" target="blank">cmagelssen</a></li>
 
 </ul>
 
@@ -192,10 +188,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="bygge-statistisk-modeller" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Bygge statistisk modeller</h1>
-<div id="om-modellbygging" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Om modellbygging</h2>
-<p>Modellbygging er en av forskernes kjerneoppgaver. Hovedideen med slik modellbygging er at vi ønsker å bygge en statistisk modell til å predikere hva en person faktisk har hatt som skår på den avhengige variabelen. Til dette kan vi bruke en lineær modell som er en variant av følgende ligning:</p>
+<h1><span class="header-section-number">Kapittel 4</span> Bygge statistisk modeller</h1>
+<div id="hensikten-med-modellbygging" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Hensikten med modellbygging</h2>
+<p>Modellbygging er en av forskernes viktigste oppgaver. Vi bygger modeller for å predikere hva en person faktisk har skåret på den avhengige variabelen. ‘Ok,’ sier du, ‘, men hvorfor skal vi bygge modeller når vi faktisk har målt personen sin prestasjon på den avhengige variabelen?’ Svaret på dette spørsmålet er at vi bygger modell fordi vi ønsker å forstå relasjonene mellom variablene vi har målt. Hvis vi klarer å bygge en god modell med variablene vi ha målt, så har vi en god forståelse av hvordan variablene henger sammen. Da vil modellen vår</p>
+<p>Hovedideen med slik modellbygging er at vi ønsker å bygge en statistisk modell til å predikere hva en person faktisk har hatt som skår på den avhengige variabelen. Til dette kan vi bruke en lineær modell som er en variant av følgende ligning:</p>
 <p><span class="math display">\[
 data_i = (modell) + error_i
 \]</span></p>
@@ -228,6 +225,9 @@ Dette var en superenkel modell, men viser hvordan vi kan bruke slike modeller. O
 data = (modell) + error
 \]</span>
 <span class="math display">\[
+data = (b_0) + error
+\]</span></p>
+<p><span class="math display">\[
 Y_i = (b_0 + b_1X_i) + error
 \]</span>
 Her er $ <strong>Y_i</strong> $ den avhengige variabelen som vi faktisk har målt for et individ, <em>i</em>. <strong>X_i</strong> er dette individets faktiske måling på variabel X, som vi ofte kaller for prediktorvariabel. Som det fremgår av den siste ligningen har også $ b1 $ hektet på seg. Denne forteller oss forholdet mellom prediktorvariabelen (Xi) og den avhengig variabelen (). Vi skriver den liten liten <em>b</em> fordi dette er noe vi estimerer fra et utvalg. <strong>b0</strong> er vår prediksjon når Xi er <strong>null</strong> og <strong>0</strong>.</p>
@@ -235,7 +235,7 @@ Her er $ <strong>Y_i</strong> $ den avhengige variabelen som vi faktisk har mål
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-2-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 4.1: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.1: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div id="test-kunnskapen-din" class="section level3" number="4.1.1">
@@ -246,7 +246,7 @@ Figure 4.1: <strong>CAPTION THIS FIGURE!!</strong>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-3-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 4.2: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.2: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 </div>
@@ -267,7 +267,7 @@ Figure 4.2: <strong>CAPTION THIS FIGURE!!</strong>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-4-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 4.3: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.3: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 </div>
@@ -730,7 +730,7 @@ Prøv modellen du også: For individ nr. 8, sier modellen at individet hadde en 
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 4.4: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.4: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 </div>
@@ -785,7 +785,7 @@ Visualisert fremstilt blir modellen vår seendes slik ut:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-9-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 4.5: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.5: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <p><strong>Oppgaver</strong>
@@ -872,7 +872,7 @@ a) Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-12-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 4.6: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.6: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <p><strong>The total sum of squares (SS<sub>T</sub>)</strong> = <strong>3243.784</strong>
@@ -922,6 +922,10 @@ Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOV
 ##  9  8.43  3244.  42.4   3.34      716. 0.779
 ## 10  5.42  3244.  42.4  23.4       716. 0.779
 ## # … with 14 more rows</code></pre>
+</div>
+<div id="t-test" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> T-test</h2>
+<p>ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.</p>
 
 </div>
 </div>

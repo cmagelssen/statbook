@@ -150,7 +150,7 @@
 
 \title{Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)}
 \author{Christian Magelssen}
-\date{2021-03-31}
+\date{2021-04-01}
 
 \begin{document}
 \maketitle
@@ -176,12 +176,14 @@ Andre ganger kan det være interessant å teste om to grupper, som var like før
 \hypertarget{buxf8r-man-trene-med-ett-eller-flere-sett-i-styrketrening}{%
 \section{Bør man trene med ett eller flere sett i styrketrening?}\label{buxf8r-man-trene-med-ett-eller-flere-sett-i-styrketrening}}
 
-Et spørsmål mange treningsentusiaster lurer på er hvor mange serier som er best å gjennnomføre for å få maksimal treningseffekt i styrketrening. Noen mener at ett sett er tilstrekkelig, mens andre mener at et hardere treningstimuli er nødvendig og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke dette er deres egen Bent Rønnestad.
+Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad \citep{ronnestad_dissimilar_2007}
 
-Eksperimentet ble gjennomført som et \textbf{between-subject design} med to grupper: en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis \textbf{1L-3U} og \textbf{3L-1U} (L=lower; U=Upper). De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskerne ville så se hva som ga best fremgang på 1RM. Den avhengige variabelen ble derfor \%-fremgang på 1RM på underkroppsøvelser. De fant at 3L-1U hadde større fremgang enn 1L-3U fra pre til post (41 vs 21 \% endring). Denne forskjellen var signifikant ved en uavhengig t-test. Med andre ord kan det se ut til at det kan lønne seg å trene flere sett per styrketreningsøkt.
+Eksperimentet ble gjennomført som et \textbf{between-subject design} med to grupper:en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis \textbf{1L-3U} og \textbf{3L-1U} (L=lower; U=Upper).
+
+De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1RM på underkroppsøvelser. Den avhengige variabelen ble derfor \%-fremgang på 1RM på underkroppsøvelser.
 
 \includegraphics{design.png}
-Vi har ikke tilgang til dette datasettet, men jeg har simulert dette datasettet i R basert på verdiene jeg fant i artikkelen. Datasettet blir tilnærmet likt, men siden det er en simulering blir det aldri helt identisk. Datasettet ser du i tabellen under.
+Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i R basert på verdiene som ble oppgitt i artikkelen. Datasettet blir tilnærmet likt, men siden det er en simulering blir det aldri helt identisk. Datasettet ser du i tabellen under.
 
 \begin{table}
 
@@ -238,10 +240,11 @@ Du kan få nøyaktig samme datsett ved å klippe ut og lime inn følgende kode i
 \end{Highlighting}
 \end{Shaded}
 
+\textbf{Oppgave}
 Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{\alph{enumi})}
 \tightlist
 \item
   Hvor mange kolonner er det i tabellen over?
@@ -251,8 +254,8 @@ Før du går videre er det greit at du gjør deg kjent med datasettet som vi har
   Hvilke to verdier kan variabelen gruppe? og
 \end{enumerate}
 
-\hypertarget{regne-gjennomsnitt-for-de-to-gruppene}{%
-\section{Regne gjennomsnitt for de to gruppene}\label{regne-gjennomsnitt-for-de-to-gruppene}}
+\hypertarget{gjennomsnitt-for-de-to-gruppene}{%
+\section{Gjennomsnitt for de to gruppene}\label{gjennomsnitt-for-de-to-gruppene}}
 
 Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene (``tre.sett'' vs.~ett.sett) på \% fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å gjøre dette i R:
 
@@ -284,8 +287,8 @@ tre.sett & 42.42450\\
 \end{tabular}
 
 \textbackslash end\{table\}
-
-Hvilken gruppe hadde mest fremgang?
+\textbf{Oppgave}
+a) Hvilken gruppe hadde mest fremgang?
 ett.sett tre.sett`
 
 \hypertarget{figur-av-datasettet}{%
@@ -302,9 +305,16 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 \caption{Here is a nice figure!}\label{fig:nice-fig}
 \end{figure}
 
-Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les \href{https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128}{Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm}. Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
+Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les \citep{weissgerber_beyond_2015}(\url{https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128}). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
-``Stolpediagram er designet for kontinuerlig kategorisk data. Høyden på stolpen representerer (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen. Man blir dermed ikke lurt lurt ved å bruke et stolpediagram''. Et stolpediagram viser heller ikke standard error standardavvik CI fordelingen av observasjonene, og dette spesielt være problematisk ved store små. Derfor anbefaler forfatterne i artikkelen at man viser dataen mer ved å for eksempel bruke et bar graph scatterplot. Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta \(SD/sqrt(N)\), så ved store utvalg vil standard error være høyt lite. Standardavviket er kun \(sqrt(varians/n-1)\), så denne vil i større mindre grad være påvirket av utvalgsstørrelsen".
+\textbf{Oppgave}
+a) "Stolpediagram er designet for kontinuerlig kategorisk data.
+b) Høyden på stolpen representerer (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+c) Et stolpediagram viser ikke standard error standardavvik CI fordelingen av observasjonene, og dette spesielt være problematisk ved store små.
+d) Forfatterne av artikkelen anbefaler mer bruk av bar graph scatterplot for kontinuerlige variabler.
+e) Ofte er det brukt error sammen med stolpediagram.
+
+Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta \(SD/sqrt(N)\), så ved store utvalg vil standard error være høyt lite. Standardavviket er kun \(sqrt(varians/n-1)\), så denne vil i større mindre grad være påvirket av utvalgsstørrelsen".
 
 \hypertarget{koding-av-kategoriske-variabler}{%
 \chapter{Koding av kategoriske variabler}\label{koding-av-kategoriske-variabler}}
@@ -467,10 +477,12 @@ Spørsmålet dere sikkert lurer på er hvorfor vi dummykoder og kontrastkoder gr
 \hypertarget{bygge-statistisk-modeller}{%
 \chapter{Bygge statistisk modeller}\label{bygge-statistisk-modeller}}
 
-\hypertarget{om-modellbygging}{%
-\section{Om modellbygging}\label{om-modellbygging}}
+\hypertarget{hensikten-med-modellbygging}{%
+\section{Hensikten med modellbygging}\label{hensikten-med-modellbygging}}
 
-Modellbygging er en av forskernes kjerneoppgaver. Hovedideen med slik modellbygging er at vi ønsker å bygge en statistisk modell til å predikere hva en person faktisk har hatt som skår på den avhengige variabelen. Til dette kan vi bruke en lineær modell som er en variant av følgende ligning:
+Modellbygging er en av forskernes viktigste oppgaver. Vi bygger modeller for å predikere hva en person faktisk har skåret på den avhengige variabelen. `Ok', sier du, `, men hvorfor skal vi bygge modeller når vi faktisk har målt personen sin prestasjon på den avhengige variabelen?'. Svaret på dette spørsmålet er at vi bygger modell fordi vi ønsker å forstå relasjonene mellom variablene vi har målt. Hvis vi klarer å bygge en god modell med variablene vi ha målt, så har vi en god forståelse av hvordan variablene henger sammen. Da vil modellen vår
+
+Hovedideen med slik modellbygging er at vi ønsker å bygge en statistisk modell til å predikere hva en person faktisk har hatt som skår på den avhengige variabelen. Til dette kan vi bruke en lineær modell som er en variant av følgende ligning:
 
 \[
 data_i = (modell) + error_i
@@ -511,6 +523,10 @@ Det er en mer presis og korrekt måte å skrive ligningen over på, og som du of
 \[
 data = (modell) + error
 \]
+\[
+data = (b_0) + error
+\]
+
 \[
 Y_i = (b_0 + b_1X_i) + error
 \]
@@ -1090,10 +1106,15 @@ Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOV
 ## # ... with 14 more rows
 \end{verbatim}
 
+\hypertarget{t-test}{%
+\section{T-test}\label{t-test}}
+
+ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.
+
 \hypertarget{hvordan-finne-linjen-i-modellen}{%
 \chapter{Hvordan finne linjen i modellen?}\label{hvordan-finne-linjen-i-modellen}}
 
-Nå som vi har fått en forståelse for hvordan vi kan bygge statistiske modeller og teste disse er tid for å finne hvilken linje vi skal bruke. Frem til nå har dere fått \$ b\_0 \$ og \$ b\_1 \$ av meg. Sannheten er at linjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Men hvordan skal vi plassere linjen slik at den reduserer error så mye? En tilnærming kan være å gjette seg fram til hva \(b_0\) og \(b_1\) skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. Vi prøver dette:
+Nå som vi er kjent med hvordan vi kan bygge og teste statistiske modeller, er det på tide å vise hvordan vi finner regresjonslinjen som vi skal bruke. Mer presist, hvilke verdier skal vi ha for \emph{b}0 og \emph{b}1 som beskriver denne linjen? Hittil har dere fått disse verdiene av meg, men det vi skal lære nå er hvordan vi kan regne ut disse verdiene for hånd. En viktig sannhet om denne linjen er at regresjonslinjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Med andre ord, verdiene på \emph{b}0 og \emph{b}1 (som beskriver denne linjen) er slik at det er umulig å redusere error mer. Spørsmålet er hvordan vi finner verdiene på \emph{b}0 og \emph{b}1 som beskriver denne linjen. En tilnærming kan være å gjette seg fram til hva \(b_0\) og \(b_1\) skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. I figuren under har jeg prøvd tre ulike modeller, og regner ut hvor mye sum of squared error disse gir.
 
 \begin{figure}
 
@@ -1104,7 +1125,20 @@ Nå som vi har fått en forståelse for hvordan vi kan bygge statistiske modelle
 \caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-Vi kan holde på slik frem og frem og tilbake til vi finner vi faktisk den linjen som reduserer error mest mulig. Det er bare å teste nok verdier. \textbf{Minste kvadraters metode} garanterer oss at vi finne linjen som reduserer error mest mulig. Vi ser at linjen til venstre ga oss en error på. Jeg har laget en video som viser hvordan jeg kan gjøre dette.
+\textbf{Oppgave}
+a) Hvilken av modellene over gir mest sum of squared error? (SSModel)
+
+b0=30 b1=7 b0=25 b1=28 b0=10 b1=30
+
+Vi kan holde på slik med slik prøving-og-feiling til vi faktisk finner linjen som reduserer error mest. Det er bare å teste nok verdier. \textbf{Minste kvadraters metode} garanterer oss å alltid gi oss er svar. Jeg har laget en video til dere som viser vi kan prøve-og-feile til vi kommer frem til en løsning (se denne):
+
+Det er en mer effektiv måte å løse dette problemet på. For å finne \textbf{b1} kan vi bruke følgende formel:
+
+\[ b_1 = \frac{SCP}{SS_x} \]
+Her var det et nytt begrep, \textbf{SCP}. SCP står for sum of cross-product deviations. Det brukes til å finne relasjonen mellom to variabler, og er grunnlaget for en rekke utregninger i statistikken, så det kan være lurt å lære seg. SCP finner ut av om en person som er over eller under gjennomsnittet på en variabel, også er over eller under gjennomsnittet på den andre variabelen.
+
+\[ SCP = \frac{\sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} \]
+\(\bar{x}\) er gjennomsnittet på x-variabelen (gruppe), mens \(\bar{y}\) er gjennomsnittet for y-variabelen (1RM).
 
 Vi kan også en generell formell for å løse dette problemet på. Det første vi må gjøre er å regne noe som heter \textbf{sum of cross-product deviations (SCP)}. Formelen for dette er others are negative, so they'll cancel out. Instead we
 square the deviances before adding them up. We want to do something similar here, but at the

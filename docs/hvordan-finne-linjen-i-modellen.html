@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <title>Kapittel 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-03-31" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,13 +51,8 @@
 
 
 
-<meta property="og:title" content="psyTeachR Book Template">
-<meta property="og:description" content="Guide for psyTeachR course books.">
-<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
-<meta property="og:url" content="https://psyteachr.github.io/book-template/">
-<meta property="twitter:card" content="summary_large_image">
-
-<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+<meta property="og:title" content="Christian Magelssen">
+<meta property="og:description" content="Statistikkbok">
 
 
 <style type="text/css">
@@ -138,14 +133,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Book Template</a></li>
+<li><a href="./">Bygge modeller for kategorisk data</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
-<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#regne-gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Regne gjennomsnitt for de to gruppene</a></li>
+<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Gjennomsnitt for de to gruppene</a></li>
 <li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
@@ -155,7 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#om-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Om modellbygging</a>
+<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hensikten-med-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Hensikten med modellbygging</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#test-kunnskapen-din"><i class="fa fa-check"></i><b>4.1.1</b> Test kunnskapen din</a></li>
 <li class="chapter" data-level="4.1.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#test-kunnskapen-din-1"><i class="fa fa-check"></i><b>4.1.2</b> Test kunnskapen din</a></li>
@@ -165,6 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
 <li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
 <li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
+<li class="chapter" data-level="4.7" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.7</b> T-test</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>5</b> Hvordan finne linjen i modellen?</a></li>
 <li class="divider"></li>
@@ -172,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     target="blank"><img alt="Creative Commons License" 
     style="border-width:0" 
     src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
-<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+<li><a href="cmagelssen.bo" target="blank">cmagelssen</a></li>
 
 </ul>
 
@@ -192,15 +188,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="hvordan-finne-linjen-i-modellen" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Hvordan finne linjen i modellen?</h1>
-<p>Nå som vi har fått en forståelse for hvordan vi kan bygge statistiske modeller og teste disse er tid for å finne hvilken linje vi skal bruke. Frem til nå har dere fått $ b_0 $ og $ b_1 $ av meg. Sannheten er at linjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Men hvordan skal vi plassere linjen slik at den reduserer error så mye? En tilnærming kan være å gjette seg fram til hva <span class="math inline">\(b_0\)</span> og <span class="math inline">\(b_1\)</span> skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. Vi prøver dette:</p>
+<h1><span class="header-section-number">Kapittel 5</span> Hvordan finne linjen i modellen?</h1>
+<p>Nå som vi er kjent med hvordan vi kan bygge og teste statistiske modeller, er det på tide å vise hvordan vi finner regresjonslinjen som vi skal bruke. Mer presist, hvilke verdier skal vi ha for <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> som beskriver denne linjen? Hittil har dere fått disse verdiene av meg, men det vi skal lære nå er hvordan vi kan regne ut disse verdiene for hånd. En viktig sannhet om denne linjen er at regresjonslinjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Med andre ord, verdiene på <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> (som beskriver denne linjen) er slik at det er umulig å redusere error mer. Spørsmålet er hvordan vi finner verdiene på <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> som beskriver denne linjen. En tilnærming kan være å gjette seg fram til hva <span class="math inline">\(b_0\)</span> og <span class="math inline">\(b_1\)</span> skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. I figuren under har jeg prøvd tre ulike modeller, og regner ut hvor mye sum of squared error disse gir.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
 <img src="05-estimering_files/figure-html/unnamed-chunk-1-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 5.1: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 5.1: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<p>Vi kan holde på slik frem og frem og tilbake til vi finner vi faktisk den linjen som reduserer error mest mulig. Det er bare å teste nok verdier. <strong>Minste kvadraters metode</strong> garanterer oss at vi finne linjen som reduserer error mest mulig. Vi ser at linjen til venstre ga oss en error på. Jeg har laget en video som viser hvordan jeg kan gjøre dette.</p>
+<p><strong>Oppgave</strong>
+a) Hvilken av modellene over gir mest sum of squared error? (SS<sub>Model</sub>)</p>
+<p><select class='solveme' data-answer='["b0=30 b1=7"]'> <option></option> <option>b0=30 b1=7</option> <option>b0=25 b1=28</option> <option>b0=10 b1=30</option></select></p>
+<p>Vi kan holde på slik med slik prøving-og-feiling til vi faktisk finner linjen som reduserer error mest. Det er bare å teste nok verdier. <strong>Minste kvadraters metode</strong> garanterer oss å alltid gi oss er svar. Jeg har laget en video til dere som viser vi kan prøve-og-feile til vi kommer frem til en løsning (se denne):</p>
+<iframe width="798" height="457" src="https://www.youtube.com/embed/kWVtce7YDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Det er en mer effektiv måte å løse dette problemet på. For å finne <strong>b<sub>1</sub></strong> kan vi bruke følgende formel:</p>
+<p><span class="math display">\[ b_1 = \frac{SCP}{SS_x} \]</span>
+Her var det et nytt begrep, <strong>SCP</strong>. SCP står for sum of cross-product deviations. Det brukes til å finne relasjonen mellom to variabler, og er grunnlaget for en rekke utregninger i statistikken, så det kan være lurt å lære seg. SCP finner ut av om en person som er over eller under gjennomsnittet på en variabel, også er over eller under gjennomsnittet på den andre variabelen.</p>
+<p><span class="math display">\[ SCP = \frac{\sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} \]</span>
+<span class="math inline">\(\bar{x}\)</span> er gjennomsnittet på x-variabelen (gruppe), mens <span class="math inline">\(\bar{y}\)</span> er gjennomsnittet for y-variabelen (1RM).</p>
 <p>Vi kan også en generell formell for å løse dette problemet på. Det første vi må gjøre er å regne noe som heter <strong>sum of cross-product deviations (SCP)</strong>. Formelen for dette er others are negative, so they’ll cancel out. Instead we
 square the deviances before adding them up. We want to do something similar here, but at the
 same time gain some insight into whether the deviations for one variable are matched by similar
@@ -223,6 +229,14 @@ the predictor deviates from its mean: we want the regression coefficient to refl
 between the predictor and outcome relative to how much the predictor deviates from its mean.
 For a single variable, how do we quantify the total degree to which it deviates from its mean?’</p>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ronnestad_dissimilar_2007" class="csl-entry">
+Rønnestad, Bent, Wilhelm Egeland, Nils Kvamme, Per Refsnes, Fawzi Kadi, and Truls Raastad. 2007. <span>“Dissimilar Effects of One- and Three-Set Strength Training on Strength and Muscle Mass Gains in Upper and Lower Body in Untrained Subjects.”</span> <em>The Journal of Strength and Conditioning Research</em> 21: 157–63. <a href="https://doi.org/10.1519/R-19895.1">https://doi.org/10.1519/R-19895.1</a>.
+</div>
+<div id="ref-weissgerber_beyond_2015" class="csl-entry">
+Weissgerber, Tracey L., Natasa M. Milic, Stacey J. Winham, and Vesna D. Garovic. 2015. <span>“Beyond <span>Bar</span> and <span>Line</span> <span>Graphs</span>: <span>Time</span> for a <span>New</span> <span>Data</span> <span>Presentation</span> <span>Paradigm</span>.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
+</div>
 </div>
 <div class="psyteachr_footer">
   
