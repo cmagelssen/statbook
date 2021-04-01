@@ -328,7 +328,7 @@ ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
 ```
 
 
-## H1: Alternativ modell (alternativ hypotese)
+## Alternativ modell (alternativ hypotese)
 I forrige avsnitt sa vi at **null-hypotesen (H0)** reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.
 
 Spørsmålet vi skal stille i dette nå er om vi kan redusere error fra denne ved å benytte en mer kompleks modell som benytter (vår dummykodede kategoriske variabel) som prediktorvariabel:
@@ -532,7 +532,7 @@ summary(aov(rm ~ dummykodet, dat))
 
 
 ```{r echo=FALSE}
-dat %>%
+ok <- dat %>%
   summarise(ss = rm - mean(rm),
             sum.ss = sum(ss^2),
             mod.m = if_else(dummykodet == 0, 21.90, 42.42),
