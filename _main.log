@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  1 APR 2021 10:25
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  1 APR 2021 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,9 +856,14 @@ File: 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type
 <use 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf>
 [33
 
-] [34] (./_main.bbl [35] [36
+]
+Overfull \hbox (67.73013pt too wide) in paragraph at lines 1147--1181
+ [][] 
+ []
 
-]) [37] (./_main.aux)
+[34] [35] (./_main.bbl [36]) [37
+
+] (./_main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -866,10 +871,10 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 069A4D01B7D18A3424AA6B278053AA21;3219.
  ) 
 Here is how much of TeX's memory you used:
- 16392 strings out of 478922
- 292864 string characters out of 5865756
- 769976 words of memory out of 5000000
- 36018 multiletter control sequences out of 15000+600000
+ 16393 strings out of 478922
+ 292885 string characters out of 5865756
+ 770041 words of memory out of 5000000
+ 36019 multiletter control sequences out of 15000+600000
  407417 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1031b,481s stack positions out of 5000i,500n,10000p,200000b,80000s

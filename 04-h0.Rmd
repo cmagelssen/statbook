@@ -283,7 +283,7 @@ dat <- dat %>%
 
 
 dat <- dat %>%
-  mutate(dummykodet = as.factor(dummykodet),)
+  mutate(dummykodet = as.factor(dummykodet))
 
 
 ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +

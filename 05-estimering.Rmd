@@ -86,48 +86,81 @@ Det er en mer effektiv måte å løse dette problemet på. For å finne **b<sub>
 $$ b_1 = \frac{SCP}{SS_x} $$
 Her var det et nytt begrep, **SCP**. SCP står for sum of cross-product deviations. Det brukes til å finne relasjonen mellom to variabler, og er grunnlaget for en rekke utregninger i statistikken, så det kan være lurt å lære seg. SCP finner ut av om en person som er over eller under gjennomsnittet på en variabel, også er over eller under gjennomsnittet på den andre variabelen. 
 
-$$ SCP = \frac{\sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} $$
-$\bar{x}$ er gjennomsnittet på x-variabelen (gruppe), mens $\bar{y}$ er gjennomsnittet for y-variabelen (1RM).
+$$ b_1 = \frac{SCP = \sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} $$
+$\bar{x}$ er gjennomsnittet på x-variabelen (gruppe), mens $\bar{y}$ er gjennomsnittet for y-variabelen (1RM). I tabellen under ser du hvordan vi regner dette. Kolonnen CrossProduct er $(x_i - \bar{x})(y_i - \bar{y})$. 
+
+
+```{r echo=FALSE}
+library(tidyverse)
+set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
+tre.sett <- rnorm(n = 12, mean = 41, sd = 5) #12 individer
+ett.sett <-rnorm(n = 12, mean = 21, sd = 5) #12 individer
+
+#lager en tibble fra tidyverse-pakken. Må ha lastet inn tidyverse library(tidyverse) i scriptfilen
+dat <- tibble(individ = seq(1:24),
+              gruppe = rep(c("tre.sett ", "ett.sett"), c(length(tre.sett), length(ett.sett))),
+              rm = c(tre.sett , ett.sett))
+
+
+#lager et nytt objekt som heter dummykodet.dat
+dat <- dat %>%
+  # her lager jeg en ny kolonne som heter dummykoder. If gruppe == 'ett.sett', gi verdien 0, else gi de 1.
+  mutate(dummykodet = if_else(gruppe == "ett.sett", 0, 1),
+         dummykodet = as.integer(dummykodet)
+  )
+
+
+#dat <- dat %>%
+#  mutate(dummykodet = as.factor(dummykodet))
+
+
+cp <- dat %>%
+  select(individ, dummykodet, rm) %>%
+  rename(gruppe=dummykodet) %>%
+  mutate(gj.snitt.x = mean(gruppe),
+         error.x = gruppe - gj.snitt.x,
+         gj.snitt.y = mean(rm),
+         error.y = rm - gj.snitt.y,
+         CrossProduct = error.x * error.y
+)
+  
+cp <- cp %>% 
+  select(individ, gruppe, gj.snitt.x, error.x, rm, gj.snitt.y, error.y, CrossProduct)
+  
+
+knitr::kable(
+  cp, booktabs = TRUE,
+  caption = 'Utregning av Sum of Cross Product (SCP)'
+)
 
 
 
+```
+
+
+$$ b_1 = \frac{SCP = 20.52436}{SSx} $$
+Nå som vi har regnet SCP er det bare å regne SS<sub>x</sub> (sum of squared error for prediktorvariabelen) er fordi man ønsker å ta høyde for hvor mye prediktorvariabelen avviker fra mean. Jeg har dessverre ikke noen supergod forklaring, og jeg synes heller ikke Field forklarer dette godt. Så jeg bare vet at jeg må gjøre det.
+
+$$ b_1 = \frac{SCP = 20.52436}{6} $$
+$$ b_1 = 20.52436 $$
 
 
 
-Vi kan også en generell formell for å løse dette problemet på. Det første vi må gjøre er å regne noe som heter **sum of cross-product deviations (SCP)**. Formelen for dette er others are negative, so they’ll cancel out. Instead we
-square the deviances before adding them up. We want to do something similar here, but at the
-same time gain some insight into whether the deviations for one variable are matched by similar
-deviations in the other. The answer is to multiply the deviation for one variable by the corresponding
-deviation for the other. If both deviations are positive or negative then this will give us
-a positive value (indicative of the deviations being in the same direction), but if one deviation is
-positive and the other negative then the resulting product will be negative (indicative of the
-deviations being opposite in direction). The deviations of one variable multiplied by the corresponding
-deviations of a second variable are known as the cross-product deviations. If we want
-the total of these cross-product deviations we can add them up, which gives us the sum of crossproduct
- $\sum_{n=1}^N (x - \bar{x})(y- \bar{y})$ Hva denne gjør er 
- 
- 
- Det neste er å faktor inn hvor mye 
- 
- 
- 
- of deviation from the mean, if it varies a lot, we would expect the outcome
-to show a lot of deviation from its mean too. Conversely, if the predictor deviates only a little from
-its mean (it has little variance) then the outcome should likewise show only small deviations from
-its mean. Therefore, what we expect to happen with the outcome depends on how much the predictor
-deviates from its mean. If the predictor deviates a little from the mean, then the SCP should be
-smaller than if the predictor deviates a lot from the mean. Therefore, we need to factor in how much
-the predictor deviates from its mean: we want the regression coefficient to reflect the total relationship
-between the predictor and outcome relative to how much the predictor deviates from its mean.
-For a single variable, how do we quantify the total degree to which it deviates from its mean?’
- 
+Nå gjenstår det bare å finne **b_0**. Denne er enkel å finne når vi først har funnet **b<sub>0</sub>**. Husk at modellen vår er en ligning, så ved enkelt finne **b<sub>0</sub>** ved omorganisere ligningen: trekker vi fra $b_1X_i$ på hver side av likhetstegnet får vi **b<sub>0</sub>** alene:
 
+$$
+Y_i = (b_0 + b_1X_i)
+$$
 
+$$
+Y_i - b_1X_i = (b_0)
+$$
 
+Men må ligningen med verdier. Og da bruker man gjennomsnittet for Y variabelen og gjennomsnittet for X variabelen.
 
-
-
-
+$$
+32.16231	 - (20.52436*0.5) = (21.90013)
+$$
 
 
 

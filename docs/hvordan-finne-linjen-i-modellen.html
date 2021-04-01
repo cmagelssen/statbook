@@ -205,29 +205,280 @@ a) Hvilken av modellene over gir mest sum of squared error? (SS<sub>Model</sub>)
 <p>Det er en mer effektiv måte å løse dette problemet på. For å finne <strong>b<sub>1</sub></strong> kan vi bruke følgende formel:</p>
 <p><span class="math display">\[ b_1 = \frac{SCP}{SS_x} \]</span>
 Her var det et nytt begrep, <strong>SCP</strong>. SCP står for sum of cross-product deviations. Det brukes til å finne relasjonen mellom to variabler, og er grunnlaget for en rekke utregninger i statistikken, så det kan være lurt å lære seg. SCP finner ut av om en person som er over eller under gjennomsnittet på en variabel, også er over eller under gjennomsnittet på den andre variabelen.</p>
-<p><span class="math display">\[ SCP = \frac{\sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} \]</span>
-<span class="math inline">\(\bar{x}\)</span> er gjennomsnittet på x-variabelen (gruppe), mens <span class="math inline">\(\bar{y}\)</span> er gjennomsnittet for y-variabelen (1RM).</p>
-<p>Vi kan også en generell formell for å løse dette problemet på. Det første vi må gjøre er å regne noe som heter <strong>sum of cross-product deviations (SCP)</strong>. Formelen for dette er others are negative, so they’ll cancel out. Instead we
-square the deviances before adding them up. We want to do something similar here, but at the
-same time gain some insight into whether the deviations for one variable are matched by similar
-deviations in the other. The answer is to multiply the deviation for one variable by the corresponding
-deviation for the other. If both deviations are positive or negative then this will give us
-a positive value (indicative of the deviations being in the same direction), but if one deviation is
-positive and the other negative then the resulting product will be negative (indicative of the
-deviations being opposite in direction). The deviations of one variable multiplied by the corresponding
-deviations of a second variable are known as the cross-product deviations. If we want
-the total of these cross-product deviations we can add them up, which gives us the sum of crossproduct
-<span class="math inline">\(\sum_{n=1}^N (x - \bar{x})(y- \bar{y})\)</span> Hva denne gjør er</p>
-<p>Det neste er å faktor inn hvor mye</p>
-<p>of deviation from the mean, if it varies a lot, we would expect the outcome
-to show a lot of deviation from its mean too. Conversely, if the predictor deviates only a little from
-its mean (it has little variance) then the outcome should likewise show only small deviations from
-its mean. Therefore, what we expect to happen with the outcome depends on how much the predictor
-deviates from its mean. If the predictor deviates a little from the mean, then the SCP should be
-smaller than if the predictor deviates a lot from the mean. Therefore, we need to factor in how much
-the predictor deviates from its mean: we want the regression coefficient to reflect the total relationship
-between the predictor and outcome relative to how much the predictor deviates from its mean.
-For a single variable, how do we quantify the total degree to which it deviates from its mean?’</p>
+<p><span class="math display">\[ b_1 = \frac{SCP = \sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} \]</span>
+<span class="math inline">\(\bar{x}\)</span> er gjennomsnittet på x-variabelen (gruppe), mens <span class="math inline">\(\bar{y}\)</span> er gjennomsnittet for y-variabelen (1RM). I tabellen under ser du hvordan vi regner dette. Kolonnen CrossProduct er <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y})\)</span>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-2">Table 5.1: </span>Utregning av Sum of Cross Product (SCP)</caption>
+<thead>
+<tr class="header">
+<th align="right">individ</th>
+<th align="right">gruppe</th>
+<th align="right">gj.snitt.x</th>
+<th align="right">error.x</th>
+<th align="right">rm</th>
+<th align="right">gj.snitt.y</th>
+<th align="right">error.y</th>
+<th align="right">CrossProduct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">40.46704</td>
+<td align="right">32.16231</td>
+<td align="right">8.3047301</td>
+<td align="right">4.1523651</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">49.07223</td>
+<td align="right">32.16231</td>
+<td align="right">16.9099106</td>
+<td align="right">8.4549553</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">47.94131</td>
+<td align="right">32.16231</td>
+<td align="right">15.7789994</td>
+<td align="right">7.8894997</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">44.51389</td>
+<td align="right">32.16231</td>
+<td align="right">12.3515740</td>
+<td align="right">6.1757870</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">52.28750</td>
+<td align="right">32.16231</td>
+<td align="right">20.1251864</td>
+<td align="right">10.0625932</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">40.01750</td>
+<td align="right">32.16231</td>
+<td align="right">7.8551872</td>
+<td align="right">3.9275936</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">49.48425</td>
+<td align="right">32.16231</td>
+<td align="right">17.3219362</td>
+<td align="right">8.6609681</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">29.21048</td>
+<td align="right">32.16231</td>
+<td align="right">-2.9518368</td>
+<td align="right">-1.4759184</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">40.59293</td>
+<td align="right">32.16231</td>
+<td align="right">8.4306117</td>
+<td align="right">4.2153059</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">37.58676</td>
+<td align="right">32.16231</td>
+<td align="right">5.4244472</td>
+<td align="right">2.7122236</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">35.42651</td>
+<td align="right">32.16231</td>
+<td align="right">3.2641906</td>
+<td align="right">1.6320953</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">42.49354</td>
+<td align="right">32.16231</td>
+<td align="right">10.3312265</td>
+<td align="right">5.1656133</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">17.70576</td>
+<td align="right">32.16231</td>
+<td align="right">-14.4565510</td>
+<td align="right">7.2282755</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">17.07181</td>
+<td align="right">32.16231</td>
+<td align="right">-15.0905068</td>
+<td align="right">7.5452534</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">18.26811</td>
+<td align="right">32.16231</td>
+<td align="right">-13.8942055</td>
+<td align="right">6.9471027</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">25.42594</td>
+<td align="right">32.16231</td>
+<td align="right">-6.7363771</td>
+<td align="right">3.3681886</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">32.70313</td>
+<td align="right">32.16231</td>
+<td align="right">0.5408147</td>
+<td align="right">-0.2704074</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">19.10226</td>
+<td align="right">32.16231</td>
+<td align="right">-13.0600552</td>
+<td align="right">6.5300276</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">22.23827</td>
+<td align="right">32.16231</td>
+<td align="right">-9.9240435</td>
+<td align="right">4.9620217</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">22.27148</td>
+<td align="right">32.16231</td>
+<td align="right">-9.8908322</td>
+<td align="right">4.9454161</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">26.17889</td>
+<td align="right">32.16231</td>
+<td align="right">-5.9834246</td>
+<td align="right">2.9917123</td>
+</tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">20.34857</td>
+<td align="right">32.16231</td>
+<td align="right">-11.8137453</td>
+<td align="right">5.9068726</td>
+</tr>
+<tr class="odd">
+<td align="right">23</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">23.52773</td>
+<td align="right">32.16231</td>
+<td align="right">-8.6345853</td>
+<td align="right">4.3172926</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">17.95966</td>
+<td align="right">32.16231</td>
+<td align="right">-14.2026514</td>
+<td align="right">7.1013257</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[ b_1 = \frac{SCP = 20.52436}{SSx} \]</span>
+Nå som vi har regnet SCP er det bare å regne SS<sub>x</sub> (sum of squared error for prediktorvariabelen) er fordi man ønsker å ta høyde for hvor mye prediktorvariabelen avviker fra mean. Jeg har dessverre ikke noen supergod forklaring, og jeg synes heller ikke Field forklarer dette godt. Så jeg bare vet at jeg må gjøre det.</p>
+<p><span class="math display">\[ b_1 = \frac{SCP = 20.52436}{6} \]</span>
+<span class="math display">\[ b_1 = 20.52436 \]</span></p>
+<p>Nå gjenstår det bare å finne <strong>b_0</strong>. Denne er enkel å finne når vi først har funnet <strong>b<sub>0</sub></strong>. Husk at modellen vår er en ligning, så ved enkelt finne <strong>b<sub>0</sub></strong> ved omorganisere ligningen: trekker vi fra <span class="math inline">\(b_1X_i\)</span> på hver side av likhetstegnet får vi <strong>b<sub>0</sub></strong> alene:</p>
+<p><span class="math display">\[
+Y_i = (b_0 + b_1X_i)
+\]</span></p>
+<p><span class="math display">\[
+Y_i - b_1X_i = (b_0)
+\]</span></p>
+<p>Men må ligningen med verdier. Og da bruker man gjennomsnittet for Y variabelen og gjennomsnittet for X variabelen.</p>
+<p><span class="math display">\[
+32.16231     - (20.52436*0.5) = (21.90013)
+\]</span></p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-ronnestad_dissimilar_2007" class="csl-entry">
