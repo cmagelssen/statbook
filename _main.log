@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  1 APR 2021 19:59
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  1 APR 2021 22:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -829,38 +829,35 @@ File: 04-h0_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 File: 04-h0_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-3-1.pdf>
 [20]
-File: 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (72.79453pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.2.  MODELLBYGGING MED ‘NULL-HYPOTHESIS SIGNIFICANCE TESTING (
 NHST)’ \TU/lmr/m/n/10 21
  []
 
-[21] [22] [23] [24] [25] [26]
+[21]
+File: 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf>
+[22] [23] [24] [25] [26] [27]
 File: 04-h0_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-8-1.pdf>
-[27]
+[28] [29]
 File: 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf>
-[28] [29]
+[30]
 File: 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf>
+[31]
+Overfull \vbox (245.05498pt too high) has occurred while \output is active []
 
-Overfull \vbox (98.99887pt too high) has occurred while \output is active []
-
-[30] [31] [32] [33] [34
-
-]
+[32] [33] [34]
 Chapter 5.
 File: 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type
  pdf)
 <use 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf>
-[35]
-Overfull \hbox (67.73013pt too wide) in paragraph at lines 1222--1256
+[35
+
+]
+Overfull \hbox (67.73013pt too wide) in paragraph at lines 1343--1377
  [][] 
  []
 
@@ -878,12 +875,12 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 8F28DB7C6D5A9090A698341681E911DA;3218.
  ) 
 Here is how much of TeX's memory you used:
- 16394 strings out of 478922
- 292891 string characters out of 5865756
- 770138 words of memory out of 5000000
- 36020 multiletter control sequences out of 15000+600000
- 407417 words of font info for 70 fonts, out of 8000000 for 9000
+ 16390 strings out of 478922
+ 292799 string characters out of 5865756
+ 770030 words of memory out of 5000000
+ 36017 multiletter control sequences out of 15000+600000
+ 407409 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,8n,122p,1031b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,8n,122p,1031b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on _main.pdf (41 pages).

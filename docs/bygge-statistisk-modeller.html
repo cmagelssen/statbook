@@ -150,11 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hensikten-med-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Hensikten med modellbygging</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#test-kunnskapen-din"><i class="fa fa-check"></i><b>4.1.1</b> Test kunnskapen din</a></li>
-<li class="chapter" data-level="4.1.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#test-kunnskapen-din-1"><i class="fa fa-check"></i><b>4.1.2</b> Test kunnskapen din</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hensikten-med-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Hensikten med modellbygging</a></li>
 <li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.2</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a></li>
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
@@ -191,70 +187,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapittel 4</span> Bygge statistisk modeller</h1>
 <div id="hensikten-med-modellbygging" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Hensikten med modellbygging</h2>
-<p>Modellbygging er en av forskernes viktigste oppgaver. Vi bygger modeller for å predikere hva en person faktisk har skåret på den avhengige variabelen. ‘Ok,’ sier du, ‘, men hvorfor skal vi bygge modeller når vi faktisk har målt personen sin prestasjon på den avhengige variabelen?’ Svaret på dette spørsmålet er at vi bygger modell fordi vi ønsker å forstå relasjonene mellom variablene vi har målt. Hvis vi klarer å bygge en god modell med variablene vi ha målt, så har vi en god forståelse av hvordan variablene henger sammen. Da vil modellen vår</p>
-<p>Hovedideen med slik modellbygging er at vi ønsker å bygge en statistisk modell til å predikere hva en person faktisk har hatt som skår på den avhengige variabelen. Til dette kan vi bruke en lineær modell som er en variant av følgende ligning:</p>
+<p>Modellbygging er en av forskernes viktigste oppgaver. Vi bygger modeller for å beskrive dataen som vi har samlet inn. Disse modellene vil aldri være en perfekt beskrivelse av dataen eller verden rundt oss, men de kan hjelpe oss til å forstå den bedre. Noen ganger er modellene vi bygger gode; da beskriver de dataen godt. Andre ganger er de dårligere, og da er det ikke noe poeng å bruke de. En modell er en enkel representasjon av dataen, men som sier noe om hva vi forventer at individ hadde på den avhengig variabelen vi har målt, som i dette tilfellet er % fremgang i 1RM maks.</p>
+<p>Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare bytter ut det i parantesen med en spesifikk modell som vi ønsker å bygge.</p>
+<blockquote>
+<blockquote>
+<p>Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det, og det kommer vi til å bli med litt øving. Som vi sa kommer vi til å bruke denne ligningen til alle være statistiske tester.</p>
+</blockquote>
+</blockquote>
 <p><span class="math display">\[
 data_i = (modell) + error_i
-\]</span></p>
-<p><strong>Data</strong> er den avhengige variabelen som vi har målt hos alle deltakerne og som vi kan bruke en modell til å predikere. Å predikere er et verb som benyttes mye i statistikken, og er synonymt med å forutsi. Min måte å tenke på det er at vi ønsker å si hva en person hadde som faktisk observasjon på den målte avhengig variabelen. Legg også merke til den lille <em>i</em>-en som står bak data og error i ligningen. Denne betyr individ, og sier at vi kan predikere et individ sin skår på den avhengige variabelen med modellen som vi har bygget. <strong>Modell</strong> er egentlig bare en representasjon av denne dataen, mens <strong>error</strong> er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data). Dette blir kanskje mer konkret om vi bruker et eksempel:</p>
-<p>La oss si at du er lege og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen er 37 så dette blir modellen din.</p>
+\]</span>
+La oss bryte denne ligningen ned:</p>
+<p><strong>Data</strong> er den faktiske observasjonen et individ har hatt på den avhengige variablen. I dette tilfellet er det fremgang i 1RM underkropp. Legg merke til den lille <sub>i</sub> -en som står bak data og error i ligningen. Denne betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva at individ hadde på den avhengig variabelen. Vi kan erstatte <sub>i</sub> -en med <sub>3</sub> eller <sub>8</sub>. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker <sub>i</sub> for å holde det generelt. Statistikere bruker ofte begrepet begrepet predikere. Å predikere er et verb synonymt med å forutsi. Min måte å tenke på det er at vi ønsker å si hva en person hadde som faktisk observasjon på den målte avhengig variabelen.</p>
+<p><strong>Modell</strong> er egentlig bare en representasjon av denne dataen, mens <strong>error</strong> er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data). Dette blir nok mer oppklarende om vi bruker et eksempel:</p>
+<p>Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen er 37, så da kan vi bruke 37 som modell.</p>
 <p><span class="math display">\[
-data = 37 + error
+kroppstemperatur_i = 37 + error_i
 \]</span>
 Det neste du gjør er å ta en febermåling av pasienten, og du måler kroppstemperaturen hennes til å være 40.</p>
 <p><span class="math display">\[
 40 = 37 + error
 \]</span>
-Modellen din bommer derfor mer 3, fordi 40-37 = 3.</p>
+Modellen din tar feil med 3 grader, fordi 40-37 = 3. Vi kaller slike feil for error.</p>
 <p><span class="math display">\[
 40 = 37 + 3
 \]</span>
-Formelt sett regner vi error for en hvilken som helst modell ved å få error alene i ligningen.</p>
+Formelt sett regner vi error for en hvilken som helst modell ved å få error i ligningen alene, ved å reorganisere ligningen.</p>
 <p><span class="math display">\[
-data = modell + error
+data_i = modell + error_i
 \]</span>
 <span class="math display">\[
-error = data - modell
+error_i = data_i - modell
 \]</span>
 <span class="math display">\[
 3 = 40 - 37
 \]</span>
-Dette var en superenkel modell, men viser hvordan vi kan bruke slike modeller. Ofte bygger vi ikke modeller for ett individ, men flere. Tenk bare hvor mange deltakere vi har med i en studie. Modellen vi bygger bør være en god representasjon av alle disse individene. Med andre ord bør erroren være så liten som mulig. <strong>Dette er essensielt!</strong> Vi ønsker å bygge statistiske modeller som er gode, og vi ønsker å sammenligne ulike modeller for å se hvilke av disse modellene som reduserer erroren mest mulig.</p>
-<p>Det er en mer presis og korrekt måte å skrive ligningen over på, og som du ofte ser i artikler og statistikkbøker:</p>
+Gratulerer, du har bygget din første modell. Denne modellen var riktignok nokså enkel, men du vil nok se at det vi skal gjøre videre ikke er så annerledes. Vi bygger riktignok ikke modeller for å passe perfekt til ett enkelt individ, men til et helt datasett. I en studie har du ofte mange deltakere med, og modellen vi skal bygge bør være en god representasjon av disse individene. Med andre ord bør erroren i modell være så liten som mulig. <strong>Dette er viktig!</strong> Vi ønsker å bygge statistiske modeller som er gode, og vi ønsker å sammenligne ulike modeller for å se hvilke av disse modellene som reduserer erroren mest mulig.</p>
+<p>Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:</p>
+<blockquote>
+<blockquote>
+<p>Vi kommer til å benytte denne måten å skrive på fordi det er den dere ser i statistikkbøker og artikler. Tolkningen er akkurat lik.</p>
+</blockquote>
+</blockquote>
 <p><span class="math display">\[
-data = (modell) + error
+data_i = (modell) + error_i
 \]</span>
 <span class="math display">\[
-data = (b_0) + error
-\]</span></p>
+Y_i = (b_0) + error_i
+\]</span>
+Her er <span class="math inline">\(Y_i\)</span> den avhengige variabelen som vi faktisk har målt for et individ, <em>i</em>. Hvis det kun står <span class="math inline">\(b_0\)</span>, så betyr det at vi kun estimerer ett enkelt parameter. I slike tilfeller bruker vi kun ett enkelt parameter til å si noe om hva det enkelte individ hadde i observasjon på den avhengig variabelen, og da predikerer modellen likt for alle individene.</p>
+<p>Vi kan også bruke en mer kompleks modell, som i ligningen under:</p>
 <p><span class="math display">\[
 Y_i = (b_0 + b_1X_i) + error
 \]</span>
-Her er $ <strong>Y_i</strong> $ den avhengige variabelen som vi faktisk har målt for et individ, <em>i</em>. <strong>X_i</strong> er dette individets faktiske måling på variabel X, som vi ofte kaller for prediktorvariabel. Som det fremgår av den siste ligningen har også $ b1 $ hektet på seg. Denne forteller oss forholdet mellom prediktorvariabelen (Xi) og den avhengig variabelen (). Vi skriver den liten liten <em>b</em> fordi dette er noe vi estimerer fra et utvalg. <strong>b0</strong> er vår prediksjon når Xi er <strong>null</strong> og <strong>0</strong>.</p>
-<p>I figurene under ser tre ulike modelle med uinteressante X og Y variabler. Alle har samme b0, mens de har forskjellig b1. Husk at b1 forteller om forholdet mellom X og Y. I modell A ser du at når X øker så øker Y med 0.4 for hver enhets økning i X. I modell B er det ingen relasjon mellom X og Y, så for en enhets økning X, vil Y være den samme. I modell C er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente Y går ned med 0.4 (siden den er negativ).</p>
+<strong>X_i</strong> er dette individets faktiske måling på variabel, X, som vi ofte kaller for prediktorvariabel. Prediktorvariabelen har også <span class="math inline">\(b_1\)</span> hektet på seg. Denne forteller oss forholdet mellom prediktorvariabelen (X<sub>i</sub>) og den avhengig variabelen (Yi). b_0 blir her vår prediksjon når X<sub>i</sub> er <strong>null</strong> og <strong>0</strong>.</p>
+<blockquote>
+<blockquote>
+<p>Figuren under gjør ligningen i mer forståelig</p>
+</blockquote>
+</blockquote>
+<p>I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b<sub>0</sub>, mens de har forskjellig b<sub>1</sub>. Husk at b<sub>1</sub> forteller om forholdet mellom X og Y. I <strong>modell A</strong> ser du at når X øker så øker Y med 0.4 <strong>for hver enhets økning i X</strong>.</p>
+<blockquote>
+<blockquote>
+<p>Dette er slik du skal tolke b<sub>1</sub>. For hver enhets økning i X, dvs gå fra 1 til 2, så forventer vi at Y øker med. På norsk kalles b1 for stigningstallet</p>
+</blockquote>
+</blockquote>
+<p>I <strong>modell B</strong> er det ingen relasjon mellom X og Y, så for en enhets økning i X, vil vi forvente at Y forblir den samme. I <strong>modell C</strong> er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).</p>
+<blockquote>
+<blockquote>
+<p>Bruk tid til å reflektere over det du nettopp leste og det du ser i figurene. Det er viktig å forstå!</p>
+</blockquote>
+</blockquote>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-2-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figur 4.1: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<div id="test-kunnskapen-din" class="section level3" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Test kunnskapen din</h3>
-<p>La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på <em>Y</em>?</p>
+<p><strong>Oppgave</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på <em>Y</em>?</li>
+</ol>
 <p><input class='solveme nospaces' size='3' data-answer='["9.2"]'/>.</p>
-<p>I figuren ser du tre modeller som har ulike b1, men samme b0. b0 er verdien på Y når X = null/0.</p>
+<p>I figuren ser du tre modeller som har forskjellige b<sub>0</sub>, men samme b<sub>1</sub>. b<sub>0</sub> er verdien på Y når X er 0.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-3-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figur 4.2: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-</div>
-<div id="test-kunnskapen-din-1" class="section level3" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Test kunnskapen din</h3>
-<p>La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>?</p>
+<p><strong>Oppgave</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>?</li>
+</ol>
 <p><input class='solveme nospaces' size='3' data-answer='["4.2"]'/>.</p>
-</div>
+<blockquote>
+<blockquote>
+<p>Håper du har fått en liten innføring i ulike modeller.</p>
+</blockquote>
+</blockquote>
 </div>
 <div id="modellbygging-med-null-hypothesis-significance-testing-nhst" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</h2>
@@ -263,7 +294,16 @@ Figur 4.2: <strong>CAPTION THIS FIGURE!!</strong>
 <li><strong>H0</strong>: En null-hypotese som sier at det ikke er noen effekt (f.eks. ingen forskjeller mellom grupper, ingen sammenheng mellom variablene)</li>
 <li><strong>H1</strong>: En alternativ/eksperimentell hypotese som sier at det er en effekt (f.eks. det er en forskjell mellom gruppene)</li>
 </ol>
-<p>For å teste disse hypotesene må forskeren bygge to modeller: en modell for null-hypotesen (vi kaller denne for <strong>null-modellen</strong>) og en <strong>alternativ-modell</strong>. Vi regner ut hvor mye error det er i hver av disse modellene for å se hvilke av disse modellene det er klokt å benytte. Husk at målet er å benytte modeller som er gode og som har lite error. Hvis null-modellen er god nok, så er det ikke noe poeng å bruke den alternative modellen. Men hvis den alternative modellen er mye bedre enn null-modellen, da bør benytte denne. Forskeren gjennomfører deretter en <strong>statistisk test</strong> som representerer den alternative hypotesen. Utfallet av testen er en <strong>verdi</strong>, for eksempel en <em>z-verdi</em>, <em>t-verdi</em> eller <em>f-verdi</em>, som vi kan bruke til å regne ut sannsynligheten for, gitt at null-hypotesen er sann. Forskjellige tester opererer med forskjellige navn på verdiene sine (sorry, men det er bare slik det er).</p>
+<p>For å teste disse hypotesene må forskeren bygge to modeller:
+- en modell for null-hypotesen (vi kaller denne for <strong>null-modellen</strong>)
+- en alternativ-modell som sier det at det er en relasjon eller forskjeller mellom grupper.</p>
+<p>Vi regner ut hvor mye error det er i hver av disse modellene for å se hvilke av disse modellene det er klokt å benytte. Husk at målet er å benytte modeller som er gode og som har lite error. Hvis null-modellen er god nok, så er det ikke noe poeng å bruke den alternative modellen. Men hvis den alternative modellen er mye bedre enn null-modellen, da bør benytte denne.</p>
+<p>Statistikken hjelper oss med å ta en beslutning om hvilke av disse modellene vi skal bruke. Forskeren gjennomfører deretter en <strong>statistisk test</strong> som representerer den alternative hypotesen. Utfallet av testen er en <strong>verdi</strong>, for eksempel en <em>z-verdi</em>, <em>t-verdi</em> eller <em>f-verdi</em>, som vi kan bruke til å regne ut sannsynligheten (<em>p</em>-verdi)for, gitt at null-hypotesen er sann. Forskjellige tester opererer med forskjellige navn på verdiene sine (sorry, men det er bare slik det er).</p>
+<blockquote>
+<blockquote>
+<p>Vi kommer til å ha fokus på å bygge modeller her</p>
+</blockquote>
+</blockquote>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-4-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -273,7 +313,7 @@ Figur 4.3: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 <div id="null-modellen-null-hypotesen" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Null-modellen (null-hypotesen)</h2>
-<p>I vår studie ønsker vi å teste om det er forskjeller mellom de to gruppene som har blitt disponert for ulikt treningsopplegg (3 versus 1 sett). Husk at vi har laget en variabel hvor vi har kodet disse som 0 og 1. Null-hypotesen er at det ikke er noen forskjeller mellom gruppene. En annen måte å formulere dette på er om vi blir bedre til å predikere et individs skår hvis vi vet hvilken gruppe de tilhører eller om vi kun trenger en enkel modell. Den enkleste modellen vi kan benytte er gjennomsnittet i % fremgang 1RM for alle deltakerne. Dette er modellen som representerer null-hypotesen. Med andre ord vår null-modell</p>
+<p>I vår studie ønsker vi å teste om det er forskjeller mellom de to gruppene som har blitt disponert for ulikt treningsopplegg (3 versus 1 sett). Husk at vi har laget en variabel hvor vi har kodet disse som 0 og 1; 0 hvis de trente med ett sett og 1 hvis de trente tre sett. Null-hypotesen er at det ikke er noen forskjeller mellom gruppene. I så fall er gjennomsnittet 1 RM fremgang av alle deltakerne kanskje en god modell. Dette er modellen som representerer null-hypotesen. Med andre ord vår null-modell</p>
 <p><span class="math display">\[
 Y_i = (b_0) + error
 \]</span>
@@ -715,18 +755,48 @@ ett.sett
 </tr>
 </tbody>
 </table>
+<p><strong>Oppgave</strong></p>
 <p>La oss prøve hvordan denne modellen virker. For individ 1 målte vi en fremgang i 1RM underkropp på <strong>40.467</strong>, men modellen vår sa <strong>32.162</strong>. Så modellen bommet med 8.305, dvs. en error på <strong>8.305</strong>.
 <span class="math display">\[
 fremgang.1RM = (mean) + error
 \]</span>
 <span class="math display">\[
 40.467 = 32.162 + 8.305
-\]</span>
-Prøv modellen du også: For individ nr. 8, sier modellen at individet hadde en skår på <input class='solveme nospaces' size='6' data-answer='["32.162"]'/>, men denne personen hadde faktisk en skår på <input class='solveme nospaces' size='6' data-answer='["29.210"]'/>. Modellen bommet derfor med <input class='solveme nospaces' size='6' data-answer='["-2.952"]'/>.</p>
-<p>Vi kan fortsette slik for alle deltakerne vi har hatt med i studien. Husk at vi ikke er interessert i hvir mye bommer for hvert enkelt individ, men for alle indivene. Summer derfor all erroren for alle indidene, hvilket tall får du da? <select class='solveme' data-answer='["null","0"]'> <option></option> <option>null</option> <option>0</option> <option>3</option> <option>-3</option></select>. (tenk over hvorfor du får dette svaret før du leser videre)</p>
-<p>Som du så i forrige oppgave blir det feil å summere alle erroren, men ved å regne <strong>Sum of Squared Error</strong> løser vi dette problemet effektivt. Det vi gjør er å gange error med seg selv (error^2) før vi summerer alt dette sammen.</p>
-<p>Hvis vi regner ut <strong>Sum of Squared Error</strong> for null-modellen fpr vi: <input class='solveme nospaces' size='8' data-answer='["3243.784"]'/>. Dette tallet er viktig! Dette er null-hypotesen vår. Hvis det ikke er noen forskjell mellom de to treningsgruppene våre er det like greit å bruke denne null-modellen. Men hvis vi finner ut at modellen vår blir bedre (dvs. reduserer Sum of Squared Error) ved å legge til en prediktorvariabel som består er av gruppevariabelen vår, da bør vi gjøre dette.</p>
-<p>Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut rent visuelt. Den prikkete streken i figuren under representerer modellen vår som er mean. Som du ser, så gjør den ingen justeringer for de ulike individene. Erroren er avstanden fra den linjen og opp til hvert datapunkt.</p>
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Prøv modellen du også: For individ nr. 8, sier modellen at individet hadde en skår på <input class='solveme nospaces' size='6' data-answer='["32.162"]'/>, men denne personen hadde faktisk en skår på <input class='solveme nospaces' size='6' data-answer='["29.210"]'/>. Modellen bommet derfor med <input class='solveme nospaces' size='6' data-answer='["-2.952"]'/>.</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>Vi kan fortsette slik for alle deltakerne vi har hatt med i studien. Husk at vi ikke er interessert i hvir mye bommer for hvert enkelt individ, men for alle indivene.</p>
+</blockquote>
+</blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Hva får du hvis du summerer all erroren for alle indidene? <select class='solveme' data-answer='["null","0"]'> <option></option> <option>null</option> <option>0</option> <option>3</option> <option>-3</option></select>.</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>tenk over hvorfor du får dette svaret før du leser videre.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Som du så i forrige oppgave blir det feil å summere alle erroren, vi kan løse dette effektivt ved ved å regne <strong>Sum of Squared Error</strong>. Det vi gjør er å gange error med seg selv (error^2) før vi summerer alt dette sammen.</p>
+</blockquote>
+</blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Hvis vi regner ut <strong>Sum of Squared Error</strong> for null-modellen fpr vi: <input class='solveme nospaces' size='8' data-answer='["3243.784"]'/></li>
+</ol>
+<blockquote>
+<blockquote>
+<p>Dette tallet er viktig! Dette er null-hypotesen vår! Hvis det ikke er noen forskjell mellom de to treningsgruppene våre er det like greit å bruke denne null-modellen. Men hvis vi finner ut at modellen vår blir bedre (dvs. reduserer Sum of Squared Error) ved å legge til en prediktorvariabel som består er av gruppevariabelen vår, da bør vi gjøre dette.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut rent visuelt. Den prikkete streken i figuren under representerer modellen vår som er mean. Som du ser, så gjør den ingen justeringer for de ulike individene. Erroren er avstanden fra den linjen og opp til hvert datapunkt. Så hvis vi får til å bygge en bedre modell så vil denne avstanden reduseres for alle individene.</p>
+</blockquote>
+</blockquote>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -737,13 +807,7 @@ Figur 4.4: <strong>CAPTION THIS FIGURE!!</strong>
 <div id="h1-alternativ-modell-alternativ-hypotese" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> H1: Alternativ modell (alternativ hypotese)</h2>
 <p>I forrige avsnitt sa vi at <strong>null-hypotesen (H0)</strong> reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.</p>
-<p><span class="math display">\[
-Y_i = (b_0) + error_i
-\]</span>
-<span class="math display">\[
-Fremgang.1RM_i = (mean) + error_i
-\]</span></p>
-<p>Spørsmålet vi skal stille i dette avsnittet er om vi kan redusere error fra denne ved å benytte en mer kompleks modell som benytter (vår dummykodede kategoriske variabel) som prediktorvariabel:
+<p>Spørsmålet vi skal stille i dette nå er om vi kan redusere error fra denne ved å benytte en mer kompleks modell som benytter (vår dummykodede kategoriske variabel) som prediktorvariabel:
 <span class="math display">\[
 Y_i = (b_0 + b_1X_i) + error
 \]</span>
@@ -751,16 +815,16 @@ Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med tallene
 <p><span class="math display">\[
 Fremgang.1RM_i = b_0 + b_1(Gruppe) + error_i
 \]</span>
-For å fokusere på holde dette på et overordnet nivå, så vil jeg gi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal gå gjennom hvordan vi regner ut disse verdiene.</p>
+For å holde dette på et overordnet nivå, så vil jeg gi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal gå gjennom hvordan vi regner ut disse verdiene. Trykk her hvis du ønsker å finne ut hvoran du regner ut disse verdiene med en gang.</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
 \]</span>
-Modellen sier at vi har en intercept på 21.90. Dette er forventede verdien på Y (Fremgang.1RM) når prediktorvariabelen er 0. Modellen sier også at b1 er 20.52. Med andre ord den forventede økning i Y for en enhets økning i X. Husk at vi lagde en gruppe-variabel der vi kodet de to gruppene våre med 0 og 1. Så hvis et individ tilhørte gruppe 0, blir vår prediksjon:</p>
+Modellen sier at vår b0 er 21.90. Dette er den forventede verdien på Y (Fremgang.1RM) når prediktorvariabelen er 0. Modellen sier også at b1 er 20.52. Med andre ord den forventede økning i Y for en enhets økning i X (også kalt stigningstallet). Husk at vi lagde en gruppe-variabel der vi kodet de to gruppene våre med 0 og 1. Så hvis et individ tilhørte gruppe 0, blir vår prediksjon:</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = 21.90 + b_1(20.52*0) + error_i
 \]</span>
-0*20.52 = 0, så blir stående igjen med b0, vår prediksjon av Y når er nulll
-<span class="math display">\[
+Fordi 0*20.52 = 0, blir stående igjen med b0. Vår prediksjon av et individ som tilhører gruppe 0 blir</p>
+<p><span class="math display">\[
 Fremgang.1RM_i = 21.90 + 0 + error_i
 \]</span>
 <span class="math display">\[
@@ -788,16 +852,14 @@ Visualisert fremstilt blir modellen vår seendes slik ut:</p>
 Figur 4.5: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<p><strong>Oppgaver</strong>
+<p><strong>Oppgave</strong>
 Tabellen under viser 6 individer som tilhørte treningsgruppe. Du ser deres faktiske fremgang i 1RM kolonnen. La oss bruke det vi har lært til å predikere disse personene sin fremgang. Vi bruker samme modell som over</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
 \]</span>
-a) Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
+a. Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 <p><input class='solveme nospaces' size='5' data-answer='["42.42"]'/></p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Hva hadde individ nr i skår?</li>
-</ol>
+<p>b, Hva hadde individ nr i skår?</p>
 <p><input class='solveme nospaces' size='6' data-answer='["47.941"]'/></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>hvor mye error blir det?</li>
@@ -808,9 +870,11 @@ a) Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 </ol>
 <p><input class='solveme nospaces' size='8' data-answer='["30.48144"]'/></p>
 <ol start="5" style="list-style-type: lower-alpha">
-<li>nå som du har jobbet med denne modellen, så lurer jeg på om det er noe kjent med disse verdiene i modellen. Gå tilbake til [link] hvis du trenger et hint.</li>
+<li><p>nå som du har jobbet med denne modellen, så lurer jeg på om det er noe kjent med disse verdiene i modellen. Gå tilbake til [link] hvis du trenger et hint.</p></li>
+<li><p>bo er <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (norskt ord) for gruppen som er kodet med 0.</p></li>
+<li><p>b1 er <input class='solveme nospaces' size='11' data-answer='["forskjellen"]'/> (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1.</p></li>
+<li><p>b0 + b1 er <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (norsk ord) for gruppen som er kodet med 1.</p></li>
 </ol>
-<p>bo er <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (norskt ord) for gruppen som er kodet med 0. b1 er <input class='solveme nospaces' size='11' data-answer='["forskjellen"]'/> (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1. b0 + b1<input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (norsk ord) for gruppen som er kodet med 1.</p>
 <table>
 <caption><span id="tab:unnamed-chunk-11">Table 4.1: </span>Dummy koding</caption>
 <thead>
@@ -919,25 +983,45 @@ Figur 4.6: <strong>CAPTION THIS FIGURE!!</strong>
 <ol style="list-style-type: lower-alpha">
 <li>Hva var sum of squared error for null-modellen?</li>
 </ol>
+<blockquote>
+<blockquote>
 <p>(Sett dette inn i total sum of squares (SS<sub>T</sub>)</p>
+</blockquote>
+</blockquote>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Hva var sum of squared error for den alternative modellen?</li>
 </ol>
-<p>(Sett dette inn i residual sum of squares (SS<sub>R</sub>). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men andre ord. Man kalles dette residuals.</p>
+<blockquote>
+<blockquote>
+<p>(Sett dette inn i residual sum of squares (SS<sub>R</sub>). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men &gt;&gt;andre ord. Man kalles dette residuals.</p>
+</blockquote>
+</blockquote>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen?</li>
 </ol>
+<blockquote>
+<blockquote>
 <p>Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer.</p>
+</blockquote>
+</blockquote>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)?</li>
 </ol>
 <p><input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></p>
+<blockquote>
+<blockquote>
 <p>(Hvis du ikke fikk til oppgave er dette svaret)</p>
+</blockquote>
+</blockquote>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Hva er (<strong>SS<sub>M</sub></strong> / <strong>(SS<sub>T</sub>)</strong>) * 100?</li>
 </ol>
 <p><input class='solveme nospaces' size='2' data-answer='["78"]'/> (uten %-tegnet)</p>
-<p>Riktig. Vi kan se at modellen vår har redusert error med 78 % i forhold til null-modellen. Dette verdien har mange forskjellige navn i statistikken, proportional reduction in error (PRE), R^2 og n^2. Men de referer alle til det samme og kommer med ‘output’ fra testen dere kjører.</p>
+<blockquote>
+<blockquote>
+<p>proportional reduction in error (PRE), R^2 og n^2. Men de referer alle til det samme og kommer med ‘output’ fra testen dere kjører.</p>
+</blockquote>
+</blockquote>
 <p>Det kan høres ut som at en errorrduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i\)</span>. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\)</span>. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi <strong>Mean Squared Error (MSE)</strong>. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.</p>
 <ol start="6" style="list-style-type: lower-alpha">
 <li>Regn ut <strong>Mean Squared Error (MSE)</strong> og putt den inn i ANOVA-tabellen.</li>
