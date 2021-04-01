@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <title>Kapittel 6 Write-up | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 6 Write-up | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 6 Write-up | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datasett.html"/>
-<link rel="next" href="bygge-statistisk-modeller.html"/>
+<link rel="prev" href="hvordan-finne-linjen-i-modellen.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -187,368 +187,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="koding-av-kategoriske-variabler" class="section level1" number="3">
-<h1><span class="header-section-number">Kapittel 3</span> Koding av kategoriske variabler</h1>
-<p>I tabellen på s. kan du se at vi har en tabell med tre kolonner: en kolonne for hver variabel vi har i vårt datasett. Variabelen <strong>gruppe</strong> er en kategorisk vaiabel som har to ulike verdier: “ett.sett” og “tre.sett.” Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles disse denne typen data for et tekstobjekt, “strings” (python/javascript) eller “characters” (R). På norsk kalles disse verdiene for ord. Uansett navn er problemet at vi ikke kan putte ord inn i en statistisk modell; vi er nødt til å representere denne kategoriske vaiabelen med tallverdier. Det er flere måter å gjøre dette på, men de forskjellige måtene gir ulik resultat. Derfor må vi vie en god del tid på dette. Vi går gjennom to måter å gjøre dette på.</p>
-<div id="dummykoding" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Dummykoding</h2>
-<p>En vanlig metode kalles <strong>dummykoding</strong> eller <strong>treatment-koding</strong>. Den går ut på å lage en eller flere variabler med 0 og 1 som de to mulige verdiene. Antall variabler vi trenger avhenger av antall grupper vi vil sammenligne. Siden vårt datasett kun inneholder to grupper, så trenger vi kun en variabel. Vi kan den ene gruppen og den andre 1. Hovedregelen er at vi gir 0 til baselinegruppe og 1 til den eksperimentelle gruppen. Vi gir derfor 0 til 1.sett-gruppen og 1 til 3.sett-gruppen. Gjør dette før du går videre.</p>
-<p>I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruke følgende kode:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="koding-av-kategoriske-variabler.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
-<span id="cb3-2"><a href="koding-av-kategoriske-variabler.html#cb3-2" aria-hidden="true" tabindex="-1"></a>dummykodet.dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="koding-av-kategoriske-variabler.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter dummykoder. If gruppe == &#39;ett.sett&#39;, gi verdien 0, else gi de 1.</span></span>
-<span id="cb3-4"><a href="koding-av-kategoriske-variabler.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummykodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
-<p>I jamovi ville jeg sett følgende video: <a href="https://www.youtube.com/watch?v=iITxK27LfZk" class="uri">https://www.youtube.com/watch?v=iITxK27LfZk</a></p>
-<table>
-<caption><span id="tab:unnamed-chunk-4">Table 3.1: </span>Dummy koding</caption>
-<thead>
-<tr class="header">
-<th align="right">individ</th>
-<th align="left">gruppe</th>
-<th align="right">rm</th>
-<th align="right">dummykodet</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">tre.sett</td>
-<td align="right">40.467</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">tre.sett</td>
-<td align="right">49.072</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">tre.sett</td>
-<td align="right">47.941</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">tre.sett</td>
-<td align="right">44.514</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">tre.sett</td>
-<td align="right">52.288</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">tre.sett</td>
-<td align="right">40.018</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">tre.sett</td>
-<td align="right">49.484</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">tre.sett</td>
-<td align="right">29.210</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">tre.sett</td>
-<td align="right">40.593</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">tre.sett</td>
-<td align="right">37.587</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="left">tre.sett</td>
-<td align="right">35.427</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="left">tre.sett</td>
-<td align="right">42.494</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="left">ett.sett</td>
-<td align="right">17.706</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="left">ett.sett</td>
-<td align="right">17.072</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="left">ett.sett</td>
-<td align="right">18.268</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="left">ett.sett</td>
-<td align="right">25.426</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="left">ett.sett</td>
-<td align="right">32.703</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="left">ett.sett</td>
-<td align="right">19.102</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="left">ett.sett</td>
-<td align="right">22.238</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="left">ett.sett</td>
-<td align="right">22.271</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">21</td>
-<td align="left">ett.sett</td>
-<td align="right">26.179</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">22</td>
-<td align="left">ett.sett</td>
-<td align="right">20.349</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">23</td>
-<td align="left">ett.sett</td>
-<td align="right">23.528</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">24</td>
-<td align="left">ett.sett</td>
-<td align="right">17.960</td>
-<td align="right">0</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="kontrastkoding" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Kontrastkoding</h2>
-<p>Kontrastkoding er et alternativ til dummykoding. Det er en regel som er viktig å følge for å ha en gyldig kontrastkode, og det er at summen av kontrastkodene blir 0. For eksempel er -0.5 og 0.5 gyldige kontrastkoder fordi summen av disse blir 0. Det samme er -10 og +10. 0 og 1 derimot, slik vi har med en dummykodet variabel, er ikke er en gyldig kontrastkode fordi summen av disse blir 1. <strong>Hvilke verdier vi velger å bruke på vår kontrastkodede variabel betyr ingenting for den statistiske test vi gjennomfører, men gjør at vi må fortolke resultatene litt forskjellig</strong>. Med en kontrastkode på +10 og -10 er det en 20 enhets forskjell, mens det ved +0.5 og -0.5 kun er <input class='solveme nospaces' size='1' data-answer='["1"]'/> enhet forskjell.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="koding-av-kategoriske-variabler.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
-<span id="cb4-2"><a href="koding-av-kategoriske-variabler.html#cb4-2" aria-hidden="true" tabindex="-1"></a>kontrastkodet.dat <span class="ot">&lt;-</span> dummykodet.dat <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="koding-av-kategoriske-variabler.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter kontrastkodet. If gruppe == &#39;ett.sett&#39;, gi verdien -0.5, else gi de +0.5</span></span>
-<span id="cb4-4"><a href="koding-av-kategoriske-variabler.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kontrastkodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">+</span><span class="fl">0.5</span>)</span>
-<span id="cb4-5"><a href="koding-av-kategoriske-variabler.html#cb4-5" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-6">Table 2.2: </span>Kontrastkoding</caption>
-<thead>
-<tr class="header">
-<th align="right">individ</th>
-<th align="left">gruppe</th>
-<th align="right">rm</th>
-<th align="right">dummykodet</th>
-<th align="right">kontrastkodet</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">tre.sett</td>
-<td align="right">40.467</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">tre.sett</td>
-<td align="right">49.072</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">tre.sett</td>
-<td align="right">47.941</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">tre.sett</td>
-<td align="right">44.514</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">tre.sett</td>
-<td align="right">52.288</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">tre.sett</td>
-<td align="right">40.018</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">tre.sett</td>
-<td align="right">49.484</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">tre.sett</td>
-<td align="right">29.210</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">tre.sett</td>
-<td align="right">40.593</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">tre.sett</td>
-<td align="right">37.587</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="left">tre.sett</td>
-<td align="right">35.427</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="left">tre.sett</td>
-<td align="right">42.494</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="left">ett.sett</td>
-<td align="right">17.706</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="left">ett.sett</td>
-<td align="right">17.072</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="left">ett.sett</td>
-<td align="right">18.268</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="left">ett.sett</td>
-<td align="right">25.426</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="left">ett.sett</td>
-<td align="right">32.703</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="left">ett.sett</td>
-<td align="right">19.102</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="left">ett.sett</td>
-<td align="right">22.238</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="left">ett.sett</td>
-<td align="right">22.271</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">21</td>
-<td align="left">ett.sett</td>
-<td align="right">26.179</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="even">
-<td align="right">22</td>
-<td align="left">ett.sett</td>
-<td align="right">20.349</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="odd">
-<td align="right">23</td>
-<td align="left">ett.sett</td>
-<td align="right">23.528</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-<tr class="even">
-<td align="right">24</td>
-<td align="left">ett.sett</td>
-<td align="right">17.960</td>
-<td align="right">0</td>
-<td align="right">-0.5</td>
-</tr>
-</tbody>
-</table>
-<p>Spørsmålet dere sikkert lurer på er hvorfor vi dummykoder og kontrastkoder gruppe-variabelen vår. Det korte svaret er at vo gjør det fordi vi skal se at disse to måtene å kode på produserer forskjellige svar.</p>
+<div id="write-up" class="section level1" number="6">
+<h1><span class="header-section-number">Kapittel 6</span> Write-up</h1>
+<p>Det er en ganske standardiser måte å rapporte en statistisk test på. Først skriver du hva har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre.</p>
+<p>’Deltakerne i <select class='solveme' data-answer='["3L-1U"]'> <option></option> <option>1L-3U</option> <option>3L-1U</option></select>-gruppen hadde i gjennomsnitt <select class='solveme' data-answer='["større"]'> <option></option> <option>mindre</option> <option>større</option></select> en lavere % fremgang 1RM, på underkroppsøvelser (M=,SD=), enn som []. Denne forskjellen, [], CI [], var signifikant, <em>t</em>([]) = [], p = [], d=[].</p>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ronnestad_dissimilar_2007" class="csl-entry">
+Rønnestad, Bent, Wilhelm Egeland, Nils Kvamme, Per Refsnes, Fawzi Kadi, and Truls Raastad. 2007. <span>“Dissimilar Effects of One- and Three-Set Strength Training on Strength and Muscle Mass Gains in Upper and Lower Body in Untrained Subjects.”</span> <em>The Journal of Strength and Conditioning Research</em> 21: 157–63. <a href="https://doi.org/10.1519/R-19895.1">https://doi.org/10.1519/R-19895.1</a>.
+</div>
+<div id="ref-weissgerber_beyond_2015" class="csl-entry">
+Weissgerber, Tracey L., Natasa M. Milic, Stacey J. Winham, and Vesna D. Garovic. 2015. <span>“Beyond <span>Bar</span> and <span>Line</span> <span>Graphs</span>: <span>Time</span> for a <span>New</span> <span>Data</span> <span>Presentation</span> <span>Paradigm</span>.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
 </div>
 </div>
 <div class="psyteachr_footer">
@@ -661,8 +311,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="datasett.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bygge-statistisk-modeller.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hvordan-finne-linjen-i-modellen.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

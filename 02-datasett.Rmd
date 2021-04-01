@@ -92,7 +92,7 @@ Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske 
 **Oppgave**.
 
 
-a. "Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
+a. Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
 
 b. Høyden på stolpen representerer `r fitb("gjennomsnittet")` (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
 

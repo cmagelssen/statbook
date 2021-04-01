@@ -158,11 +158,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.2</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a></li>
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
-<li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
-<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
-<li class="chapter" data-level="4.7" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.7</b> T-test</a></li>
+<li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>4.5</b> ANOVA-tabell (variansanalyse)</a></li>
+<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.6</b> T-test</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>5</b> Hvordan finne linjen i modellen?</a></li>
+<li class="chapter" data-level="6" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>6</b> Write-up</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -866,48 +866,98 @@ a) Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 <p>Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler</p>
 <p><input class='solveme nospaces' size='7' data-answer='["2527.50"]'/></p>
 </div>
-<div id="variansanalyse-anova-tabell" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Variansanalyse (ANOVA-tabell)</h2>
-<p>Nå som vi har regnet ut hvor mye error det er i hver av disse modellene - null-modellen og den alternative modellen - er det klart for å gjøre en sammenligning av disse modellene. Modellene vi sammenligner er om alternative-modellen reduserer error mer enn null-modellen. Fra figurene under kan det slik ut; linjen til høyre ser ut til å ligge nærmere observasjonene enn linjen i figuren til venstre.</p>
+<div id="anova-tabell-variansanalyse" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> ANOVA-tabell (variansanalyse)</h2>
+<p>Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - <strong>null-modell</strong> og <strong>den alternative modellen</strong>. Vår neste oppgave er å sammenligne disse modellene. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-12-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figur 4.6: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<p><strong>The total sum of squares (SS<sub>T</sub>)</strong> = <strong>3243.784</strong>
-(SS<sub>T</sub>) er hvor mye error vi får ved å bruke null-modellen.</p>
-<p><strong>The residual sum of squares (SS<sub>R</sub>)</strong> = <strong>716.3</strong>
-(dette er hvor mye error som er igjen etter at vi brukte modellen vår)</p>
-<p>En naturlig ting å gjøre er å regne hvor mye error den alternative modellen vår har redusert error med. Man kaller denne for <strong>The model sum of squares (SS<sub>M</sub>)</strong>:</p>
-<p><strong>The model sum of squares (SS<sub>M</sub>)</strong> = <strong>(SS<sub>T</sub>)</strong> - <strong>(SS<sub>R</sub>)</strong> = <input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></p>
-<p>Hvis vi regner hvor mye error modellen vår har redusert error med, så kan vi se at modellen vår har redusert error med 78 %. Dette er ekstremt mye, og det er sjeldent man finner en så høy prosent. Denne verdien har mange forskjellige navn i statistikken, *proportional reduction in error (PRE)“, R2 og n2.” Og den er viktig. Jeg velger å bruke R2.</p>
-<p><span class="math display">\[
-R2 = (SS_T - SS_R) / SS_T
-\]</span>
-<span class="math display">\[
-R2 = (3243.784 - 716.3) / 3243.784 
-\]</span></p>
-<p><span class="math display">\[
-R2 = 0.7791826
-\]</span>
-Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOVA-tabell de. Her ser du de samme verdiene som vi har regnet manuelt.</p>
+<p>For å sammenligne disse modellene er det vanlig å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.</p>
+<p><strong>ANOVA-tabell</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Modell</th>
+<th>SS</th>
+<th><em>df</em></th>
+<th>MS</th>
+<th><em>F</em></th>
+<th>R2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The model sum of squares (SS<sub>M</sub>)</td>
+<td><input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></td>
+<td><input class='solveme nospaces' size='1' data-answer='["1"]'/></td>
+<td><input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></td>
+<td><input class='solveme nospaces' size='8' data-answer='["77.62945"]'/></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>The residual sum of squares (SS<sub>R</sub>)</td>
+<td><input class='solveme nospaces' size='8' data-answer='["716.2875"]'/></td>
+<td><input class='solveme nospaces' size='2' data-answer='["22"]'/></td>
+<td><input class='solveme nospaces' size='8' data-answer='["32.55852"]'/></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>The total sum of squares (SS<sub>T</sub>)</td>
+<td><input class='solveme nospaces' size='8' data-answer='["3243.784"]'/></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Oppgave</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Hva var sum of squared error for null-modellen?</li>
+</ol>
+<p>(Sett dette inn i total sum of squares (SS<sub>T</sub>)</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Hva var sum of squared error for den alternative modellen?</li>
+</ol>
+<p>(Sett dette inn i residual sum of squares (SS<sub>R</sub>). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men andre ord. Man kalles dette residuals.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen?</li>
+</ol>
+<p>Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer.</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)?</li>
+</ol>
+<p><input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></p>
+<p>(Hvis du ikke fikk til oppgave er dette svaret)</p>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Hva er (<strong>SS<sub>M</sub></strong> / <strong>(SS<sub>T</sub>)</strong>) * 100?</li>
+</ol>
+<p><input class='solveme nospaces' size='2' data-answer='["78"]'/> (uten %-tegnet)</p>
+<p>Riktig. Vi kan se at modellen vår har redusert error med 78 % i forhold til null-modellen. Dette verdien har mange forskjellige navn i statistikken, proportional reduction in error (PRE), R^2 og n^2. Men de referer alle til det samme og kommer med ‘output’ fra testen dere kjører.</p>
+<p>Det kan høres ut som at en errorrduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i\)</span>. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\)</span>. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi <strong>Mean Squared Error (MSE)</strong>. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.</p>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Regn ut <strong>Mean Squared Error (MSE)</strong> og putt den inn i ANOVA-tabellen.</li>
+</ol>
+<p>For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.</p>
+<ol start="7" style="list-style-type: lower-alpha">
+<li>Regn ut <strong>Mean Squared Error (MSE)</strong> og putt den inn i ANOVA-tabellen.</li>
+</ol>
+<p>For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1 = 1. Legg</p>
+<ol start="8" style="list-style-type: lower-alpha">
+<li>I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv <em>p</em>-verdien din inn i?</li>
+</ol>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="bygge-statistisk-modeller.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
 <span id="cb6-2"><a href="bygge-statistisk-modeller.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
-<span id="cb6-3"><a href="bygge-statistisk-modeller.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat)</span></code></pre></div>
-<pre><code>## Call:
-##    aov(formula = rm ~ dummykodet, data = dat)
-## 
-## Terms:
-##                 dummykodet Residuals
-## Sum of Squares   2527.4962  716.2875
-## Deg. of Freedom          1        22
-## 
-## Residual standard error: 5.706008
-## Estimated effects may be unbalanced</code></pre>
-</div>
-<div id="f-test" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> F-test</h2>
+<span id="cb6-3"><a href="bygge-statistisk-modeller.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat))</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## dummykodet   1 2527.5  2527.5   77.63 1.15e-08 ***
+## Residuals   22  716.3    32.6                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre><code>## # A tibble: 24 x 6
 ##       ss sum.ss mod.m  error sum.error   pre
 ##    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
@@ -923,8 +973,8 @@ Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOV
 ## 10  5.42  3244.  42.4  23.4       716. 0.779
 ## # … with 14 more rows</code></pre>
 </div>
-<div id="t-test" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> T-test</h2>
+<div id="t-test" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> T-test</h2>
 <p>ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.</p>
 
 </div>

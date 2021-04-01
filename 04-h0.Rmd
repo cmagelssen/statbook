@@ -409,9 +409,8 @@ Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. 
 
 `r fitb("2527.50")`
 
-## Variansanalyse (ANOVA-tabell)
-Nå som vi har regnet ut hvor mye error det er i hver av disse modellene - null-modellen og den alternative modellen - er det klart for å gjøre en sammenligning av disse modellene. Modellene vi sammenligner er om alternative-modellen reduserer error mer enn null-modellen. Fra figurene under kan det slik ut; linjen til høyre ser ut til å ligge nærmere observasjonene enn linjen i figuren til venstre.
-
+## ANOVA-tabell (variansanalyse)
+Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - **null-modell** og **den alternative modellen**. Vår neste oppgave er å sammenligne disse modellene. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.  
 
 ```{r echo=FALSE}
 a <-ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
@@ -434,8 +433,6 @@ b <- ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
   labs(y="% fremgang 1RM underkropp", x="Dummykodet variabel", title="Alternativ-modell") +
   theme_bw()
 
-
-
 library(cowplot)
 
 plot_grid(a, b, nrow = 1)
@@ -443,39 +440,68 @@ plot_grid(a, b, nrow = 1)
 
 
 ````
-**The total sum of squares (SS<sub>T</sub>)** = **3243.784**
-(SS<sub>T</sub>) er hvor mye error vi får ved å bruke null-modellen.
-
-**The residual sum of squares (SS<sub>R</sub>)** = **716.3** 
-(dette er hvor mye error som er igjen etter at vi brukte modellen vår)
 
 
-En naturlig ting å gjøre er å regne hvor mye error den alternative modellen vår har redusert error med. Man kaller denne for **The model sum of squares (SS<sub>M</sub>)**:
-
-**The model sum of squares (SS<sub>M</sub>)** = **(SS<sub>T</sub>)** - **(SS<sub>R</sub>)** = `r fitb(2527.5)`
-
-Hvis vi regner hvor mye error modellen vår har redusert error med, så kan vi se at modellen vår har redusert error med 78 %. Dette er ekstremt mye, og det er sjeldent man finner en så høy prosent. Denne verdien har mange forskjellige navn i statistikken, *proportional reduction in error (PRE)", R2 og n2". Og den er viktig. Jeg velger å bruke R2.
-
-$$
-R2 = (SS_T - SS_R) / SS_T
-$$
-$$
-R2 = (3243.784 - 716.3) / 3243.784 
-$$
+For å sammenligne disse modellene er det vanlig å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
 
 
-$$
-R2 = 0.7791826
-$$
-Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOVA-tabell de. Her ser du de samme verdiene som vi har regnet manuelt.
+**ANOVA-tabell**
+
+Modell | SS | *df* | MS | *F* | R2 | *p*-verdi
+------------- | ------------- | ------------- | ------------- | ------------- | -------------
+The model sum of squares (SS<sub>M</sub>) | `r fitb(2527.5)` | `r fitb(1)` | `r fitb(2527.5)` | `r fitb(77.62945)` |  |
+The residual sum of squares (SS<sub>R</sub>) | `r fitb(716.2875)` | `r fitb(22)` | `r fitb(32.55852)` | | |
+The total sum of squares (SS<sub>T</sub>) | `r fitb(3243.784)` | | | | |
+
+**Oppgave**
+
+a. Hva var sum of squared error for null-modellen? 
+
+(Sett dette inn i total sum of squares (SS<sub>T</sub>)
+
+b. Hva var sum of squared error for den alternative modellen?
+
+(Sett dette inn i residual sum of squares (SS<sub>R</sub>). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men andre ord. Man kalles dette residuals.
+
+c. Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen?
+
+Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer. 
+
+d. Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)? 
+
+`r fitb(2527.5)`
+
+(Hvis du ikke fikk til oppgave er dette svaret)
+
+e. Hva er (**SS<sub>M</sub>** / **(SS<sub>T</sub>)**) * 100?
+
+`r fitb(78)` (uten %-tegnet)
+
+Riktig. Vi kan se at modellen vår har redusert error med 78 % i forhold til null-modellen. Dette verdien har mange forskjellige navn i statistikken, proportional reduction in error (PRE), R^2 og n^2. Men de referer alle til det samme og kommer med 'output' fra testen dere kjører. 
+
+Det kan høres ut som at en errorrduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra $Y_i = b_0$ til $Y_i = b_0 + b_1X_i$. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra $Y_i = b_0$ til $Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i$. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi **Mean Squared Error (MSE)**. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.  
+
+f. Regn ut **Mean Squared Error (MSE)** og putt den inn i ANOVA-tabellen. 
+
+For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.
+
+
+g. Regn ut **Mean Squared Error (MSE)** og putt den inn i ANOVA-tabellen. 
+
+For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1 = 1. Legg
+
+
+h. I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv *p*-verdien din inn i?
+
+
+
 
 ```{r}
 #aov er en forkortolse for analysis of variance (ANOVA)
 #dette er funksjon som kommer mer R.
-aov(rm ~ dummykodet, dat)
-```
-## F-test
+summary(aov(rm ~ dummykodet, dat))
 
+```
 
 
 ```{r echo=FALSE}

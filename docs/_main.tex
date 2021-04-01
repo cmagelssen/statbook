@@ -307,12 +307,21 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les \citep{weissgerber_beyond_2015}(\url{https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128}). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
-\textbf{Oppgave}
-a) "Stolpediagram er designet for kontinuerlig kategorisk data.
-b) Høyden på stolpen representerer (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
-c) Et stolpediagram viser ikke standard error standardavvik CI fordelingen av observasjonene, og dette spesielt være problematisk ved store små.
-d) Forfatterne av artikkelen anbefaler mer bruk av bar graph scatterplot for kontinuerlige variabler.
-e) Ofte er det brukt error sammen med stolpediagram.
+\textbf{Oppgave}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Stolpediagram er designet for kontinuerlig kategorisk data.
+\item
+  Høyden på stolpen representerer (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+\item
+  Et stolpediagram viser ikke standard error standardavvik CI fordelingen av observasjonene, og dette spesielt være problematisk ved store små.
+\item
+  Forfatterne av artikkelen anbefaler mer bruk av bar graph scatterplot for kontinuerlige variabler.
+\item
+  Ofte er det brukt error sammen med stolpediagram.
+\end{enumerate}
 
 Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta \(SD/sqrt(N)\), så ved store utvalg vil standard error være høyt lite. Standardavviket er kun \(sqrt(varians/n-1)\), så denne vil i større mindre grad være påvirket av utvalgsstørrelsen".
 
@@ -1027,10 +1036,10 @@ SS\_R = \(\sum_{n=1}^N (observert_i - modell_i)^2\)
 
 Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler
 
-\hypertarget{variansanalyse-anova-tabell}{%
-\section{Variansanalyse (ANOVA-tabell)}\label{variansanalyse-anova-tabell}}
+\hypertarget{anova-tabell-variansanalyse}{%
+\section{ANOVA-tabell (variansanalyse)}\label{anova-tabell-variansanalyse}}
 
-Nå som vi har regnet ut hvor mye error det er i hver av disse modellene - null-modellen og den alternative modellen - er det klart for å gjøre en sammenligning av disse modellene. Modellene vi sammenligner er om alternative-modellen reduserer error mer enn null-modellen. Fra figurene under kan det slik ut; linjen til høyre ser ut til å ligge nærmere observasjonene enn linjen i figuren til venstre.
+Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - \textbf{null-modell} og \textbf{den alternative modellen}. Vår neste oppgave er å sammenligne disse modellene. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.
 
 \begin{figure}
 
@@ -1041,53 +1050,119 @@ Nå som vi har regnet ut hvor mye error det er i hver av disse modellene - null-
 \caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-12}
 \end{figure}
 
-\textbf{The total sum of squares (SST)} = \textbf{3243.784}
-(SST) er hvor mye error vi får ved å bruke null-modellen.
+For å sammenligne disse modellene er det vanlig å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
 
-\textbf{The residual sum of squares (SSR)} = \textbf{716.3}
-(dette er hvor mye error som er igjen etter at vi brukte modellen vår)
+\textbf{ANOVA-tabell}
 
-En naturlig ting å gjøre er å regne hvor mye error den alternative modellen vår har redusert error med. Man kaller denne for \textbf{The model sum of squares (SSM)}:
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Modell & SS & \emph{df} & MS & \emph{F} & R2\tabularnewline
+\midrule
+\endhead
+The model sum of squares (SSM) & & & & &\tabularnewline
+The residual sum of squares (SSR) & & & & &\tabularnewline
+The total sum of squares (SST) & & & & &\tabularnewline
+\bottomrule
+\end{longtable}
 
-\textbf{The model sum of squares (SSM)} = \textbf{(SST)} - \textbf{(SSR)} =
+\textbf{Oppgave}
 
-Hvis vi regner hvor mye error modellen vår har redusert error med, så kan vi se at modellen vår har redusert error med 78 \%. Dette er ekstremt mye, og det er sjeldent man finner en så høy prosent. Denne verdien har mange forskjellige navn i statistikken, *proportional reduction in error (PRE)``, R2 og n2''. Og den er viktig. Jeg velger å bruke R2.
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Hva var sum of squared error for null-modellen?
+\end{enumerate}
 
-\[
-R2 = (SS_T - SS_R) / SS_T
-\]
-\[
-R2 = (3243.784 - 716.3) / 3243.784 
-\]
+(Sett dette inn i total sum of squares (SST)
 
-\[
-R2 = 0.7791826
-\]
-Når dere bygger statistiske modeller i R,Jamovi eller SPSS vil dere få en ANOVA-tabell de. Her ser du de samme verdiene som vi har regnet manuelt.
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Hva var sum of squared error for den alternative modellen?
+\end{enumerate}
+
+(Sett dette inn i residual sum of squares (SSR). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men andre ord. Man kalles dette residuals.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen?
+\end{enumerate}
+
+Dette kalles The model sum of squares (SSM) eller regression i statistiske programmer.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Hva er (SST) - (SSR)?
+\end{enumerate}
+
+(Hvis du ikke fikk til oppgave er dette svaret)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Hva er (\textbf{SSM} / \textbf{(SST)}) * 100?
+\end{enumerate}
+
+(uten \%-tegnet)
+
+Riktig. Vi kan se at modellen vår har redusert error med 78 \% i forhold til null-modellen. Dette verdien har mange forskjellige navn i statistikken, proportional reduction in error (PRE), R\^{}2 og n\^{}2. Men de referer alle til det samme og kommer med `output' fra testen dere kjører.
+
+Det kan høres ut som at en errorrduksjon på 78 \% er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra \(Y_i = b_0\) til \(Y_i = b_0 + b_1X_i\). Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra \(Y_i = b_0\) til \(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\). Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi \textbf{Mean Squared Error (MSE)}. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Regn ut \textbf{Mean Squared Error (MSE)} og putt den inn i ANOVA-tabellen.
+\end{enumerate}
+
+For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Regn ut \textbf{Mean Squared Error (MSE)} og putt den inn i ANOVA-tabellen.
+\end{enumerate}
+
+For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1 = 1. Legg
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv \emph{p}-verdien din inn i?
+\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#aov er en forkortolse for analysis of variance (ANOVA)}
 \CommentTok{\#dette er funksjon som kommer mer R.}
-\FunctionTok{aov}\NormalTok{(rm }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dummykodet, dat)}
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{aov}\NormalTok{(rm }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dummykodet, dat))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Call:
-##    aov(formula = rm ~ dummykodet, data = dat)
-## 
-## Terms:
-##                 dummykodet Residuals
-## Sum of Squares   2527.4962  716.2875
-## Deg. of Freedom          1        22
-## 
-## Residual standard error: 5.706008
-## Estimated effects may be unbalanced
+##             Df Sum Sq Mean Sq F value   Pr(>F)    
+## dummykodet   1 2527.5  2527.5   77.63 1.15e-08 ***
+## Residuals   22  716.3    32.6                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{verbatim}
-
-\hypertarget{f-test}{%
-\section{F-test}\label{f-test}}
 
 \begin{verbatim}
 ## # A tibble: 24 x 6
@@ -1201,6 +1276,13 @@ Men må ligningen med verdier. Og da bruker man gjennomsnittet for Y variabelen 
 \[
 32.16231     - (20.52436*0.5) = (21.90013)
 \]
+
+\hypertarget{write-up}{%
+\chapter{Write-up}\label{write-up}}
+
+Det er en ganske standardiser måte å rapporte en statistisk test på. Først skriver du hva har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre.
+
+'Deltakerne i 1L-3U 3L-1U-gruppen hadde i gjennomsnitt mindre større en lavere \% fremgang 1RM, på underkroppsøvelser (M=,SD=), enn som {[}{]}. Denne forskjellen, {[}{]}, CI {[}{]}, var signifikant, \emph{t}({[}{]}) = {[}{]}, p = {[}{]}, d={[}{]}.
 
   \bibliography{book.bib,packages.bib}
 

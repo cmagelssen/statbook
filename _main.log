@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  1 APR 2021 12:55
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  1 APR 2021 19:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -849,34 +849,41 @@ File: 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 [28] [29]
 File: 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf>
-[30] [31] [32]
+
+Overfull \vbox (98.99887pt too high) has occurred while \output is active []
+
+[30] [31] [32] [33] [34
+
+]
 Chapter 5.
 File: 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type
  pdf)
 <use 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf>
-[33
-
-]
-Overfull \hbox (67.73013pt too wide) in paragraph at lines 1147--1181
+[35]
+Overfull \hbox (67.73013pt too wide) in paragraph at lines 1222--1256
  [][] 
  []
 
-[34] [35] (./_main.bbl [36]) [37
+[36] [37] [38]
+Chapter 6.
+(./_main.bbl [39
 
-] (./_main.aux)
+] [40
+
+]) [41] (./_main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 069A4D01B7D18A3424AA6B278053AA21;3219.
+(rerunfilecheck)             Checksum: 8F28DB7C6D5A9090A698341681E911DA;3218.
  ) 
 Here is how much of TeX's memory you used:
- 16393 strings out of 478922
- 292885 string characters out of 5865756
- 770041 words of memory out of 5000000
- 36019 multiletter control sequences out of 15000+600000
+ 16394 strings out of 478922
+ 292891 string characters out of 5865756
+ 770138 words of memory out of 5000000
+ 36020 multiletter control sequences out of 15000+600000
  407417 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,8n,122p,1031b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,8n,122p,1031b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (37 pages).
+Output written on _main.pdf (41 pages).

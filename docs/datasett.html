@@ -158,11 +158,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.2</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a></li>
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#h1-alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> H1: Alternativ modell (alternativ hypotese)</a></li>
-<li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#variansanalyse-anova-tabell"><i class="fa fa-check"></i><b>4.5</b> Variansanalyse (ANOVA-tabell)</a></li>
-<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#f-test"><i class="fa fa-check"></i><b>4.6</b> F-test</a></li>
-<li class="chapter" data-level="4.7" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.7</b> T-test</a></li>
+<li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>4.5</b> ANOVA-tabell (variansanalyse)</a></li>
+<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.6</b> T-test</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>5</b> Hvordan finne linjen i modellen?</a></li>
+<li class="chapter" data-level="6" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>6</b> Write-up</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -191,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapittel 2</span> Datasett</h1>
 <div id="bør-man-trene-med-ett-eller-flere-sett-i-styrketrening" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Bør man trene med ett eller flere sett i styrketrening?</h2>
-<p>Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad <span class="citation">(<a href="hvordan-finne-linjen-i-modellen.html#ref-ronnestad_dissimilar_2007" role="doc-biblioref">Rønnestad et al. 2007</a>)</span></p>
+<p>Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad <span class="citation">(<a href="write-up.html#ref-ronnestad_dissimilar_2007" role="doc-biblioref">Rønnestad et al. 2007</a>)</span></p>
 <p>Eksperimentet ble gjennomført som et <strong>between-subject design</strong> med to grupper:en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis <strong>1L-3U</strong> og <strong>3L-1U</strong> (L=lower; U=Upper).</p>
 <p>De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1RM på underkroppsøvelser. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser.</p>
 <p><img src="design.png" alt="Slik designet Rønnestad et al. (2007) sin studie" />
@@ -388,13 +388,15 @@ a) Hvilken gruppe hadde mest fremgang?
 Figur 2.1: Here is a nice figure!
 </p>
 </div>
-<p>Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les <span class="citation">(<a href="hvordan-finne-linjen-i-modellen.html#ref-weissgerber_beyond_2015" role="doc-biblioref">Weissgerber et al. 2015</a>)</span>(<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128" class="uri">https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128</a>). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.</p>
-<p><strong>Oppgave</strong>
-a) "Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data.
-b) Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
-c) Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>.
-d) Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.
-e) Ofte er det brukt error sammen med stolpediagram.</p>
+<p>Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les <span class="citation">(<a href="write-up.html#ref-weissgerber_beyond_2015" role="doc-biblioref">Weissgerber et al. 2015</a>)</span>(<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128" class="uri">https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128</a>). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.</p>
+<p><strong>Oppgave</strong>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data.</p></li>
+<li><p>Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.</p></li>
+<li><p>Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>.</p></li>
+<li><p>Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.</p></li>
+<li><p>Ofte er det brukt error sammen med stolpediagram.</p></li>
+</ol>
 <p>Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta <span class="math inline">\(SD/sqrt(N)\)</span>, så ved store utvalg vil standard error være <select class='solveme' data-answer='["lite"]'> <option></option> <option>høyt</option> <option>lite</option></select>. Standardavviket er kun <span class="math inline">\(sqrt(varians/n-1)\)</span>, så denne vil i<select class='solveme' data-answer='["mindre"]'> <option></option> <option>større</option> <option>mindre</option></select> grad være påvirket av utvalgsstørrelsen".</p>
 
 </div>

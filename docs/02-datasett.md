@@ -119,11 +119,17 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 \end{figure}
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les [@weissgerber_beyond_2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
-**Oppgave**
-a) "Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data. 
-b) Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
-c) Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>. 
-d) Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.
-e) Ofte er det brukt error sammen med stolpediagram. 
+**Oppgave**.
+
+
+a. Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data. 
+
+b. Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+
+c. Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>. 
+
+d. Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.
+
+e. Ofte er det brukt error sammen med stolpediagram. 
 
 Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta $SD/sqrt(N)$, så ved store utvalg vil standard error være <select class='solveme' data-answer='["lite"]'> <option></option> <option>høyt</option> <option>lite</option></select>. Standardavviket er kun $sqrt(varians/n-1)$, så denne vil i<select class='solveme' data-answer='["mindre"]'> <option></option> <option>større</option> <option>mindre</option></select> grad være påvirket av utvalgsstørrelsen".
