@@ -91,9 +91,13 @@ Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske 
 
 **Oppgave**
 a) "Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
+
 b) Høyden på stolpen representerer `r fitb("gjennomsnittet")` (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+
 c) Et stolpediagram viser ikke `r mcq(c("standard error", "standardavvik", "CI", answer = "fordelingen av observasjonene"))`, og dette spesielt være problematisk ved `r mcq(c("store", answer = "små"))`. 
+
 d) Forfatterne av artikkelen anbefaler mer bruk av `r mcq(c("bar graph", answer = "scatterplot"))` for kontinuerlige variabler.
+
 e) Ofte er det brukt error sammen med stolpediagram. 
 
 Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta $SD/sqrt(N)$, så ved store utvalg vil standard error være `r mcq(c("høyt", answer = "lite"))`. Standardavviket er kun $sqrt(varians/n-1)$, så denne vil i`r mcq(c("større", answer = "mindre"))` grad være påvirket av utvalgsstørrelsen".
