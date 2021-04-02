@@ -541,7 +541,11 @@ e. Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)?
 
 `r fitb(3243.784)`
 
-Vi kan regne ut hvor mange % modellen vår har redusert error med, og dette er gange nyttig. Dette får dere vite når dere kjører en test i Jamovi eller R, men vi kan også regne det for hånd
+Vi kan regne ut hvor mange % modellen vår har redusert error med, og dette er gange nyttig. Dette får dere vite når dere kjører en test i Jamovi eller R, men vi kan også regne det for hånd. Verdien fi vår kalles $R^2$.
+
+$$
+
+$$
 
 
 
