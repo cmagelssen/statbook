@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  2 APR 2021 09:40
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  2 APR 2021 10:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -846,30 +846,31 @@ File: 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 
 Overfull \vbox (92.99887pt too high) has occurred while \output is active []
 
-[29] [30]
-File: 04-h0_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-15-1.pdf>
+[29]
+File: 04-h0_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use 04-h0_files/figure-latex/unnamed-chunk-13-1.pdf>
+[30] [31]
 File: 04-h0_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-16-1.pdf>
-[31] [32]
+[32] [33] [34
+
+]
 Chapter 5.
 File: 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type
  pdf)
 <use 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf>
-[33
-
-]
-Overfull \hbox (67.73013pt too wide) in paragraph at lines 1213--1247
+[35]
+Overfull \hbox (67.73013pt too wide) in paragraph at lines 1249--1283
  [][] 
  []
 
-[34] [35] [36]
+[36] [37] [38]
 Chapter 6.
-(./_main.bbl [37
+(./_main.bbl [39
 
-] [38
+] [40
 
-]) [39] (./_main.aux)
+]) [41] (./_main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -885,4 +886,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1031b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (39 pages).
+Output written on _main.pdf (41 pages).

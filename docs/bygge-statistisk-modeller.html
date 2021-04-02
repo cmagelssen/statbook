@@ -1003,10 +1003,37 @@ Figur 4.6: <strong>CAPTION THIS FIGURE!!</strong>
 <p>Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer.</p>
 </blockquote>
 </blockquote>
+<p>Før vi går videre er det greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren under ser du de tre modellene. SS<sub>T</sub> representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen); SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen. SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare. Vil du si at den alternative modellen vår er god?</p>
+<blockquote>
+<blockquote>
+<p>Hint. Hvis du summerer SS<sub>M</sub> og SS<sub>R</sub> får du SS<sub>T</sub></p>
+</blockquote>
+</blockquote>
+<p>Sammenlign dette med modellen til høyre. Her har vi en modell som er dårlig fordi SS<sub>M</sub> er lav og SS<sub>R</sub> er høy.</p>
+<blockquote>
+<blockquote>
+<p>For sikkerhets skyld. Modellen til høyre ble bare brukt som et eksempel for at du skal forstå at vi kan vurdere hvor god modellen vår er.</p>
+</blockquote>
+</blockquote>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="04-h0_files/figure-html/unnamed-chunk-13-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figur 4.7: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?</li>
+</ol>
+<p><select class='solveme' data-answer='["ja"]'> <option></option> <option>ja</option> <option>nei</option></select>.</p>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)?</li>
 </ol>
 <p><input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></p>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)?</li>
+</ol>
+<p><input class='solveme nospaces' size='8' data-answer='["3243.784"]'/></p>
+<p>Vi kan regne ut</p>
 <blockquote>
 <blockquote>
 <p>(Hvis du ikke fikk til oppgave er dette svaret)</p>
@@ -1045,22 +1072,16 @@ Figur 4.6: <strong>CAPTION THIS FIGURE!!</strong>
 ## Residuals   22  716.3    32.6                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
-<img src="04-h0_files/figure-html/unnamed-chunk-15-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">
-Figur 4.7: <strong>CAPTION THIS FIGURE!!</strong>
-</p>
-</div>
-</div>
-<div id="t-test" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> T-test</h2>
-<p>ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
 <img src="04-h0_files/figure-html/unnamed-chunk-16-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figur 4.8: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
+</div>
+<div id="t-test" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> T-test</h2>
+<p>ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.</p>
 
 </div>
 </div>

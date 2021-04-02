@@ -1074,6 +1074,41 @@ Dette kalles The model sum of squares (SSM) eller regression i statistiske progr
 \end{quote}
 \end{quote}
 
+Før vi går videre er det greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren under ser du de tre modellene. SST representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen); SSR representerer hvor mye error som er igjen etter at vi brukte den alternative modellen. SSM er hvor mye error som modellen vår klarte å forklare. Vil du si at den alternative modellen vår er god?
+
+\begin{quote}
+\begin{quote}
+Hint. Hvis du summerer SSM og SSR får du SST
+\end{quote}
+\end{quote}
+
+Sammenlign dette med modellen til høyre. Her har vi en modell som er dårlig fordi SSM er lav og SSR er høy.
+
+\begin{quote}
+\begin{quote}
+For sikkerhets skyld. Modellen til høyre ble bare brukt som et eksempel for at du skal forstå at vi kan vurdere hvor god modellen vår er.
+\end{quote}
+\end{quote}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-13-1} 
+
+}
+
+\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-13}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?
+\end{enumerate}
+
+ja nei.
+
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
 \setcounter{enumi}{3}
@@ -1081,6 +1116,16 @@ Dette kalles The model sum of squares (SSM) eller regression i statistiske progr
 \item
   Hva er (SST) - (SSR)?
 \end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Hva er (SSR) + (SSM)?
+\end{enumerate}
+
+Vi kan regne ut
 
 \begin{quote}
 \begin{quote}
@@ -1156,26 +1201,17 @@ For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har la
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-15-1} 
-
-}
-
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-15}
-\end{figure}
-
-\hypertarget{t-test}{%
-\section{T-test}\label{t-test}}
-
-ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.
-
-\begin{figure}
-
 {\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-16-1} 
 
 }
 
 \caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-16}
 \end{figure}
+
+\hypertarget{t-test}{%
+\section{T-test}\label{t-test}}
+
+ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.
 
 \hypertarget{hvordan-finne-linjen-i-modellen}{%
 \chapter{Hvordan finne linjen i modellen?}\label{hvordan-finne-linjen-i-modellen}}

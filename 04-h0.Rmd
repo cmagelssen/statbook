@@ -495,9 +495,55 @@ c. Hvor mye sum of squared error er redusert ved å bruke den alternative modell
 
 >>Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer. 
 
+Før vi går videre er det greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren under ser du de tre modellene. SS<sub>T</sub> representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen); SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen.  SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare. Vil du si at den alternative modellen vår er god?
+
+>>Hint. Hvis du summerer SS<sub>M</sub> og SS<sub>R</sub> får du SS<sub>T</sub>
+
+Sammenlign dette med modellen til høyre. Her har vi en modell som er dårlig fordi SS<sub>M</sub> er lav og SS<sub>R</sub> er høy.
+
+>>For sikkerhets skyld. Modellen til høyre ble bare brukt som et eksempel for at du skal forstå at vi kan vurdere hvor god modellen vår er.
+
+```{r echo=FALSE}
+SSE <- c(3243.784, 2527.5, 716.3)
+SS <- c('sst', 'ssm', 'ssr')
+bar <- tibble(SSE, SS)
+
+ a <- ggplot(bar, aes(x = SS, y = SSE, fill = SS)) +
+  geom_col(color="black") +
+  scale_x_discrete(limits = rev) +
+  labs(x="Modellene", y="Sum of Squared Error (SSE)") +
+  theme_bw()
+
+SSE_ny <- c(3243.784, 100, 3143.784)
+SS_ny <- c('sst', 'ssm', 'ssr')
+bar_ny <- tibble(SSE_ny, SS) 
+ 
+b <- ggplot(bar, aes(x = SS_ny, y = SSE_ny, fill = SS_ny)) +
+  geom_col(color="black") +
+  scale_x_discrete(limits = rev) +
+  labs(x="Modellene", y="Sum of Squared Error (SSE)") +
+  theme_bw()
+
+library(cowplot)
+
+plot_grid(a, b, nrow = 1)
+
+```
+e. Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?
+
+`r mcq(c(answer = "ja", "nei"))`. 
+
 d. Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)? 
 
 `r fitb(2527.5)`
+
+e. Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)? 
+
+`r fitb(3243.784)`
+
+Vi kan regne ut hvor mange % modellen vår har redusert error med, og dette er gange nyttig. Dette får dere vite når dere kjører en test i Jamovi eller R, men vi kan også regne det for hånd
+
+
 
 >>(Hvis du ikke fikk til oppgave er dette svaret)
 
@@ -564,16 +610,7 @@ ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å
 
 
 
-```{r echo=FALSE}
-sse <- c(3243.784, 2527.5, 716.3)
-model <- c('sst', 'ssm', 'ssr')
 
-
-bar <- tibble(sse, model)
-
-ggplot(bar, aes(x = model, y = sse, fill = model)) +
-  geom_col() 
-```
 
 
 
