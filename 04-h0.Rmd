@@ -438,7 +438,7 @@ Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. 
 `r fitb("2527.50")`
 
 ## ANOVA-tabell (variansanalyse)
-Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - **null-modell** og **den alternative modellen**. Vår neste oppgave er å sammenligne disse modellene. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.  
+Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - **null-modell** og **den alternative modellen**. Vår neste oppgave er å **sammenligne disse modellene**. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.  
 
 ```{r echo=FALSE}
 a <-ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
