@@ -544,10 +544,36 @@ ok <- dat %>%
 ```
 
 
+```{r echo=FALSE}
+data.frame(f = 0:1000 / 100) %>% 
+           mutate(df_1_22 = df(x = f, df1 = 1, df2 = 22)) %>%
+  gather(key = "df", value = "density", -f) %>%
+ggplot() +
+  geom_line(aes(x = f, y = density), color="#00BFC4") +
+  labs(title = "F-fordelingen ved vår frihetsgrad (df) på 1 og 22",
+       x = "F",
+       y = "Tetthet") +
+  geom_segment(aes(x = 4.30, y = 0, xend = 4.30, yend = 2), linetype = "dashed", col = "red")+
+  theme_bw()
+
+
+````
+
 ## T-test
 ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.
 
 
+
+```{r echo=FALSE}
+sse <- c(3243.784, 2527.5, 716.3)
+model <- c('sst', 'ssm', 'ssr')
+
+
+bar <- tibble(sse, model)
+
+ggplot(bar, aes(x = model, y = sse, fill = model)) +
+  geom_col() 
+```
 
 
 
