@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  2 APR 2021 10:54
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.3.24)  2 APR 2021 17:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -850,40 +850,44 @@ Overfull \vbox (92.99887pt too high) has occurred while \output is active []
 File: 04-h0_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-13-1.pdf>
 [30] [31]
+Overfull \hbox (49.33295pt too wide) detected at line 1164
+[] [] []
+ []
+
+[32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[33] [34]
 File: 04-h0_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use 04-h0_files/figure-latex/unnamed-chunk-16-1.pdf>
-[32] [33] [34
-
-]
-Chapter 5.
-File: 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type
- pdf)
-<use 05-estimering_files/figure-latex/unnamed-chunk-1-1.pdf>
 [35]
-Overfull \hbox (67.73013pt too wide) in paragraph at lines 1253--1287
+File: 04-h0_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use 04-h0_files/figure-latex/unnamed-chunk-17-1.pdf>
+[36]
+Overfull \hbox (67.73013pt too wide) in paragraph at lines 1298--1332
  [][] 
  []
 
-[36] [37] [38]
-Chapter 6.
-(./_main.bbl [39
+[37] [38] [39] [40
 
-] [40
+]
+Chapter 5.
+(./_main.bbl [41] [42
 
-]) [41] (./_main.aux)
+]) [43] (./_main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 737AC528AB62A45694E4F35C150664FE;3070.
+(rerunfilecheck)             Checksum: 16D6B23DEB85B57F15E388CB99967F61;3469.
  ) 
 Here is how much of TeX's memory you used:
- 16404 strings out of 478922
- 293459 string characters out of 5865756
- 770050 words of memory out of 5000000
- 36029 multiletter control sequences out of 15000+600000
+ 16405 strings out of 478922
+ 293443 string characters out of 5865756
+ 775162 words of memory out of 5000000
+ 36031 multiletter control sequences out of 15000+600000
  407409 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1031b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (41 pages).
+Output written on _main.pdf (43 pages).

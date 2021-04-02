@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="koding-av-kategoriske-variabler.html"/>
-<link rel="next" href="hvordan-finne-linjen-i-modellen.html"/>
+<link rel="next" href="write-up.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -154,10 +154,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> Alternativ modell (alternativ hypotese)</a></li>
 <li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>4.5</b> ANOVA-tabell (variansanalyse)</a></li>
-<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.6</b> T-test</a></li>
+<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#teste-null-hypotesen-med-f"><i class="fa fa-check"></i><b>4.6</b> teste null-hypotesen med F</a></li>
+<li class="chapter" data-level="4.7" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#teste-null-hypotesen-med-t"><i class="fa fa-check"></i><b>4.7</b> teste null-hypotesen med t</a></li>
+<li class="chapter" data-level="4.8" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hvordan-finne-linjen-i-modellen"><i class="fa fa-check"></i><b>4.8</b> Hvordan finne linjen i modellen?</a></li>
+<li class="chapter" data-level="4.9" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.9</b> T-test</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>5</b> Hvordan finne linjen i modellen?</a></li>
-<li class="chapter" data-level="6" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>6</b> Write-up</a></li>
+<li class="chapter" data-level="5" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>5</b> Write-up</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -1034,38 +1036,79 @@ Figur 4.7: <strong>CAPTION THIS FIGURE!!</strong>
 </ol>
 <p><input class='solveme nospaces' size='8' data-answer='["3243.784"]'/></p>
 <p>Vi kan regne ut hvor mange % modellen vår har redusert error med, og dette er gange nyttig. Dette får dere vite når dere kjører en test i Jamovi eller R, men vi kan også regne det for hånd. Verdien fi vår kalles <span class="math inline">\(R^2\)</span>.</p>
-<p>$$</p>
-<p>$$</p>
-<blockquote>
-<blockquote>
-<p>(Hvis du ikke fikk til oppgave er dette svaret)</p>
-</blockquote>
-</blockquote>
+<p><span class="math display">\[
+R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
+\]</span></p>
 <ol start="5" style="list-style-type: lower-alpha">
-<li>Hva er (<strong>SS<sub>M</sub></strong> / <strong>(SS<sub>T</sub>)</strong>) * 100?</li>
+<li>Hvilken verdi får du hvis du regner (SS<sub>M</sub>/ (SS<sub>T</sub>)) * 100?</li>
 </ol>
 <p><input class='solveme nospaces' size='2' data-answer='["78"]'/> (uten %-tegnet)</p>
 <blockquote>
 <blockquote>
-<p>proportional reduction in error (PRE), R^2 og n^2. Men de referer alle til det samme og kommer med ‘output’ fra testen dere kjører.</p>
+<p>Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk bruker PRE, <span class="math inline">\(n^2\)</span>. Vit at de mener det samme.</p>
 </blockquote>
 </blockquote>
-<blockquote>
-<blockquote>
-<p>Det kan høres ut som at en errorreduksjon på 78 % er mye, og det er det! Men tenk om vi hadde lagt til flere prediktorvariabler i modellen. Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i\)</span>. Så vi har lagt til et ekstra parameter i modellen. Men kunne i prinsippet ha gått fra <span class="math inline">\(Y_i = b_0\)</span> til <span class="math inline">\(Y_i = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i\)</span>. Da ville vi garantert ha fått en stor errorreduksjon. Derfor regner vi <strong>Mean Squared Error (MSE)</strong>. Det jeg vil at dere skal forstå er at en høy PRE/R2 er mer imponerende hvis du har få parameret med i modellen enn hvis du har mange.</p>
-</blockquote>
-</blockquote>
+<p>Det kan høres ut som at en errorreduksjon på 78 % er mye, og det vil vi absolutt påstå at det er! Kan vi da konkludere at den alternative modellen er bedre enn null-modellen? - det ser jo ut til at dette er mye.</p>
+</div>
+<div id="teste-null-hypotesen-med-f" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> teste null-hypotesen med F</h2>
+<p>For å teste om en SSM eller en errorreduksjon på 78 % er mye eller lite skal vi bruke en F-test og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at <span class="math inline">\(R^2\)</span> = 0. For å teste dette må vi regne ut en F-verdi:</p>
+<p><span class="math display">\[
+F = \frac{(SS_M / df_M)}{SS_R / df_R}
+\]</span>
+Vi har allerede regne ut, så vi kan plotte disse inn.</p>
+<p><span class="math display">\[
+F = \frac{(&lt;input class=&#39;solveme nospaces&#39; size=&#39;6&#39; data-answer=&#39;[&quot;2527.5&quot;]&#39;/&gt; / df_M)}{716.2875 / df_R}
+\]</span>
+Men hva er de respektivene frihetsgradene som er i nevneren og telleren? Å forstå dette vil gi en god forståelse for hva F-verdien er. Vi fokuserer på telleren først. Modellen reduserte Sum of Squared error med 2527.5, som i grunn er mye. Men vi kunne bygget en superkompleks og lagt til haugevis av ekstra parametere. Dette kunne vi gjort ved å f.eks sammenlignet enda flere grupper. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra:</p>
+<p><span class="math display">\[
+Y_i = b_0
+\]</span>
+til:
+<span class="math display">\[
+Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
+\]</span>
+I så fall ville vi garantert ha fått en stor Sum of squared error fordi et parameter alltid vil redusere error noe, aldri øke det. Så det vi skal gjøre i telleren i formelen er å dele på SSm / på antall parametere vi har brukt utover det null-modellen har brukt. Null-modellen hadde kun ett parameter, mens den altenative modellen hadde 2, så df blir 1. Poenget som jeg vil at dere skal huske på er at. Dette er variansen. Poenget er en SSm er mer imponerende om vi har brukt få ekstra parametere.</p>
+<p>Husk at når vi trekker to eller flere utvalg fra en populasjon, så vil disse utvalgene nesten alltid være forskjellige fra hverandre.</p>
+<p>Vi kunne bruke samme prinsipp for t-fordelingen. Null-hypotesen var disse tilfellene var at disse</p>
+<p>Felles for disse fordelingene er at de baserer seg på gjennomsnittet mellom utvalg. V</p>
+<p>Da vi brukte en <em>z</em>-fordeling sa vi at 95 % av utvalgene vi trekker fra en populasjon med et gjennomsnitt på 0 og et standardavvik på 1, ville falle mellom en z-verdi på -1.96 og 1.96, gitt at de ble trukket fra denne populasjonen. Hvis vi plutselig observerte en z-skår for vårt utvalg som høyere enn 1.96 eller lavere enn -1.96, sa vi at vi hadde et signifikant funn og at utvalgene dermed ikke kommer fra samme populasjon. Vi brukte en t-fordeling på lignende måte.</p>
+<p>Men hvis vi brukte en z-fordeling, så sa vi at 95 % av utvalgene vi trekker fra en slik fordeling vil falle mellom en z-verdi mellom -1.96 og 1.96. Vi kan bruke en t-fordeling til å si noe lignende. Felles for z-fordelingen og t-fordelingen er de går på sample means. En f-fordeling baserer seg ikke på means, men på reduksjon i sum of squared errors. Null-hypotesen er at det ikke modellen vår reduserer noe error i det hele tatt. Men fordi forskjellige utvalg gir forskjellige, må vi forvente at det er noen fordelinger under null</p>
+<p>Vi har allerede jobbet med to fordelinger, en z-fordeling, t-fordeling. Det vi skal jobbe med nå er en F-fordeling. En F-fordeling er nesten likt som en z-fordeling og en t-fordeling, men er litt forskjellig fra disse på den måten at en F-fordeling operer med forklart Sum of Squarered error ved modellen, mens en z-fordeling og t-fordeling operer med sample means. Med andre ord, istf. å si hva er sannsynlig for observere en t, gitt att, skal vi spørre hva er sannsynligheten for at det ikke noe explained varians. Gitt at null hypotesen er sann, dvs.. Selv om vi har explained variance i populasjonen, så vil det alltid være litt explained variance fra utvalg til utvalg. Dere husker kanskje. Så det vi må gjøre er å regne ut hvor mye hvor mye f-verdi, og så spørre oss, hva er sannsynligheten for å få en f-statistikk, så stor som denne, gitt at null hypotesen er sann. Explianed variansen av denne modellen er null.</p>
+<p>For å finne ut av dette må vi regne ut en f-verdi. Formelen for dette er</p>
+</div>
+<div id="teste-null-hypotesen-med-t" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> teste null-hypotesen med t</h2>
+<p>Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra:</p>
+<p><span class="math display">\[
+Y_i = b_0
+\]</span>
+til:</p>
+<p><span class="math display">\[
+Y_i = b_0 + b_1X_i
+\]</span></p>
+<p>Men tenk om vi hadde lagt til enda flere prediktorvariabler i modellen. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra:</p>
+<p><span class="math display">\[
+Y_i = b_0
+\]</span>
+til:
+<span class="math display">\[
+Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
+\]</span>
+I så fall ville vi garantert ha fått en stor errorreduksjon fordi noen av disse parameterne ville vært gode. Derfor regner vi gjennomsnittlig squared error, som vi kaller for <strong>Mean Squared Error (MSE)</strong>. Poenget med dette er at høy errorreduksjon med en alternativ modellen er mye mer imponerende hvis vi kun har med en prediktorvariabel enn om vi har med mange. Derfor regner vi <strong>Mean SquaredM Model (MSE)</strong>. MSE regnes ved å ta SS<sub>M</sub> / frihetsgrader (<em>df</em>). Frihetsgradene vi bruker til dette er antatt ektra parametere vi har lagt til i modellen vår med referanse til null-modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.</p>
 <ol start="6" style="list-style-type: lower-alpha">
-<li>Regn ut <strong>Mean Squared Error (MSE)</strong> og putt den inn i ANOVA-tabellen.</li>
+<li>Regn ut <strong>Mean Squared Model (MSM)</strong> og putt den inn i ANOVA-tabellen. <span class="math inline">\(MS_M=\frac{(SS_M)}{df}\)</span>. Legg samtidig antall frihetsgrader for MSE inn i ANOVA-tabellen over.</li>
 </ol>
-<p>For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.</p>
+<p>Det neste vi skal gjøre er å regne er <strong>Mean Squared (MSM)</strong></p>
 <ol start="7" style="list-style-type: lower-alpha">
-<li>Regn ut <strong>Mean Squared Error (MSE)</strong> og putt den inn i ANOVA-tabellen.</li>
+<li><p>Det aller siste vi skal gjøre er å</p></li>
+<li><p>I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv <em>p</em>-verdien din inn i?</p></li>
 </ol>
-<p>For å regne MSE må du ta SSM / df. Her er df antall ekstra parametere v har lagt til i modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1 = 1. Legg</p>
-<ol start="8" style="list-style-type: lower-alpha">
-<li>I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv <em>p</em>-verdien din inn i?</li>
-</ol>
+<p>Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
+- <a href="https://www.youtube.com/watch?v=eSJAjlavPwU" class="uri">https://www.youtube.com/watch?v=eSJAjlavPwU</a>
+- <a href="https://www.youtube.com/watch?v=0xWDulRHd9M" class="uri">https://www.youtube.com/watch?v=0xWDulRHd9M</a>
+- <a href="https://www.youtube.com/watch?v=iAE4UeoVE9A" class="uri">https://www.youtube.com/watch?v=iAE4UeoVE9A</a>
+- <a href="https://www.youtube.com/watch?v=OK4Xns4zabs" class="uri">https://www.youtube.com/watch?v=OK4Xns4zabs</a></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="bygge-statistisk-modeller.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
 <span id="cb5-2"><a href="bygge-statistisk-modeller.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
 <span id="cb5-3"><a href="bygge-statistisk-modeller.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat))</span></code></pre></div>
@@ -1081,8 +1124,301 @@ Figur 4.8: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 </div>
-<div id="t-test" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> T-test</h2>
+<div id="hvordan-finne-linjen-i-modellen" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Hvordan finne linjen i modellen?</h2>
+<p>Nå som vi er kjent med hvordan vi kan bygge og teste statistiske modeller, er det på tide å vise hvordan vi finner regresjonslinjen som vi skal bruke. Mer presist, hvilke verdier skal vi ha for <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> som beskriver denne linjen? Hittil har dere fått disse verdiene av meg, men det vi skal lære nå er hvordan vi kan regne ut disse verdiene for hånd. En viktig sannhet om denne linjen er at regresjonslinjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Med andre ord, verdiene på <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> (som beskriver denne linjen) er slik at det er umulig å redusere error mer. Spørsmålet er hvordan vi finner verdiene på <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> som beskriver denne linjen. En tilnærming kan være å gjette seg fram til hva <span class="math inline">\(b_0\)</span> og <span class="math inline">\(b_1\)</span> skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. I figuren under har jeg prøvd tre ulike modeller, og regner ut hvor mye sum of squared error disse gir.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="04-h0_files/figure-html/unnamed-chunk-17-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figur 4.9: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p><strong>Oppgave</strong>
+a) Hvilken av modellene over gir mest sum of squared error? (SS<sub>Model</sub>)</p>
+<p><select class='solveme' data-answer='["b0=30 b1=7"]'> <option></option> <option>b0=30 b1=7</option> <option>b0=25 b1=28</option> <option>b0=10 b1=30</option></select></p>
+<p>Vi kan holde på slik med slik prøving-og-feiling til vi faktisk finner linjen som reduserer error mest. Det er bare å teste nok verdier. <strong>Minste kvadraters metode</strong> garanterer oss å alltid gi oss er svar. Jeg har laget en video til dere som viser vi kan prøve-og-feile til vi kommer frem til en løsning (se denne):</p>
+<iframe width="798" height="457" src="https://www.youtube.com/embed/kWVtce7YDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Det er en mer effektiv måte å løse dette problemet på. For å finne <strong>b<sub>1</sub></strong> kan vi bruke følgende formel:</p>
+<p><span class="math display">\[ b_1 = \frac{SCP}{SS_x} \]</span>
+Her var det et nytt begrep, <strong>SCP</strong>. SCP står for sum of cross-product deviations. Det brukes til å finne relasjonen mellom to variabler, og er grunnlaget for en rekke utregninger i statistikken, så det kan være lurt å lære seg. SCP finner ut av om en person som er over eller under gjennomsnittet på en variabel, også er over eller under gjennomsnittet på den andre variabelen.</p>
+<p><span class="math display">\[ b_1 = \frac{SCP = \sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} \]</span>
+<span class="math inline">\(\bar{x}\)</span> er gjennomsnittet på x-variabelen (gruppe), mens <span class="math inline">\(\bar{y}\)</span> er gjennomsnittet for y-variabelen (1RM). I tabellen under ser du hvordan vi regner dette. Kolonnen CrossProduct er <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y})\)</span>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-18">Table 4.2: </span>Utregning av Sum of Cross Product (SCP)</caption>
+<thead>
+<tr class="header">
+<th align="right">individ</th>
+<th align="right">gruppe</th>
+<th align="right">gj.snitt.x</th>
+<th align="right">error.x</th>
+<th align="right">rm</th>
+<th align="right">gj.snitt.y</th>
+<th align="right">error.y</th>
+<th align="right">CrossProduct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">40.46704</td>
+<td align="right">32.16231</td>
+<td align="right">8.3047301</td>
+<td align="right">4.1523651</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">49.07223</td>
+<td align="right">32.16231</td>
+<td align="right">16.9099106</td>
+<td align="right">8.4549553</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">47.94131</td>
+<td align="right">32.16231</td>
+<td align="right">15.7789994</td>
+<td align="right">7.8894997</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">44.51389</td>
+<td align="right">32.16231</td>
+<td align="right">12.3515740</td>
+<td align="right">6.1757870</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">52.28750</td>
+<td align="right">32.16231</td>
+<td align="right">20.1251864</td>
+<td align="right">10.0625932</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">40.01750</td>
+<td align="right">32.16231</td>
+<td align="right">7.8551872</td>
+<td align="right">3.9275936</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">49.48425</td>
+<td align="right">32.16231</td>
+<td align="right">17.3219362</td>
+<td align="right">8.6609681</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">29.21048</td>
+<td align="right">32.16231</td>
+<td align="right">-2.9518368</td>
+<td align="right">-1.4759184</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">40.59293</td>
+<td align="right">32.16231</td>
+<td align="right">8.4306117</td>
+<td align="right">4.2153059</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">37.58676</td>
+<td align="right">32.16231</td>
+<td align="right">5.4244472</td>
+<td align="right">2.7122236</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">35.42651</td>
+<td align="right">32.16231</td>
+<td align="right">3.2641906</td>
+<td align="right">1.6320953</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+<td align="right">0.5</td>
+<td align="right">42.49354</td>
+<td align="right">32.16231</td>
+<td align="right">10.3312265</td>
+<td align="right">5.1656133</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">17.70576</td>
+<td align="right">32.16231</td>
+<td align="right">-14.4565510</td>
+<td align="right">7.2282755</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">17.07181</td>
+<td align="right">32.16231</td>
+<td align="right">-15.0905068</td>
+<td align="right">7.5452534</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">18.26811</td>
+<td align="right">32.16231</td>
+<td align="right">-13.8942055</td>
+<td align="right">6.9471027</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">25.42594</td>
+<td align="right">32.16231</td>
+<td align="right">-6.7363771</td>
+<td align="right">3.3681886</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">32.70313</td>
+<td align="right">32.16231</td>
+<td align="right">0.5408147</td>
+<td align="right">-0.2704074</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">19.10226</td>
+<td align="right">32.16231</td>
+<td align="right">-13.0600552</td>
+<td align="right">6.5300276</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">22.23827</td>
+<td align="right">32.16231</td>
+<td align="right">-9.9240435</td>
+<td align="right">4.9620217</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">22.27148</td>
+<td align="right">32.16231</td>
+<td align="right">-9.8908322</td>
+<td align="right">4.9454161</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">26.17889</td>
+<td align="right">32.16231</td>
+<td align="right">-5.9834246</td>
+<td align="right">2.9917123</td>
+</tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">20.34857</td>
+<td align="right">32.16231</td>
+<td align="right">-11.8137453</td>
+<td align="right">5.9068726</td>
+</tr>
+<tr class="odd">
+<td align="right">23</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">23.52773</td>
+<td align="right">32.16231</td>
+<td align="right">-8.6345853</td>
+<td align="right">4.3172926</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+<td align="right">-0.5</td>
+<td align="right">17.95966</td>
+<td align="right">32.16231</td>
+<td align="right">-14.2026514</td>
+<td align="right">7.1013257</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[ b_1 = \frac{SCP = 20.52436}{SSx} \]</span>
+Nå som vi har regnet SCP er det bare å regne SS<sub>x</sub> (sum of squared error for prediktorvariabelen) er fordi man ønsker å ta høyde for hvor mye prediktorvariabelen avviker fra mean. Jeg har dessverre ikke noen supergod forklaring, og jeg synes heller ikke Field forklarer dette godt. Så jeg bare vet at jeg må gjøre det.</p>
+<p><span class="math display">\[ b_1 = \frac{SCP = 20.52436}{6} \]</span>
+<span class="math display">\[ b_1 = 20.52436 \]</span></p>
+<p>Nå gjenstår det bare å finne <strong>b_0</strong>. Denne er enkel å finne når vi først har funnet <strong>b<sub>0</sub></strong>. Husk at modellen vår er en ligning, så ved enkelt finne <strong>b<sub>0</sub></strong> ved omorganisere ligningen: trekker vi fra <span class="math inline">\(b_1X_i\)</span> på hver side av likhetstegnet får vi <strong>b<sub>0</sub></strong> alene:</p>
+<p><span class="math display">\[
+Y_i = (b_0 + b_1X_i)
+\]</span></p>
+<p><span class="math display">\[
+Y_i - b_1X_i = (b_0)
+\]</span></p>
+<p>Men må ligningen med verdier. Og da bruker man gjennomsnittet for Y variabelen og gjennomsnittet for X variabelen.</p>
+<p><span class="math display">\[
+32.16231     - (20.52436*0.5) = (21.90013)
+\]</span></p>
+</div>
+<div id="t-test" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> T-test</h2>
 <p>ANOVA. En annen måte vi kan teste om det er forskjeller mellom to grupper er å teste om det er forskjeller er å kjøre en uavhengig t-test. Ofte sier man at det - Og når ikke. Men har istf. valgt å bygge opp den statistiske kunnskapen vår ved å kjøre en ligning. Så når blir ikke forskjellen så stor.</p>
 
 </div>
@@ -1198,7 +1534,7 @@ window.onload = function() {
         </div>
       </div>
 <a href="koding-av-kategoriske-variabler.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hvordan-finne-linjen-i-modellen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-up.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
