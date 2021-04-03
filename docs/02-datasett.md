@@ -133,3 +133,6 @@ d. Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-
 e. Ofte er det brukt error sammen med stolpediagram. 
 
 Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta $SD/sqrt(N)$, så ved store utvalg vil standard error være <select class='solveme' data-answer='["lite"]'> <option></option> <option>høyt</option> <option>lite</option></select>. Standardavviket er kun $sqrt(varians/n-1)$, så denne vil i<select class='solveme' data-answer='["mindre"]'> <option></option> <option>større</option> <option>mindre</option></select> grad være påvirket av utvalgsstørrelsen".
+
+
+

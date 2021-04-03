@@ -21,7 +21,7 @@ bookdown::gitbook:
     fontsettings:
       theme: white
       family: sans
-      size: 2
+      size: 1.5
     sharing:
       facebook: yes
       twitter: yes
