@@ -302,11 +302,11 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{02-datasett_files/figure-latex/nice-fig-1} 
+{\centering \includegraphics[width=1\linewidth]{02-datasett_files/figure-latex/unnamed-chunk-7-1} 
 
 }
 
-\caption{Here is a nice figure!}\label{fig:nice-fig}
+\caption{Modeller med forskjellig b1}\label{fig:unnamed-chunk-7}
 \end{figure}
 
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les \citep{weissgerber_beyond_2015}(\url{https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128}). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
@@ -980,10 +980,12 @@ SS\_R = \(\sum_{n=1}^N (observert_i - modell_i)^2\)
 
 Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler
 
-\hypertarget{sammenligne-modeller-med-en-anova-tabell-variansanalyse}{%
-\chapter{Sammenligne modeller med en ANOVA-tabell (variansanalyse)}\label{sammenligne-modeller-med-en-anova-tabell-variansanalyse}}
+\hypertarget{sammenligne-modeller}{%
+\chapter{Sammenligne modeller}\label{sammenligne-modeller}}
 
-Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - \textbf{null-modell} og \textbf{den alternative modellen}. Vår neste oppgave er å \textbf{sammenligne disse modellene}. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.
+Nå har vi bygget to statistiske modeller: \textbf{en null-modell} og \textbf{en alternativ modellen}. Det vi sitter igjen med er en \textbf{error} (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å \textbf{sammenligne disse modellene} på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.
+
+Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand, har vi en dårlig modell.
 
 \begin{figure}
 
@@ -991,10 +993,13 @@ Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse m
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-2}
+\caption{Modeller med forskjellig b1}\label{fig:unnamed-chunk-2}
 \end{figure}
 
-For å sammenligne disse modellene er det vanlig å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
+\hypertarget{anova-tabell-variansanalyse}{%
+\section{ANOVA-tabell (variansanalyse)}\label{anova-tabell-variansanalyse}}
+
+En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
 
 \textbf{ANOVA-tabell}
 
@@ -1015,13 +1020,11 @@ The total sum of squares (SST) & & & & &\tabularnewline
 \def\labelenumi{\alph{enumi}.}
 \tightlist
 \item
-  Hva var sum of squared error for null-modellen?
+  Hva er sum of squared error for null-modellen?
 \end{enumerate}
 
 \begin{quote}
-\begin{quote}
 (Sett dette inn i total sum of squares (SST)
-\end{quote}
 \end{quote}
 
 \begin{enumerate}
@@ -1029,13 +1032,11 @@ The total sum of squares (SST) & & & & &\tabularnewline
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Hva var sum of squared error for den alternative modellen?
+  Hva er sum of squared error for den alternative modellen?
 \end{enumerate}
 
 \begin{quote}
-\begin{quote}
 (Sett dette inn i residual sum of squares (SSR). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men \textgreater\textgreater andre ord. Man kalles dette residuals.
-\end{quote}
 \end{quote}
 
 \begin{enumerate}
@@ -1047,35 +1048,31 @@ The total sum of squares (SST) & & & & &\tabularnewline
 \end{enumerate}
 
 \begin{quote}
-\begin{quote}
-Dette kalles The model sum of squares (SSM) eller regression i statistiske programmer.
-\end{quote}
+(Sett dette inn i residual sum of squares (SSR).Dette kalles The model sum of squares (SSM) eller regression i statistiske programmer.
 \end{quote}
 
-Før vi går videre er det greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren under ser du de tre modellene. SST representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen); SSR representerer hvor mye error som er igjen etter at vi brukte den alternative modellen. SSM er hvor mye error som modellen vår klarte å forklare. Vil du si at den alternative modellen vår er god?
-
-\begin{quote}
-\begin{quote}
-Hint. Hvis du summerer SSM og SSR får du SST
-\end{quote}
-\end{quote}
-
-Sammenlign dette med modellen til høyre. Her har vi en modell som er dårlig fordi SSM er lav og SSR er høy.
-
-\begin{quote}
-\begin{quote}
-For sikkerhets skyld. Modellen til høyre ble bare brukt som et eksempel for at du skal forstå at vi kan vurdere hvor god modellen vår er.
-\end{quote}
-\end{quote}
+Det kan noen ganger være greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren til venstre ser du de modellene våre pluss hvor mye error den alternative modellen vår har redusert error med:
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-3-1} 
+{\centering \includegraphics[width=0.6\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-3-1} 
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-3}
+\caption{Visualisering av error ved de ulike modellene}\label{fig:unnamed-chunk-3}
 \end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  SST representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen)
+\item
+  SSR representerer hvor mye error som er igjen etter at vi brukte den alternative modellen.
+\item
+  SSM er hvor mye error som modellen vår klarte å forklare.
+\end{itemize}
+
+Vil du si at den alternative modellen vår er god? Sammenlign dette med modellen til høyre
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1103,7 +1100,8 @@ ja nei.
   Hva er (SSR) + (SSM)?
 \end{enumerate}
 
-Vi kan regne ut hvor mange \% modellen vår har redusert error med, og dette er gange nyttig. Dette får dere vite når dere kjører en test i Jamovi eller R, men vi kan også regne det for hånd. Verdien fi vår kalles \(R^2\).
+Med erroren vi tilgjngelig kan vi noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange \% modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som \(n^2\), mens man i regresjonsanalyser kaller denne for \(R^2\)
+. Vi regner ut det på følgende måte:
 
 \[
 R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
@@ -1125,7 +1123,7 @@ Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk br
 \end{quote}
 \end{quote}
 
-Det kan høres ut som at en errorreduksjon på 78 \% er mye, og det vil vi absolutt påstå at det er! Kan vi da konkludere at den alternative modellen er bedre enn null-modellen? - det ser jo ut til at dette er mye.
+Det kan høres ut som at en errorreduksjon på 78 \% er mye, og det vil vi absolutt påstå at det er!
 
 \hypertarget{teste-null-hypotesen-med-f}{%
 \section{teste null-hypotesen med F}\label{teste-null-hypotesen-med-f}}

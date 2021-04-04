@@ -1,8 +1,12 @@
-# Sammenligne modeller med en ANOVA-tabell (variansanalyse)
+# Sammenligne modeller
 
 
 
-Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - **null-modell** og **den alternative modellen**. Vår neste oppgave er å **sammenligne disse modellene**. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.  
+Nå har vi bygget to statistiske modeller: **en null-modell** og **en alternativ modellen**. Det vi sitter igjen med er en **error** (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å **sammenligne disse modellene** på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre. 
+
+<div class="info">
+Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand, har vi en dårlig  modell.
+</div>
 
 \begin{figure}
 
@@ -10,11 +14,10 @@ Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse m
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-2)
+\caption{Modeller med forskjellig b1}(\#fig:unnamed-chunk-2)
 \end{figure}
-
-For å sammenligne disse modellene er det vanlig å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
-
+## ANOVA-tabell (variansanalyse)
+En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
 
 **ANOVA-tabell**
 
@@ -26,34 +29,37 @@ The total sum of squares (SS<sub>T</sub>) | <input class='solveme nospaces' size
 
 **Oppgave**
 
-a. Hva var sum of squared error for null-modellen? 
+a. Hva er sum of squared error for null-modellen? 
 
->>(Sett dette inn i total sum of squares (SS<sub>T</sub>)
+>(Sett dette inn i total sum of squares (SS<sub>T</sub>)
 
-b. Hva var sum of squared error for den alternative modellen?
+b. Hva er sum of squared error for den alternative modellen?
 
->>(Sett dette inn i residual sum of squares (SS<sub>R</sub>). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men >>andre ord. Man kalles dette residuals.
+>(Sett dette inn i residual sum of squares (SS<sub>R</sub>). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men >>andre ord. Man kalles dette residuals.
 
 c. Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen?
 
->>Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer. 
+>(Sett dette inn i residual sum of squares (SS<sub>R</sub>).Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer. 
 
-Før vi går videre er det greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren under ser du de tre modellene. SS<sub>T</sub> representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen); SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen.  SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare. Vil du si at den alternative modellen vår er god?
-
->>Hint. Hvis du summerer SS<sub>M</sub> og SS<sub>R</sub> får du SS<sub>T</sub>
-
-Sammenlign dette med modellen til høyre. Her har vi en modell som er dårlig fordi SS<sub>M</sub> er lav og SS<sub>R</sub> er høy.
-
->>For sikkerhets skyld. Modellen til høyre ble bare brukt som et eksempel for at du skal forstå at vi kan vurdere hvor god modellen vår er.
+<div class="info">
+Det kan noen ganger være greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren til venstre ser du de modellene våre pluss hvor mye error den alternative modellen vår har redusert error med:
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-3-1} 
+{\centering \includegraphics[width=0.6\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-3-1} 
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-3)
+\caption{Visualisering av error ved de ulike modellene}(\#fig:unnamed-chunk-3)
 \end{figure}
+
+* SS<sub>T</sub> representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen)
+* SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen. 
+* SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare. 
+
+Vil du si at den alternative modellen vår er god? Sammenlign dette med modellen til høyre
+</div>
+
 e. Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?
 
 <select class='solveme' data-answer='["ja"]'> <option></option> <option>ja</option> <option>nei</option></select>. 
@@ -66,7 +72,8 @@ e. Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)?
 
 <input class='solveme nospaces' size='8' data-answer='["3243.784"]'/>
 
-Vi kan regne ut hvor mange % modellen vår har redusert error med, og dette er gange nyttig. Dette får dere vite når dere kjører en test i Jamovi eller R, men vi kan også regne det for hånd. Verdien fi vår kalles $R^2$.
+Med erroren vi tilgjngelig kan vi noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange % modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som $n^2$, mens man i regresjonsanalyser kaller denne for $R^2$
+. Vi regner ut det på følgende måte:
 
 $$
 R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
@@ -78,7 +85,8 @@ e. Hvilken verdi får du hvis du regner (SS<sub>M</sub>/ (SS<sub>T</sub>)) * 100
 
 >>Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk bruker PRE, $n^2$. Vit at de mener det samme.
 
-Det kan høres ut som at en errorreduksjon på 78 % er mye, og det vil vi absolutt påstå at det er! Kan vi da konkludere at den alternative modellen er bedre enn null-modellen? - det ser jo ut til at dette er mye.
+Det kan høres ut som at en errorreduksjon på 78 % er mye, og det vil vi absolutt påstå at det er! 
+
 
 ## teste null-hypotesen med F
 For å teste om en SSM eller en errorreduksjon på 78 % er mye eller lite skal vi bruke en F-test og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at $R^2$ = 0. For å teste dette må vi regne ut en F-verdi:

@@ -83,7 +83,7 @@ a) Hvilken gruppe hadde mest fremgang?
 ## Figur av datasettet
 Vi kan også presentere dataen i en figur. For denne typen data er det veldig vanlig å bruke et **stolpediagram**:
 
-```{r echo=FALSE, nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+```{r echo=FALSE, fig.width=4, fig.height=2.5, fig.cap='Modeller med forskjellig b1'}
 ggplot(dat, aes(gruppe, rm, fill=gruppe)) +
   stat_summary(fun=mean, geom = "col", alpha=.7, width=0.6) +
   stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +

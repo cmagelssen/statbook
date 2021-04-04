@@ -115,11 +115,11 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{02-datasett_files/figure-latex/nice-fig-1} 
+{\centering \includegraphics[width=1\linewidth]{02-datasett_files/figure-latex/unnamed-chunk-7-1} 
 
 }
 
-\caption{Here is a nice figure!}(\#fig:nice-fig)
+\caption{Modeller med forskjellig b1}(\#fig:unnamed-chunk-7)
 \end{figure}
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les [@weissgerber_beyond_2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 5 Sammenligne modeller med en ANOVA-tabell (variansanalyse) | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <title>Kapittel 5 Sammenligne modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 5 Sammenligne modeller med en ANOVA-tabell (variansanalyse) | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 5 Sammenligne modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 5 Sammenligne modeller med en ANOVA-tabell (variansanalyse) | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 5 Sammenligne modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -157,10 +157,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.3.2</b> Alternativ modell (alternativ hypotese)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><i class="fa fa-check"></i><b>5</b> Sammenligne modeller med en ANOVA-tabell (variansanalyse)</a>
+<li class="chapter" data-level="5" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html"><i class="fa fa-check"></i><b>5</b> Sammenligne modeller</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html#teste-null-hypotesen-med-f"><i class="fa fa-check"></i><b>5.1</b> teste null-hypotesen med F</a></li>
-<li class="chapter" data-level="5.2" data-path="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html#teste-null-hypotesen-med-t"><i class="fa fa-check"></i><b>5.2</b> teste null-hypotesen med t</a></li>
+<li class="chapter" data-level="5.1" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>5.1</b> ANOVA-tabell (variansanalyse)</a></li>
+<li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-null-hypotesen-med-f"><i class="fa fa-check"></i><b>5.2</b> teste null-hypotesen med F</a></li>
+<li class="chapter" data-level="5.3" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-null-hypotesen-med-t"><i class="fa fa-check"></i><b>5.3</b> teste null-hypotesen med t</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>6</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="7" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>7</b> Write-up</a></li>
@@ -188,16 +189,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sammenligne-modeller-med-en-anova-tabell-variansanalyse" class="section level1" number="5">
-<h1><span class="header-section-number">Kapittel 5</span> Sammenligne modeller med en ANOVA-tabell (variansanalyse)</h1>
-<p>Nå har vi bygget to modeller og regnet ut hvor mye error det er hver av disse modellene - <strong>null-modell</strong> og <strong>den alternative modellen</strong>. Vår neste oppgave er å <strong>sammenligne disse modellene</strong>. For å gjøre det helt tydelig, så skal vi steste om modellen til høyre er bedre enn modellen til venstre. Når vi sier bedre, så mener vi at den har mindre error i seg.</p>
+<div id="sammenligne-modeller" class="section level1" number="5">
+<h1><span class="header-section-number">Kapittel 5</span> Sammenligne modeller</h1>
+<p>Nå har vi bygget to statistiske modeller: <strong>en null-modell</strong> og <strong>en alternativ modellen</strong>. Det vi sitter igjen med er en <strong>error</strong> (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å <strong>sammenligne disse modellene</strong> på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.</p>
+<div class="info">
+<p>Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand, har vi en dårlig modell.</p>
+</div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <img src="05-sammenligne_files/figure-html/unnamed-chunk-2-1.png" alt="Modeller med forskjellig b1" width="100%" />
 <p class="caption">
 Figur 4.1: Modeller med forskjellig b1
 </p>
 </div>
-<p>For å sammenligne disse modellene er det vanlig å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.</p>
+<div id="anova-tabell-variansanalyse" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> ANOVA-tabell (variansanalyse)</h2>
+<p>En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.</p>
 <p><strong>ANOVA-tabell</strong></p>
 <table>
 <thead>
@@ -239,46 +245,37 @@ Figur 4.1: Modeller med forskjellig b1
 </table>
 <p><strong>Oppgave</strong></p>
 <ol style="list-style-type: lower-alpha">
-<li>Hva var sum of squared error for null-modellen?</li>
+<li>Hva er sum of squared error for null-modellen?</li>
 </ol>
-<blockquote>
 <blockquote>
 <p>(Sett dette inn i total sum of squares (SS<sub>T</sub>)</p>
 </blockquote>
-</blockquote>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Hva var sum of squared error for den alternative modellen?</li>
+<li>Hva er sum of squared error for den alternative modellen?</li>
 </ol>
 <blockquote>
-<blockquote>
 <p>(Sett dette inn i residual sum of squares (SS<sub>R</sub>). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men &gt;&gt;andre ord. Man kalles dette residuals.</p>
-</blockquote>
 </blockquote>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen?</li>
 </ol>
 <blockquote>
-<blockquote>
-<p>Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer.</p>
+<p>(Sett dette inn i residual sum of squares (SS<sub>R</sub>).Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer.</p>
 </blockquote>
-</blockquote>
-<p>Før vi går videre er det greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren under ser du de tre modellene. SS<sub>T</sub> representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen); SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen. SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare. Vil du si at den alternative modellen vår er god?</p>
-<blockquote>
-<blockquote>
-<p>Hint. Hvis du summerer SS<sub>M</sub> og SS<sub>R</sub> får du SS<sub>T</sub></p>
-</blockquote>
-</blockquote>
-<p>Sammenlign dette med modellen til høyre. Her har vi en modell som er dårlig fordi SS<sub>M</sub> er lav og SS<sub>R</sub> er høy.</p>
-<blockquote>
-<blockquote>
-<p>For sikkerhets skyld. Modellen til høyre ble bare brukt som et eksempel for at du skal forstå at vi kan vurdere hvor god modellen vår er.</p>
-</blockquote>
-</blockquote>
+<div class="info">
+<p>Det kan noen ganger være greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren til venstre ser du de modellene våre pluss hvor mye error den alternative modellen vår har redusert error med:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
-<img src="05-sammenligne_files/figure-html/unnamed-chunk-3-1.png" alt="Modeller med forskjellig b1" width="100%" />
+<img src="05-sammenligne_files/figure-html/unnamed-chunk-3-1.png" alt="Visualisering av error ved de ulike modellene" width="60%" />
 <p class="caption">
-Figur 4.2: Modeller med forskjellig b1
+Figur 4.2: Visualisering av error ved de ulike modellene
 </p>
+</div>
+<ul>
+<li>SS<sub>T</sub> representerer den totale erroren (dvs. erroren vi fikk ved å bruke null-modellen)</li>
+<li>SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen.</li>
+<li>SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare.</li>
+</ul>
+<p>Vil du si at den alternative modellen vår er god? Sammenlign dette med modellen til høyre</p>
 </div>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?</li>
@@ -292,7 +289,8 @@ Figur 4.2: Modeller med forskjellig b1
 <li>Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)?</li>
 </ol>
 <p><input class='solveme nospaces' size='8' data-answer='["3243.784"]'/></p>
-<p>Vi kan regne ut hvor mange % modellen vår har redusert error med, og dette er gange nyttig. Dette får dere vite når dere kjører en test i Jamovi eller R, men vi kan også regne det for hånd. Verdien fi vår kalles <span class="math inline">\(R^2\)</span>.</p>
+<p>Med erroren vi tilgjngelig kan vi noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange % modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som <span class="math inline">\(n^2\)</span>, mens man i regresjonsanalyser kaller denne for <span class="math inline">\(R^2\)</span>
+. Vi regner ut det på følgende måte:</p>
 <p><span class="math display">\[
 R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
 \]</span></p>
@@ -305,9 +303,10 @@ R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
 <p>Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk bruker PRE, <span class="math inline">\(n^2\)</span>. Vit at de mener det samme.</p>
 </blockquote>
 </blockquote>
-<p>Det kan høres ut som at en errorreduksjon på 78 % er mye, og det vil vi absolutt påstå at det er! Kan vi da konkludere at den alternative modellen er bedre enn null-modellen? - det ser jo ut til at dette er mye.</p>
-<div id="teste-null-hypotesen-med-f" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> teste null-hypotesen med F</h2>
+<p>Det kan høres ut som at en errorreduksjon på 78 % er mye, og det vil vi absolutt påstå at det er!</p>
+</div>
+<div id="teste-null-hypotesen-med-f" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> teste null-hypotesen med F</h2>
 <p>For å teste om en SSM eller en errorreduksjon på 78 % er mye eller lite skal vi bruke en F-test og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at <span class="math inline">\(R^2\)</span> = 0. For å teste dette må vi regne ut en F-verdi:</p>
 <p><span class="math display">\[
 F = \frac{(SS_M / df_M)}{SS_R / df_R}
@@ -333,8 +332,8 @@ I så fall ville vi garantert ha fått en stor Sum of squared error fordi et par
 <p>Vi har allerede jobbet med to fordelinger, en z-fordeling, t-fordeling. Det vi skal jobbe med nå er en F-fordeling. En F-fordeling er nesten likt som en z-fordeling og en t-fordeling, men er litt forskjellig fra disse på den måten at en F-fordeling operer med forklart Sum of Squarered error ved modellen, mens en z-fordeling og t-fordeling operer med sample means. Med andre ord, istf. å si hva er sannsynlig for observere en t, gitt att, skal vi spørre hva er sannsynligheten for at det ikke noe explained varians. Gitt at null hypotesen er sann, dvs.. Selv om vi har explained variance i populasjonen, så vil det alltid være litt explained variance fra utvalg til utvalg. Dere husker kanskje. Så det vi må gjøre er å regne ut hvor mye hvor mye f-verdi, og så spørre oss, hva er sannsynligheten for å få en f-statistikk, så stor som denne, gitt at null hypotesen er sann. Explianed variansen av denne modellen er null.</p>
 <p>For å finne ut av dette må vi regne ut en f-verdi. Formelen for dette er</p>
 </div>
-<div id="teste-null-hypotesen-med-t" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> teste null-hypotesen med t</h2>
+<div id="teste-null-hypotesen-med-t" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> teste null-hypotesen med t</h2>
 <p>Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra:</p>
 <p><span class="math display">\[
 Y_i = b_0
@@ -365,9 +364,9 @@ I så fall ville vi garantert ha fått en stor errorreduksjon fordi noen av diss
 - <a href="https://www.youtube.com/watch?v=0xWDulRHd9M" class="uri">https://www.youtube.com/watch?v=0xWDulRHd9M</a>
 - <a href="https://www.youtube.com/watch?v=iAE4UeoVE9A" class="uri">https://www.youtube.com/watch?v=iAE4UeoVE9A</a>
 - <a href="https://www.youtube.com/watch?v=OK4Xns4zabs" class="uri">https://www.youtube.com/watch?v=OK4Xns4zabs</a></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
-<span id="cb4-2"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
-<span id="cb4-3"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="sammenligne-modeller.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
+<span id="cb4-2"><a href="sammenligne-modeller.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
+<span id="cb4-3"><a href="sammenligne-modeller.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat))</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## dummykodet   1 2527.5  2527.5   77.63 1.15e-08 ***
 ## Residuals   22  716.3    32.6                     
