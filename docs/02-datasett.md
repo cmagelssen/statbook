@@ -3,7 +3,11 @@
 ## Bør man trene med ett eller flere sett i styrketrening?
 Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er  tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad [@ronnestad_dissimilar_2007]
 
-Eksperimentet ble gjennomført som et **between-subject design** med to grupper:en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis **1L-3U** og **3L-1U** (L=lower; U=Upper). 
+Eksperimentet ble gjennomført som et **between-subject design** med to grupper:
+* en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen
+* en annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. 
+
+Disse gruppene kalte han henholdsvis **1L-3U** og **3L-1U** (L=lower; U=Upper). 
 
 De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1RM på underkroppsøvelser. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser.
 
@@ -72,11 +76,11 @@ Før du går videre er det greit at du gjør deg kjent med datasettet som vi har
 
 a) Hvor mange kolonner er det i tabellen over? <input class='solveme nospaces' size='1' data-answer='["3"]'/>
 b) Hvor mange deltakere var med i studien? <input class='solveme nospaces' size='2' data-answer='["25"]'/>
-c) Hvilke to verdier kan variabelen gruppe? <input class='solveme nospaces' size='16' data-answer='["17.7057638370199","17.0718080302549","18.2681093615135","25.4259377149549","32.7031295498412","19.1022595928954","22.2382713536142","22.271482686717","26.1788902838443","20.3485695627797","23.5277295683526","17.9596634385675"]'/> og <input class='solveme nospaces' size='16' data-answer='["40.4670449581874","49.0722254597917","47.941314229415","44.5138887937954","52.2875012402161","40.0175020520785","49.4842510826695","29.2104780554838","40.5929265524391","37.5867620268333","35.4265054014307","42.4935413884811"]'/>
+c) Hvilke to verdier har variabelen '*gruppe*'? <input class='solveme nospaces' size='16' data-answer='["17.7057638370199","17.0718080302549","18.2681093615135","25.4259377149549","32.7031295498412","19.1022595928954","22.2382713536142","22.271482686717","26.1788902838443","20.3485695627797","23.5277295683526","17.9596634385675"]'/> og <input class='solveme nospaces' size='16' data-answer='["40.4670449581874","49.0722254597917","47.941314229415","44.5138887937954","52.2875012402161","40.0175020520785","49.4842510826695","29.2104780554838","40.5929265524391","37.5867620268333","35.4265054014307","42.4935413884811"]'/>
 
 
 ## Gjennomsnitt for de to gruppene
-Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene ("tre.sett" vs. ett.sett) på % fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å gjøre dette i R:
+Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene ("tre.sett" vs. ett.sett) på % fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å løse dette i R:
 
 
 ```r

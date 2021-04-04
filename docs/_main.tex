@@ -150,7 +150,7 @@
 
 \title{Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)}
 \author{Christian Magelssen}
-\date{2021-04-03}
+\date{2021-04-04}
 
 \begin{document}
 \maketitle
@@ -164,7 +164,7 @@
 
 I dette kapittelet skal vi lære å bygge statistiske modeller for å teste om \textbf{to eller flere grupper er forskjellige på en avhengig variabel som er kontinuerlig}.
 
-En variabel kan sies å være \textbf{kontinuerlig} når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle det; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.
+En variabel kan sies å være \textbf{kontinuerlig} når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle tid; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.
 
 \textbf{Grupper} defineres i psykologifaget som en samling mennesker som deler bestemte karakterstikker. Det kan være spillere på et fotballag, individer på et treningssenter, eller menn og kvinner. Dette er også eksempler på naturlig inndelte grupper i samfunnet. Noen ganger kan det være interessant å se om disse gruppene er forskjellige. For eksempel kan det være interessant å se om individer som trener på treningssenter er sterkere enn de som ikke trener på treningssenter.
 
@@ -178,7 +178,11 @@ Andre ganger kan det være interessant å teste om to grupper, som var like før
 
 Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad \citep{ronnestad_dissimilar_2007}
 
-Eksperimentet ble gjennomført som et \textbf{between-subject design} med to grupper:en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen; En annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen. Disse gruppene kalte han henholdsvis \textbf{1L-3U} og \textbf{3L-1U} (L=lower; U=Upper).
+Eksperimentet ble gjennomført som et \textbf{between-subject design} med to grupper:
+* en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen
+* en annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen.
+
+Disse gruppene kalte han henholdsvis \textbf{1L-3U} og \textbf{3L-1U} (L=lower; U=Upper).
 
 De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1RM på underkroppsøvelser. Den avhengige variabelen ble derfor \%-fremgang på 1RM på underkroppsøvelser.
 
@@ -251,13 +255,13 @@ Før du går videre er det greit at du gjør deg kjent med datasettet som vi har
 \item
   Hvor mange deltakere var med i studien?
 \item
-  Hvilke to verdier kan variabelen gruppe? og
+  Hvilke to verdier har variabelen `\emph{gruppe}'? og
 \end{enumerate}
 
 \hypertarget{gjennomsnitt-for-de-to-gruppene}{%
 \section{Gjennomsnitt for de to gruppene}\label{gjennomsnitt-for-de-to-gruppene}}
 
-Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene (``tre.sett'' vs.~ett.sett) på \% fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å gjøre dette i R:
+Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene (``tre.sett'' vs.~ett.sett) på \% fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å løse dette i R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -354,7 +358,7 @@ I jamovi ville jeg sett følgende video:
 \hypertarget{hensikten-med-modellbygging}{%
 \section{Hensikten med modellbygging}\label{hensikten-med-modellbygging}}
 
-Straks forskere har samlet inn dataen de trenger er den neste oppgave å bygge statistsike modeller som beskriver denne dataen. Hvis en modell er god, kan vi predikere hva en person har skåret på utfallsvariablen uten å bomme altfor mye. Hvis en modell er dårlig bør vi ikke bruke den. I vårt tilfelle ønsker vi å bygge modeller som sier noe om hva en person hadde i \% fremgang i 1RM maks.
+Når forskere har samlet inn dataen de trenger er deres neste oppgave å bygge statistsike modeller som representer denne dataen. Modellene vi tilpasser dataen kan videre brukes til å si noe om hva den sanne verdien er på parameteret av interesse. Hvis en modell er en god representasjon av dataen, dvs. at modellen er god, kan vi med noenluende trygghet si hva en person skåret på utfallsvariablen uten å bomme altfor mye. Hvis en modell er dårlig bør vi vurdere om vi skal bruke den eller ikke. Statistikken, og hjelper oss til å ta slike beslutningerø
 
 Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare bytter ut det i parantesen med en spesifikk modell som vi ønsker å bygge.
 
@@ -364,11 +368,20 @@ data_i = (modell) + error_i
 
 Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det, og det kommer vi til å bli med litt øving. Som vi sa kommer vi til å bruke denne ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre
 
-La oss bryte denne ligningen ned:
+La oss bryte denne ligningen over:
 
-\textbf{Data} er den faktiske observasjonen et individ har hatt på den avhengige variablen. I dette tilfellet er det fremgang i 1RM underkropp. Legg merke til den lille i -en som står bak data og error i ligningen. Denne betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva at individ hadde på den avhengig variabelen. Vi kan erstatte i -en med 3 eller 8. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker i for å holde det generelt. Statistikere bruker ofte begrepet begrepet predikere. Å predikere er et verb synonymt med å forutsi. Min måte å tenke på det er at vi ønsker å si hva en person hadde som faktisk observasjon på den målte avhengig variabelen.
+\begin{itemize}
+\item
+  \textbf{Data} er den faktiske observasjonen et individ har på den avhengige variablen, som i vårt tilfelle \% fremgang i 1RM underkroppsøvelser.
+\item
+  \textbf{Modell} er egentlig bare en representasjon av denne dataen-
+\item
+  \textbf{error} er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).
+\end{itemize}
 
-\textbf{Modell} er egentlig bare en representasjon av denne dataen, mens \textbf{error} er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data). Dette blir nok mer oppklarende om vi bruker et eksempel:
+Legg merke til den lille i-en som står bak data og error i ligningen. i-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte i-en med 3 eller 8. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker i for å holde det generelt
+
+Ligningen over blir nok mer oppklarende om vi bruker et eksempel:
 
 Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen er 37, så da kan vi bruke 37 som modell.
 
@@ -400,11 +413,7 @@ Gratulerer, du har bygget din første modell. Denne modellen var riktignok noks�
 
 Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:
 
-\begin{quote}
-\begin{quote}
 Vi kommer til å benytte denne måten å skrive på fordi det er den dere ser i statistikkbøker og artikler. Tolkningen er akkurat lik.
-\end{quote}
-\end{quote}
 
 \[
 data_i = (modell) + error_i
@@ -412,7 +421,7 @@ data_i = (modell) + error_i
 \[
 Y_i = (b_0) + error_i
 \]
-Her er \(Y_i\) den avhengige variabelen som vi faktisk har målt for et individ, \emph{i}. Hvis det kun står \(b_0\), så betyr det at vi kun estimerer ett enkelt parameter. I slike tilfeller bruker vi kun ett enkelt parameter til å si noe om hva det enkelte individ hadde i observasjon på den avhengig variabelen, og da predikerer modellen likt for alle individene.
+Her er \(Y_i\) den avhengige variabelen for et individ, \emph{i}. Hvis det kun står \(b_0\), så betyr det at vi kun estimerer ett enkelt parameter. I slike tilfeller bruker vi kun ett enkelt parameter til å si noe om hva det enkelte individ hadde i observasjon på den avhengig variabelen, og da predikerer modellen likt for alle individene.
 
 Vi kan også bruke en mer kompleks modell, som i ligningen under:
 
@@ -421,27 +430,23 @@ Y_i = (b_0 + b_1X_i) + error
 \]
 \textbf{X\_i} er dette individets faktiske måling på variabel, X, som vi ofte kaller for prediktorvariabel. Prediktorvariabelen har også \(b_1\) hektet på seg. Denne forteller oss forholdet mellom prediktorvariabelen (Xi) og den avhengig variabelen (Yi). b\_0 blir her vår prediksjon når Xi er \textbf{null} og \textbf{0}.
 
-\begin{quote}
-\begin{quote}
-Figuren under gjør ligningen i mer forståelig
-\end{quote}
-\end{quote}
+,,,
 
-I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b0, mens de har forskjellig b1. Husk at b1 forteller om forholdet mellom X og Y. I \textbf{modell A} ser du at når X øker så øker Y med 0.4 \textbf{for hver enhets økning i X}.
+\hypertarget{visualisering-av-ulike-statistiske-modeller}{%
+\section{Visualisering av ulike statistiske modeller}\label{visualisering-av-ulike-statistiske-modeller}}
 
-\begin{quote}
-\begin{quote}
-Dette er slik du skal tolke b1. For hver enhets økning i X, dvs gå fra 1 til 2, så forventer vi at Y øker med. På norsk kalles b1 for stigningstallet
-\end{quote}
-\end{quote}
+Vi skal nå visualisere ulike modeller for å få en bedre forståelse av hva hva ulike modeller sier oss. I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b0, mens de har forskjellig b1. Husk at b1 forteller om relasjonen mellom X og Y.
 
-I \textbf{modell B} er det ingen relasjon mellom X og Y, så for en enhets økning i X, vil vi forvente at Y forblir den samme. I \textbf{modell C} er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).
+Måten du skal tolke på b1 på: For \textbf{hver enhets økning i X}, dvs. gå fra 1 til 2, 3 til 4, eller 6 til 7, \textbf{forventer vi at Y øker med verdien på b1}. På norsk kalles b1 for \textbf{stigningstallet}. Hvis b1 er 0, er det ingen relasjon mellom X og Y i vårt datasett.
 
-\begin{quote}
-\begin{quote}
-Bruk tid til å reflektere over det du nettopp leste og det du ser i figurene. Det er viktig å forstå!
-\end{quote}
-\end{quote}
+\begin{itemize}
+\item
+  I \textbf{modell A} ser du at når X øker, øker Y med 0.4 \textbf{for hver enhets økning i X}.
+\item
+  I \textbf{modell B} er det ingen relasjon mellom X og Y, så for en enhets økning i X, vil vi forvente at Y forblir den samme.
+\item
+  I \textbf{modell C} er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).
+\end{itemize}
 
 \begin{figure}
 
@@ -454,12 +459,7 @@ Bruk tid til å reflektere over det du nettopp leste og det du ser i figurene. D
 
 \textbf{Oppgave}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  La oss si at vi hatt med et målt et individ sin \textbf{X} og \textbf{Y} (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på \emph{Y}?
-\end{enumerate}
+\textbf{a.} La oss si at vi hatt med et målt et individ sin \textbf{X} til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på \emph{Y}?
 
 .
 
@@ -475,21 +475,24 @@ I figuren ser du tre modeller som har forskjellige b0, men samme b1. b0 er verdi
 \end{figure}
 
 \textbf{Oppgave}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  La oss si at vi hatt med et målt et individ sin \textbf{X} og \textbf{Y} (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på \emph{Y}?
-\end{enumerate}
+\textbf{b.} La oss si at vi hatt med et målt et individ sin \textbf{X} og \textbf{Y} (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på \emph{Y}?
 
 .
 
-\begin{quote}
-\begin{quote}
-Håper du har fått en liten innføring i ulike modeller.
-\end{quote}
-\end{quote}
+I figuren under ser du vært datasett. På Y-aksen har vi plottet \% fremgang i RM for deltakerne våre. På X-aksen har vi plottet de to gruppene våre som vi har dummykodet med 0 og 1.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-4-1} 
+
+}
+
+\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+\textbf{c.} Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt?
+
+Det er ingen relasjon mellom vår dummykodede variabel og \% fremgang 1RM Modellen vår ser ut til å ha en b0 på \textasciitilde20 og en b1 på \textasciitilde{} 20 Modellen vår ser ut til å ha en b0 på \textasciitilde10 og en b1 på \textasciitilde{} 40 Det er en negativ relasjon mellom vår dummykodede variabel og \% fremgang 1RM.
 
 \hypertarget{modellbygging-med-null-hypothesis-significance-testing-nhst}{%
 \section{Modellbygging med `Null-Hypothesis Significance Testing (NHST)'}\label{modellbygging-med-null-hypothesis-significance-testing-nhst}}
@@ -505,31 +508,16 @@ Nå som du har en fått en innføring i hvordan du kan bygge modeller er det på
   \textbf{H1}: En alternativ/eksperimentell hypotese som sier at det er en effekt (f.eks. det er en forskjell mellom gruppene)
 \end{enumerate}
 
-For å teste disse hypotesene må forskeren bygge to modeller:
-- en modell for null-hypotesen (vi kaller denne for \textbf{null-modellen})
-- en alternativ-modell som sier det at det er en relasjon eller forskjeller mellom grupper.
+\textbf{For å teste disse hypotesene må forskeren bygge to modeller:}
+* en modell for null-hypotesen (vi kaller denne for \textbf{null-modellen})
+* en alternativ-modell som sier det at det er en relasjon eller forskjeller mellom grupper.
 
-Vi regner ut hvor mye error det er i hver av disse modellene for å se hvilke av disse modellene det er klokt å benytte. Husk at målet er å benytte modeller som er gode og som har lite error. Hvis null-modellen er god nok, så er det ikke noe poeng å bruke den alternative modellen. Men hvis den alternative modellen er mye bedre enn null-modellen, da bør benytte denne.
+Vi regner ut hvor mye error det er i hver av disse modellene for å se hvilke av disse modellene vi gjør det lurt å benytte. Husk at målet er å benytte modeller som er gode og som har lite error. Hvis null-modellen er god nok, så er det ikke noe poeng å bruke den alternative modellen. Men hvis den alternative modellen er mye bedre enn null-modellen, da bør benytte denne.
 
 Statistikken hjelper oss med å ta en beslutning om hvilke av disse modellene vi skal bruke. Forskeren gjennomfører deretter en \textbf{statistisk test} som representerer den alternative hypotesen. Utfallet av testen er en \textbf{verdi}, for eksempel en \emph{z-verdi}, \emph{t-verdi} eller \emph{f-verdi}, som vi kan bruke til å regne ut sannsynligheten (\emph{p}-verdi)for, gitt at null-hypotesen er sann. Forskjellige tester opererer med forskjellige navn på verdiene sine (sorry, men det er bare slik det er).
 
-\begin{quote}
-\begin{quote}
-Vi kommer til å ha fokus på å bygge modeller her
-\end{quote}
-\end{quote}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{04-h0_files/figure-latex/unnamed-chunk-4-1} 
-
-}
-
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-4}
-\end{figure}
-
 \hypertarget{null-modellen-null-hypotesen}{%
-\section{Null-modellen (null-hypotesen)}\label{null-modellen-null-hypotesen}}
+\subsection{Null-modellen (null-hypotesen)}\label{null-modellen-null-hypotesen}}
 
 I vår studie ønsker vi å teste om det er forskjeller mellom de to gruppene som har blitt disponert for ulikt treningsopplegg (3 versus 1 sett). Husk at vi har laget en variabel hvor vi har kodet disse som 0 og 1; 0 hvis de trente med ett sett og 1 hvis de trente tre sett. Null-hypotesen er at det ikke er noen forskjeller mellom gruppene. I så fall er gjennomsnittet 1 RM fremgang av alle deltakerne kanskje en god modell. Dette er modellen som representerer null-hypotesen. Med andre ord vår null-modell
 
@@ -862,7 +850,7 @@ Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut re
 \end{figure}
 
 \hypertarget{alternativ-modell-alternativ-hypotese}{%
-\section{Alternativ modell (alternativ hypotese)}\label{alternativ-modell-alternativ-hypotese}}
+\subsection{Alternativ modell (alternativ hypotese)}\label{alternativ-modell-alternativ-hypotese}}
 
 I forrige avsnitt sa vi at \textbf{null-hypotesen (H0)} reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.
 
@@ -1015,7 +1003,7 @@ For å sammenligne disse modellene er det vanlig å bruke en ANOVA-tabell. Dette
 
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
-Modell & SS & \emph{df} & MS & \emph{F} & R2\tabularnewline
+Modell & SS & \emph{df} & MS & \emph{F} & \(R^2\)\tabularnewline
 \midrule
 \endhead
 The model sum of squares (SSM) & & & & &\tabularnewline
@@ -1346,20 +1334,18 @@ Men må ligningen med verdier. Og da bruker man gjennomsnittet for Y variabelen 
 32.16231     - (20.52436*0.5) = (21.90013)
 \]
 
-\hypertarget{t-test}{%
-\section{T-test}\label{t-test}}
+\textbf{ANOVA-tabell}
 
-En ANOVA modell tester om vår alternative modell er bedre enn null-modellen totalt sett. Det neste vi kan gjøre er å se på de enkelte \emph{b}-ene i modellen. Husk at b1 er et stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktoren. Det vil med andre ord si tallet jeg forventer at Y øker med hvis jeg går fra 0 til 1, 2 til 3 eller 3 til 4 (alle disse er en enhetsøkning). Hvis verdien på b1 er 0 vil det ikke være noen relasjon mellom disse variablene. Hvis den er mer enn 0 er det en positiv relasjon mellom disse x og y; Hvis den er negativ er det en negativ relasjon mellom disse variablene. Husk at b1 i vårt tilfellet representer forskjellene i gjennomsnitt mellom de to gruppene. Så når vi går fra en enhets økning, vil vi forvente en økning i Y.
-
-in the outcome resulting from a unit change in the predictor; if it is zero it means that as the predictor
-changes, the outcome does not change at all
-
-Remember that the value of b represents the change
-in the outcome resulting from a unit change in the predictor; if it is zero it means that as the predictor
-changes, the outcome does not change at all. In other words, there is no relationship. In
-keeping with the logic of NHST, which the Secret Philanthropic Society told you about , we have
-a null hypothesis that there is no relationship, and an alternative hypothesis that there is. A value
-of b equal to 0 is our null hypothesis, and a value different from 0 is our alternative hypothesis
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Modell & SS & \emph{df} & MS & \emph{F} & R2\tabularnewline
+\midrule
+\endhead
+The model sum of squares (SSM) & & & & &\tabularnewline
+The residual sum of squares (SSR) & & & & &\tabularnewline
+The total sum of squares (SST) & & & & &\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{write-up}{%
 \chapter{Write-up}\label{write-up}}
@@ -1367,6 +1353,60 @@ of b equal to 0 is our null hypothesis, and a value different from 0 is our alte
 Det er en ganske standardiser måte å rapporte en statistisk test på. Først skriver du hva har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre.
 
 'Deltakerne i 1L-3U 3L-1U-gruppen hadde i gjennomsnitt mindre større en lavere \% fremgang 1RM, på underkroppsøvelser (M=,SD=), enn som {[}{]}. Denne forskjellen, {[}{]}, CI {[}{]}, var signifikant, \emph{t}({[}{]}) = {[}{]}, p = {[}{]}, d={[}{]}.
+
+\hypertarget{t-test---er-b_1-signifikant-forskjellig-fra-null}{%
+\section{\texorpdfstring{T-test - er \(b_1\) signifikant forskjellig fra null?}{T-test - er b\_1 signifikant forskjellig fra null?}}\label{t-test---er-b_1-signifikant-forskjellig-fra-null}}
+
+En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart: \textbf{er b1 i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?}
+
+Hvis b1 er 0, er det ingen relasjon mellom disse variablene. Hvis den er større enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen; Hvis den er negativ er det en negativ relasjon mellom disse variablene. Husk at b1 i vårt tilfelle representer forskjellene i gjennomsnitt mellom de to gruppene. Det er med andre ord like gyldig å spørre om det er en relasjon mellom variablene som at det er en forskjell i means mellom to grupper.
+
+Vi kan tydelig se at b1 er forskjellig fra 0 i vårt utvalg, men husk at denne forskjellen kan skyldes sampling variation som vi kan forvente under null-hypotesen. Vi må derfor teste om de to utvalgene vi har kommer fra samme eller to forskjellige populasjoner (en endring som i så fall har skjedd fordi vi har gitt de to utvalgene forskjellig treningsopplegg). Dette kan vi finne ut ved å kjøre en uavhengig t-test.
+
+\[
+t.test = \frac{(b_1observert - b_1forventet)}{\text{standard error of } b_1}
+\]
+Vi vet allerede b1observert (den observerte forskjellen mellom de to utvalgene) og b1forventet (null-hypotesen er at det ikke er noen relasjon mellom disse variablene, så denne blir null. Så vi kan plotte inn disse verdiene.
+
+\[
+t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
+\]
+Det som gjenstår er å finne ut hva standard error of b1 er. Vi har tidligere regnet ut standard error of mean \(SD/sqrt(N)\), og vi kan gjøre noe lignende for å regne ut standard error of b1. Men for å fokusere på det store bildet vil jeg gi dere den estimerte standard error of b1
+
+Prosedyren for å regne ut standard error of b1 er ikke vanskelig, men det er en del utregningsledd. Så lenge dere forstå at standard error of b1 er et mål på hvor mye utvalg vil være forskjellige fra hverandre, så tenker jeg at dere ikke vil øke deres forståelse ved å lære å regne standard error of b1, men jeg kan selvfølgelig ta feil. Jeg anbefaler dere på det sterkeste at der ser \href{https://www.youtube.com/watch?v=3L9ZMdzJyyI}{denne videoen}
+
+Fra mitt output i Jamovi kan jeg lese at standard error of b1 er \textbf{2.33}.
+
+\begin{figure}
+\centering
+\includegraphics{output.png}
+\caption{ny}
+\end{figure}
+
+Så jeg kan bruke dette i utregningen av t.
+
+\[
+t.test = \frac{(20.52 - 0)}{2.33}
+\]
+
+\[
+t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
+\]
+\[
+t.test = 8.806867
+\]
+Vår t-verdi er 8.80. Vi kqn se tydelig se at denne t-verdier er større enn den kritiske verdien på \textasciitilde{} 2, så vi kan konkludere at vi har et signifikant funn. De to utvalgene vi har med i studien synes å komme fra forskjellig populasjon. Vi kan lese denne t-verdien fra output tabellen fra Jamovi at vår p-verdi er \textless{} 0.001.
+
+En liten notis som er viktig å være observant på.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{07-ttest_files/figure-latex/unnamed-chunk-1-1} 
+
+}
+
+\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-1}
+\end{figure}
 
   \bibliography{book.bib,packages.bib}
 
