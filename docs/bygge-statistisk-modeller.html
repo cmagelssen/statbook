@@ -265,9 +265,9 @@ Y_i = (b_0 + b_1X_i) + error
 <li><p>I <strong>modell C</strong> er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).</p></li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="04-modellbygging_files/figure-html/unnamed-chunk-2-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<img src="04-modellbygging_files/figure-html/unnamed-chunk-2-1.png" alt="Modeller med forskjellig b1" width="100%" />
 <p class="caption">
-Figur 4.1: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.1: Modeller med forskjellig b1
 </p>
 </div>
 <p><strong>Oppgave</strong></p>
@@ -275,9 +275,9 @@ Figur 4.1: <strong>CAPTION THIS FIGURE!!</strong>
 <p><input class='solveme nospaces' size='3' data-answer='["9.2"]'/>.</p>
 <p>I figuren ser du tre modeller som har forskjellige b<sub>0</sub>, men samme b<sub>1</sub>. b<sub>0</sub> er verdien på Y når X er 0.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
-<img src="04-modellbygging_files/figure-html/unnamed-chunk-3-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<img src="04-modellbygging_files/figure-html/unnamed-chunk-3-1.png" alt="Modeller med forskjellig b0" width="100%" />
 <p class="caption">
-Figur 4.2: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.2: Modeller med forskjellig b0
 </p>
 </div>
 <p><strong>Oppgave</strong>
@@ -285,9 +285,9 @@ Figur 4.2: <strong>CAPTION THIS FIGURE!!</strong>
 <p><input class='solveme nospaces' size='3' data-answer='["4.2"]'/>.</p>
 <p>I figuren under ser du vært datasett. På Y-aksen har vi plottet % fremgang i RM for deltakerne våre. På X-aksen har vi plottet de to gruppene våre som vi har dummykodet med 0 og 1.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
-<img src="04-modellbygging_files/figure-html/unnamed-chunk-4-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<img src="04-modellbygging_files/figure-html/unnamed-chunk-4-1.png" alt="Vår data" width="100%" />
 <p class="caption">
-Figur 4.3: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.3: Vår data
 </p>
 </div>
 <p><strong>c.</strong> Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt?</p>
@@ -788,9 +788,9 @@ fremgang.1RM = (mean) + error
 </blockquote>
 <p>Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut rent visuelt. Den prikkete streken i figuren under representerer modellen vår som er mean. Som du ser, så gjør den ingen justeringer for de ulike individene. Erroren er avstanden fra den linjen og opp til hvert datapunkt. Så hvis vi får til å bygge en bedre modell så vil denne avstanden reduseres for alle individene.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
-<img src="04-modellbygging_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<img src="04-modellbygging_files/figure-html/unnamed-chunk-8-1.png" alt="Modeller med forskjellig b1" width="100%" />
 <p class="caption">
-Figur 4.4: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.4: Modeller med forskjellig b1
 </p>
 </div>
 </div>
@@ -828,18 +828,10 @@ Fremgang.1RM_i = 21.90 + b1(20.52*1) + error_i
 Fremgang.1RM_i = 42.48 + error_i
 \]</span>
 Visualisert fremstilt blir modellen vår seendes slik ut:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="bygge-statistisk-modeller.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(dummykodet, rm, <span class="at">color=</span>dummykodet)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="bygge-statistisk-modeller.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb4-3"><a href="bygge-statistisk-modeller.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="bygge-statistisk-modeller.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span></span>
-<span id="cb4-5"><a href="bygge-statistisk-modeller.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb4-6"><a href="bygge-statistisk-modeller.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="at">fun =</span> mean, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>, <span class="at">size=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="bygge-statistisk-modeller.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;% fremgang 1RM underkropp&quot;</span>, <span class="at">x=</span><span class="st">&quot;Dummykodet variabel&quot;</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="bygge-statistisk-modeller.html#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="04-modellbygging_files/figure-html/unnamed-chunk-9-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<img src="04-modellbygging_files/figure-html/unnamed-chunk-9-1.png" alt="Modeller med forskjellig b1" width="100%" />
 <p class="caption">
-Figur 4.5: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 4.5: Modeller med forskjellig b1
 </p>
 </div>
 <p><strong>Oppgave</strong>

@@ -105,7 +105,7 @@ Måten du skal tolke på b<sub>1</sub> på: For **hver enhets økning i X**, dvs
 * I **modell C** er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Modeller med forskjellig b1'}
 set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
 a <- seq(0:10)
 b <- seq(0:10)
@@ -154,7 +154,7 @@ plot_grid(first,second, third, nrow = 1)
 
 I figuren ser du tre modeller som har forskjellige b<sub>0</sub>, men samme b<sub>1</sub>. b<sub>0</sub> er verdien på Y når X er 0. 
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Modeller med forskjellig b0'}
 set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
 a <- seq(0:10)
 b <- seq(0:10)
@@ -201,7 +201,7 @@ plot_grid(first,second, third, nrow = 1)
 I figuren under ser du vært datasett. På Y-aksen har vi plottet % fremgang i RM for deltakerne våre. På X-aksen har vi plottet de to gruppene våre som vi har dummykodet med 0 og 1.
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Vår data'}
 set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
 tre.sett <- rnorm(n = 12, mean = 41, sd = 5) #12 individer
 ett.sett <-rnorm(n = 12, mean = 21, sd = 5) #12 individer
@@ -324,7 +324,7 @@ c. Hvis vi regner ut  **Sum of Squared Error** for null-modellen fpr vi: `r fitb
 
 Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut rent visuelt. Den prikkete streken i figuren under representerer modellen vår som er mean. Som du ser, så gjør den ingen justeringer for de ulike individene. Erroren er avstanden fra den linjen og opp til hvert datapunkt. Så hvis vi får til å bygge en bedre modell så vil denne avstanden reduseres for alle individene.
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Modeller med forskjellig b1'}
 #lager et nytt objekt som heter dummykodet.dat
 set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
 tre.sett <- rnorm(n = 12, mean = 41, sd = 5) #12 individer
@@ -399,7 +399,7 @@ Fremgang.1RM_i = 42.48 + error_i
 $$ 
 Visualisert fremstilt blir modellen vår seendes slik ut:
 
-```{r}
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Modeller med forskjellig b1'}
 
 ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
   geom_point()+

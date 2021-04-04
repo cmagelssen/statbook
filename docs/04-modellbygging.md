@@ -108,7 +108,7 @@ Måten du skal tolke på b<sub>1</sub> på: For **hver enhets økning i X**, dvs
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-2)
+\caption{Modeller med forskjellig b1}(\#fig:unnamed-chunk-2)
 \end{figure}
 
 
@@ -126,7 +126,7 @@ I figuren ser du tre modeller som har forskjellige b<sub>0</sub>, men samme b<su
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-3)
+\caption{Modeller med forskjellig b0}(\#fig:unnamed-chunk-3)
 \end{figure}
 **Oppgave**
 **b.** La oss si at vi hatt med et målt et individ sin **X** og **Y** (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på *Y*?
@@ -142,7 +142,7 @@ I figuren under ser du vært datasett. På Y-aksen har vi plottet % fremgang i R
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-4)
+\caption{Vår data}(\#fig:unnamed-chunk-4)
 \end{figure}
 
 **c.** Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt? 
@@ -398,7 +398,7 @@ Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut re
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-8)
+\caption{Modeller med forskjellig b1}(\#fig:unnamed-chunk-8)
 \end{figure}
 
 
@@ -442,25 +442,13 @@ Fremgang.1RM_i = 42.48 + error_i
 $$ 
 Visualisert fremstilt blir modellen vår seendes slik ut:
 
-
-```r
-ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
-  geom_point()+
-  scale_y_continuous(breaks = seq(0, 60, 5)) +
-  coord_cartesian(ylim = c(0, 60)) +
-  geom_jitter(width = 0.2) + 
-  stat_summary(geom = "line", fun = mean, group = 1, color="black", linetype="dotted", size=1.2) +
-  labs(y="% fremgang 1RM underkropp", x="Dummykodet variabel") +
-  theme_bw()
-```
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{04-modellbygging_files/figure-latex/unnamed-chunk-9-1} 
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-9)
+\caption{Modeller med forskjellig b1}(\#fig:unnamed-chunk-9)
 \end{figure}
 
 

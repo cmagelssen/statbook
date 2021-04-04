@@ -55,7 +55,7 @@ En liten notis som er viktig å være observant på.
 </div>
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='t-fordelingen og vår t-verdi'}
 
 t.dist <- tibble(
   x = seq(from=-10, to=+10, by=0.1),

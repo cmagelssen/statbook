@@ -61,7 +61,7 @@ En liten notis som er viktig å være observant på.
 
 }
 
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-1)
+\caption{t-fordelingen og vår t-verdi}(\#fig:unnamed-chunk-1)
 \end{figure}
 
 
