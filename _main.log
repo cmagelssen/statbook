@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.3)  4 APR 2021 13:37
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.3)  4 APR 2021 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,6 +438,12 @@ LaTeX Info: Redefining \cite on input line 694.
 
 LaTeX Warning: Label `tab:unnamed-chunk-6' multiply defined.
 
+
+LaTeX Warning: Label `fig:unnamed-chunk-2' multiply defined.
+
+
+LaTeX Warning: Label `fig:unnamed-chunk-3' multiply defined.
+
 )
 \openout1 = `_main.aux'.
 
@@ -821,13 +827,16 @@ Chapter 4.
 [15
 
 ] [16]
-File: 04-h0_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-2-1.pdf>
+File: 04-modellbygging_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (t
+ype pdf)
+<use 04-modellbygging_files/figure-latex/unnamed-chunk-2-1.pdf>
 [17]
-File: 04-h0_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-3-1.pdf>
-File: 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-4-1.pdf>
+File: 04-modellbygging_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (t
+ype pdf)
+<use 04-modellbygging_files/figure-latex/unnamed-chunk-3-1.pdf>
+File: 04-modellbygging_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (t
+ype pdf)
+<use 04-modellbygging_files/figure-latex/unnamed-chunk-4-1.pdf>
 [18] [19] [20]
 Overfull \hbox (72.79453pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.3.  MODELLBYGGING MED ‘NULL-HYPOTHESIS SIGNIFICANCE TESTING (
@@ -847,8 +856,9 @@ NHST)’ \TU/lmr/m/n/10 25
  []
 
 [25]
-File: 04-h0_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-8-1.pdf>
+File: 04-modellbygging_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (t
+ype pdf)
+<use 04-modellbygging_files/figure-latex/unnamed-chunk-8-1.pdf>
 [26]
 Overfull \hbox (72.79453pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.3.  MODELLBYGGING MED ‘NULL-HYPOTHESIS SIGNIFICANCE TESTING (
@@ -856,53 +866,103 @@ NHST)’ \TU/lmr/m/n/10 27
  []
 
 [27]
-File: 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-9-1.pdf>
+File: 04-modellbygging_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (t
+ype pdf)
+<use 04-modellbygging_files/figure-latex/unnamed-chunk-9-1.pdf>
 [28]
-File: 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-12-1.pdf>
-[29]
-File: 04-h0_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-13-1.pdf>
-
-Overfull \vbox (196.11496pt too high) has occurred while \output is active []
-
-[30] [31]
-Overfull \hbox (49.33295pt too wide) detected at line 1145
-[] [] []
+Overfull \hbox (72.79453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.3.  MODELLBYGGING MED ‘NULL-HYPOTHESIS SIGNIFICANCE TESTING (
+NHST)’ \TU/lmr/m/n/10 29
  []
 
-[32]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[33] [34]
-File: 04-h0_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-16-1.pdf>
-[35]
-File: 04-h0_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
-<use 04-h0_files/figure-latex/unnamed-chunk-17-1.pdf>
-[36]
-Overfull \hbox (67.73013pt too wide) in paragraph at lines 1279--1313
- [][] 
- []
-
-[37] [38] [39] [40
+[29] [30
 
 ]
 Chapter 5.
+File: 05-sammenligne_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (typ
+e pdf)
+<use 05-sammenligne_files/figure-latex/unnamed-chunk-2-1.pdf>
+[31]
+Overfull \hbox (97.52454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 32 \TU/lmr/m/sl/10 CHAPTER 5.  SAMMENLIGNE MODELLER MED EN ANOVA
+-TABELL (VARIANSANALYSE)
+ []
+
+[32]
+File: 05-sammenligne_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (typ
+e pdf)
+<use 05-sammenligne_files/figure-latex/unnamed-chunk-3-1.pdf>
+[33]
+Overfull \hbox (49.33295pt too wide) detected at line 1155
+[] [] []
+ []
+
+
+Overfull \hbox (97.52454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 34 \TU/lmr/m/sl/10 CHAPTER 5.  SAMMENLIGNE MODELLER MED EN ANOVA
+-TABELL (VARIANSANALYSE)
+ []
+
+[34] [35]
+Overfull \hbox (97.52454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 36 \TU/lmr/m/sl/10 CHAPTER 5.  SAMMENLIGNE MODELLER MED EN ANOVA
+-TABELL (VARIANSANALYSE)
+ []
+
+[36]
+File: 05-sammenligne_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (typ
+e pdf)
+<use 05-sammenligne_files/figure-latex/unnamed-chunk-6-1.pdf>
+[37]
+Overfull \hbox (97.52454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 38 \TU/lmr/m/sl/10 CHAPTER 5.  SAMMENLIGNE MODELLER MED EN ANOVA
+-TABELL (VARIANSANALYSE)
+ []
+
+[38
+
+]
+Chapter 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 1358.
+(Font)              scaled to size 24.88pt on input line 1257.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 20.74pt on input line 1257.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 17.28pt on input line 1257.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.4013pt on input line 1358.
+(Font)              scaled to size 24.88228pt on input line 1257.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 20.7419pt on input line 1257.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 17.28157pt on input line 1257.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 1358.
-[41]
+(Font)              scaled to size 24.87733pt on input line 1257.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 20.73778pt on input line 1257.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 17.27815pt on input line 1257.
+[39]
 File: output.png Graphic file (type bmp)
 <output.png>
-[42]
 File: 07-ttest_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 
 <use 07-ttest_files/figure-latex/unnamed-chunk-1-1.pdf>
+
+Overfull \hbox (6.69753pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 40 \TU/lmr/m/sl/10 CHAPTER 6.  T-TEST - ER $[][]$ SIGNIFIKANT FO
+RSKJELLIG FRA NULL?
+ []
+
+[40] [41]
+Overfull \hbox (6.69753pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 42 \TU/lmr/m/sl/10 CHAPTER 6.  T-TEST - ER $[][]$ SIGNIFIKANT FO
+RSKJELLIG FRA NULL?
+ []
+
+[42
+
+]
+Chapter 7.
 (./_main.bbl [43] [44
 
 ]) [45] (./_main.aux)
@@ -910,15 +970,15 @@ File: 07-ttest_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 852533C67B4462C5740749AAB41990E1;3511.
+(rerunfilecheck)             Checksum: 92BD96D810E881A423EF88C14B339B68;3459.
  ) 
 Here is how much of TeX's memory you used:
  16436 strings out of 478918
- 294541 string characters out of 5865692
- 764270 words of memory out of 5000000
- 36053 multiletter control sequences out of 15000+600000
- 407986 words of font info for 76 fonts, out of 8000000 for 9000
+ 295173 string characters out of 5865692
+ 755919 words of memory out of 5000000
+ 36049 multiletter control sequences out of 15000+600000
+ 409092 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,8n,122p,1031b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,8n,122p,932b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on _main.pdf (45 pages).

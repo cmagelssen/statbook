@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <title>Kapittel 6 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 6 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 3 Koding av kategoriske variabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 6 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datasett.html"/>
-<link rel="next" href="bygge-statistisk-modeller.html"/>
+<link rel="prev" href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"/>
+<link rel="next" href="write-up.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -143,9 +143,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Gjennomsnitt for de to gruppene</a></li>
 <li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
+<li class="chapter" data-level="3" data-path="koding-av-kategoriske-prediktorvariabler.html"><a href="koding-av-kategoriske-prediktorvariabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske prediktorvariabler</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html#dummykoding"><i class="fa fa-check"></i><b>3.1</b> Dummykoding</a></li>
+<li class="chapter" data-level="3.1" data-path="koding-av-kategoriske-prediktorvariabler.html"><a href="koding-av-kategoriske-prediktorvariabler.html#dummykoding"><i class="fa fa-check"></i><b>3.1</b> Dummykoding</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
@@ -156,14 +156,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3.1</b> Null-modellen (null-hypotesen)</a></li>
 <li class="chapter" data-level="4.3.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.3.2</b> Alternativ modell (alternativ hypotese)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>4.4</b> ANOVA-tabell (variansanalyse)</a></li>
-<li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#teste-null-hypotesen-med-f"><i class="fa fa-check"></i><b>4.5</b> teste null-hypotesen med F</a></li>
-<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#teste-null-hypotesen-med-t"><i class="fa fa-check"></i><b>4.6</b> teste null-hypotesen med t</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>5</b> Write-up</a>
+<li class="chapter" data-level="5" data-path="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><i class="fa fa-check"></i><b>5</b> Sammenligne modeller med en ANOVA-tabell (variansanalyse)</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="write-up.html"><a href="write-up.html#t-test---er-b_1-signifikant-forskjellig-fra-null"><i class="fa fa-check"></i><b>5.1</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
+<li class="chapter" data-level="5.1" data-path="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html#teste-null-hypotesen-med-f"><i class="fa fa-check"></i><b>5.1</b> teste null-hypotesen med F</a></li>
+<li class="chapter" data-level="5.2" data-path="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html"><a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html#teste-null-hypotesen-med-t"><i class="fa fa-check"></i><b>5.2</b> teste null-hypotesen med t</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>6</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
+<li class="chapter" data-level="7" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>7</b> Write-up</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -188,22 +188,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="koding-av-kategoriske-variabler" class="section level1" number="3">
-<h1><span class="header-section-number">Kapittel 3</span> Koding av kategoriske variabler</h1>
-<p>I tabellen på s. kan du se at vi har en tabell med tre kolonner: en kolonne for hver variabel vi har i vårt datasett. Variabelen <strong>gruppe</strong> er en kategorisk vaiabel som har to ulike verdier: “ett.sett” og “tre.sett.” Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles disse denne typen data for et tekstobjekt, “strings” (python/javascript) eller “characters” (R). På norsk kalles disse verdiene for ord. Uansett navn er problemet at vi ikke kan putte ord inn i en statistisk modell; vi er nødt til å representere denne kategoriske vaiabelen med tallverdier. Det er flere måter å gjøre dette på, men de forskjellige måtene gir ulik resultat. Derfor må vi vie en god del tid på dette. Vi går gjennom to måter å gjøre dette på.</p>
-<div id="dummykoding" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Dummykoding</h2>
-<p>En vanlig metode kalles <strong>dummykoding</strong> eller <strong>treatment-koding</strong>. Den går ut på å lage en eller flere variabler med 0 og 1 som de to mulige verdiene. Antall variabler vi trenger avhenger av antall grupper vi vil sammenligne. Siden vårt datasett kun inneholder to grupper, så trenger vi kun en variabel. Vi kan den ene gruppen og den andre 1. Hovedregelen er at vi gir 0 til baselinegruppe og 1 til den eksperimentelle gruppen. Vi gir derfor 0 til 1.sett-gruppen og 1 til 3.sett-gruppen. Gjør dette før du går videre.</p>
-<p>I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruke følgende kode:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="koding-av-kategoriske-variabler.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
-<span id="cb3-2"><a href="koding-av-kategoriske-variabler.html#cb3-2" aria-hidden="true" tabindex="-1"></a>dummykodet.dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="koding-av-kategoriske-variabler.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter dummykoder. If gruppe == &#39;ett.sett&#39;, gi verdien 0, else gi de 1.</span></span>
-<span id="cb3-4"><a href="koding-av-kategoriske-variabler.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummykodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
-<p>I jamovi ville jeg sett følgende video:</p>
-<iframe width="797" height="457" src="https://www.youtube.com/embed/iITxK27LfZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-
+<div id="t-test---er-b_1-signifikant-forskjellig-fra-null" class="section level1" number="6">
+<h1><span class="header-section-number">Kapittel 6</span> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</h1>
+<p>En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart:
+* <strong>er b<sub>1</sub> i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?</strong></p>
+<div class="info">
+<p>Før du leser videre, forsøk å forestill deg hvordan en modell med en b<sub>1</sub> som er 0 ser ut? Deretter se på figurene under</p>
 </div>
+<ul>
+<li>Hvis b<sub>1</sub> er 0, er det ingen relasjon mellom disse prediktorvariabelen (x) og utfallsvariabelen (y).</li>
+<li>Hvis b<sub>1</sub> er &gt; enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.</li>
+<li>Hvis b<sub>1</sub> er &lt; enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.</li>
+</ul>
+<p>Husk at b<sub>1</sub> i vårt tilfelle representer forskjellene i gjennomsnitt mellom de to gruppene. Det er med andre ord like gyldig å spørre om det er en relasjon mellom variablene som at det er en forskjell i means mellom to grupper.</p>
+<p>Vi kan tydelig se at b<sub>1</sub> er forskjellig fra 0 i vårt utvalg, men husk at denne forskjellen kan skyldes sampling variation som vi kan forvente under null-hypotesen. Vi må derfor teste om de to utvalgene vi har kommer fra samme eller to forskjellige populasjoner (en endring som i så fall har skjedd fordi vi har gitt de to utvalgene forskjellig treningsopplegg). Dette kan vi finne ut ved å kjøre en uavhengig t-test.</p>
+<p><span class="math display">\[
+t.test = \frac{(b_1observert - b_1forventet)}{\text{standard error of } b_1}
+\]</span>
+Vi vet allerede b<sub>1</sub>observert (den observerte forskjellen mellom de to utvalgene) og b<sub>1</sub>forventet (null-hypotesen er at det ikke er noen relasjon mellom disse variablene, så denne blir null. Så vi kan plotte inn disse verdiene.</p>
+<p><span class="math display">\[
+t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
+\]</span>
+Det som gjenstår er å finne ut hva standard error of b<sub>1</sub> er. Vi har tidligere regnet ut standard error of mean <span class="math inline">\(SD/sqrt(N)\)</span>, og vi kan gjøre noe lignende for å regne ut standard error of b<sub>1</sub>. Men for å fokusere på det store bildet vil jeg gi dere den estimerte standard error of b<sub>1</sub></p>
+<div class="warning">
+<p>Prosedyren for å regne ut standard error of b<sub>1</sub> er ikke vanskelig, men det er en del utregningsledd. Så lenge dere forstå at standard error of b1 er et mål på hvor mye utvalg vil være forskjellige fra hverandre, så tenker jeg at dere ikke vil øke deres forståelse ved å lære å regne standard error of b1, men jeg kan selvfølgelig ta feil. Jeg anbefaler dere på det sterkeste at der ser <a href="https://www.youtube.com/watch?v=3L9ZMdzJyyI">denne videoen</a></p>
+</div>
+<p>Fra mitt output i Jamovi kan jeg lese at standard error of b<sub>1</sub> er <strong>2.33</strong>.</p>
+<div class="figure">
+<img src="output.png" alt="" />
+<p class="caption">ny</p>
+</div>
+<p>Så jeg kan bruke dette i utregningen av t.</p>
+<p><span class="math display">\[
+t.test = \frac{(20.52 - 0)}{2.33}
+\]</span></p>
+<p><span class="math display">\[
+t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
+\]</span>
+<span class="math display">\[
+t.test = 8.806867
+\]</span>
+Vår t-verdi er 8.80. Vi kqn se tydelig se at denne t-verdier er større enn den kritiske verdien på ~ 2, så vi kan konkludere at vi har et signifikant funn; ee to utvalgene vi har med i studien synes å komme fra forskjellig populasjon. Vi kan lese denne t-verdien fra output tabellen fra Jamovi at vår p-verdi er &lt; 0.001.</p>
+<div class="warning">
+<p>En liten notis som er viktig å være observant på.</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="07-ttest_files/figure-html/unnamed-chunk-1-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figur 6.1: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+
 </div>
 <div class="psyteachr_footer">
   
@@ -315,8 +350,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="datasett.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bygge-statistisk-modeller.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sammenligne-modeller-med-en-anova-tabell-variansanalyse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="write-up.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

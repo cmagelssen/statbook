@@ -1,7 +1,18 @@
-## T-test - er $b_1$ signifikant forskjellig fra null?
-En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart: **er b<sub>1</sub> i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?**
+# T-test - er $b_1$ signifikant forskjellig fra null?
+En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart: 
+* **er b<sub>1</sub> i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?**
 
-Hvis b<sub>1</sub> er 0, er det ingen relasjon mellom disse variablene. Hvis den er større enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen; Hvis den er negativ er det en negativ relasjon mellom disse variablene. Husk at  b<sub>1</sub> i vårt tilfelle representer forskjellene i gjennomsnitt mellom de to gruppene. Det er med andre ord like gyldig å spørre om det er en relasjon mellom variablene som at det er en forskjell i means mellom to grupper.
+<div class="info">
+Før du leser videre, forsøk å forestill deg hvordan en modell med en b<sub>1</sub> som er 0 ser ut? Deretter se på figurene under
+
+
+</div>
+
+* Hvis b<sub>1</sub> er 0, er det ingen relasjon mellom disse prediktorvariabelen (x) og utfallsvariabelen (y). 
+* Hvis b<sub>1</sub> er > enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.
+* Hvis b<sub>1</sub> er < enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.
+
+Husk at  b<sub>1</sub> i vårt tilfelle representer forskjellene i gjennomsnitt mellom de to gruppene. Det er med andre ord like gyldig å spørre om det er en relasjon mellom variablene som at det er en forskjell i means mellom to grupper.
 
 Vi kan tydelig se at b<sub>1</sub> er forskjellig fra 0 i vårt utvalg, men husk at denne forskjellen kan skyldes sampling variation som vi kan forvente under null-hypotesen. Vi må derfor teste om de to utvalgene vi har kommer fra samme eller to forskjellige populasjoner (en endring som i så fall har skjedd fordi vi har gitt de to utvalgene forskjellig treningsopplegg). Dette kan vi finne ut ved å kjøre en uavhengig t-test.
 
@@ -36,7 +47,7 @@ $$
 $$
 t.test = 8.806867
 $$
-Vår t-verdi er 8.80. Vi kqn se tydelig se at denne t-verdier er større enn den kritiske verdien på ~ 2, så vi kan konkludere at vi har et signifikant funn. De to utvalgene vi har med i studien synes å komme fra forskjellig populasjon. Vi kan lese denne t-verdien fra output tabellen fra Jamovi at vår p-verdi er < 0.001. 
+Vår t-verdi er 8.80. Vi kqn se tydelig se at denne t-verdier er større enn den kritiske verdien på ~ 2, så vi kan konkludere at vi har et signifikant funn; ee to utvalgene vi har med i studien synes å komme fra forskjellig populasjon. Vi kan lese denne t-verdien fra output tabellen fra Jamovi at vår p-verdi er < 0.001. 
 
 <div class="warning">
 En liten notis som er viktig å være observant på. 
