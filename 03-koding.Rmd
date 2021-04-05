@@ -8,13 +8,10 @@ I tabellen på forrige kan du se at vi har en tabell med tre kolonner: en kolonn
 * Variabelen **gruppe** er en kategorisk vaiabel som har to ulike verdier: "ett.sett" og "tre.sett". Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles dette for et tekstobjekt, en string eller character. Uansett navn er problemet at vi ikke kan legge ord inn i en statistisk modell. Vi er nødt til å omkode den kategoriske variabelen med tallverdier. Det er flere måter å gjøre dette på, og måten man gjør det på har stor betydning for outfallet av den statistiske analysen.
 
 <div class="danger">
-De forskjellige måtene å kode de kategoriske prediktorvariablene på gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke **dummykoding**. Dette kan fungere godt når du bygger en statistisk modell slik vi skal gjøre nå. Men dummykoding fungerer ikke hvis du har flere grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil **kontrastkoding** være bedre egnet. 
+De forskjellige måtene å kode kategoriske prediktorvariabler gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke **dummykoding**. Dette kan fungere godt når du bygger enkle statistisk modeller, slik vi skal gjøre nå. Men dummykoding fungerer dårlig når du har mange grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil **kontrastkoding** være bedre egnet. 
 
-SPSS, R, Jamovi bruker dummykoding som standard, så når du legger disse kategoriske prediktorvariabler inn i slike modeller. Det er viktig å vite!
-
+SPSS, R, Jamovi bruker dummykoding som standard, og det er viktig når du tolker resultatene fra modellene.
 </div>
-
-
 
 
 ## Dummykoding

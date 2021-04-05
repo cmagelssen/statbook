@@ -136,7 +136,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Bygge modeller for kategorisk data</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#om-denne-boken"><i class="fa fa-check"></i><b>1.1</b> Om denne boken</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
@@ -165,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
+<li class="chapter" data-level="9" data-path="visualisering-av-ulike-statistiske-modeller-1.html"><a href="visualisering-av-ulike-statistiske-modeller-1.html"><i class="fa fa-check"></i><b>9</b> Visualisering av ulike statistiske modeller</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -260,6 +264,8 @@ Y_i = (b_0 + b_1X_i) + error
 <div id="visualisering-av-ulike-statistiske-modeller" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Visualisering av ulike statistiske modeller</h2>
 <p>Vi skal nå visualisere ulike modeller for å få en bedre forståelse av hva hva ulike modeller sier oss. I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b<sub>0</sub>, mens de har forskjellig b<sub>1</sub>. Husk at b<sub>1</sub> forteller om relasjonen mellom X og Y.</p>
+<iframe width="600" height="300" src="https://www.youtube.com/embed/gM2w1WAnx8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
 <div class="warning">
 <p>Måten du skal tolke på b<sub>1</sub> på: For <strong>hver enhets økning i X</strong>, dvs. gå fra 1 til 2, 3 til 4, eller 6 til 7, <strong>forventer vi at Y øker med verdien på b<sub>1</sub></strong>. På norsk kalles b1 for <strong>stigningstallet</strong>. Hvis b<sub>1</sub> er 0, er det ingen relasjon mellom X og Y i vårt datasett.</p>
 </div>
@@ -274,7 +280,7 @@ Y_i = (b_0 + b_1X_i) + error
 Figur 4.1: Modeller med forskjellig b1
 </p>
 </div>
-<p><strong>Oppgave</strong></p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span></p>
 <p><strong>a.</strong> La oss si at vi hatt med et målt et individ sin <strong>X</strong> til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på <em>Y</em>?</p>
 <p><input class='solveme nospaces' size='3' data-answer='["9.2"]'/>.</p>
 <p>I figuren ser du tre modeller som har forskjellige b<sub>0</sub>, men samme b<sub>1</sub>. b<sub>0</sub> er verdien på Y når X er 0.</p>
@@ -284,8 +290,8 @@ Figur 4.1: Modeller med forskjellig b1
 Figur 4.2: Modeller med forskjellig b0
 </p>
 </div>
-<p><strong>Oppgave</strong>
-<strong>b.</strong> La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>?</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>.</p>
+<p><strong>b.</strong> La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>?</p>
 <p><input class='solveme nospaces' size='3' data-answer='["4.2"]'/>.</p>
 <p>I figuren under ser du vært datasett. På Y-aksen har vi plottet % fremgang i RM for deltakerne våre. På X-aksen har vi plottet de to gruppene våre som vi har dummykodet med 0 og 1.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>

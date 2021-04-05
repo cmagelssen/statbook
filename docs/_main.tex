@@ -170,6 +170,11 @@ En variabel kan sies å være \textbf{kontinuerlig} når vi kan bestemme hvor pr
 
 Andre ganger kan det være interessant å teste om to grupper, som var like før et eksperiment, har blitt forskjellige fordi vi har behandlet dem ulikt. Vi randomiserer individer i to ulike grupper, slik at vi sikrer at vi blander disse individene godt (f.eks kjønn, motivasjon, interesser). Hvis eksperimentet har blitt gjennomført godt at det ikke er noen andre forklaringer på at disse to gruppene har blitt forskjellige etter intervensjonsperioden, så kan vi trekke en slutning om disse to gruppene trolig ikke kommer fra samme populasjon lenger; eksperimentet har gjort at disse to gruppene trolig kommer fra to forskjellige populasjoner.
 
+\hypertarget{om-denne-boken}{%
+\section{Om denne boken}\label{om-denne-boken}}
+
+Denne boken er skrevet i R.
+
 \hypertarget{datasett}{%
 \chapter{Datasett}\label{datasett}}
 
@@ -244,7 +249,8 @@ Du kan få nøyaktig samme datsett ved å klippe ut og lime inn følgende kode i
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Oppgave}
+{Oppgave}
+
 Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
 
 \begin{enumerate}
@@ -291,9 +297,16 @@ tre.sett & 42.42450\\
 \end{tabular}
 
 \textbackslash end\{table\}
-\textbf{Oppgave}
-a) Hvilken gruppe hadde mest fremgang?
-ett.sett tre.sett`
+
+{Oppgave}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Hvilken gruppe hadde mest fremgang?
+  ett.sett tre.sett`
+\end{enumerate}
 
 \hypertarget{figur-av-datasettet}{%
 \section{Figur av datasettet}\label{figur-av-datasettet}}
@@ -311,7 +324,7 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les \citep{weissgerber_beyond_2015}(\url{https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128}). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
-\textbf{Oppgave}.
+{Oppgave}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -324,10 +337,8 @@ Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske 
 \item
   Forfatterne av artikkelen anbefaler mer bruk av bar graph scatterplot for kontinuerlige variabler.
 \item
-  Ofte er det brukt error sammen med stolpediagram.
+  Er standard error og standardavvik det samme? ja nei.
 \end{enumerate}
-
-Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta \(SD/sqrt(N)\), så ved store utvalg vil standard error være høyt lite. Standardavviket er kun \(sqrt(varians/n-1)\), så denne vil i større mindre grad være påvirket av utvalgsstørrelsen".
 
 \hypertarget{koding-av-kategoriske-prediktorvariabler}{%
 \chapter{Koding av kategoriske prediktorvariabler}\label{koding-av-kategoriske-prediktorvariabler}}
@@ -340,9 +351,9 @@ I tabellen på forrige kan du se at vi har en tabell med tre kolonner: en kolonn
   Variabelen \textbf{gruppe} er en kategorisk vaiabel som har to ulike verdier: ``ett.sett'' og ``tre.sett''. Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles dette for et tekstobjekt, en string eller character. Uansett navn er problemet at vi ikke kan legge ord inn i en statistisk modell. Vi er nødt til å omkode den kategoriske variabelen med tallverdier. Det er flere måter å gjøre dette på, og måten man gjør det på har stor betydning for outfallet av den statistiske analysen.
 \end{itemize}
 
-De forskjellige måtene å kode de kategoriske prediktorvariablene på gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke \textbf{dummykoding}. Dette kan fungere godt når du bygger en statistisk modell slik vi skal gjøre nå. Men dummykoding fungerer ikke hvis du har flere grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil \textbf{kontrastkoding} være bedre egnet.
+De forskjellige måtene å kode kategoriske prediktorvariabler gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke \textbf{dummykoding}. Dette kan fungere godt når du bygger enkle statistisk modeller, slik vi skal gjøre nå. Men dummykoding fungerer dårlig når du har mange grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil \textbf{kontrastkoding} være bedre egnet.
 
-SPSS, R, Jamovi bruker dummykoding som standard, så når du legger disse kategoriske prediktorvariabler inn i slike modeller. Det er viktig å vite!
+SPSS, R, Jamovi bruker dummykoding som standard, og det er viktig når du tolker resultatene fra modellene.
 
 \hypertarget{dummykoding}{%
 \section{Dummykoding}\label{dummykoding}}
@@ -513,7 +524,7 @@ Måten du skal tolke på b1 på: For \textbf{hver enhets økning i X}, dvs. gå 
 \caption{Modeller med forskjellig b1}\label{fig:unnamed-chunk-2}
 \end{figure}
 
-\textbf{Oppgave}
+{Oppgave}
 
 \textbf{a.} La oss si at vi hatt med et målt et individ sin \textbf{X} til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på \emph{Y}?
 
@@ -530,7 +541,8 @@ I figuren ser du tre modeller som har forskjellige b0, men samme b1. b0 er verdi
 \caption{Modeller med forskjellig b0}\label{fig:unnamed-chunk-3}
 \end{figure}
 
-\textbf{Oppgave}
+{Oppgave}.
+
 \textbf{b.} La oss si at vi hatt med et målt et individ sin \textbf{X} og \textbf{Y} (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på \emph{Y}?
 
 .
@@ -1464,6 +1476,53 @@ En liten notis som er viktig å være observant på.
 Det er en ganske standardiser måte å rapporte en statistisk test på. Først skriver du hva har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre.
 
 'Deltakerne i 1L-3U 3L-1U-gruppen hadde i gjennomsnitt mindre større en lavere \% fremgang 1RM, på underkroppsøvelser (M=,SD=), enn som {[}{]}. Denne forskjellen, {[}{]}, CI {[}{]}, var signifikant, \emph{t}({[}{]}) = {[}{]}, p = {[}{]}, d={[}{]}.
+
+\hypertarget{visualisering-av-ulike-statistiske-modeller-1}{%
+\chapter{Visualisering av ulike statistiske modeller}\label{visualisering-av-ulike-statistiske-modeller-1}}
+
+{Modeller med samme b0, men forskjellig b1}
+
+I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b0, mens de har forskjellig b1. Husk at b1 forteller om relasjonen mellom X og Y.
+
+\begin{itemize}
+\item
+  I \textbf{modell A} ser du at når X øker, øker Y med 0.4 \textbf{for hver enhets økning i X}.
+\item
+  I \textbf{modell B} er det ingen relasjon mellom X og Y, så for en enhets økning i X, vil vi forvente at Y forblir den samme.
+\item
+  I \textbf{modell C} er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{forelesning_files/figure-latex/unnamed-chunk-1-1} 
+
+}
+
+\caption{Modeller med forskjellig b1}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+{Modeller med forskjellig b1, men samme b1}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{forelesning_files/figure-latex/unnamed-chunk-2-1} 
+
+}
+
+\caption{Modeller med forskjellig b0}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+{Hva blir vår modell?}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{forelesning_files/figure-latex/unnamed-chunk-3-1} 
+
+}
+
+\caption{Vår data}\label{fig:unnamed-chunk-3}
+\end{figure}
 
   \bibliography{book.bib,packages.bib}
 

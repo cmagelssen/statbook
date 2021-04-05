@@ -98,6 +98,8 @@ $$
 
 Vi skal nå visualisere ulike modeller for å få en bedre forståelse av hva hva ulike modeller sier oss. I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b<sub>0</sub>, mens de har forskjellig b<sub>1</sub>. Husk at b<sub>1</sub> forteller om relasjonen mellom X og Y.
 
+<iframe width="600" height="300" src="https://www.youtube.com/embed/gM2w1WAnx8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <div class="warning">
 Måten du skal tolke på b<sub>1</sub> på: For **hver enhets økning i X**, dvs. gå fra 1 til 2, 3 til 4, eller 6 til 7, **forventer vi at Y øker med verdien på b<sub>1</sub>**. På norsk kalles b1 for **stigningstallet**. Hvis b<sub>1</sub> er 0, er det ingen relasjon mellom X og Y i vårt datasett.
 </div>
@@ -119,7 +121,7 @@ Måten du skal tolke på b<sub>1</sub> på: For **hver enhets økning i X**, dvs
 \end{figure}
 
 
-**Oppgave**
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
 
 **a.** La oss si at vi hatt med et målt et individ sin **X** til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på *Y*?
 
@@ -135,7 +137,8 @@ I figuren ser du tre modeller som har forskjellige b<sub>0</sub>, men samme b<su
 
 \caption{Modeller med forskjellig b0}(\#fig:unnamed-chunk-3)
 \end{figure}
-**Oppgave**
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>.
+
 **b.** La oss si at vi hatt med et målt et individ sin **X** og **Y** (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på *Y*?
 
 <input class='solveme nospaces' size='3' data-answer='["4.2"]'/>.
@@ -155,6 +158,8 @@ I figuren under ser du vært datasett. På Y-aksen har vi plottet % fremgang i R
 **c.** Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt? 
 
 <select class='solveme' data-answer='["Modellen vår ser ut til å ha en b0 på ~20 og en b1 på ~ 20"]'> <option></option> <option>Det er ingen relasjon mellom vår dummykodede variabel og % fremgang 1RM</option> <option>Modellen vår ser ut til å ha en b0 på ~20 og en b1 på ~ 20</option> <option>Modellen vår ser ut til å ha en b0 på ~10 og en b1 på ~ 40</option> <option>Det er en negativ relasjon mellom vår dummykodede variabel og % fremgang 1RM</option></select>. 
+
+
 
 
 ## Modellbygging med 'Null-Hypothesis Significance Testing (NHST)'

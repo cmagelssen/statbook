@@ -136,7 +136,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Bygge modeller for kategorisk data</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#om-denne-boken"><i class="fa fa-check"></i><b>1.1</b> Om denne boken</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
@@ -165,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
+<li class="chapter" data-level="9" data-path="visualisering-av-ulike-statistiske-modeller-1.html"><a href="visualisering-av-ulike-statistiske-modeller-1.html"><i class="fa fa-check"></i><b>9</b> Visualisering av ulike statistiske modeller</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -196,8 +200,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Variabelen <strong>gruppe</strong> er en kategorisk vaiabel som har to ulike verdier: “ett.sett” og “tre.sett.” Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles dette for et tekstobjekt, en string eller character. Uansett navn er problemet at vi ikke kan legge ord inn i en statistisk modell. Vi er nødt til å omkode den kategoriske variabelen med tallverdier. Det er flere måter å gjøre dette på, og måten man gjør det på har stor betydning for outfallet av den statistiske analysen.</li>
 </ul>
 <div class="danger">
-<p>De forskjellige måtene å kode de kategoriske prediktorvariablene på gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke <strong>dummykoding</strong>. Dette kan fungere godt når du bygger en statistisk modell slik vi skal gjøre nå. Men dummykoding fungerer ikke hvis du har flere grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil <strong>kontrastkoding</strong> være bedre egnet.</p>
-<p>SPSS, R, Jamovi bruker dummykoding som standard, så når du legger disse kategoriske prediktorvariabler inn i slike modeller. Det er viktig å vite!</p>
+<p>De forskjellige måtene å kode kategoriske prediktorvariabler gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke <strong>dummykoding</strong>. Dette kan fungere godt når du bygger enkle statistisk modeller, slik vi skal gjøre nå. Men dummykoding fungerer dårlig når du har mange grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil <strong>kontrastkoding</strong> være bedre egnet.</p>
+<p>SPSS, R, Jamovi bruker dummykoding som standard, og det er viktig når du tolker resultatene fra modellene.</p>
 </div>
 <div id="dummykoding" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Dummykoding</h2>

@@ -136,7 +136,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Bygge modeller for kategorisk data</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#om-denne-boken"><i class="fa fa-check"></i><b>1.1</b> Om denne boken</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
@@ -165,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
+<li class="chapter" data-level="9" data-path="visualisering-av-ulike-statistiske-modeller-1.html"><a href="visualisering-av-ulike-statistiske-modeller-1.html"><i class="fa fa-check"></i><b>9</b> Visualisering av ulike statistiske modeller</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -193,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapittel 2</span> Datasett</h1>
 <div id="bør-man-trene-med-ett-eller-flere-sett-i-styrketrening" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Bør man trene med ett eller flere sett i styrketrening?</h2>
-<p>Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad <span class="citation">(<a href="write-up.html#ref-ronnestad_dissimilar_2007" role="doc-biblioref">Rønnestad et al. 2007</a>)</span></p>
+<p>Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad <span class="citation">(<a href="visualisering-av-ulike-statistiske-modeller-1.html#ref-ronnestad_dissimilar_2007" role="doc-biblioref">Rønnestad et al. 2007</a>)</span></p>
 <p>Eksperimentet ble gjennomført som et <strong>between-subject design</strong> med to grupper:
 * en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen
 * en annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen.</p>
@@ -342,8 +346,8 @@ Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i
 <span id="cb1-6"><a href="datasett.html#cb1-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">individ =</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>),</span>
 <span id="cb1-7"><a href="datasett.html#cb1-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">gruppe =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;tre.sett &quot;</span>, <span class="st">&quot;ett.sett&quot;</span>), <span class="fu">c</span>(<span class="fu">length</span>(tre.sett), <span class="fu">length</span>(ett.sett))),</span>
 <span id="cb1-8"><a href="datasett.html#cb1-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">rm =</span> <span class="fu">c</span>(tre.sett , ett.sett))</span></code></pre></div>
-<p><strong>Oppgave</strong>
-Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span></p>
+<p>Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Hvor mange kolonner er det i tabellen over? <input class='solveme nospaces' size='1' data-answer='["3"]'/></li>
 <li>Hvor mange deltakere var med i studien? <input class='solveme nospaces' size='2' data-answer='["25"]'/></li>
@@ -380,9 +384,11 @@ Før du går videre er det greit at du gjør deg kjent med datasettet som vi har
 </tr>
 </tbody>
 </table>
-<p><strong>Oppgave</strong>
-a) Hvilken gruppe hadde mest fremgang?
-<select class='solveme' data-answer='["tre.sett"]'> <option></option> <option>ett.sett</option> <option>tre.sett</option></select>`</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Hvilken gruppe hadde mest fremgang?
+<select class='solveme' data-answer='["tre.sett"]'> <option></option> <option>ett.sett</option> <option>tre.sett</option></select>`</li>
+</ol>
 </div>
 <div id="figur-av-datasettet" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Figur av datasettet</h2>
@@ -393,16 +399,15 @@ a) Hvilken gruppe hadde mest fremgang?
 Figur 2.1: Modeller med forskjellig b1
 </p>
 </div>
-<p>Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les <span class="citation">(<a href="write-up.html#ref-weissgerber_beyond_2015" role="doc-biblioref">Weissgerber et al. 2015</a>)</span>(<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128" class="uri">https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128</a>). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.</p>
-<p><strong>Oppgave</strong>.</p>
+<p>Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les <span class="citation">(<a href="visualisering-av-ulike-statistiske-modeller-1.html#ref-weissgerber_beyond_2015" role="doc-biblioref">Weissgerber et al. 2015</a>)</span>(<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128" class="uri">https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128</a>). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data.</p></li>
 <li><p>Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.</p></li>
 <li><p>Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>.</p></li>
 <li><p>Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.</p></li>
-<li><p>Ofte er det brukt error sammen med stolpediagram.</p></li>
+<li><p>Er standard error og standardavvik det samme? <select class='solveme' data-answer='["nei"]'> <option></option> <option>ja</option> <option>nei</option></select>.</p></li>
 </ol>
-<p>Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta <span class="math inline">\(SD/sqrt(N)\)</span>, så ved store utvalg vil standard error være <select class='solveme' data-answer='["lite"]'> <option></option> <option>høyt</option> <option>lite</option></select>. Standardavviket er kun <span class="math inline">\(sqrt(varians/n-1)\)</span>, så denne vil i<select class='solveme' data-answer='["mindre"]'> <option></option> <option>større</option> <option>mindre</option></select> grad være påvirket av utvalgsstørrelsen".</p>
 
 </div>
 </div>

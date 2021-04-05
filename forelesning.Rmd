@@ -1,0 +1,134 @@
+
+# Visualisering av ulike statistiske modeller
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Modeller med samme b<sub>0</sub>, men forskjellig b<sub>1</sub></span>
+
+
+I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b<sub>0</sub>, mens de har forskjellig b<sub>1</sub>. Husk at b<sub>1</sub> forteller om relasjonen mellom X og Y.
+
+* I **modell A** ser du at når X øker, øker Y med 0.4 **for hver enhets økning i X**. 
+
+* I **modell B** er det ingen relasjon mellom X og Y, så for en enhets økning i X, vil vi forvente at Y forblir den samme. 
+
+* I **modell C** er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).
+
+
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Modeller med forskjellig b1'}
+set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
+a <- seq(0:10)
+b <- seq(0:10)
+
+library(tidyverse)
+library(cowplot)
+regresjon <- tibble(a, b)
+
+
+first <- ggplot(regresjon, aes(a, b)) + 
+  geom_point(color="white", alpha=0.01) +
+  scale_x_continuous(breaks = seq(0,10,1)) +
+  scale_y_continuous(breaks = seq(0,10,1)) +
+  geom_abline(intercept = 6, slope = 0.4, color="#00BFC4", size=1.4) +
+  labs(x="x", y="y", title = "Modell A", subtitle = "b0=6, b1=0.4", color="red") +
+  theme_bw() 
+
+second <- ggplot(regresjon, aes(a, b)) + 
+  geom_point(color="white", alpha=0.01) +
+  scale_x_continuous(breaks = seq(0,10,1)) +
+  scale_y_continuous(breaks = seq(0,10,1)) +
+  geom_abline(intercept = 6, slope = 0, color="#00BFC4", size=1.4) +
+  labs(x="x", y="y", title = "Modell B", subtitle = "b0=6, b1=0") +
+  theme_bw() 
+
+third <- ggplot(regresjon, aes(a, b)) + 
+  geom_point(color="white", alpha=0.01) +
+  scale_x_continuous(breaks = seq(0,10,1)) +
+  scale_y_continuous(breaks = seq(0,10,1)) +
+  geom_abline(intercept = 6, slope = -0.4, color="#00BFC4", size=1.4) +
+  labs(x="x", y="y", title = "Modell C", subtitle = "b0=6, b1=-0.4") +
+  theme_bw() 
+
+
+plot_grid(first,second, third, nrow = 1)
+
+
+```
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Modeller med forskjellig b<sub>1</sub>, men samme b<sub>1</sub></span>
+
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Modeller med forskjellig b0'}
+set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
+a <- seq(0:10)
+b <- seq(0:10)
+
+library(tidyverse)
+library(cowplot)
+regresjon <- tibble(a, b)
+
+
+first <- ggplot(regresjon, aes(a, b)) + 
+  geom_point(color="white", alpha=0.01) +
+  scale_x_continuous(breaks = seq(0,10,1)) +
+  scale_y_continuous(breaks = seq(0,10,1)) +
+  geom_abline(intercept = 7, slope = 0.4, color="#7CAE00", size=1.4) +
+  labs(x="x", y="y", title = "Modell A", subtitle = "b0=7, b1=0.4", color="red") +
+  theme_bw() 
+
+second <- ggplot(regresjon, aes(a, b)) + 
+  geom_point(color="white", alpha=0.01) +
+  scale_x_continuous(breaks = seq(0,10,1)) +
+  scale_y_continuous(breaks = seq(0,10,1)) +
+  geom_abline(intercept = 3, slope = 0.4, color="#7CAE00", size=1.4) +
+  labs(x="x", y="y", title = "Modell B", subtitle = "b0=3, b1=0.4") +
+  theme_bw() 
+
+third <- ggplot(regresjon, aes(a, b)) + 
+  geom_point(color="white", alpha=0.01) +
+  scale_x_continuous(breaks = seq(0,10,1)) +
+  scale_y_continuous(breaks = seq(0,10,1)) +
+  geom_abline(intercept = 6, slope = 0.4, color="#7CAE00", size=1.4) +
+  labs(x="x", y="y", title = "Modell C", subtitle = "b0=6, b1=0.4") +
+  theme_bw() 
+
+
+plot_grid(first,second, third, nrow = 1)
+
+```
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Hva blir vår modell?</span>
+
+```{r echo=FALSE, fig.width=6, fig.height=2.5, fig.cap='Vår data'}
+set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
+tre.sett <- rnorm(n = 12, mean = 41, sd = 5) #12 individer
+ett.sett <-rnorm(n = 12, mean = 21, sd = 5) #12 individer
+
+#lager en tibble fra tidyverse-pakken. Må ha lastet inn tidyverse library(tidyverse) i scriptfilen
+dat <- tibble(individ = seq(1:24),
+              gruppe = rep(c("tre.sett ", "ett.sett"), c(length(tre.sett), length(ett.sett))),
+              rm = c(tre.sett , ett.sett))
+
+
+#lager et nytt objekt som heter dummykodet.dat
+dat <- dat %>%
+  # her lager jeg en ny kolonne som heter dummykoder. If gruppe == 'ett.sett', gi verdien 0, else gi de 1.
+  mutate(dummykodet = if_else(gruppe == "ett.sett", 0, 1)
+  )
+
+
+dat <- dat %>%
+  # her lager jeg en ny kolonne som heter dummykoder. If gruppe == 'ett.sett', gi verdien 0, else gi de 1.
+  mutate(kontrast = if_else(gruppe == "ett.sett", -0.5, 0.5)
+  )
+
+dat <- dat %>%
+  mutate(dummykodet = as.factor(dummykodet),
+         kontrast = as.factor(kontrast))
+
+
+ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
+  geom_point()+
+  scale_y_continuous(breaks = seq(0, 60, 5)) +
+  coord_cartesian(ylim = c(0, 60)) +
+  geom_jitter(width = 0.2) + 
+  labs(y="% fremgang 1RM underkropp", x="Dummykodet variabel") +
+  theme_bw()
+```

@@ -49,7 +49,8 @@ dat <- tibble(individ = seq(1:24),
               rm = c(tre.sett , ett.sett))
 ```
 
-**Oppgave** 
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
+
 Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
 
 a) Hvor mange kolonner er det i tabellen over? `r fitb(3)`
@@ -76,7 +77,9 @@ knitr::kable(
   caption = 'Gjennomsnittlige %-vis fremgang for de to gruppene'
 )
 ```
-**Oppgave**
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
+
 a) Hvilken gruppe hadde mest fremgang?
 `r mcq(c("ett.sett", answer = "tre.sett"))``
 
@@ -93,7 +96,7 @@ ggplot(dat, aes(gruppe, rm, fill=gruppe)) +
 ```
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les [@weissgerber_beyond_2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
-**Oppgave**.
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
 
 
 a. Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
@@ -104,9 +107,4 @@ c. Et stolpediagram viser ikke `r mcq(c("standard error", "standardavvik", "CI",
 
 d. Forfatterne av artikkelen anbefaler mer bruk av `r mcq(c("bar graph", answer = "scatterplot"))` for kontinuerlige variabler.
 
-e. Ofte er det brukt error sammen med stolpediagram. 
-
-Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta $SD/sqrt(N)$, så ved store utvalg vil standard error være `r mcq(c("høyt", answer = "lite"))`. Standardavviket er kun $sqrt(varians/n-1)$, så denne vil i`r mcq(c("større", answer = "mindre"))` grad være påvirket av utvalgsstørrelsen".
-
-
-
+e. Er standard error og standardavvik det samme? `r mcq(c("ja", answer = "nei"))`.

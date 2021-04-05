@@ -71,7 +71,8 @@ dat <- tibble(individ = seq(1:24),
               rm = c(tre.sett , ett.sett))
 ```
 
-**Oppgave** 
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
+
 Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
 
 a) Hvor mange kolonner er det i tabellen over? <input class='solveme nospaces' size='1' data-answer='["3"]'/>
@@ -106,7 +107,9 @@ tre.sett & 42.42450\\
 \bottomrule
 \end{tabular}
 \end{table}
-**Oppgave**
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
+
 a) Hvilken gruppe hadde mest fremgang?
 <select class='solveme' data-answer='["tre.sett"]'> <option></option> <option>ett.sett</option> <option>tre.sett</option></select>`
 
@@ -123,7 +126,7 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 \end{figure}
 Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les [@weissgerber_beyond_2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.
 
-**Oppgave**.
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
 
 
 a. Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data. 
@@ -134,9 +137,4 @@ c. Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelinge
 
 d. Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.
 
-e. Ofte er det brukt error sammen med stolpediagram. 
-
-Hvis man likevel ønsker å bruke et stolpediagram for å presentere dataen er det viktig at man forteller om man har brukt SE, SD eller CI. Stanard error for gjennomsnittet regnes ved å ta $SD/sqrt(N)$, så ved store utvalg vil standard error være <select class='solveme' data-answer='["lite"]'> <option></option> <option>høyt</option> <option>lite</option></select>. Standardavviket er kun $sqrt(varians/n-1)$, så denne vil i<select class='solveme' data-answer='["mindre"]'> <option></option> <option>større</option> <option>mindre</option></select> grad være påvirket av utvalgsstørrelsen".
-
-
-
+e. Er standard error og standardavvik det samme? <select class='solveme' data-answer='["nei"]'> <option></option> <option>ja</option> <option>nei</option></select>.
