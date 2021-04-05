@@ -41,6 +41,14 @@ dummykodet.dat <- dat %>%
 ```
 
 
+```{r echo=FALSE}
+knitr::kable(
+  dummykodet.dat, booktabs = TRUE,
+  caption = 'Dummykodet datasett'
+)
+
+```
+
 I jamovi ville jeg sett følgende video: 
 
 <iframe width="797" height="457" src="https://www.youtube.com/embed/iITxK27LfZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -162,8 +162,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>5.1</b> ANOVA-tabell (variansanalyse)</a></li>
 <li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-statistisk-om-vår-alternative-modell-forklarer-mer-varians-enn-null-modellen"><i class="fa fa-check"></i><b>5.2</b> Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>6</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
-<li class="chapter" data-level="7" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>7</b> Write-up</a></li>
+<li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
+<li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
+<li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -206,6 +207,163 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-2"><a href="koding-av-kategoriske-prediktorvariabler.html#cb3-2" aria-hidden="true" tabindex="-1"></a>dummykodet.dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="koding-av-kategoriske-prediktorvariabler.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter dummykoder. If gruppe == &#39;ett.sett&#39;, gi verdien 0, else gi de 1.</span></span>
 <span id="cb3-4"><a href="koding-av-kategoriske-prediktorvariabler.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummykodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 3.1: </span>Dummykodet datasett</caption>
+<thead>
+<tr class="header">
+<th align="right">individ</th>
+<th align="left">gruppe</th>
+<th align="right">rm</th>
+<th align="right">dummykodet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">tre.sett</td>
+<td align="right">40.46704</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">tre.sett</td>
+<td align="right">49.07223</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">tre.sett</td>
+<td align="right">47.94131</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">tre.sett</td>
+<td align="right">44.51389</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">tre.sett</td>
+<td align="right">52.28750</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">tre.sett</td>
+<td align="right">40.01750</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">tre.sett</td>
+<td align="right">49.48425</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">tre.sett</td>
+<td align="right">29.21048</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">tre.sett</td>
+<td align="right">40.59293</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">tre.sett</td>
+<td align="right">37.58676</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="left">tre.sett</td>
+<td align="right">35.42651</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="left">tre.sett</td>
+<td align="right">42.49354</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="left">ett.sett</td>
+<td align="right">17.70576</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="left">ett.sett</td>
+<td align="right">17.07181</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="left">ett.sett</td>
+<td align="right">18.26811</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="left">ett.sett</td>
+<td align="right">25.42594</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="left">ett.sett</td>
+<td align="right">32.70313</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="left">ett.sett</td>
+<td align="right">19.10226</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="left">ett.sett</td>
+<td align="right">22.23827</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="left">ett.sett</td>
+<td align="right">22.27148</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="left">ett.sett</td>
+<td align="right">26.17889</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="left">ett.sett</td>
+<td align="right">20.34857</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">23</td>
+<td align="left">ett.sett</td>
+<td align="right">23.52773</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="left">ett.sett</td>
+<td align="right">17.95966</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 <p>I jamovi ville jeg sett følgende video:</p>
 <iframe width="797" height="457" src="https://www.youtube.com/embed/iITxK27LfZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>

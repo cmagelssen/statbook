@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <title>Kapittel 6 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 6 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 5 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 6 Hvordan finne linjen i modellen? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-04-02" />
+<meta name="date" content="2021-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bygge-statistisk-modeller.html"/>
-<link rel="next" href="write-up.html"/>
+<link rel="prev" href="sammenligne-modeller.html"/>
+<link rel="next" href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -143,21 +143,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Gjennomsnitt for de to gruppene</a></li>
 <li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske variabler</a>
+<li class="chapter" data-level="3" data-path="koding-av-kategoriske-prediktorvariabler.html"><a href="koding-av-kategoriske-prediktorvariabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske prediktorvariabler</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="koding-av-kategoriske-variabler.html"><a href="koding-av-kategoriske-variabler.html#dummykoding"><i class="fa fa-check"></i><b>3.1</b> Dummykoding</a></li>
+<li class="chapter" data-level="3.1" data-path="koding-av-kategoriske-prediktorvariabler.html"><a href="koding-av-kategoriske-prediktorvariabler.html#dummykoding"><i class="fa fa-check"></i><b>3.1</b> Dummykoding</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hensikten-med-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Hensikten med modellbygging</a></li>
-<li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.2</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a></li>
-<li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3</b> Null-modellen (null-hypotesen)</a></li>
-<li class="chapter" data-level="4.4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.4</b> Alternativ modell (alternativ hypotese)</a></li>
-<li class="chapter" data-level="4.5" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>4.5</b> ANOVA-tabell (variansanalyse)</a></li>
-<li class="chapter" data-level="4.6" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#t-test"><i class="fa fa-check"></i><b>4.6</b> T-test</a></li>
+<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#introduksjon-til-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Introduksjon til modellbygging</a></li>
+<li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#visualisering-av-ulike-statistiske-modeller"><i class="fa fa-check"></i><b>4.2</b> Visualisering av ulike statistiske modeller</a></li>
+<li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.3</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3.1</b> Null-modellen (null-hypotesen)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.3.2</b> Alternativ modell (alternativ hypotese)</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>5</b> Hvordan finne linjen i modellen?</a></li>
-<li class="chapter" data-level="6" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>6</b> Write-up</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html"><i class="fa fa-check"></i><b>5</b> Sammenligne modeller</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>5.1</b> ANOVA-tabell (variansanalyse)</a></li>
+<li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-statistisk-om-vår-alternative-modell-forklarer-mer-varians-enn-null-modellen"><i class="fa fa-check"></i><b>5.2</b> Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
+<li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
+<li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -182,16 +189,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hvordan-finne-linjen-i-modellen" class="section level1" number="5">
-<h1><span class="header-section-number">Kapittel 5</span> Hvordan finne linjen i modellen?</h1>
+<div id="hvordan-finne-linjen-i-modellen" class="section level1" number="6">
+<h1><span class="header-section-number">Kapittel 6</span> Hvordan finne linjen i modellen?</h1>
 <p>Nå som vi er kjent med hvordan vi kan bygge og teste statistiske modeller, er det på tide å vise hvordan vi finner regresjonslinjen som vi skal bruke. Mer presist, hvilke verdier skal vi ha for <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> som beskriver denne linjen? Hittil har dere fått disse verdiene av meg, men det vi skal lære nå er hvordan vi kan regne ut disse verdiene for hånd. En viktig sannhet om denne linjen er at regresjonslinjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Med andre ord, verdiene på <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> (som beskriver denne linjen) er slik at det er umulig å redusere error mer. Spørsmålet er hvordan vi finner verdiene på <em>b</em><sub>0</sub> og <em>b</em><sub>1</sub> som beskriver denne linjen. En tilnærming kan være å gjette seg fram til hva <span class="math inline">\(b_0\)</span> og <span class="math inline">\(b_1\)</span> skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. I figuren under har jeg prøvd tre ulike modeller, og regner ut hvor mye sum of squared error disse gir.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="05-estimering_files/figure-html/unnamed-chunk-1-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<img src="06-linje_files/figure-html/unnamed-chunk-1-1.png" alt="Ulike linjer" width="80%" />
 <p class="caption">
-Figur 5.1: <strong>CAPTION THIS FIGURE!!</strong>
+Figur 6.1: Ulike linjer
 </p>
 </div>
-<p><strong>Oppgave</strong>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
 a) Hvilken av modellene over gir mest sum of squared error? (SS<sub>Model</sub>)</p>
 <p><select class='solveme' data-answer='["b0=30 b1=7"]'> <option></option> <option>b0=30 b1=7</option> <option>b0=25 b1=28</option> <option>b0=10 b1=30</option></select></p>
 <p>Vi kan holde på slik med slik prøving-og-feiling til vi faktisk finner linjen som reduserer error mest. Det er bare å teste nok verdier. <strong>Minste kvadraters metode</strong> garanterer oss å alltid gi oss er svar. Jeg har laget en video til dere som viser vi kan prøve-og-feile til vi kommer frem til en løsning (se denne):</p>
@@ -203,7 +210,7 @@ Her var det et nytt begrep, <strong>SCP</strong>. SCP står for sum of cross-pro
 <p><span class="math display">\[ b_1 = \frac{SCP = \sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} \]</span>
 <span class="math inline">\(\bar{x}\)</span> er gjennomsnittet på x-variabelen (gruppe), mens <span class="math inline">\(\bar{y}\)</span> er gjennomsnittet for y-variabelen (1RM). I tabellen under ser du hvordan vi regner dette. Kolonnen CrossProduct er <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y})\)</span>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-2">Table 5.1: </span>Utregning av Sum of Cross Product (SCP)</caption>
+<caption><span id="tab:unnamed-chunk-2">Table 6.1: </span>Utregning av Sum of Cross Product (SCP)</caption>
 <thead>
 <tr class="header">
 <th align="right">individ</th>
@@ -586,8 +593,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="bygge-statistisk-modeller.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="write-up.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sammenligne-modeller.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -616,7 +623,7 @@ gitbook.start({
 "fontsettings": {
 "theme": "white",
 "family": "sans",
-"size": 2
+"size": 1.5
 },
 "edit": {
 "link": null,

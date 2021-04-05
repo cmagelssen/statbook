@@ -360,6 +360,46 @@ I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruk
 \end{Highlighting}
 \end{Shaded}
 
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Dummykodet datasett}
+\centering
+\begin{tabular}[t]{rlrr}
+\toprule
+individ & gruppe & rm & dummykodet\\
+\midrule
+1 & tre.sett & 40.46704 & 1\\
+2 & tre.sett & 49.07223 & 1\\
+3 & tre.sett & 47.94131 & 1\\
+4 & tre.sett & 44.51389 & 1\\
+5 & tre.sett & 52.28750 & 1\\
+\addlinespace
+6 & tre.sett & 40.01750 & 1\\
+7 & tre.sett & 49.48425 & 1\\
+8 & tre.sett & 29.21048 & 1\\
+9 & tre.sett & 40.59293 & 1\\
+10 & tre.sett & 37.58676 & 1\\
+\addlinespace
+11 & tre.sett & 35.42651 & 1\\
+12 & tre.sett & 42.49354 & 1\\
+13 & ett.sett & 17.70576 & 0\\
+14 & ett.sett & 17.07181 & 0\\
+15 & ett.sett & 18.26811 & 0\\
+\addlinespace
+16 & ett.sett & 25.42594 & 0\\
+17 & ett.sett & 32.70313 & 0\\
+18 & ett.sett & 19.10226 & 0\\
+19 & ett.sett & 22.23827 & 0\\
+20 & ett.sett & 22.27148 & 0\\
+\addlinespace
+21 & ett.sett & 26.17889 & 0\\
+22 & ett.sett & 20.34857 & 0\\
+23 & ett.sett & 23.52773 & 0\\
+24 & ett.sett & 17.95966 & 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 I jamovi ville jeg sett følgende video:
 
 \hypertarget{bygge-statistisk-modeller}{%
@@ -989,9 +1029,9 @@ Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. 
 \hypertarget{sammenligne-modeller}{%
 \chapter{Sammenligne modeller}\label{sammenligne-modeller}}
 
-Nå som vi har bygget de to statistiske modellene - \textbf{en null-modell} og \textbf{en alternativ modellen} - hva skal vi gjøre videre? Det vi sitter igjen med er en \textbf{error} (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å \textbf{sammenligne disse modellene} på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.
+Nå som vi har bygget de to statistiske modellene - \textbf{en null-modell} og \textbf{en alternativ modell} - hvor går veien videre? Det vi sitter igjen med er en \textbf{error} (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å \textbf{sammenligne disse modellene} på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.
 
-Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand fra datapunktet til linjen for mange individer, har vi en dårlig modell.
+Når vi sier at en modell er bedre, så mener vi at den vertikale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertikal avstand fra datapunktet til linjen for mange individer, kan det tyde på at vi har en dårlig modell.
 
 \begin{figure}
 
@@ -1005,7 +1045,7 @@ Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra 
 \hypertarget{anova-tabell-variansanalyse}{%
 \section{ANOVA-tabell (variansanalyse)}\label{anova-tabell-variansanalyse}}
 
-En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se flere ganger. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
+En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell, der vi legger inn erroren vi har regnet for de ulike modellene. Dette er en ganske vanlig tabell som dere kommer til å se flere ganger.
 
 \textbf{ANOVA-tabell}
 
@@ -1020,7 +1060,7 @@ The total sum of squares (SST) & & & & &\tabularnewline
 \bottomrule
 \end{longtable}
 
-\textbf{Oppgave}
+{Oppgave}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1029,9 +1069,7 @@ The total sum of squares (SST) & & & & &\tabularnewline
   Hva er sum of squared error for null-modellen?
 \end{enumerate}
 
-\begin{quote}
-(Sett dette inn i total sum of squares (SST)
-\end{quote}
+Sett dette inn i total sum of squares (SST
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1041,9 +1079,7 @@ The total sum of squares (SST) & & & & &\tabularnewline
   Hva er sum of squared error for den alternative modellen?
 \end{enumerate}
 
-\begin{quote}
-(Sett dette inn i residual sum of squares (SSR). Dette er error som er igjen etter at man har brukt den alternative-modellen. Men \textgreater\textgreater andre ord. Man kalles dette residuals.
-\end{quote}
+Sett dette inn i residual sum of squares (SSR). Dette er error som er igjen etter at man har brukt den alternative-modellen. Man kaller dette for \emph{residuals}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1053,13 +1089,11 @@ The total sum of squares (SST) & & & & &\tabularnewline
   Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen?
 \end{enumerate}
 
-\begin{quote}
-(Sett dette inn i residual sum of squares (SSR).Dette kalles The model sum of squares (SSM) eller regression i statistiske programmer.
-\end{quote}
+Sett dette inn i residual sum of squares (SSM).Dette kalles The model sum of squares (SSM) eller regression i statistiske programmer. Dere regner dette ved å ta (SST-SSM).
 
 {Godt jobbet!}
 
-Det kan noen ganger være greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren til venstre ser du de modellene våre pluss hvor mye error den alternative modellen vår har redusert error med:
+Det er ønskelig at SSM er stor fordi det betyr at den alternative modellen vår forklarer mye error. Det kan ofte være lurt å lage figurer for å se dette visuelt. Det er flere måter å gjøre dette på. Vi liker å plotte dette i et stolpediagram, slik vi har gjort i figuren under. På denne måten er det enkelt å se om modellen vår (SSM) er en god eller dårlig modell; hvis høyden på stolpen som representerer SSM er høy betyr det at modellen forklarer mye error. I figuren til venstre ser du modellene vi har bygget, og et eksempel på en modell der SSM er høy. Figuren til høyre er ment som et sammenligningsgrunnlag, der vi viser et eksempel på en dårlig modell.
 
 \begin{figure}
 
@@ -1067,7 +1101,7 @@ Det kan noen ganger være greit å visualisere erroren som er igjen med de to mo
 
 }
 
-\caption{Visualisering av error ved de ulike modellene}\label{fig:unnamed-chunk-3}
+\caption{SS for de ulike modellene}\label{fig:unnamed-chunk-3}
 \end{figure}
 
 \begin{itemize}
@@ -1085,7 +1119,7 @@ Det kan noen ganger være greit å visualisere erroren som er igjen med de to mo
 \setcounter{enumi}{4}
 \tightlist
 \item
-  Hvis du sammenligner med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?
+  Hvis du sammenligner med figuren til venstre (vår modell) med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?
 \end{enumerate}
 
 ja nei.
@@ -1106,8 +1140,7 @@ ja nei.
   Hva er (SSR) + (SSM)?
 \end{enumerate}
 
-Med erroren vi har tilgjengelig kan vi regne noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange \% modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som \(n^2\), mens man i regresjonsanalyser kaller denne for \(R^2\)
-. Vi regner ut det på følgende måte:
+Med erroren vi har tilgjengelig kan vi regne noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) får vi hvor mange \% modellen vår har redusert error med, i forhold til null-modellen. Dette er en effektstørrelse som ofte blir rapoortert sammen med ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som \(n^2\), mens man i regresjonsanalyser kaller denne for \(R^2\). Vi regner ut det på følgende måte:
 
 \[
 R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
@@ -1123,24 +1156,20 @@ R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
 
 (uten \%-tegnet)
 
-\begin{quote}
-\begin{quote}
 Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk bruker PRE, \(n^2\). Vit at de mener det samme.
-\end{quote}
-\end{quote}
 
 {Ferdig - Bra jobbet!}
 
 \hypertarget{teste-statistisk-om-vuxe5r-alternative-modell-forklarer-mer-varians-enn-null-modellen}{%
 \section{Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen}\label{teste-statistisk-om-vuxe5r-alternative-modell-forklarer-mer-varians-enn-null-modellen}}
 
-Det kan høres ut som at en error-reduksjon på 2527.5 (\(SS_M\)), eller 78 \% (\((R^2)*100\)), er mye. Et problem med \(SS_M\) og \(R^2\) er at begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
+En error-reduksjon på 2527.5 (\(SS_M\)), eller 78 \% (\((R^2)*100\)), kan høres mye ut. Men et problem med disse størrelsene er at de begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
 
 \[
 Y_i  = b_0 + b_1(Gruppe_i) + b_2(Kjønn_i) + b_3(Treningstatus_i) + b_4(Alder_i)
 \]
 
-Hvis vi hadde gjort dette, ville vi fått en høy \(SS_M\) eller \(R^2\) uansett (aldri lavere). Derfor er det mer interessant å regne ut gjennomsnittlig \(SS_M\) per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles Mean Squared Model (MSM), eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
+Hvis vi hadde gjort dette, ville vi fått en høy \(SS_M\) eller \(R^2\). Derfor er det mer interessant å regne ut gjennomsnittlig \(SS_M\) per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles \textbf{Mean Squared Model (MSM)}, eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
 
 \[
 \text{ Mean Squared Model } (MS_M) = SS_M / df_M
@@ -1222,7 +1251,7 @@ The total sum of squares (SST) & 3243.784 & & & &\tabularnewline
 \bottomrule
 \end{longtable}
 
-Vi kan se at vår F-verdi er 77.63, og at p-verdien er \textless{} 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved \(df_M\) = 1 og \(df_R\) = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen.
+Vi kan se at vår F-verdi er 77.63, og at p-verdien er \textless{} 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved \(df_M\) = 1 og \(df_R\) = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen. En F-fordeling ser veldig lik ut som en z- og t-fordeling, og fungerer på samme måte: Vi regner ut en F-verdi, og spør om sannsynligheten for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at \(R^2\) = 0.
 
 \begin{figure}
 
@@ -1240,19 +1269,8 @@ Da er det bare å sette seg tilbake å nyte denne sangen:
 \begin{figure}
 \centering
 \includegraphics{F.png}
-\caption{Slik designet Rønnestad et al.~(2007) sin studie}
+\caption{F-testen}
 \end{figure}
-
-Det siste vi kan gjøre er å teste om parameterne vi har lagt til i modellen er god. og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at \(R^2\) = 0. For å teste dette må vi regne ut en F-verdi:
-
-\[
-F = \frac{(SS_M / df_M)}{SS_R / df_R}
-\]
-Vi har allerede regne ut, så vi kan plotte disse inn.
-
-\[
-F = \frac{2527.5/ df_M}{716.2875 / df_R}
-\]
 
 Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
 - \url{https://www.youtube.com/watch?v=eSJAjlavPwU}
@@ -1275,6 +1293,97 @@ Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{verbatim}
+
+\hypertarget{hvordan-finne-linjen-i-modellen}{%
+\chapter{Hvordan finne linjen i modellen?}\label{hvordan-finne-linjen-i-modellen}}
+
+Nå som vi er kjent med hvordan vi kan bygge og teste statistiske modeller, er det på tide å vise hvordan vi finner regresjonslinjen som vi skal bruke. Mer presist, hvilke verdier skal vi ha for \emph{b}0 og \emph{b}1 som beskriver denne linjen? Hittil har dere fått disse verdiene av meg, men det vi skal lære nå er hvordan vi kan regne ut disse verdiene for hånd. En viktig sannhet om denne linjen er at regresjonslinjen (les modellen) er plassert slik at den reduserer Sum of Squared Error mest mulig. Med andre ord, verdiene på \emph{b}0 og \emph{b}1 (som beskriver denne linjen) er slik at det er umulig å redusere error mer. Spørsmålet er hvordan vi finner verdiene på \emph{b}0 og \emph{b}1 som beskriver denne linjen. En tilnærming kan være å gjette seg fram til hva \(b_0\) og \(b_1\) skal være. Vi kan teste ut ulike verdier for b0 og b1, og evaluere hvor mye sum of Squared Error disse gir. I figuren under har jeg prøvd tre ulike modeller, og regner ut hvor mye sum of squared error disse gir.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{06-linje_files/figure-latex/unnamed-chunk-1-1} 
+
+}
+
+\caption{Ulike linjer}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+{Oppgave}
+a) Hvilken av modellene over gir mest sum of squared error? (SSModel)
+
+b0=30 b1=7 b0=25 b1=28 b0=10 b1=30
+
+Vi kan holde på slik med slik prøving-og-feiling til vi faktisk finner linjen som reduserer error mest. Det er bare å teste nok verdier. \textbf{Minste kvadraters metode} garanterer oss å alltid gi oss er svar. Jeg har laget en video til dere som viser vi kan prøve-og-feile til vi kommer frem til en løsning (se denne):
+
+Det er en mer effektiv måte å løse dette problemet på. For å finne \textbf{b1} kan vi bruke følgende formel:
+
+\[ b_1 = \frac{SCP}{SS_x} \]
+Her var det et nytt begrep, \textbf{SCP}. SCP står for sum of cross-product deviations. Det brukes til å finne relasjonen mellom to variabler, og er grunnlaget for en rekke utregninger i statistikken, så det kan være lurt å lære seg. SCP finner ut av om en person som er over eller under gjennomsnittet på en variabel, også er over eller under gjennomsnittet på den andre variabelen.
+
+\[ b_1 = \frac{SCP = \sum_{n=1}^N (x_i - \bar{x})(y_i - \bar{y})}{SS_x} \]
+\(\bar{x}\) er gjennomsnittet på x-variabelen (gruppe), mens \(\bar{y}\) er gjennomsnittet for y-variabelen (1RM). I tabellen under ser du hvordan vi regner dette. Kolonnen CrossProduct er \((x_i - \bar{x})(y_i - \bar{y})\).
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}Utregning av Sum of Cross Product (SCP)}
+\centering
+\begin{tabular}[t]{rrrrrrrr}
+\toprule
+individ & gruppe & gj.snitt.x & error.x & rm & gj.snitt.y & error.y & CrossProduct\\
+\midrule
+1 & 1 & 0.5 & 0.5 & 40.46704 & 32.16231 & 8.3047301 & 4.1523651\\
+2 & 1 & 0.5 & 0.5 & 49.07223 & 32.16231 & 16.9099106 & 8.4549553\\
+3 & 1 & 0.5 & 0.5 & 47.94131 & 32.16231 & 15.7789994 & 7.8894997\\
+4 & 1 & 0.5 & 0.5 & 44.51389 & 32.16231 & 12.3515740 & 6.1757870\\
+5 & 1 & 0.5 & 0.5 & 52.28750 & 32.16231 & 20.1251864 & 10.0625932\\
+\addlinespace
+6 & 1 & 0.5 & 0.5 & 40.01750 & 32.16231 & 7.8551872 & 3.9275936\\
+7 & 1 & 0.5 & 0.5 & 49.48425 & 32.16231 & 17.3219362 & 8.6609681\\
+8 & 1 & 0.5 & 0.5 & 29.21048 & 32.16231 & -2.9518368 & -1.4759184\\
+9 & 1 & 0.5 & 0.5 & 40.59293 & 32.16231 & 8.4306117 & 4.2153059\\
+10 & 1 & 0.5 & 0.5 & 37.58676 & 32.16231 & 5.4244472 & 2.7122236\\
+\addlinespace
+11 & 1 & 0.5 & 0.5 & 35.42651 & 32.16231 & 3.2641906 & 1.6320953\\
+12 & 1 & 0.5 & 0.5 & 42.49354 & 32.16231 & 10.3312265 & 5.1656133\\
+13 & 0 & 0.5 & -0.5 & 17.70576 & 32.16231 & -14.4565510 & 7.2282755\\
+14 & 0 & 0.5 & -0.5 & 17.07181 & 32.16231 & -15.0905068 & 7.5452534\\
+15 & 0 & 0.5 & -0.5 & 18.26811 & 32.16231 & -13.8942055 & 6.9471027\\
+\addlinespace
+16 & 0 & 0.5 & -0.5 & 25.42594 & 32.16231 & -6.7363771 & 3.3681886\\
+17 & 0 & 0.5 & -0.5 & 32.70313 & 32.16231 & 0.5408147 & -0.2704074\\
+18 & 0 & 0.5 & -0.5 & 19.10226 & 32.16231 & -13.0600552 & 6.5300276\\
+19 & 0 & 0.5 & -0.5 & 22.23827 & 32.16231 & -9.9240435 & 4.9620217\\
+20 & 0 & 0.5 & -0.5 & 22.27148 & 32.16231 & -9.8908322 & 4.9454161\\
+\addlinespace
+21 & 0 & 0.5 & -0.5 & 26.17889 & 32.16231 & -5.9834246 & 2.9917123\\
+22 & 0 & 0.5 & -0.5 & 20.34857 & 32.16231 & -11.8137453 & 5.9068726\\
+23 & 0 & 0.5 & -0.5 & 23.52773 & 32.16231 & -8.6345853 & 4.3172926\\
+24 & 0 & 0.5 & -0.5 & 17.95966 & 32.16231 & -14.2026514 & 7.1013257\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\[ b_1 = \frac{SCP = 20.52436}{SSx} \]
+Nå som vi har regnet SCP er det bare å regne SSx (sum of squared error for prediktorvariabelen) er fordi man ønsker å ta høyde for hvor mye prediktorvariabelen avviker fra mean. Jeg har dessverre ikke noen supergod forklaring, og jeg synes heller ikke Field forklarer dette godt. Så jeg bare vet at jeg må gjøre det.
+
+\[ b_1 = \frac{SCP = 20.52436}{6} \]
+\[ b_1 = 20.52436 \]
+
+Nå gjenstår det bare å finne \textbf{b\_0}. Denne er enkel å finne når vi først har funnet \textbf{b0}. Husk at modellen vår er en ligning, så ved enkelt finne \textbf{b0} ved omorganisere ligningen: trekker vi fra \(b_1X_i\) på hver side av likhetstegnet får vi \textbf{b0} alene:
+
+\[
+Y_i = (b_0 + b_1X_i)
+\]
+
+\[
+Y_i - b_1X_i = (b_0)
+\]
+
+Men må ligningen med verdier. Og da bruker man gjennomsnittet for Y variabelen og gjennomsnittet for X variabelen.
+
+\[
+32.16231     - (20.52436*0.5) = (21.90013)
+\]
 
 \hypertarget{t-test---er-b_1-signifikant-forskjellig-fra-null}{%
 \chapter{\texorpdfstring{T-test - er \(b_1\) signifikant forskjellig fra null?}{T-test - er b\_1 signifikant forskjellig fra null?}}\label{t-test---er-b_1-signifikant-forskjellig-fra-null}}
