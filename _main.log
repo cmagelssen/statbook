@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.3)  4 APR 2021 17:31
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.3)  5 APR 2021 12:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,6 +443,9 @@ LaTeX Warning: Label `fig:unnamed-chunk-2' multiply defined.
 
 
 LaTeX Warning: Label `fig:unnamed-chunk-3' multiply defined.
+
+
+LaTeX Warning: Label `fig:unnamed-chunk-4' multiply defined.
 
 )
 \openout1 = `_main.aux'.
@@ -892,39 +895,50 @@ File: 05-sammenligne_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (typ
 e pdf)
 <use 05-sammenligne_files/figure-latex/unnamed-chunk-3-1.pdf>
 [30] [31]
-Overfull \hbox (49.33295pt too wide) detected at line 1140
-[] [] []
- []
+Missing character: There is no ø ("F8) in font lmmi10!
+
+Overfull \vbox (26.25891pt too high) has occurred while \output is active []
 
 [32]
-Underfull \vbox (badness 5726) has occurred while \output is active []
+Overfull \hbox (209.39905pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.2.  TESTE (STATISTISK) OM VÅR ALTERNATIVE MODELL FORKLARER ME
+R VARIANS ENN NULL-MODELLEN \TU/lmr/m/n/10 33
+ []
 
-[33] [34]
-File: 05-sammenligne_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (typ
+[33]
+File: 05-sammenligne_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (typ
 e pdf)
-<use 05-sammenligne_files/figure-latex/unnamed-chunk-6-1.pdf>
+<use 05-sammenligne_files/figure-latex/unnamed-chunk-4-1.pdf>
+File: F.png Graphic file (type bmp)
+<F.png>
+[34]
+Overfull \hbox (209.39905pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.2.  TESTE (STATISTISK) OM VÅR ALTERNATIVE MODELL FORKLARER ME
+R VARIANS ENN NULL-MODELLEN \TU/lmr/m/n/10 35
+ []
+
 [35] [36
 
 ]
 Chapter 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 24.88pt on input line 1242.
+(Font)              scaled to size 24.88pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 1242.
+(Font)              scaled to size 20.74pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 1242.
+(Font)              scaled to size 17.28pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 24.88228pt on input line 1242.
+(Font)              scaled to size 24.88228pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 20.7419pt on input line 1242.
+(Font)              scaled to size 20.7419pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 17.28157pt on input line 1242.
+(Font)              scaled to size 17.28157pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 24.87733pt on input line 1242.
+(Font)              scaled to size 24.87733pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 20.73778pt on input line 1242.
+(Font)              scaled to size 20.73778pt on input line 1280.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 17.27815pt on input line 1242.
+(Font)              scaled to size 17.27815pt on input line 1280.
 [37]
 File: output.png Graphic file (type bmp)
 <output.png>
@@ -954,15 +968,15 @@ Chapter 7.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 74C4C4225842C09DBE7D98E139958440;3465.
+(rerunfilecheck)             Checksum: AF3E814A430F6DF6260AA5C28C36B2D2;3606.
  ) 
 Here is how much of TeX's memory you used:
- 16437 strings out of 478918
- 295223 string characters out of 5865692
- 754956 words of memory out of 5000000
- 36050 multiletter control sequences out of 15000+600000
+ 16443 strings out of 478918
+ 295277 string characters out of 5865692
+ 755206 words of memory out of 5000000
+ 36056 multiletter control sequences out of 15000+600000
  409092 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,8n,122p,932b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,8n,122p,653b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on _main.pdf (43 pages).

@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-04-04" />
+<meta name="date" content="2021-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hensikten-med-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Hensikten med modellbygging</a></li>
+<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#introduksjon-til-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Introduksjon til modellbygging</a></li>
 <li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#visualisering-av-ulike-statistiske-modeller"><i class="fa fa-check"></i><b>4.2</b> Visualisering av ulike statistiske modeller</a></li>
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.3</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a>
 <ul>
@@ -160,8 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html"><i class="fa fa-check"></i><b>5</b> Sammenligne modeller</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>5.1</b> ANOVA-tabell (variansanalyse)</a></li>
-<li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-null-hypotesen-med-f"><i class="fa fa-check"></i><b>5.2</b> teste null-hypotesen med F</a></li>
-<li class="chapter" data-level="5.3" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-null-hypotesen-med-t"><i class="fa fa-check"></i><b>5.3</b> teste null-hypotesen med t</a></li>
+<li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-statistisk-om-vår-alternative-modell-forklarer-mer-varians-enn-null-modellen"><i class="fa fa-check"></i><b>5.2</b> Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>6</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="7" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>7</b> Write-up</a></li>
@@ -191,9 +190,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sammenligne-modeller" class="section level1" number="5">
 <h1><span class="header-section-number">Kapittel 5</span> Sammenligne modeller</h1>
-<p>Nå har vi bygget to statistiske modeller: <strong>en null-modell</strong> og <strong>en alternativ modellen</strong>. Det vi sitter igjen med er en <strong>error</strong> (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å <strong>sammenligne disse modellene</strong> på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.</p>
+<p>Nå som vi har bygget de to statistiske modellene - <strong>en null-modell</strong> og <strong>en alternativ modellen</strong> - hva skal vi gjøre videre? Det vi sitter igjen med er en <strong>error</strong> (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å <strong>sammenligne disse modellene</strong> på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.</p>
 <div class="info">
-<p>Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand, har vi en dårlig modell.</p>
+<p>Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand fra datapunktet til linjen for mange individer, har vi en dårlig modell.</p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <img src="05-sammenligne_files/figure-html/unnamed-chunk-2-1.png" alt="Modeller med forskjellig b1" width="100%" />
@@ -203,7 +202,7 @@ Figur 4.1: Modeller med forskjellig b1
 </div>
 <div id="anova-tabell-variansanalyse" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> ANOVA-tabell (variansanalyse)</h2>
-<p>En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.</p>
+<p>En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se flere ganger. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.</p>
 <p><strong>ANOVA-tabell</strong></p>
 <table>
 <thead>
@@ -262,6 +261,7 @@ Figur 4.1: Modeller med forskjellig b1
 <blockquote>
 <p>(Sett dette inn i residual sum of squares (SS<sub>R</sub>).Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer.</p>
 </blockquote>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Godt jobbet!</span></p>
 <div class="info">
 <p>Det kan noen ganger være greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren til venstre ser du de modellene våre pluss hvor mye error den alternative modellen vår har redusert error med:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
@@ -275,10 +275,9 @@ Figur 4.2: Visualisering av error ved de ulike modellene
 <li>SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen.</li>
 <li>SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare.</li>
 </ul>
-<p>Vil du si at den alternative modellen vår er god? Sammenlign dette med modellen til høyre</p>
 </div>
 <ol start="5" style="list-style-type: lower-alpha">
-<li>Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?</li>
+<li>Hvis du sammenligner med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?</li>
 </ol>
 <p><select class='solveme' data-answer='["ja"]'> <option></option> <option>ja</option> <option>nei</option></select>.</p>
 <ol start="4" style="list-style-type: lower-alpha">
@@ -289,7 +288,7 @@ Figur 4.2: Visualisering av error ved de ulike modellene
 <li>Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)?</li>
 </ol>
 <p><input class='solveme nospaces' size='8' data-answer='["3243.784"]'/></p>
-<p>Med erroren vi tilgjngelig kan vi noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange % modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som <span class="math inline">\(n^2\)</span>, mens man i regresjonsanalyser kaller denne for <span class="math inline">\(R^2\)</span>
+<p>Med erroren vi har tilgjengelig kan vi regne noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange % modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som <span class="math inline">\(n^2\)</span>, mens man i regresjonsanalyser kaller denne for <span class="math inline">\(R^2\)</span>
 . Vi regner ut det på følgende måte:</p>
 <p><span class="math display">\[
 R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
@@ -303,62 +302,182 @@ R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
 <p>Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk bruker PRE, <span class="math inline">\(n^2\)</span>. Vit at de mener det samme.</p>
 </blockquote>
 </blockquote>
-<p>Det kan høres ut som at en errorreduksjon på 78 % er mye, og det vil vi absolutt påstå at det er!</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Ferdig - Bra jobbet!</span></p>
 </div>
-<div id="teste-null-hypotesen-med-f" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> teste null-hypotesen med F</h2>
-<p>For å teste om en SSM eller en errorreduksjon på 78 % er mye eller lite skal vi bruke en F-test og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at <span class="math inline">\(R^2\)</span> = 0. For å teste dette må vi regne ut en F-verdi:</p>
+<div id="teste-statistisk-om-vår-alternative-modell-forklarer-mer-varians-enn-null-modellen" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen</h2>
+<p>Det kan høres ut som at en error-reduksjon på 2527.5 (<span class="math inline">\(SS_M\)</span>), eller 78 % (<span class="math inline">\((R^2)*100\)</span>), er mye. Et problem med <span class="math inline">\(SS_M\)</span> og <span class="math inline">\(R^2\)</span> er at begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:</p>
+<p><span class="math display">\[
+Y_i  = b_0 + b_1(Gruppe_i) + b_2(Kjønn_i) + b_3(Treningstatus_i) + b_4(Alder_i)
+\]</span></p>
+<p>Hvis vi hadde gjort dette, ville vi fått en høy <span class="math inline">\(SS_M\)</span> eller <span class="math inline">\(R^2\)</span> uansett (aldri lavere). Derfor er det mer interessant å regne ut gjennomsnittlig <span class="math inline">\(SS_M\)</span> per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles Mean Squared Model (MSM), eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:</p>
+<p><span class="math display">\[
+\text{ Mean Squared Model } (MS_M) = SS_M / df_M
+\]</span>
+<span class="math inline">\(df_m\)</span> står for antall frihetsgrader som er lagt til i modellen utover null-modellen. Null-modellen har kun ett parameter (<span class="math inline">\(b_0\)</span>), som er mean, mens vår alternative modell har to parametere (<span class="math inline">\(b_0\)</span> og <span class="math inline">\(b_1\)</span>). Derfor blir <span class="math inline">\(df_M\)</span> = (2-1) = 1.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Regn ut Mean Squared Error (<span class="math inline">\(MS_M\)</span>) og sett det verdien inn i ANOVA-tabellen vår</li>
+</ol>
+<p><strong>ANOVA-tabell</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Modell</th>
+<th>SS</th>
+<th><em>df</em></th>
+<th>MS</th>
+<th><em>F</em></th>
+<th><span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The model sum of squares (SS<sub>M</sub>)</td>
+<td>2527.5</td>
+<td></td>
+<td><input class='solveme nospaces' size='6' data-answer='["2527.5"]'/></td>
+<td></td>
+<td>0.78</td>
+</tr>
+<tr class="even">
+<td>The residual sum of squares (SS<sub>R</sub>)</td>
+<td>716.2875</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>The total sum of squares (SS<sub>T</sub>)</td>
+<td>3243.784</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="info">
+<p>Det vi ønsker at dere tar med dere fra denne oppgaven er at en høy <span class="math inline">\(SS_M\)</span> eller <span class="math inline">\(R^2\)</span> er <strong>mer imponerende hvis vi kun har lagt til ett ekstra parameter enn hvis vi hadde lagt til f.eks. 10 parametere</strong>. Enig?</p>
+</div>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Bra!</span></p>
+<p>Det siste vi skal gjøre er å sammenligne <span class="math inline">\(MS_M\)</span> med <span class="math inline">\(MS_R\)</span>. <strong><span class="math inline">\(MS_R\)</span></strong> er <span class="math inline">\(SS_R\)</span>, den erroren som er igjen etter at vi har brukt den alternative modellen, <strong>delt på antall parametere som i prinsippet kunne vill lagt til i modellen</strong>. I prinsippet står vi fritt til å legge til så mange parametere i modellen som vi ønsker, men antall parametere kan aldri overstige antall deltakere i studien. Men fordi vi allerede har brukt to parametere i den alternative modellen, kan vi kun legge til (24 - 2) = 22 parametere.</p>
+<p><span class="math display">\[
+\text{ Mean Squared Residual (MSR) }  = SS_R / df_R
+\]</span>
+b. Regn ut Mean Squared Residual (<span class="math inline">\(MS_R\)</span>) og sett det verdien inn i ANOVA-tabellen vår</p>
+<p><strong>ANOVA-tabell</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Modell</th>
+<th>SS</th>
+<th><em>df</em></th>
+<th>MS</th>
+<th><em>F</em></th>
+<th><span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The model sum of squares (SS<sub>M</sub>)</td>
+<td>2527.5</td>
+<td></td>
+<td>2527.5</td>
+<td></td>
+<td>0.78</td>
+</tr>
+<tr class="even">
+<td>The residual sum of squares (SS<sub>R</sub>)</td>
+<td>716.2875</td>
+<td></td>
+<td><input class='solveme nospaces' size='8' data-answer='["32.55852"]'/></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>The total sum of squares (SS<sub>T</sub>)</td>
+<td>3243.784</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="info">
+<p><span class="math inline">\(MS_R\)</span> er gjenstående error per parameter som potensielt kunne blitt lagt til i modellen. Med andre ord er det den gjennomsnittlige erroren som er igjen per parameter som kunne blitt lagt til i modellen. Enig?</p>
+</div>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Vi er endelig i mål!</span></p>
+<p>Nå har vi gjort alle utregningene, og vi kan bare sammenligne disse to størrelsene (<span class="math inline">\(MS_M\)</span> versus <span class="math inline">\(MS_R\)</span>) med hverandre. Dette kalles en <strong>F-test</strong>.</p>
+<p><span class="math display">\[
+\text{F}  = \frac{MS_M}{MS_R}
+\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Regn ut vår F-verdi og sett den inn i vår ANOVA-tabell</li>
+</ol>
+<p><strong>ANOVA-tabell</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Modell</th>
+<th>SS</th>
+<th><em>df</em></th>
+<th>MS</th>
+<th><em>F</em></th>
+<th><span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The model sum of squares (SS<sub>M</sub>)</td>
+<td>2527.5</td>
+<td>1</td>
+<td>2527.5</td>
+<td><input class='solveme nospaces' size='5' data-answer='["77.63"]'/></td>
+<td>0.78</td>
+</tr>
+<tr class="even">
+<td>The residual sum of squares (SS<sub>R</sub>)</td>
+<td>716.2875</td>
+<td>22</td>
+<td>32.55852</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>The total sum of squares (SS<sub>T</sub>)</td>
+<td>3243.784</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Vi kan se at vår F-verdi er 77.63, og at p-verdien er &lt; 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved <span class="math inline">\(df_M\)</span> = 1 og <span class="math inline">\(df_R\)</span> = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="05-sammenligne_files/figure-html/unnamed-chunk-4-1.png" alt="F-test" width="60%" />
+<p class="caption">
+Figur 4.3: F-test
+</p>
+</div>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Done!</span></p>
+<p>Da er det bare å sette seg tilbake å nyte denne sangen:</p>
+<iframe width="600" height="350" src="https://www.youtube.com/embed/XHR3Rpij42Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<div class="figure">
+<img src="f.png" alt="" />
+<p class="caption">Slik designet Rønnestad et al. (2007) sin studie</p>
+</div>
+<p>Det siste vi kan gjøre er å teste om parameterne vi har lagt til i modellen er god. og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at <span class="math inline">\(R^2\)</span> = 0. For å teste dette må vi regne ut en F-verdi:</p>
 <p><span class="math display">\[
 F = \frac{(SS_M / df_M)}{SS_R / df_R}
 \]</span>
 Vi har allerede regne ut, så vi kan plotte disse inn.</p>
 <p><span class="math display">\[
-F = \frac{(&lt;input class=&#39;solveme nospaces&#39; size=&#39;6&#39; data-answer=&#39;[&quot;2527.5&quot;]&#39;/&gt; / df_M)}{716.2875 / df_R}
-\]</span>
-Men hva er de respektivene frihetsgradene som er i nevneren og telleren? Å forstå dette vil gi en god forståelse for hva F-verdien er. Vi fokuserer på telleren først. Modellen reduserte Sum of Squared error med 2527.5, som i grunn er mye. Men vi kunne bygget en superkompleks og lagt til haugevis av ekstra parametere. Dette kunne vi gjort ved å f.eks sammenlignet enda flere grupper. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra:</p>
-<p><span class="math display">\[
-Y_i = b_0
-\]</span>
-til:
-<span class="math display">\[
-Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
-\]</span>
-I så fall ville vi garantert ha fått en stor Sum of squared error fordi et parameter alltid vil redusere error noe, aldri øke det. Så det vi skal gjøre i telleren i formelen er å dele på SSm / på antall parametere vi har brukt utover det null-modellen har brukt. Null-modellen hadde kun ett parameter, mens den altenative modellen hadde 2, så df blir 1. Poenget som jeg vil at dere skal huske på er at. Dette er variansen. Poenget er en SSm er mer imponerende om vi har brukt få ekstra parametere.</p>
-<p>Husk at når vi trekker to eller flere utvalg fra en populasjon, så vil disse utvalgene nesten alltid være forskjellige fra hverandre.</p>
-<p>Vi kunne bruke samme prinsipp for t-fordelingen. Null-hypotesen var disse tilfellene var at disse</p>
-<p>Felles for disse fordelingene er at de baserer seg på gjennomsnittet mellom utvalg. V</p>
-<p>Da vi brukte en <em>z</em>-fordeling sa vi at 95 % av utvalgene vi trekker fra en populasjon med et gjennomsnitt på 0 og et standardavvik på 1, ville falle mellom en z-verdi på -1.96 og 1.96, gitt at de ble trukket fra denne populasjonen. Hvis vi plutselig observerte en z-skår for vårt utvalg som høyere enn 1.96 eller lavere enn -1.96, sa vi at vi hadde et signifikant funn og at utvalgene dermed ikke kommer fra samme populasjon. Vi brukte en t-fordeling på lignende måte.</p>
-<p>Men hvis vi brukte en z-fordeling, så sa vi at 95 % av utvalgene vi trekker fra en slik fordeling vil falle mellom en z-verdi mellom -1.96 og 1.96. Vi kan bruke en t-fordeling til å si noe lignende. Felles for z-fordelingen og t-fordelingen er de går på sample means. En f-fordeling baserer seg ikke på means, men på reduksjon i sum of squared errors. Null-hypotesen er at det ikke modellen vår reduserer noe error i det hele tatt. Men fordi forskjellige utvalg gir forskjellige, må vi forvente at det er noen fordelinger under null</p>
-<p>Vi har allerede jobbet med to fordelinger, en z-fordeling, t-fordeling. Det vi skal jobbe med nå er en F-fordeling. En F-fordeling er nesten likt som en z-fordeling og en t-fordeling, men er litt forskjellig fra disse på den måten at en F-fordeling operer med forklart Sum of Squarered error ved modellen, mens en z-fordeling og t-fordeling operer med sample means. Med andre ord, istf. å si hva er sannsynlig for observere en t, gitt att, skal vi spørre hva er sannsynligheten for at det ikke noe explained varians. Gitt at null hypotesen er sann, dvs.. Selv om vi har explained variance i populasjonen, så vil det alltid være litt explained variance fra utvalg til utvalg. Dere husker kanskje. Så det vi må gjøre er å regne ut hvor mye hvor mye f-verdi, og så spørre oss, hva er sannsynligheten for å få en f-statistikk, så stor som denne, gitt at null hypotesen er sann. Explianed variansen av denne modellen er null.</p>
-<p>For å finne ut av dette må vi regne ut en f-verdi. Formelen for dette er</p>
-</div>
-<div id="teste-null-hypotesen-med-t" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> teste null-hypotesen med t</h2>
-<p>Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra:</p>
-<p><span class="math display">\[
-Y_i = b_0
-\]</span>
-til:</p>
-<p><span class="math display">\[
-Y_i = b_0 + b_1X_i
+F = \frac{2527.5/ df_M}{716.2875 / df_R}
 \]</span></p>
-<p>Men tenk om vi hadde lagt til enda flere prediktorvariabler i modellen. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra:</p>
-<p><span class="math display">\[
-Y_i = b_0
-\]</span>
-til:
-<span class="math display">\[
-Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
-\]</span>
-I så fall ville vi garantert ha fått en stor errorreduksjon fordi noen av disse parameterne ville vært gode. Derfor regner vi gjennomsnittlig squared error, som vi kaller for <strong>Mean Squared Error (MSE)</strong>. Poenget med dette er at høy errorreduksjon med en alternativ modellen er mye mer imponerende hvis vi kun har med en prediktorvariabel enn om vi har med mange. Derfor regner vi <strong>Mean SquaredM Model (MSE)</strong>. MSE regnes ved å ta SS<sub>M</sub> / frihetsgrader (<em>df</em>). Frihetsgradene vi bruker til dette er antatt ektra parametere vi har lagt til i modellen vår med referanse til null-modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.</p>
-<ol start="6" style="list-style-type: lower-alpha">
-<li>Regn ut <strong>Mean Squared Model (MSM)</strong> og putt den inn i ANOVA-tabellen. <span class="math inline">\(MS_M=\frac{(SS_M)}{df}\)</span>. Legg samtidig antall frihetsgrader for MSE inn i ANOVA-tabellen over.</li>
-</ol>
-<p>Det neste vi skal gjøre er å regne er <strong>Mean Squared (MSM)</strong></p>
-<ol start="7" style="list-style-type: lower-alpha">
-<li><p>Det aller siste vi skal gjøre er å</p></li>
-<li><p>I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv <em>p</em>-verdien din inn i?</p></li>
-</ol>
 <p>Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
 - <a href="https://www.youtube.com/watch?v=eSJAjlavPwU" class="uri">https://www.youtube.com/watch?v=eSJAjlavPwU</a>
 - <a href="https://www.youtube.com/watch?v=0xWDulRHd9M" class="uri">https://www.youtube.com/watch?v=0xWDulRHd9M</a>
@@ -372,12 +491,6 @@ I så fall ville vi garantert ha fått en stor errorreduksjon fordi noen av diss
 ## Residuals   22  716.3    32.6                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
-<img src="05-sammenligne_files/figure-html/unnamed-chunk-6-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">
-Figur 5.1: <strong>CAPTION THIS FIGURE!!</strong>
-</p>
-</div>
 
 </div>
 </div>

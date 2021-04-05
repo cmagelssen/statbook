@@ -5,9 +5,9 @@ library(webex)
 
 # Bygge statistisk modeller
 
-## Hensikten med modellbygging
+## Introduksjon til modellbygging
 
-Når forskere har samlet inn dataen de trenger er deres neste oppgave å bygge statistsike modeller som representer denne dataen. Modellene vi tilpasser dataen kan videre brukes til å si noe om hva den sanne verdien er på parameteret av interesse. Hvis en modell er en god representasjon av dataen, dvs. at modellen er god, kan vi med noenluende trygghet si hva en person skåret på utfallsvariablen uten å bomme altfor mye. Hvis en modell er dårlig bør vi vurdere om vi skal bruke den eller ikke. Statistikken, og hjelper oss til å ta slike beslutningerø
+Når vi har samlet inn dataen vi trenger blir vår neste oppgave å bygge statistiske modeller som representerer denne dataen. Fordelen med disse modellene er at den gjør dataen mer forståelig. For eksempel er det mye enklere å si hva gjennomsnittet var i en treningsgruppe enn å ramse opp alle de enkelte observasjonene i datasettet. Forståelig nok ønsker vi å bygge modeller som representerer dataen godt, og vi vil bruke helt eksplisitte kriterier for å vurdere disse modellene 
 
 Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare bytter ut det i parantesen med en spesifikk modell som vi ønsker å bygge.
 
@@ -17,7 +17,7 @@ $$
 
 
 <div class="warning">
-Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det, og det kommer vi til å bli med litt øving. Som vi sa kommer vi til å bruke denne ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre
+Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det. Vi kommer til å bruke den samme ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre.
 
 </div>
 
@@ -27,25 +27,28 @@ La oss bryte denne ligningen over:
 
 * **Modell** er egentlig bare en representasjon av denne dataen-
 
-* **error** er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).
+* **Error** er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).
 
 <div class="info">
 Legg merke til den lille <sub>i</sub>-en som står bak data og error i ligningen. <sub>i</sub>-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte <sub>i</sub>-en med <sub>3</sub> eller <sub>8</sub>. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker <sub>i</sub> for å holde det generelt
 </div>
 
-Ligningen over blir nok mer oppklarende om vi bruker et eksempel:
 
-Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen er 37, så da kan vi bruke 37 som modell.
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Ligningen i praksis</span>
+
+Ligningen over blir mer oppklarende om vi bruker et eksempel:
+
+Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er ~37, så det er naturlig å tenke at du kan bruke 37 som modell.
 
 $$
 kroppstemperatur_i = 37 + error_i
 $$
-Det neste du gjør er å ta en febermåling av pasienten, og du måler kroppstemperaturen hennes til å være 40.
+Det neste du gjør er å ta en febermåling av pasienten, og du måler kroppstemperaturen til å være 40.
 
 $$
 40 = 37 + error
 $$
-Modellen din tar feil med 3 grader, fordi 40-37 = 3. Vi kaller slike feil for error.
+Modellen din bommer med 3 grader, fordi 40-37 = 3. Vi kaller slike feil for error.
 
 $$
 40 = 37 + 3
@@ -61,9 +64,12 @@ $$
 $$
 3 = 40 - 37
 $$
-Gratulerer, du har bygget din første modell. Denne modellen var riktignok nokså enkel, men du vil nok se at det vi skal gjøre videre ikke er så annerledes. Vi bygger riktignok ikke modeller for å passe perfekt til ett enkelt individ, men til et helt datasett. I en studie har du ofte mange deltakere med, og modellen vi skal bygge bør være en god representasjon av disse individene. Med andre ord bør erroren i modell være så liten som mulig. **Dette er viktig!** Vi ønsker å bygge statistiske modeller som er gode, og vi ønsker å sammenligne ulike modeller for å se hvilke av disse modellene som reduserer erroren mest mulig.
 
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Du har bygget din første modell - Gratulerer!</span>
 
+Du har bygget din første modell. Modellen var riktignok enkel, men du vil snart se at de andre modellene vi skal bygge er veldig like. Den største forskjellen er at modellen ikke blir bygget for å passe perfekt til ett enkelt individ, men til et helt datasett. **Dette er viktig!** I en studie hvor du har mange deltakere med, ønsker vi at modellen skal være en god representasjon av alle disse individene. Med andre ord bør erroren i modell være så liten som mulig
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Modeller</span>
 Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:
 
 

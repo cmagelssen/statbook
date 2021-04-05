@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-04-04" />
+<meta name="date" content="2021-04-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#hensikten-med-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Hensikten med modellbygging</a></li>
+<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#introduksjon-til-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Introduksjon til modellbygging</a></li>
 <li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#visualisering-av-ulike-statistiske-modeller"><i class="fa fa-check"></i><b>4.2</b> Visualisering av ulike statistiske modeller</a></li>
 <li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.3</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a>
 <ul>
@@ -160,8 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html"><i class="fa fa-check"></i><b>5</b> Sammenligne modeller</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>5.1</b> ANOVA-tabell (variansanalyse)</a></li>
-<li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-null-hypotesen-med-f"><i class="fa fa-check"></i><b>5.2</b> teste null-hypotesen med F</a></li>
-<li class="chapter" data-level="5.3" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-null-hypotesen-med-t"><i class="fa fa-check"></i><b>5.3</b> teste null-hypotesen med t</a></li>
+<li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-statistisk-om-vår-alternative-modell-forklarer-mer-varians-enn-null-modellen"><i class="fa fa-check"></i><b>5.2</b> Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>6</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="7" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>7</b> Write-up</a></li>
@@ -191,35 +190,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="bygge-statistisk-modeller" class="section level1" number="4">
 <h1><span class="header-section-number">Kapittel 4</span> Bygge statistisk modeller</h1>
-<div id="hensikten-med-modellbygging" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Hensikten med modellbygging</h2>
-<p>Når forskere har samlet inn dataen de trenger er deres neste oppgave å bygge statistsike modeller som representer denne dataen. Modellene vi tilpasser dataen kan videre brukes til å si noe om hva den sanne verdien er på parameteret av interesse. Hvis en modell er en god representasjon av dataen, dvs. at modellen er god, kan vi med noenluende trygghet si hva en person skåret på utfallsvariablen uten å bomme altfor mye. Hvis en modell er dårlig bør vi vurdere om vi skal bruke den eller ikke. Statistikken, og hjelper oss til å ta slike beslutningerø</p>
+<div id="introduksjon-til-modellbygging" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduksjon til modellbygging</h2>
+<p>Når vi har samlet inn dataen vi trenger blir vår neste oppgave å bygge statistiske modeller som representerer denne dataen. Fordelen med disse modellene er at den gjør dataen mer forståelig. For eksempel er det mye enklere å si hva gjennomsnittet var i en treningsgruppe enn å ramse opp alle de enkelte observasjonene i datasettet. Forståelig nok ønsker vi å bygge modeller som representerer dataen godt, og vi vil bruke helt eksplisitte kriterier for å vurdere disse modellene</p>
 <p>Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare bytter ut det i parantesen med en spesifikk modell som vi ønsker å bygge.</p>
 <p><span class="math display">\[
 data_i = (modell) + error_i
 \]</span></p>
 <div class="warning">
-<p>Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det, og det kommer vi til å bli med litt øving. Som vi sa kommer vi til å bruke denne ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre</p>
+<p>Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det. Vi kommer til å bruke den samme ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre.</p>
 </div>
 <p>La oss bryte denne ligningen over:</p>
 <ul>
 <li><p><strong>Data</strong> er den faktiske observasjonen et individ har på den avhengige variablen, som i vårt tilfelle % fremgang i 1RM underkroppsøvelser.</p></li>
 <li><p><strong>Modell</strong> er egentlig bare en representasjon av denne dataen-</p></li>
-<li><p><strong>error</strong> er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).</p></li>
+<li><p><strong>Error</strong> er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).</p></li>
 </ul>
 <div class="info">
 <p>Legg merke til den lille <sub>i</sub>-en som står bak data og error i ligningen. <sub>i</sub>-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte <sub>i</sub>-en med <sub>3</sub> eller <sub>8</sub>. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker <sub>i</sub> for å holde det generelt</p>
 </div>
-<p>Ligningen over blir nok mer oppklarende om vi bruker et eksempel:</p>
-<p>Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen er 37, så da kan vi bruke 37 som modell.</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Ligningen i praksis</span></p>
+<p>Ligningen over blir mer oppklarende om vi bruker et eksempel:</p>
+<p>Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er ~37, så det er naturlig å tenke at du kan bruke 37 som modell.</p>
 <p><span class="math display">\[
 kroppstemperatur_i = 37 + error_i
 \]</span>
-Det neste du gjør er å ta en febermåling av pasienten, og du måler kroppstemperaturen hennes til å være 40.</p>
+Det neste du gjør er å ta en febermåling av pasienten, og du måler kroppstemperaturen til å være 40.</p>
 <p><span class="math display">\[
 40 = 37 + error
 \]</span>
-Modellen din tar feil med 3 grader, fordi 40-37 = 3. Vi kaller slike feil for error.</p>
+Modellen din bommer med 3 grader, fordi 40-37 = 3. Vi kaller slike feil for error.</p>
 <p><span class="math display">\[
 40 = 37 + 3
 \]</span>
@@ -232,9 +232,11 @@ error_i = data_i - modell
 \]</span>
 <span class="math display">\[
 3 = 40 - 37
-\]</span>
-Gratulerer, du har bygget din første modell. Denne modellen var riktignok nokså enkel, men du vil nok se at det vi skal gjøre videre ikke er så annerledes. Vi bygger riktignok ikke modeller for å passe perfekt til ett enkelt individ, men til et helt datasett. I en studie har du ofte mange deltakere med, og modellen vi skal bygge bør være en god representasjon av disse individene. Med andre ord bør erroren i modell være så liten som mulig. <strong>Dette er viktig!</strong> Vi ønsker å bygge statistiske modeller som er gode, og vi ønsker å sammenligne ulike modeller for å se hvilke av disse modellene som reduserer erroren mest mulig.</p>
-<p>Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:</p>
+\]</span></p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Du har bygget din første modell - Gratulerer!</span></p>
+<p>Du har bygget din første modell. Modellen var riktignok enkel, men du vil snart se at de andre modellene vi skal bygge er veldig like. Den største forskjellen er at modellen ikke blir bygget for å passe perfekt til ett enkelt individ, men til et helt datasett. <strong>Dette er viktig!</strong> I en studie hvor du har mange deltakere med, ønsker vi at modellen skal være en god representasjon av alle disse individene. Med andre ord bør erroren i modell være så liten som mulig</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Modeller</span>
+Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:</p>
 <div class="info">
 <p>Vi kommer til å benytte denne måten å skrive på fordi det er den dere ser i statistikkbøker og artikler. Tolkningen er akkurat lik.</p>
 </div>

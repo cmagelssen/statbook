@@ -150,7 +150,7 @@
 
 \title{Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)}
 \author{Christian Magelssen}
-\date{2021-04-04}
+\date{2021-04-05}
 
 \begin{document}
 \maketitle
@@ -302,7 +302,7 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{02-datasett_files/figure-latex/unnamed-chunk-7-1} 
+{\centering \includegraphics[width=0.6\linewidth]{02-datasett_files/figure-latex/unnamed-chunk-7-1} 
 
 }
 
@@ -365,10 +365,10 @@ I jamovi ville jeg sett følgende video:
 \hypertarget{bygge-statistisk-modeller}{%
 \chapter{Bygge statistisk modeller}\label{bygge-statistisk-modeller}}
 
-\hypertarget{hensikten-med-modellbygging}{%
-\section{Hensikten med modellbygging}\label{hensikten-med-modellbygging}}
+\hypertarget{introduksjon-til-modellbygging}{%
+\section{Introduksjon til modellbygging}\label{introduksjon-til-modellbygging}}
 
-Når forskere har samlet inn dataen de trenger er deres neste oppgave å bygge statistsike modeller som representer denne dataen. Modellene vi tilpasser dataen kan videre brukes til å si noe om hva den sanne verdien er på parameteret av interesse. Hvis en modell er en god representasjon av dataen, dvs. at modellen er god, kan vi med noenluende trygghet si hva en person skåret på utfallsvariablen uten å bomme altfor mye. Hvis en modell er dårlig bør vi vurdere om vi skal bruke den eller ikke. Statistikken, og hjelper oss til å ta slike beslutningerø
+Når vi har samlet inn dataen vi trenger blir vår neste oppgave å bygge statistiske modeller som representerer denne dataen. Fordelen med disse modellene er at den gjør dataen mer forståelig. For eksempel er det mye enklere å si hva gjennomsnittet var i en treningsgruppe enn å ramse opp alle de enkelte observasjonene i datasettet. Forståelig nok ønsker vi å bygge modeller som representerer dataen godt, og vi vil bruke helt eksplisitte kriterier for å vurdere disse modellene
 
 Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare bytter ut det i parantesen med en spesifikk modell som vi ønsker å bygge.
 
@@ -376,7 +376,7 @@ Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare 
 data_i = (modell) + error_i
 \]
 
-Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det, og det kommer vi til å bli med litt øving. Som vi sa kommer vi til å bruke denne ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre
+Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det. Vi kommer til å bruke den samme ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre.
 
 La oss bryte denne ligningen over:
 
@@ -386,24 +386,26 @@ La oss bryte denne ligningen over:
 \item
   \textbf{Modell} er egentlig bare en representasjon av denne dataen-
 \item
-  \textbf{error} er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).
+  \textbf{Error} er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).
 \end{itemize}
 
 Legg merke til den lille i-en som står bak data og error i ligningen. i-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte i-en med 3 eller 8. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker i for å holde det generelt
 
-Ligningen over blir nok mer oppklarende om vi bruker et eksempel:
+{Ligningen i praksis}
 
-Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen er 37, så da kan vi bruke 37 som modell.
+Ligningen over blir mer oppklarende om vi bruker et eksempel:
+
+Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er \textasciitilde37, så det er naturlig å tenke at du kan bruke 37 som modell.
 
 \[
 kroppstemperatur_i = 37 + error_i
 \]
-Det neste du gjør er å ta en febermåling av pasienten, og du måler kroppstemperaturen hennes til å være 40.
+Det neste du gjør er å ta en febermåling av pasienten, og du måler kroppstemperaturen til å være 40.
 
 \[
 40 = 37 + error
 \]
-Modellen din tar feil med 3 grader, fordi 40-37 = 3. Vi kaller slike feil for error.
+Modellen din bommer med 3 grader, fordi 40-37 = 3. Vi kaller slike feil for error.
 
 \[
 40 = 37 + 3
@@ -419,8 +421,12 @@ error_i = data_i - modell
 \[
 3 = 40 - 37
 \]
-Gratulerer, du har bygget din første modell. Denne modellen var riktignok nokså enkel, men du vil nok se at det vi skal gjøre videre ikke er så annerledes. Vi bygger riktignok ikke modeller for å passe perfekt til ett enkelt individ, men til et helt datasett. I en studie har du ofte mange deltakere med, og modellen vi skal bygge bør være en god representasjon av disse individene. Med andre ord bør erroren i modell være så liten som mulig. \textbf{Dette er viktig!} Vi ønsker å bygge statistiske modeller som er gode, og vi ønsker å sammenligne ulike modeller for å se hvilke av disse modellene som reduserer erroren mest mulig.
 
+{Du har bygget din første modell - Gratulerer!}
+
+Du har bygget din første modell. Modellen var riktignok enkel, men du vil snart se at de andre modellene vi skal bygge er veldig like. Den største forskjellen er at modellen ikke blir bygget for å passe perfekt til ett enkelt individ, men til et helt datasett. \textbf{Dette er viktig!} I en studie hvor du har mange deltakere med, ønsker vi at modellen skal være en god representasjon av alle disse individene. Med andre ord bør erroren i modell være så liten som mulig
+
+{Modeller}
 Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:
 
 Vi kommer til å benytte denne måten å skrive på fordi det er den dere ser i statistikkbøker og artikler. Tolkningen er akkurat lik.
@@ -983,9 +989,9 @@ Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. 
 \hypertarget{sammenligne-modeller}{%
 \chapter{Sammenligne modeller}\label{sammenligne-modeller}}
 
-Nå har vi bygget to statistiske modeller: \textbf{en null-modell} og \textbf{en alternativ modellen}. Det vi sitter igjen med er en \textbf{error} (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å \textbf{sammenligne disse modellene} på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.
+Nå som vi har bygget de to statistiske modellene - \textbf{en null-modell} og \textbf{en alternativ modellen} - hva skal vi gjøre videre? Det vi sitter igjen med er en \textbf{error} (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å \textbf{sammenligne disse modellene} på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre.
 
-Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand, har vi en dårlig modell.
+Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand fra datapunktet til linjen for mange individer, har vi en dårlig modell.
 
 \begin{figure}
 
@@ -999,7 +1005,7 @@ Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra 
 \hypertarget{anova-tabell-variansanalyse}{%
 \section{ANOVA-tabell (variansanalyse)}\label{anova-tabell-variansanalyse}}
 
-En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
+En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se flere ganger. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
 
 \textbf{ANOVA-tabell}
 
@@ -1051,6 +1057,8 @@ The total sum of squares (SST) & & & & &\tabularnewline
 (Sett dette inn i residual sum of squares (SSR).Dette kalles The model sum of squares (SSM) eller regression i statistiske programmer.
 \end{quote}
 
+{Godt jobbet!}
+
 Det kan noen ganger være greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren til venstre ser du de modellene våre pluss hvor mye error den alternative modellen vår har redusert error med:
 
 \begin{figure}
@@ -1072,14 +1080,12 @@ Det kan noen ganger være greit å visualisere erroren som er igjen med de to mo
   SSM er hvor mye error som modellen vår klarte å forklare.
 \end{itemize}
 
-Vil du si at den alternative modellen vår er god? Sammenlign dette med modellen til høyre
-
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
 \setcounter{enumi}{4}
 \tightlist
 \item
-  Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?
+  Hvis du sammenligner med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?
 \end{enumerate}
 
 ja nei.
@@ -1100,7 +1106,7 @@ ja nei.
   Hva er (SSR) + (SSM)?
 \end{enumerate}
 
-Med erroren vi tilgjngelig kan vi noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange \% modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som \(n^2\), mens man i regresjonsanalyser kaller denne for \(R^2\)
+Med erroren vi har tilgjengelig kan vi regne noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange \% modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som \(n^2\), mens man i regresjonsanalyser kaller denne for \(R^2\)
 . Vi regner ut det på følgende måte:
 
 \[
@@ -1123,12 +1129,121 @@ Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk br
 \end{quote}
 \end{quote}
 
-Det kan høres ut som at en errorreduksjon på 78 \% er mye, og det vil vi absolutt påstå at det er!
+{Ferdig - Bra jobbet!}
 
-\hypertarget{teste-null-hypotesen-med-f}{%
-\section{teste null-hypotesen med F}\label{teste-null-hypotesen-med-f}}
+\hypertarget{teste-statistisk-om-vuxe5r-alternative-modell-forklarer-mer-varians-enn-null-modellen}{%
+\section{Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen}\label{teste-statistisk-om-vuxe5r-alternative-modell-forklarer-mer-varians-enn-null-modellen}}
 
-For å teste om en SSM eller en errorreduksjon på 78 \% er mye eller lite skal vi bruke en F-test og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at \(R^2\) = 0. For å teste dette må vi regne ut en F-verdi:
+Det kan høres ut som at en error-reduksjon på 2527.5 (\(SS_M\)), eller 78 \% (\((R^2)*100\)), er mye. Et problem med \(SS_M\) og \(R^2\) er at begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
+
+\[
+Y_i  = b_0 + b_1(Gruppe_i) + b_2(Kjønn_i) + b_3(Treningstatus_i) + b_4(Alder_i)
+\]
+
+Hvis vi hadde gjort dette, ville vi fått en høy \(SS_M\) eller \(R^2\) uansett (aldri lavere). Derfor er det mer interessant å regne ut gjennomsnittlig \(SS_M\) per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles Mean Squared Model (MSM), eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
+
+\[
+\text{ Mean Squared Model } (MS_M) = SS_M / df_M
+\]
+\(df_m\) står for antall frihetsgrader som er lagt til i modellen utover null-modellen. Null-modellen har kun ett parameter (\(b_0\)), som er mean, mens vår alternative modell har to parametere (\(b_0\) og \(b_1\)). Derfor blir \(df_M\) = (2-1) = 1.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Regn ut Mean Squared Error (\(MS_M\)) og sett det verdien inn i ANOVA-tabellen vår
+\end{enumerate}
+
+\textbf{ANOVA-tabell}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Modell & SS & \emph{df} & MS & \emph{F} & \(R^2\)\tabularnewline
+\midrule
+\endhead
+The model sum of squares (SSM) & 2527.5 & & & & 0.78\tabularnewline
+The residual sum of squares (SSR) & 716.2875 & & & &\tabularnewline
+The total sum of squares (SST) & 3243.784 & & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+Det vi ønsker at dere tar med dere fra denne oppgaven er at en høy \(SS_M\) eller \(R^2\) er \textbf{mer imponerende hvis vi kun har lagt til ett ekstra parameter enn hvis vi hadde lagt til f.eks. 10 parametere}. Enig?
+
+{Bra!}
+
+Det siste vi skal gjøre er å sammenligne \(MS_M\) med \(MS_R\). \textbf{\(MS_R\)} er \(SS_R\), den erroren som er igjen etter at vi har brukt den alternative modellen, \textbf{delt på antall parametere som i prinsippet kunne vill lagt til i modellen}. I prinsippet står vi fritt til å legge til så mange parametere i modellen som vi ønsker, men antall parametere kan aldri overstige antall deltakere i studien. Men fordi vi allerede har brukt to parametere i den alternative modellen, kan vi kun legge til (24 - 2) = 22 parametere.
+
+\[
+\text{ Mean Squared Residual (MSR) }  = SS_R / df_R
+\]
+b. Regn ut Mean Squared Residual (\(MS_R\)) og sett det verdien inn i ANOVA-tabellen vår
+
+\textbf{ANOVA-tabell}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Modell & SS & \emph{df} & MS & \emph{F} & \(R^2\)\tabularnewline
+\midrule
+\endhead
+The model sum of squares (SSM) & 2527.5 & & 2527.5 & & 0.78\tabularnewline
+The residual sum of squares (SSR) & 716.2875 & & & &\tabularnewline
+The total sum of squares (SST) & 3243.784 & & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\(MS_R\) er gjenstående error per parameter som potensielt kunne blitt lagt til i modellen. Med andre ord er det den gjennomsnittlige erroren som er igjen per parameter som kunne blitt lagt til i modellen. Enig?
+
+{Vi er endelig i mål!}
+
+Nå har vi gjort alle utregningene, og vi kan bare sammenligne disse to størrelsene (\(MS_M\) versus \(MS_R\)) med hverandre. Dette kalles en \textbf{F-test}.
+
+\[
+\text{F}  = \frac{MS_M}{MS_R}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Regn ut vår F-verdi og sett den inn i vår ANOVA-tabell
+\end{enumerate}
+
+\textbf{ANOVA-tabell}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Modell & SS & \emph{df} & MS & \emph{F} & \(R^2\)\tabularnewline
+\midrule
+\endhead
+The model sum of squares (SSM) & 2527.5 & 1 & 2527.5 & & 0.78\tabularnewline
+The residual sum of squares (SSR) & 716.2875 & 22 & 32.55852 & &\tabularnewline
+The total sum of squares (SST) & 3243.784 & & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+Vi kan se at vår F-verdi er 77.63, og at p-verdien er \textless{} 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved \(df_M\) = 1 og \(df_R\) = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-4-1} 
+
+}
+
+\caption{F-test}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+{Done!}
+
+Da er det bare å sette seg tilbake å nyte denne sangen:
+
+\begin{figure}
+\centering
+\includegraphics{F.png}
+\caption{Slik designet Rønnestad et al.~(2007) sin studie}
+\end{figure}
+
+Det siste vi kan gjøre er å teste om parameterne vi har lagt til i modellen er god. og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at \(R^2\) = 0. For å teste dette må vi regne ut en F-verdi:
 
 \[
 F = \frac{(SS_M / df_M)}{SS_R / df_R}
@@ -1136,76 +1251,8 @@ F = \frac{(SS_M / df_M)}{SS_R / df_R}
 Vi har allerede regne ut, så vi kan plotte disse inn.
 
 \[
-F = \frac{(<input class='solveme nospaces' size='6' data-answer='["2527.5"]'/> / df_M)}{716.2875 / df_R}
+F = \frac{2527.5/ df_M}{716.2875 / df_R}
 \]
-Men hva er de respektivene frihetsgradene som er i nevneren og telleren? Å forstå dette vil gi en god forståelse for hva F-verdien er. Vi fokuserer på telleren først. Modellen reduserte Sum of Squared error med 2527.5, som i grunn er mye. Men vi kunne bygget en superkompleks og lagt til haugevis av ekstra parametere. Dette kunne vi gjort ved å f.eks sammenlignet enda flere grupper. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra:
-
-\[
-Y_i = b_0
-\]
-til:
-\[
-Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
-\]
-I så fall ville vi garantert ha fått en stor Sum of squared error fordi et parameter alltid vil redusere error noe, aldri øke det. Så det vi skal gjøre i telleren i formelen er å dele på SSm / på antall parametere vi har brukt utover det null-modellen har brukt. Null-modellen hadde kun ett parameter, mens den altenative modellen hadde 2, så df blir 1. Poenget som jeg vil at dere skal huske på er at. Dette er variansen. Poenget er en SSm er mer imponerende om vi har brukt få ekstra parametere.
-
-Husk at når vi trekker to eller flere utvalg fra en populasjon, så vil disse utvalgene nesten alltid være forskjellige fra hverandre.
-
-Vi kunne bruke samme prinsipp for t-fordelingen. Null-hypotesen var disse tilfellene var at disse
-
-Felles for disse fordelingene er at de baserer seg på gjennomsnittet mellom utvalg. V
-
-Da vi brukte en \emph{z}-fordeling sa vi at 95 \% av utvalgene vi trekker fra en populasjon med et gjennomsnitt på 0 og et standardavvik på 1, ville falle mellom en z-verdi på -1.96 og 1.96, gitt at de ble trukket fra denne populasjonen. Hvis vi plutselig observerte en z-skår for vårt utvalg som høyere enn 1.96 eller lavere enn -1.96, sa vi at vi hadde et signifikant funn og at utvalgene dermed ikke kommer fra samme populasjon. Vi brukte en t-fordeling på lignende måte.
-
-Men hvis vi brukte en z-fordeling, så sa vi at 95 \% av utvalgene vi trekker fra en slik fordeling vil falle mellom en z-verdi mellom -1.96 og 1.96. Vi kan bruke en t-fordeling til å si noe lignende. Felles for z-fordelingen og t-fordelingen er de går på sample means. En f-fordeling baserer seg ikke på means, men på reduksjon i sum of squared errors. Null-hypotesen er at det ikke modellen vår reduserer noe error i det hele tatt. Men fordi forskjellige utvalg gir forskjellige, må vi forvente at det er noen fordelinger under null
-
-Vi har allerede jobbet med to fordelinger, en z-fordeling, t-fordeling. Det vi skal jobbe med nå er en F-fordeling. En F-fordeling er nesten likt som en z-fordeling og en t-fordeling, men er litt forskjellig fra disse på den måten at en F-fordeling operer med forklart Sum of Squarered error ved modellen, mens en z-fordeling og t-fordeling operer med sample means. Med andre ord, istf. å si hva er sannsynlig for observere en t, gitt att, skal vi spørre hva er sannsynligheten for at det ikke noe explained varians. Gitt at null hypotesen er sann, dvs.. Selv om vi har explained variance i populasjonen, så vil det alltid være litt explained variance fra utvalg til utvalg. Dere husker kanskje. Så det vi må gjøre er å regne ut hvor mye hvor mye f-verdi, og så spørre oss, hva er sannsynligheten for å få en f-statistikk, så stor som denne, gitt at null hypotesen er sann. Explianed variansen av denne modellen er null.
-
-For å finne ut av dette må vi regne ut en f-verdi. Formelen for dette er
-
-\hypertarget{teste-null-hypotesen-med-t}{%
-\section{teste null-hypotesen med t}\label{teste-null-hypotesen-med-t}}
-
-Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra:
-
-\[
-Y_i = b_0
-\]
-til:
-
-\[
-Y_i = b_0 + b_1X_i
-\]
-
-Men tenk om vi hadde lagt til enda flere prediktorvariabler i modellen. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra:
-
-\[
-Y_i = b_0
-\]
-til:
-\[
-Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
-\]
-I så fall ville vi garantert ha fått en stor errorreduksjon fordi noen av disse parameterne ville vært gode. Derfor regner vi gjennomsnittlig squared error, som vi kaller for \textbf{Mean Squared Error (MSE)}. Poenget med dette er at høy errorreduksjon med en alternativ modellen er mye mer imponerende hvis vi kun har med en prediktorvariabel enn om vi har med mange. Derfor regner vi \textbf{Mean SquaredM Model (MSE)}. MSE regnes ved å ta SSM / frihetsgrader (\emph{df}). Frihetsgradene vi bruker til dette er antatt ektra parametere vi har lagt til i modellen vår med referanse til null-modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{5}
-\tightlist
-\item
-  Regn ut \textbf{Mean Squared Model (MSM)} og putt den inn i ANOVA-tabellen. \(MS_M=\frac{(SS_M)}{df}\). Legg samtidig antall frihetsgrader for MSE inn i ANOVA-tabellen over.
-\end{enumerate}
-
-Det neste vi skal gjøre er å regne er \textbf{Mean Squared (MSM)}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{6}
-\item
-  Det aller siste vi skal gjøre er å
-\item
-  I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv \emph{p}-verdien din inn i?
-\end{enumerate}
 
 Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
 - \url{https://www.youtube.com/watch?v=eSJAjlavPwU}
@@ -1228,15 +1275,6 @@ Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{verbatim}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-6-1} 
-
-}
-
-\caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-6}
-\end{figure}
 
 \hypertarget{t-test---er-b_1-signifikant-forskjellig-fra-null}{%
 \chapter{\texorpdfstring{T-test - er \(b_1\) signifikant forskjellig fra null?}{T-test - er b\_1 signifikant forskjellig fra null?}}\label{t-test---er-b_1-signifikant-forskjellig-fra-null}}

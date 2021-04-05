@@ -2,10 +2,10 @@
 
 
 
-Nå har vi bygget to statistiske modeller: **en null-modell** og **en alternativ modellen**. Det vi sitter igjen med er en **error** (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å **sammenligne disse modellene** på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre. 
+Nå som vi har bygget de to statistiske modellene - **en null-modell** og **en alternativ modellen** - hva skal vi gjøre videre? Det vi sitter igjen med er en **error** (les sum of squared error) for null-modellen og en error for alternative modellen. Vår neste oppgave er å finne en måte å **sammenligne disse modellene** på. For å gjøre det helt eksplisitt og tydelig, skal vi nå sammenligne om modellen til høyre er bedre enn modellen til venstre. 
 
 <div class="info">
-Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand, har vi en dårlig  modell.
+Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra linjen til datapunktene er kort. Hvis det er stor vertical avstand fra datapunktet til linjen for mange individer, har vi en dårlig  modell.
 </div>
 
 \begin{figure}
@@ -17,7 +17,7 @@ Når vi sier at en modell er bedre, så mener vi at den verticale avstanden fra 
 \caption{Modeller med forskjellig b1}(\#fig:unnamed-chunk-2)
 \end{figure}
 ## ANOVA-tabell (variansanalyse)
-En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se mange ganger, så det er bare å bli vant til å se disse. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
+En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell. Dette er en ganske vanlig tabell som dere kommer til å se flere ganger. Dere har allerede regnet ut all nødvendig informasjon for å lage en ANOVA-tabell, så dere kan lage den selv.
 
 **ANOVA-tabell**
 
@@ -41,6 +41,8 @@ c. Hvor mye sum of squared error er redusert ved å bruke den alternative modell
 
 >(Sett dette inn i residual sum of squares (SS<sub>R</sub>).Dette kalles The model sum of squares (SS<sub>M</sub>) eller regression i statistiske programmer. 
 
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Godt jobbet!</span>
+
 <div class="info">
 Det kan noen ganger være greit å visualisere erroren som er igjen med de to modellene, pluss hvor mye error som er redusert ved å bruke den alternative modellen istf. å bruke null-modellen. I figuren til venstre ser du de modellene våre pluss hvor mye error den alternative modellen vår har redusert error med:
 
@@ -57,10 +59,9 @@ Det kan noen ganger være greit å visualisere erroren som er igjen med de to mo
 * SS<sub>R</sub> representerer hvor mye error som er igjen etter at vi brukte den alternative modellen. 
 * SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare. 
 
-Vil du si at den alternative modellen vår er god? Sammenlign dette med modellen til høyre
 </div>
 
-e. Basert på det du ser i figuren over til venstre, vil du si at vår alternative modell er god?
+e. Hvis du sammenligner med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?
 
 <select class='solveme' data-answer='["ja"]'> <option></option> <option>ja</option> <option>nei</option></select>. 
 
@@ -72,7 +73,7 @@ e. Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)?
 
 <input class='solveme nospaces' size='8' data-answer='["3243.784"]'/>
 
-Med erroren vi tilgjngelig kan vi noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange % modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som $n^2$, mens man i regresjonsanalyser kaller denne for $R^2$
+Med erroren vi har tilgjengelig kan vi regne noe som heter proporsjonal feilreduksjon (proportional reduction in error (PRE)). Hvis vi multipliserer dette tallet med 100 (* 100) få du hvor mange % modellen vår har redusert error med, i forhold til null-modellen. Dette er et en effektstørrelse som ofte blir rapoortert med i ANOVA eller regresjonsanalyser. I ANOVA ser du at man rapporterer denne som $n^2$, mens man i regresjonsanalyser kaller denne for $R^2$
 . Vi regner ut det på følgende måte:
 
 $$
@@ -85,11 +86,99 @@ e. Hvilken verdi får du hvis du regner (SS<sub>M</sub>/ (SS<sub>T</sub>)) * 100
 
 >>Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk bruker PRE, $n^2$. Vit at de mener det samme.
 
-Det kan høres ut som at en errorreduksjon på 78 % er mye, og det vil vi absolutt påstå at det er! 
 
 
-## teste null-hypotesen med F
-For å teste om en SSM eller en errorreduksjon på 78 % er mye eller lite skal vi bruke en F-test og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at $R^2$ = 0. For å teste dette må vi regne ut en F-verdi:
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Ferdig - Bra jobbet!</span>
+
+## Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen
+Det kan høres ut som at en error-reduksjon på 2527.5 ($SS_M$), eller 78 % ($(R^2)*100$), er mye. Et problem med $SS_M$ og $R^2$ er at begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
+
+$$
+Y_i  = b_0 + b_1(Gruppe_i) + b_2(Kjønn_i) + b_3(Treningstatus_i) + b_4(Alder_i)
+$$
+
+Hvis vi hadde gjort dette, ville vi fått en høy $SS_M$ eller $R^2$ uansett (aldri lavere). Derfor er det mer interessant å regne ut gjennomsnittlig $SS_M$ per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles Mean Squared Model (MSM), eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
+
+$$
+\text{ Mean Squared Model } (MS_M) = SS_M / df_M
+$$
+$df_m$ står for antall frihetsgrader som er lagt til i modellen utover null-modellen. Null-modellen har kun ett parameter ($b_0$), som er mean, mens vår alternative modell har to parametere ($b_0$ og $b_1$). Derfor blir $df_M$ = (2-1) = 1. 
+
+a. Regn ut Mean Squared Error ($MS_M$) og sett det verdien inn i ANOVA-tabellen vår
+
+**ANOVA-tabell**
+
+Modell | SS | *df* | MS | *F* | $R^2$ | *p*-verdi
+------------- | ------------- | ------------- | ------------- | ------------- | -------------
+The model sum of squares (SS<sub>M</sub>) | 2527.5 |  |  <input class='solveme nospaces' size='6' data-answer='["2527.5"]'/> || 0.78 |
+The residual sum of squares (SS<sub>R</sub>) | 716.2875 | | | | |
+The total sum of squares (SS<sub>T</sub>) | 3243.784 | | | | |
+
+<div class="info">
+Det vi ønsker at dere tar med dere fra denne oppgaven er at en høy $SS_M$ eller $R^2$ er **mer imponerende hvis vi kun har lagt til ett ekstra parameter enn hvis vi hadde lagt til f.eks. 10 parametere**. Enig?
+</div>
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Bra!</span>
+
+Det siste vi skal gjøre er å sammenligne $MS_M$ med $MS_R$. **$MS_R$** er $SS_R$, den erroren som er igjen etter at vi har brukt den alternative modellen, **delt på antall parametere som i prinsippet kunne vill lagt til i modellen**. I prinsippet står vi fritt til å legge til så mange parametere i modellen som vi ønsker, men antall parametere kan aldri overstige antall deltakere i studien. Men fordi vi allerede har brukt to parametere i den alternative modellen, kan vi kun  legge til (24 - 2) = 22 parametere.
+
+$$
+\text{ Mean Squared Residual (MSR) }  = SS_R / df_R
+$$
+b. Regn ut Mean Squared Residual ($MS_R$) og sett det verdien inn i ANOVA-tabellen vår
+
+**ANOVA-tabell**
+
+Modell | SS | *df* | MS | *F* | $R^2$ | *p*-verdi
+------------- | ------------- | ------------- | ------------- | ------------- | -------------
+The model sum of squares (SS<sub>M</sub>) | 2527.5 |  | 2527.5 |  | 0.78 |
+The residual sum of squares (SS<sub>R</sub>) | 716.2875 | | <input class='solveme nospaces' size='8' data-answer='["32.55852"]'/> |  | |
+The total sum of squares (SS<sub>T</sub>) | 3243.784 | | | | |
+
+<div class="info">
+$MS_R$ er gjenstående error per parameter som potensielt kunne blitt lagt til i modellen. Med andre ord er det den gjennomsnittlige erroren som er igjen per parameter som kunne blitt lagt til i modellen. Enig?
+</div>
+
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Vi er endelig i mål!</span>
+
+Nå har vi gjort alle utregningene, og vi kan bare sammenligne disse to størrelsene ($MS_M$ versus $MS_R$) med hverandre. Dette kalles en **F-test**.
+
+$$
+\text{F}  = \frac{MS_M}{MS_R}
+$$
+
+c. Regn ut vår F-verdi og sett den inn i vår ANOVA-tabell
+
+**ANOVA-tabell**
+
+Modell | SS | *df* | MS | *F* | $R^2$ | *p*-verdi
+------------- | ------------- | ------------- | ------------- | ------------- | -------------
+The model sum of squares (SS<sub>M</sub>) | 2527.5 | 1 | 2527.5 | <input class='solveme nospaces' size='5' data-answer='["77.63"]'/> | 0.78 | p < 0.001
+The residual sum of squares (SS<sub>R</sub>) | 716.2875 | 22 | 32.55852 |  | |
+The total sum of squares (SS<sub>T</sub>) | 3243.784 | | | | |
+
+Vi kan se at vår F-verdi er 77.63, og at p-verdien er < 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved $df_M$ = 1 og $df_R$ = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen. 
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-4-1} 
+
+}
+
+\caption{F-test}(\#fig:unnamed-chunk-4)
+\end{figure}
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Done!</span>
+
+Da er det bare å sette seg tilbake å nyte denne sangen:
+
+<iframe width="600" height="350" src="https://www.youtube.com/embed/XHR3Rpij42Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+![Slik designet Rønnestad et al. (2007) sin studie](F.png)
+
+
+Det siste vi kan gjøre er å teste om parameterne vi har lagt til i modellen er god. og en F-fordeling. En F-fordeling ser veldig lik ut som en z og t-fordeling og fungerer på samme måte: Vi regner ut en F-verdi, og spør fra sannsynligheten er for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at $R^2$ = 0. For å teste dette må vi regne ut en F-verdi:
 
 $$
 F = \frac{(SS_M / df_M)}{SS_R / df_R}
@@ -97,76 +186,10 @@ $$
 Vi har allerede regne ut, så vi kan plotte disse inn.
 
 $$
-F = \frac{(<input class='solveme nospaces' size='6' data-answer='["2527.5"]'/> / df_M)}{716.2875 / df_R}
-$$
-Men hva er de respektivene frihetsgradene som er i nevneren og telleren? Å forstå dette vil gi en god forståelse for hva F-verdien er. Vi fokuserer på telleren først. Modellen reduserte Sum of Squared error med 2527.5, som i grunn er mye. Men vi kunne bygget en superkompleks og lagt til haugevis av ekstra parametere. Dette kunne vi gjort ved å f.eks sammenlignet enda flere grupper. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra: 
-
-$$
-Y_i = b_0
-$$
-til:
-$$
-Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
-$$
-I så fall ville vi garantert ha fått en stor Sum of squared error fordi et parameter alltid vil redusere error noe, aldri øke det. Så det vi skal gjøre i telleren i formelen er å dele på SSm / på antall parametere vi har brukt utover det null-modellen har brukt. Null-modellen hadde kun ett parameter, mens den altenative modellen hadde 2, så df blir 1. Poenget som jeg vil at dere skal huske på er at. Dette er variansen. Poenget er en SSm er mer imponerende om vi har brukt få ekstra parametere. 
-
-
-
-
-
-Husk at når vi trekker to eller flere utvalg fra en populasjon, så vil disse utvalgene nesten alltid være forskjellige fra hverandre. 
-
-
-Vi kunne bruke samme prinsipp for t-fordelingen. Null-hypotesen var disse tilfellene var at disse 
-
-Felles for disse fordelingene er at de baserer seg på gjennomsnittet mellom utvalg. V
-
-Da vi brukte en *z*-fordeling sa vi at 95 % av utvalgene vi trekker fra en populasjon med et gjennomsnitt på 0 og et standardavvik på 1, ville falle mellom en z-verdi på -1.96 og 1.96, gitt at de ble trukket fra denne populasjonen. Hvis vi plutselig observerte en z-skår for vårt utvalg som høyere enn 1.96 eller lavere enn -1.96, sa vi at vi hadde et signifikant funn og at utvalgene dermed ikke kommer fra samme populasjon. Vi brukte en t-fordeling på lignende måte. 
-
-Men hvis vi brukte en z-fordeling, så sa vi at 95 % av utvalgene vi trekker fra en slik fordeling vil falle mellom en z-verdi mellom -1.96 og 1.96. Vi kan bruke en t-fordeling til å si noe lignende. Felles for z-fordelingen og t-fordelingen er de går på sample means. En f-fordeling baserer seg ikke på means, men på reduksjon i sum of squared errors. Null-hypotesen er at det ikke modellen vår reduserer noe error i det hele tatt. Men fordi forskjellige utvalg gir forskjellige, må vi forvente at det er noen fordelinger under null
-
-
-
-Vi har allerede jobbet med to fordelinger, en z-fordeling, t-fordeling. Det vi skal jobbe med nå er en F-fordeling. En F-fordeling er nesten likt som en z-fordeling og en t-fordeling, men er litt forskjellig fra disse på den måten at en F-fordeling operer med forklart Sum of Squarered error ved modellen, mens en z-fordeling og t-fordeling operer med sample means. Med andre ord, istf. å si hva er sannsynlig for observere en t, gitt att, skal vi spørre hva er sannsynligheten for at det ikke noe explained varians. Gitt at null hypotesen er sann, dvs.. Selv om vi har explained variance i populasjonen, så vil det alltid være litt explained variance fra utvalg til utvalg. Dere husker kanskje. Så det vi må gjøre er å regne ut hvor mye hvor mye f-verdi, og så spørre oss, hva er sannsynligheten for å få en f-statistikk, så stor som denne, gitt at null hypotesen er sann. Explianed variansen av denne modellen er null. 
-
-For å finne ut av dette må vi regne ut en f-verdi. Formelen for dette er 
-
-## teste null-hypotesen med t
-
-
-
-
-
-Nå har vi kun lagt til ett ekstra parameter i forhold til null-modellen; vi gikk fra:
-
-$$
-Y_i = b_0
-$$
-til: 
-
-$$
-Y_i = b_0 + b_1X_i
+F = \frac{2527.5/ df_M}{716.2875 / df_R}
 $$
 
-Men tenk om vi hadde lagt til enda flere prediktorvariabler i modellen. Vi har ikke lært hvordan vi gjør dette enda, men vi kan fint gjøre det. Og vi skal vise hvordan senere. Vi kunne derfor i prinsippet ha gått fra: 
 
-$$
-Y_i = b_0
-$$
-til:
-$$
-Y_i  = b_0 + b_1X_i + b_2X_i + b_3X_i + b_4X_i + b_5X_i
-$$
-I så fall ville vi garantert ha fått en stor errorreduksjon fordi noen av disse parameterne ville vært gode. Derfor regner vi gjennomsnittlig squared error, som vi kaller for **Mean Squared Error (MSE)**. Poenget med dette er at høy errorreduksjon med en alternativ modellen er mye mer imponerende hvis vi kun har med en prediktorvariabel enn om vi har med mange. Derfor regner vi  **Mean SquaredM Model (MSE)**. MSE regnes ved å ta SS<sub>M</sub> / frihetsgrader (*df*). Frihetsgradene vi bruker til dette er antatt ektra parametere vi har lagt til i modellen vår med referanse til null-modellen. Vi hadde 2 parametere i den alternative modellen og 1 i null-modellen, så 2-1.
-
-f. Regn ut **Mean Squared Model (MSM)** og putt den inn i ANOVA-tabellen. $MS_M=\frac{(SS_M)}{df}$. Legg samtidig antall frihetsgrader for MSE inn i ANOVA-tabellen over.
-
-Det neste vi skal gjøre er å regne er **Mean Squared  (MSM)**
-
-g. Det aller siste vi skal gjøre er å 
-
-
-h. I cellen under har jeg kjørt en ANOVA-test. Virker resultatene kjent. Skriv *p*-verdien din inn i?
 
 
 Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
@@ -196,11 +219,4 @@ summary(aov(rm ~ dummykodet, dat))
 
 
 
-\begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{05-sammenligne_files/figure-latex/unnamed-chunk-6-1} 
-
-}
-
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-6)
-\end{figure}

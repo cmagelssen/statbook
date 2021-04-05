@@ -115,7 +115,7 @@ Vi kan også presentere dataen i en figur. For denne typen data er det veldig va
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{02-datasett_files/figure-latex/unnamed-chunk-7-1} 
+{\centering \includegraphics[width=0.6\linewidth]{02-datasett_files/figure-latex/unnamed-chunk-7-1} 
 
 }
 
