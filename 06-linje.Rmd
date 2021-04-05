@@ -74,6 +74,8 @@ plot_grid(a,b, c, nrow = 1)
 
 ```
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+
+
 a) Hvilken av modellene over gir mest sum of squared error? (SS<sub>Model</sub>)
 
 `r mcq(c(answer = "b0=30 b1=7", "b0=25 b1=28", "b0=10 b1=30"))`

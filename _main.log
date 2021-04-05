@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.3)  5 APR 2021 19:00
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.3)  5 APR 2021 19:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -928,30 +928,30 @@ File: 06-linje_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 
 <use 06-linje_files/figure-latex/unnamed-chunk-1-1.pdf>
 [37]
-Overfull \hbox (67.73013pt too wide) in paragraph at lines 1330--1364
+Overfull \hbox (67.73013pt too wide) in paragraph at lines 1336--1370
  [][] 
  []
 
 [38] [39] [40]
 Chapter 7.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 24.88pt on input line 1389.
+(Font)              scaled to size 24.88pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 1389.
+(Font)              scaled to size 20.74pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 1389.
+(Font)              scaled to size 17.28pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 24.88228pt on input line 1389.
+(Font)              scaled to size 24.88228pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 20.7419pt on input line 1389.
+(Font)              scaled to size 20.7419pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 17.28157pt on input line 1389.
+(Font)              scaled to size 17.28157pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 24.87733pt on input line 1389.
+(Font)              scaled to size 24.87733pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 20.73778pt on input line 1389.
+(Font)              scaled to size 20.73778pt on input line 1395.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 17.27815pt on input line 1389.
+(Font)              scaled to size 17.27815pt on input line 1395.
 [41
 
 ]

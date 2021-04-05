@@ -11,6 +11,8 @@ Nå som vi er kjent med hvordan vi kan bygge og teste statistiske modeller, er d
 \caption{Ulike linjer}(\#fig:unnamed-chunk-1)
 \end{figure}
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+
+
 a) Hvilken av modellene over gir mest sum of squared error? (SS<sub>Model</sub>)
 
 <select class='solveme' data-answer='["b0=30 b1=7"]'> <option></option> <option>b0=30 b1=7</option> <option>b0=25 b1=28</option> <option>b0=10 b1=30</option></select>
