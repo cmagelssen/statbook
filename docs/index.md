@@ -1,5 +1,5 @@
 --- 
-title: "Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)"
+title: "Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)"
 author: "Christian Magelssen og Knut Sindre Mølmen"
 date: "2021-04-10"
 site: bookdown::bookdown_site
