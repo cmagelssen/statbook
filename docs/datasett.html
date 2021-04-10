@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-04-05" />
+<meta name="date" content="2021-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
-<li class="chapter" data-level="9" data-path="visualisering-av-ulike-statistiske-modeller-1.html"><a href="visualisering-av-ulike-statistiske-modeller-1.html"><i class="fa fa-check"></i><b>9</b> Visualisering av ulike statistiske modeller</a></li>
+<li class="chapter" data-level="9" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>9</b> VEDLEGG</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-1"><i class="fa fa-check"></i><b>9.1</b> Datasett</a></li>
+<li class="chapter" data-level="9.2" data-path="vedlegg.html"><a href="vedlegg.html#modellbygging"><i class="fa fa-check"></i><b>9.2</b> Modellbygging</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -197,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapittel 2</span> Datasett</h1>
 <div id="bør-man-trene-med-ett-eller-flere-sett-i-styrketrening" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Bør man trene med ett eller flere sett i styrketrening?</h2>
-<p>Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad <span class="citation">(<a href="visualisering-av-ulike-statistiske-modeller-1.html#ref-ronnestad_dissimilar_2007" role="doc-biblioref">Rønnestad et al. 2007</a>)</span></p>
+<p>Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad <span class="citation">(<a href="vedlegg.html#ref-ronnestad_dissimilar_2007" role="doc-biblioref">Rønnestad et al. 2007</a>)</span></p>
 <p>Eksperimentet ble gjennomført som et <strong>between-subject design</strong> med to grupper:
 * en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen
 * en annen gruppe trente 3 sett på underkroppen og 1 sett på overkroppen.</p>
@@ -339,8 +343,8 @@ Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i
 </table>
 <p>Du kan få nøyaktig samme datsett ved å klippe ut og lime inn følgende kode i en skript-fil i R (husk å laste inn tidyverse-pakken, library(tidyverse) ). Du kan også laste ned datasettet som en .csv fil fra canvas.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="datasett.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2002</span>) <span class="co">#viktig å ha med denne for å få nøyaktig samme datasett</span></span>
-<span id="cb1-2"><a href="datasett.html#cb1-2" aria-hidden="true" tabindex="-1"></a>tre.sett <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">mean =</span> <span class="dv">41</span>, <span class="at">sd =</span> <span class="dv">5</span>) <span class="co">#12 individer</span></span>
-<span id="cb1-3"><a href="datasett.html#cb1-3" aria-hidden="true" tabindex="-1"></a>ett.sett <span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">mean =</span> <span class="dv">21</span>, <span class="at">sd =</span> <span class="dv">5</span>) <span class="co">#12 individer</span></span>
+<span id="cb1-2"><a href="datasett.html#cb1-2" aria-hidden="true" tabindex="-1"></a>tre.sett <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">mean =</span> <span class="dv">41</span>, <span class="at">sd =</span> <span class="dv">5</span>), <span class="dv">2</span>) <span class="co">#12 individer</span></span>
+<span id="cb1-3"><a href="datasett.html#cb1-3" aria-hidden="true" tabindex="-1"></a>ett.sett <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">mean =</span> <span class="dv">21</span>, <span class="at">sd =</span> <span class="dv">5</span>), <span class="dv">2</span>) <span class="co">#12 individer</span></span>
 <span id="cb1-4"><a href="datasett.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="datasett.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#lager en tibble fra tidyverse-pakken. Må ha lastet inn tidyverse library(tidyverse) i scriptfilen</span></span>
 <span id="cb1-6"><a href="datasett.html#cb1-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">individ =</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>),</span>
@@ -350,8 +354,8 @@ Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i
 <p>Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Hvor mange kolonner er det i tabellen over? <input class='solveme nospaces' size='1' data-answer='["3"]'/></li>
-<li>Hvor mange deltakere var med i studien? <input class='solveme nospaces' size='2' data-answer='["25"]'/></li>
-<li>Hvilke to verdier har variabelen ‘<em>gruppe</em>?’ <input class='solveme nospaces' size='16' data-answer='["17.7057638370199","17.0718080302549","18.2681093615135","25.4259377149549","32.7031295498412","19.1022595928954","22.2382713536142","22.271482686717","26.1788902838443","20.3485695627797","23.5277295683526","17.9596634385675"]'/> og <input class='solveme nospaces' size='16' data-answer='["40.4670449581874","49.0722254597917","47.941314229415","44.5138887937954","52.2875012402161","40.0175020520785","49.4842510826695","29.2104780554838","40.5929265524391","37.5867620268333","35.4265054014307","42.4935413884811"]'/></li>
+<li>Hvor mange deltakere var med i studien? <input class='solveme nospaces' size='2' data-answer='["24"]'/></li>
+<li>Hvilke to verdier har variabelen ‘<em>gruppe</em>?’ <input class='solveme nospaces' size='5' data-answer='["17.71","17.07","18.27","25.43","32.7","19.1","22.24","22.27","26.18","20.35","23.53","17.96"]'/> og <input class='solveme nospaces' size='5' data-answer='["40.47","49.07","47.94","44.51","52.29","40.02","49.48","29.21","40.59","37.59","35.43","42.49"]'/></li>
 </ol>
 </div>
 <div id="gjennomsnitt-for-de-to-gruppene" class="section level2" number="2.2">
@@ -376,16 +380,16 @@ Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i
 <tbody>
 <tr class="odd">
 <td align="left">ett.sett</td>
-<td align="right">21.90013</td>
+<td align="right">21.90083</td>
 </tr>
 <tr class="even">
 <td align="left">tre.sett</td>
-<td align="right">42.42450</td>
+<td align="right">42.42417</td>
 </tr>
 </tbody>
 </table>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span></p>
-<ol style="list-style-type: lower-alpha">
+<ol start="4" style="list-style-type: lower-alpha">
 <li>Hvilken gruppe hadde mest fremgang?
 <select class='solveme' data-answer='["tre.sett"]'> <option></option> <option>ett.sett</option> <option>tre.sett</option></select>`</li>
 </ol>
@@ -399,9 +403,10 @@ Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i
 Figur 2.1: Modeller med forskjellig b1
 </p>
 </div>
-<p>Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les <span class="citation">(<a href="visualisering-av-ulike-statistiske-modeller-1.html#ref-weissgerber_beyond_2015" role="doc-biblioref">Weissgerber et al. 2015</a>)</span>(<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128" class="uri">https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128</a>). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.</p>
+<p>Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske data. For eksempel er det fint å bruke dette når vi skal presentere frekvensen antall som har kjørt bil til skolen og antall personer som har gått. Les <span class="citation">(<a href="vedlegg.html#ref-weissgerber_beyond_2015" role="doc-biblioref">Weissgerber et al. 2015</a>)</span>(<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128" class="uri">https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128</a>). Deretter svar på følgende spørsmål for å se om du har forstått problemene ved å bruke stolpediagram på kontinuerlig data.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span></p>
-<ol style="list-style-type: lower-alpha">
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Hva får du hvis du summerer all erroren for alle indidene? <select class='solveme' data-answer='["null","0"]'> <option></option> <option>null</option> <option>0</option> <option>3</option> <option>-3</option></select>.</p></li>
 <li><p>Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data.</p></li>
 <li><p>Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.</p></li>
 <li><p>Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>.</p></li>

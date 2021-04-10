@@ -150,7 +150,7 @@
 
 \title{Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)}
 \author{Christian Magelssen}
-\date{2021-04-05}
+\date{2021-04-10}
 
 \begin{document}
 \maketitle
@@ -162,13 +162,13 @@
 \hypertarget{intro}{%
 \chapter{Introduksjon}\label{intro}}
 
-I dette kapittelet skal vi lære å bygge statistiske modeller for å teste om \textbf{to eller flere grupper er forskjellige på en avhengig variabel som er kontinuerlig}.
+I dette kapittelet skal vi lære å bygge statistiske modeller for å undersøke om en avhengig, kontinuerlig variabel (eks. det maksimale oksygenopptaket) er statistisk forskjellig mellom to (eks. kvinner og menn) eller flere grupper (eks. maratonløpere, skiløpere, kulestøtere og inaktive).
 
-En variabel kan sies å være \textbf{kontinuerlig} når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle tid; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.
+En variabel kan sies å være \textbf{kontinuerlig} når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontinuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle tid; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.
 
-\textbf{Grupper} defineres i psykologifaget som en samling mennesker som deler bestemte karakterstikker. Det kan være spillere på et fotballag, individer på et treningssenter, eller menn og kvinner. Dette er også eksempler på naturlig inndelte grupper i samfunnet. Noen ganger kan det være interessant å se om disse gruppene er forskjellige. For eksempel kan det være interessant å se om individer som trener på treningssenter er sterkere enn de som ikke trener på treningssenter.
+\textbf{Grupper} defineres i psykologifaget som en samling mennesker som deler bestemte karakteristikker. Det kan være spillere på et fotballag, individer på et treningssenter, eller menn og kvinner. Dette er også eksempler på naturlig inndelte grupper i samfunnet. Noen ganger kan det være interessant å se om disse gruppene er forskjellige. For eksempel kan det være interessant å se om individer som trener på treningssenter er sterkere enn de som ikke trener på treningssenter.
 
-Andre ganger kan det være interessant å teste om to grupper, som var like før et eksperiment, har blitt forskjellige fordi vi har behandlet dem ulikt. Vi randomiserer individer i to ulike grupper, slik at vi sikrer at vi blander disse individene godt (f.eks kjønn, motivasjon, interesser). Hvis eksperimentet har blitt gjennomført godt at det ikke er noen andre forklaringer på at disse to gruppene har blitt forskjellige etter intervensjonsperioden, så kan vi trekke en slutning om disse to gruppene trolig ikke kommer fra samme populasjon lenger; eksperimentet har gjort at disse to gruppene trolig kommer fra to forskjellige populasjoner.
+Andre ganger kan det være interessant å teste om to grupper, som var like før et eksperiment, har blitt forskjellige fordi vi har behandlet dem ulikt. Vi randomiserer individer i to ulike grupper, slik at vi sikrer at vi blander disse individene godt (f.eks kjønn, motivasjon, interesser). Hvis eksperimentet har blitt gjennomført godt, dvs. at det ikke er noen andre forklaringer på at disse to gruppene har blitt forskjellige etter intervensjonsperioden, så kan vi trekke en slutning om at disse to gruppene trolig ikke kommer fra samme populasjon lenger; altså at gruppene har blitt ulike.
 
 \hypertarget{om-denne-boken}{%
 \section{Om denne boken}\label{om-denne-boken}}
@@ -239,8 +239,8 @@ Du kan få nøyaktig samme datsett ved å klippe ut og lime inn følgende kode i
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{2002}\NormalTok{) }\CommentTok{\#viktig å ha med denne for å få nøyaktig samme datasett}
-\NormalTok{tre.sett }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{12}\NormalTok{, }\AttributeTok{mean =} \DecValTok{41}\NormalTok{, }\AttributeTok{sd =} \DecValTok{5}\NormalTok{) }\CommentTok{\#12 individer}
-\NormalTok{ett.sett }\OtherTok{\textless{}{-}}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{12}\NormalTok{, }\AttributeTok{mean =} \DecValTok{21}\NormalTok{, }\AttributeTok{sd =} \DecValTok{5}\NormalTok{) }\CommentTok{\#12 individer}
+\NormalTok{tre.sett }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{12}\NormalTok{, }\AttributeTok{mean =} \DecValTok{41}\NormalTok{, }\AttributeTok{sd =} \DecValTok{5}\NormalTok{), }\DecValTok{2}\NormalTok{) }\CommentTok{\#12 individer}
+\NormalTok{ett.sett }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{12}\NormalTok{, }\AttributeTok{mean =} \DecValTok{21}\NormalTok{, }\AttributeTok{sd =} \DecValTok{5}\NormalTok{), }\DecValTok{2}\NormalTok{) }\CommentTok{\#12 individer}
 
 \CommentTok{\#lager en tibble fra tidyverse{-}pakken. Må ha lastet inn tidyverse library(tidyverse) i scriptfilen}
 \NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{individ =} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{24}\NormalTok{),}
@@ -291,8 +291,8 @@ Koden gir oss følgende tabell:
 \toprule
 gruppe & mean.fremgang.1RM\\
 \midrule
-ett.sett & 21.90013\\
-tre.sett & 42.42450\\
+ett.sett & 21.90083\\
+tre.sett & 42.42417\\
 \bottomrule
 \end{tabular}
 
@@ -302,6 +302,7 @@ tre.sett & 42.42450\\
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
 \tightlist
 \item
   Hvilken gruppe hadde mest fremgang?
@@ -328,6 +329,9 @@ Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske 
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Hva får du hvis du summerer all erroren for alle indidene? null 0 3 -3.
 \item
   Stolpediagram er designet for kontinuerlig kategorisk data.
 \item
@@ -442,7 +446,7 @@ La oss bryte denne ligningen over:
 
 Legg merke til den lille i-en som står bak data og error i ligningen. i-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte i-en med 3 eller 8. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker i for å holde det generelt
 
-{Ligningen i praksis}
+{Modellbygging i praksis}
 
 Ligningen over blir mer oppklarende om vi bruker et eksempel:
 
@@ -526,7 +530,12 @@ Måten du skal tolke på b1 på: For \textbf{hver enhets økning i X}, dvs. gå 
 
 {Oppgave}
 
-\textbf{a.} La oss si at vi hatt med et målt et individ sin \textbf{X} til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på \emph{Y}?
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  La oss si at vi hatt med et målt et individ sin \textbf{X} til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på \emph{Y}?
+\end{enumerate}
 
 .
 
@@ -543,7 +552,13 @@ I figuren ser du tre modeller som har forskjellige b0, men samme b1. b0 er verdi
 
 {Oppgave}.
 
-\textbf{b.} La oss si at vi hatt med et målt et individ sin \textbf{X} og \textbf{Y} (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på \emph{Y}?
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  La oss si at vi hatt med et målt et individ sin \textbf{X} og \textbf{Y} (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på \emph{Y}?
+\end{enumerate}
 
 .
 
@@ -558,7 +573,13 @@ I figuren under ser du vært datasett. På Y-aksen har vi plottet \% fremgang i 
 \caption{Vår data}\label{fig:unnamed-chunk-4}
 \end{figure}
 
-\textbf{c.} Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt?
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt?
+\end{enumerate}
 
 Det er ingen relasjon mellom vår dummykodede variabel og \% fremgang 1RM Modellen vår ser ut til å ha en b0 på \textasciitilde20 og en b1 på \textasciitilde{} 20 Modellen vår ser ut til å ha en b0 på \textasciitilde10 og en b1 på \textasciitilde{} 40 Det er en negativ relasjon mellom vår dummykodede variabel og \% fremgang 1RM.
 
@@ -849,7 +870,7 @@ ett.sett
 
 -14.203
 
-\textbf{Oppgave}
+{Oppgave}.
 
 La oss prøve hvordan denne modellen virker. For individ 1 målte vi en fremgang i 1RM underkropp på \textbf{40.467}, men modellen vår sa \textbf{32.162}. Så modellen bommet med 8.305, dvs. en error på \textbf{8.305}.
 \[
@@ -861,50 +882,39 @@ fremgang.1RM = (mean) + error
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
 \tightlist
 \item
   Prøv modellen du også: For individ nr. 8, sier modellen at individet hadde en skår på , men denne personen hadde faktisk en skår på . Modellen bommet derfor med .
 \end{enumerate}
 
-\begin{quote}
-\begin{quote}
 Vi kan fortsette slik for alle deltakerne vi har hatt med i studien. Husk at vi ikke er interessert i hvir mye bommer for hvert enkelt individ, men for alle indivene.
-\end{quote}
-\end{quote}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
+\setcounter{enumi}{4}
 \tightlist
 \item
   Hva får du hvis du summerer all erroren for alle indidene? null 0 3 -3.
 \end{enumerate}
 
-\begin{quote}
-\begin{quote}
-tenk over hvorfor du får dette svaret før du leser videre.
-\end{quote}
-\end{quote}
+Tenk over hvorfor du får dette svaret før du leser videre.
 
-\begin{quote}
-\begin{quote}
 Som du så i forrige oppgave blir det feil å summere alle erroren, vi kan løse dette effektivt ved ved å regne \textbf{Sum of Squared Error}. Det vi gjør er å gange error med seg selv (error\^{}2) før vi summerer alt dette sammen.
-\end{quote}
-\end{quote}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{2}
+\setcounter{enumi}{5}
 \tightlist
 \item
   Hvis vi regner ut \textbf{Sum of Squared Error} for null-modellen fpr vi:
 \end{enumerate}
 
-\begin{quote}
-\begin{quote}
-Dette tallet er viktig! Dette er null-hypotesen vår! Hvis det ikke er noen forskjell mellom de to treningsgruppene våre er det like greit å bruke denne null-modellen. Men hvis vi finner ut at modellen vår blir bedre (dvs. reduserer Sum of Squared Error) ved å legge til en prediktorvariabel som består er av gruppevariabelen vår, da bør vi gjøre dette.
-\end{quote}
-\end{quote}
+Tenk over hvorfor du får dette svaret før du leser videre.
+
+Dette tallet er viktig! Dette er null-hypotesen vår! Hvis det ikke er noen forskjell mellom de to treningsgruppene våre er det like greit å bruke denne null-modellen. Men hvis vi finner ut at modellen vår blir bedre (dvs. reduserer Sum of Squared Error) ved å legge til en prediktorvariabel som består er av gruppevariabelen vår, da bør vi gjøre dette
+
+{Bra jobbet!}.
 
 Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut rent visuelt. Den prikkete streken i figuren under representerer modellen vår som er mean. Som du ser, så gjør den ingen justeringer for de ulike individene. Erroren er avstanden fra den linjen og opp til hvert datapunkt. Så hvis vi får til å bygge en bedre modell så vil denne avstanden reduseres for alle individene.
 
@@ -920,28 +930,28 @@ Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut re
 \hypertarget{alternativ-modell-alternativ-hypotese}{%
 \subsection{Alternativ modell (alternativ hypotese)}\label{alternativ-modell-alternativ-hypotese}}
 
-I forrige avsnitt sa vi at \textbf{null-hypotesen (H0)} reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.
+I forrige avsnitt sa vi at \textbf{null-hypotesen (H0)} reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.
 
 Spørsmålet vi skal stille i dette nå er om vi kan redusere error fra denne ved å benytte en mer kompleks modell som benytter (vår dummykodede kategoriske variabel) som prediktorvariabel:
 \[
 Y_i = (b_0 + b_1X_i) + error
 \]
-Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med tallene 0 og 1.
+Prediktorvariabelen b1 er gruppevariabelen vår som vi dummykodet med tallene 0 og 1. Husker du?
 
 \[
 Fremgang.1RM_i = b_0 + b_1(Gruppe) + error_i
 \]
-For å holde dette på et overordnet nivå, så vil jeg gi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal gå gjennom hvordan vi regner ut disse verdiene. Trykk her hvis du ønsker å finne ut hvoran du regner ut disse verdiene med en gang.
+For å holde dette på et enkelt og overordnet nivå, gir vi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal gå gjennom hvordan vi regner ut disse verdiene.
 
 \[
-Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
+Fremgang.1RM_i = 21.90 + (20.52*Gruppe) + error_i
 \]
-Modellen sier at vår b0 er 21.90. Dette er den forventede verdien på Y (Fremgang.1RM) når prediktorvariabelen er 0. Modellen sier også at b1 er 20.52. Med andre ord den forventede økning i Y for en enhets økning i X (også kalt stigningstallet). Husk at vi lagde en gruppe-variabel der vi kodet de to gruppene våre med 0 og 1. Så hvis et individ tilhørte gruppe 0, blir vår prediksjon:
+Modellen sier at vår b0 er 21.90. Dette er den forventede verdien på Y (Fremgang.1RM) når prediktorvariabelen er 0. Modellen sier også at b1 er 20.52. Med andre ord den forventede økning i Y for en enhets økning i X, altså stigningstallet. Husk at vi lagde en gruppe-variabel der vi kodet de to gruppene våre med 0 og 1. Så hvis et individ tilhørte gruppe 0, sier modellen at individ som tilhører gruppe 0 har følgende fremgang i 1RM:
 
 \[
-Fremgang.1RM_i = 21.90 + b_1(20.52*0) + error_i
+Fremgang.1RM_i = 21.90 + (20.52*0) + error_i
 \]
-Fordi 0*20.52 = 0, blir stående igjen med b0. Vår prediksjon av et individ som tilhører gruppe 0 blir
+Fordi 0*20.52 = 0, blir stående igjen med b0. Modellen predikerer derfor at et individ som tilhører gruppe 0 har 21.90 \% fremgang i 1RM.
 
 \[
 Fremgang.1RM_i = 21.90 + 0 + error_i
@@ -949,10 +959,10 @@ Fremgang.1RM_i = 21.90 + 0 + error_i
 \[
 Fremgang.1RM_i = 21.90 + error_i
 \]
-Hvis individet derimot tilhører 1 predikerer modellen at individet sin skår blir 42.48.
+Hvis individet derimot tilhører gruppe 1 predikerer modellen at individet sin skår blir 42.48.
 
 \[
-Fremgang.1RM_i = 21.90 + b1(20.52*1) + error_i
+Fremgang.1RM_i = 21.90 + (20.52*1) + error_i
 \]
 \[
 Fremgang.1RM_i = 42.48 + error_i
@@ -965,22 +975,28 @@ Visualisert fremstilt blir modellen vår seendes slik ut:
 
 }
 
-\caption{Modeller med forskjellig b1}\label{fig:unnamed-chunk-9}
+\caption{Alternativ modell}\label{fig:unnamed-chunk-9}
 \end{figure}
 
-\textbf{Oppgave}
-Tabellen under viser 6 individer som tilhørte treningsgruppe. Du ser deres faktiske fremgang i 1RM kolonnen. La oss bruke det vi har lært til å predikere disse personene sin fremgang. Vi bruker samme modell som over
+{Oppgave}.
+
+Tabellen under viser 6 individer som tilhørte treningsgruppe. Du ser deres faktiske fremgang i 1RM kolonnen. La oss bruke det vi har lært til å predikere disse individe sin fremgang. Vi bruker samme modell som over
 
 \[
 Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
 \]
-a. Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)
-
-b, Hva hadde individ nr i skår?
+g. Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{2}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Hva hadde individ nr i skår?
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
 \tightlist
 \item
   hvor mye error blir det?
@@ -988,7 +1004,7 @@ b, Hva hadde individ nr i skår?
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{3}
+\setcounter{enumi}{9}
 \tightlist
 \item
   i Squared Error blir denne erroren?
@@ -996,7 +1012,7 @@ b, Hva hadde individ nr i skår?
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{4}
+\setcounter{enumi}{10}
 \item
   nå som du har jobbet med denne modellen, så lurer jeg på om det er noe kjent med disse verdiene i modellen. Gå tilbake til {[}link{]} hvis du trenger et hint.
 \item
@@ -1036,7 +1052,15 @@ total error in den alternative modellen:
 
 SS\_R = \(\sum_{n=1}^N (observert_i - modell_i)^2\)
 
-Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler
+Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{14}
+\tightlist
+\item
+  Bruk formelen til å regne ut dette. (to desimaler)
+\end{enumerate}
 
 \hypertarget{sammenligne-modeller}{%
 \chapter{Sammenligne modeller}\label{sammenligne-modeller}}
@@ -1175,18 +1199,23 @@ Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk br
 \hypertarget{teste-statistisk-om-vuxe5r-alternative-modell-forklarer-mer-varians-enn-null-modellen}{%
 \section{Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen}\label{teste-statistisk-om-vuxe5r-alternative-modell-forklarer-mer-varians-enn-null-modellen}}
 
-En error-reduksjon på 2527.5 (\(SS_M\)), eller 78 \% (\((R^2)*100\)), kan høres mye ut. Men et problem med disse størrelsene er at de begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
+En error-reduksjon på 2527.5 (\(SS_M\)), eller 78 \% (\((R^2)*100\)), kan virke mye. Men et problem med disse størrelsene er at de begge er garantert å øke i takt med antall parametere vi legger til i modellen.
+
+Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
 
 \[
 Y_i  = b_0 + b_1(Gruppe_i) + b_2(Kjønn_i) + b_3(Treningstatus_i) + b_4(Alder_i)
 \]
 
-Hvis vi hadde gjort dette, ville vi fått en høy \(SS_M\) eller \(R^2\). Derfor er det mer interessant å regne ut gjennomsnittlig \(SS_M\) per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles \textbf{Mean Squared Model (MSM)}, eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
+Derfor er det mer interessant å regne ut gjennomsnittlig \(SS_M\) per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles \textbf{Mean Squared Model (MSM)}, eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
 
 \[
 \text{ Mean Squared Model } (MS_M) = SS_M / df_M
 \]
+
 \(df_m\) står for antall frihetsgrader som er lagt til i modellen utover null-modellen. Null-modellen har kun ett parameter (\(b_0\)), som er mean, mens vår alternative modell har to parametere (\(b_0\) og \(b_1\)). Derfor blir \(df_M\) = (2-1) = 1.
+
+{Oppgave}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1477,52 +1506,67 @@ Det er en ganske standardiser måte å rapporte en statistisk test på. Først s
 
 'Deltakerne i 1L-3U 3L-1U-gruppen hadde i gjennomsnitt mindre større en lavere \% fremgang 1RM, på underkroppsøvelser (M=,SD=), enn som {[}{]}. Denne forskjellen, {[}{]}, CI {[}{]}, var signifikant, \emph{t}({[}{]}) = {[}{]}, p = {[}{]}, d={[}{]}.
 
-\hypertarget{visualisering-av-ulike-statistiske-modeller-1}{%
-\chapter{Visualisering av ulike statistiske modeller}\label{visualisering-av-ulike-statistiske-modeller-1}}
+\hypertarget{vedlegg}{%
+\chapter{VEDLEGG}\label{vedlegg}}
 
-{Modeller med samme b0, men forskjellig b1}
+\hypertarget{datasett-1}{%
+\section{Datasett}\label{datasett-1}}
 
-I figurene under ser tre ulike modeller med uinteressante X og Y variabler. Alle har samme b0, mens de har forskjellig b1. Husk at b1 forteller om relasjonen mellom X og Y.
-
-\begin{itemize}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
 \item
-  I \textbf{modell A} ser du at når X øker, øker Y med 0.4 \textbf{for hver enhets økning i X}.
+  Hvor mange kolonner er det i tabellen over? svar = 3
 \item
-  I \textbf{modell B} er det ingen relasjon mellom X og Y, så for en enhets økning i X, vil vi forvente at Y forblir den samme.
+  Hvor mange deltakere var med i studien? svar = 24
 \item
-  I \textbf{modell C} er det en negativ relasjon mellom X og Y. Denne modellen sier at for en enhets økning i X, vil vi forvente at Y går ned med 0.4 (siden den er negativ).
-\end{itemize}
+  Hvilke to verdier har variabelen gruppe? svar = `ett.sett' og `tre.sett'
+\item
+  Hvilken gruppe hadde mest fremgang? svar = tre.sett
+\item
+  Stolpediagram er designet for (svar = ``kategorisk'') data.
+\item
+  Høyden på stolpen representerer (svar = gjennomsnittet), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+\item
+  Et stolpediagram viser ikke (svar=``fordelingen av observasjonene''), og dette er problematisk ved (svar = ``små'')) utvalg
+\item
+  Forfatterne av artikkelen anbefaler mer bruk av (svar = ``scatterplot'')` for kontinuerlige variabler.
+\item
+  Er standard error og standardavvik det samme? svar = ``nei'')
+\end{enumerate}
 
-\begin{figure}
+\hypertarget{modellbygging}{%
+\section{Modellbygging}\label{modellbygging}}
 
-{\centering \includegraphics[width=1\linewidth]{forelesning_files/figure-latex/unnamed-chunk-1-1} 
-
-}
-
-\caption{Modeller med forskjellig b1}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-{Modeller med forskjellig b1, men samme b1}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{forelesning_files/figure-latex/unnamed-chunk-2-1} 
-
-}
-
-\caption{Modeller med forskjellig b0}\label{fig:unnamed-chunk-2}
-\end{figure}
-
-{Hva blir vår modell?}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{forelesning_files/figure-latex/unnamed-chunk-3-1} 
-
-}
-
-\caption{Vår data}\label{fig:unnamed-chunk-3}
-\end{figure}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  La oss si at vi hatt med et målt et individ sin \textbf{X} til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på \emph{Y}? svar = 9.2
+\item
+  La oss si at vi hatt med et målt et individ sin \textbf{X} og \textbf{Y} (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på \emph{Y}? svar = 4.2
+\item
+  Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt? svar = ``Modellen vår ser ut til å ha en b0 på \textasciitilde20 og en b1 på \textasciitilde{} 20''
+\item
+  Prøv modellen du også: For individ nr. 8, sier modellen at individet hadde en skår på (svar = 32.162``), men denne personen hadde faktisk en skår på svar = 29.210. Modellen bommet derfor med (svar =''-2.952")`.
+\item
+  Hvis vi regner ut \textbf{Sum of Squared Error} for null-modellen får vi? svar = 3243.784
+\item
+  Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler) svar = 42.42
+\item
+  Hva hadde individ nr 3 i skår? svar = 47.941
+\item
+  hvor mye error blir det? svar = 5.521
+\item
+  i Squared Error blir denne erroren? svar = 30.48144
+\item
+  nå som du har jobbet med denne modellen, så lurer jeg på om det er noe kjent med disse verdiene i modellen. Svar = dette er mean for 0 gruppen og forskjellene mellom gruppene er b1
+\item
+  bo er (svar=gjennomsnittet) (norskt ord) for gruppen som er kodet med 0.
+\item
+  b1 er (svar=forskjellen) (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1.
+\item
+  b0 + b1 er (svar=gjennomsnittet) (norsk ord) for gruppen som er kodet med 1.
+\end{enumerate}
 
   \bibliography{book.bib,packages.bib}
 

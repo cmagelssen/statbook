@@ -96,18 +96,26 @@ Det er dessverre mange forskjellige navn på denne verdien. Du vil se at folk br
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Ferdig - Bra jobbet!</span>
 
 ## Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen
-En error-reduksjon på 2527.5 ($SS_M$), eller 78 % ($(R^2)*100$), kan høres mye ut. Men et problem med disse størrelsene er at de begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
+En error-reduksjon på 2527.5 ($SS_M$), eller 78 % ($(R^2)*100$), kan virke mye. Men et problem med disse størrelsene er at de begge er garantert å øke i takt med antall parametere vi legger til i modellen. 
+
+<div class="info">
+Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:
 
 $$
 Y_i  = b_0 + b_1(Gruppe_i) + b_2(Kjønn_i) + b_3(Treningstatus_i) + b_4(Alder_i)
 $$
+</div>
 
-Hvis vi hadde gjort dette, ville vi fått en høy $SS_M$ eller $R^2$. Derfor er det mer interessant å regne ut gjennomsnittlig $SS_M$ per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles **Mean Squared Model (MSM)**, eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
+Derfor er det mer interessant å regne ut gjennomsnittlig $SS_M$ per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles **Mean Squared Model (MSM)**, eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:
 
 $$
 \text{ Mean Squared Model } (MS_M) = SS_M / df_M
 $$
+
 $df_m$ står for antall frihetsgrader som er lagt til i modellen utover null-modellen. Null-modellen har kun ett parameter ($b_0$), som er mean, mens vår alternative modell har to parametere ($b_0$ og $b_1$). Derfor blir $df_M$ = (2-1) = 1. 
+
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+
 
 a. Regn ut Mean Squared Error ($MS_M$) og sett det verdien inn i ANOVA-tabellen vår
 

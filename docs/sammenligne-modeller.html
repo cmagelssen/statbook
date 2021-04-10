@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-04-05" />
+<meta name="date" content="2021-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
-<li class="chapter" data-level="9" data-path="visualisering-av-ulike-statistiske-modeller-1.html"><a href="visualisering-av-ulike-statistiske-modeller-1.html"><i class="fa fa-check"></i><b>9</b> Visualisering av ulike statistiske modeller</a></li>
+<li class="chapter" data-level="9" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>9</b> VEDLEGG</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-1"><i class="fa fa-check"></i><b>9.1</b> Datasett</a></li>
+<li class="chapter" data-level="9.2" data-path="vedlegg.html"><a href="vedlegg.html#modellbygging"><i class="fa fa-check"></i><b>9.2</b> Modellbygging</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -306,15 +310,19 @@ R^2 = \frac{(SS_T - SS_R)}{SS_T} * 100
 </div>
 <div id="teste-statistisk-om-vår-alternative-modell-forklarer-mer-varians-enn-null-modellen" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen</h2>
-<p>En error-reduksjon på 2527.5 (<span class="math inline">\(SS_M\)</span>), eller 78 % (<span class="math inline">\((R^2)*100\)</span>), kan høres mye ut. Men et problem med disse størrelsene er at de begge er garantert å øke i takt med antall parametere vi legger til i modellen. Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:</p>
+<p>En error-reduksjon på 2527.5 (<span class="math inline">\(SS_M\)</span>), eller 78 % (<span class="math inline">\((R^2)*100\)</span>), kan virke mye. Men et problem med disse størrelsene er at de begge er garantert å øke i takt med antall parametere vi legger til i modellen.</p>
+<div class="info">
+<p>Dere har ikke lært dette enda, men vit at vi kunne bygget en modell der vi inkluderer kjønn, alder, treningsstatus som prediktorvariabler. Da ville dere fått en mer kompleks modell:</p>
 <p><span class="math display">\[
 Y_i  = b_0 + b_1(Gruppe_i) + b_2(Kjønn_i) + b_3(Treningstatus_i) + b_4(Alder_i)
 \]</span></p>
-<p>Hvis vi hadde gjort dette, ville vi fått en høy <span class="math inline">\(SS_M\)</span> eller <span class="math inline">\(R^2\)</span>. Derfor er det mer interessant å regne ut gjennomsnittlig <span class="math inline">\(SS_M\)</span> per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles <strong>Mean Squared Model (MSM)</strong>, eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:</p>
+</div>
+<p>Derfor er det mer interessant å regne ut gjennomsnittlig <span class="math inline">\(SS_M\)</span> per parameter vi har lagt til i modellen (i forhold til null-modellen). Dette kalles <strong>Mean Squared Model (MSM)</strong>, eller gjennomsnittlig squared error for den alternative modellen, og regnes på følgende måte:</p>
 <p><span class="math display">\[
 \text{ Mean Squared Model } (MS_M) = SS_M / df_M
-\]</span>
-<span class="math inline">\(df_m\)</span> står for antall frihetsgrader som er lagt til i modellen utover null-modellen. Null-modellen har kun ett parameter (<span class="math inline">\(b_0\)</span>), som er mean, mens vår alternative modell har to parametere (<span class="math inline">\(b_0\)</span> og <span class="math inline">\(b_1\)</span>). Derfor blir <span class="math inline">\(df_M\)</span> = (2-1) = 1.</p>
+\]</span></p>
+<p><span class="math inline">\(df_m\)</span> står for antall frihetsgrader som er lagt til i modellen utover null-modellen. Null-modellen har kun ett parameter (<span class="math inline">\(b_0\)</span>), som er mean, mens vår alternative modell har to parametere (<span class="math inline">\(b_0\)</span> og <span class="math inline">\(b_1\)</span>). Derfor blir <span class="math inline">\(df_M\)</span> = (2-1) = 1.</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span></p>
 <ol style="list-style-type: lower-alpha">
 <li>Regn ut Mean Squared Error (<span class="math inline">\(MS_M\)</span>) og sett det verdien inn i ANOVA-tabellen vår</li>
 </ol>

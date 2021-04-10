@@ -62,8 +62,8 @@ Du kan få nøyaktig samme datsett ved å klippe ut og lime inn følgende kode i
 
 ```r
 set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
-tre.sett <- rnorm(n = 12, mean = 41, sd = 5) #12 individer
-ett.sett <-rnorm(n = 12, mean = 21, sd = 5) #12 individer
+tre.sett <- round(rnorm(n = 12, mean = 41, sd = 5), 2) #12 individer
+ett.sett <- round(rnorm(n = 12, mean = 21, sd = 5), 2) #12 individer
 
 #lager en tibble fra tidyverse-pakken. Må ha lastet inn tidyverse library(tidyverse) i scriptfilen
 dat <- tibble(individ = seq(1:24),
@@ -76,8 +76,8 @@ dat <- tibble(individ = seq(1:24),
 Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
 
 a) Hvor mange kolonner er det i tabellen over? <input class='solveme nospaces' size='1' data-answer='["3"]'/>
-b) Hvor mange deltakere var med i studien? <input class='solveme nospaces' size='2' data-answer='["25"]'/>
-c) Hvilke to verdier har variabelen '*gruppe*'? <input class='solveme nospaces' size='16' data-answer='["17.7057638370199","17.0718080302549","18.2681093615135","25.4259377149549","32.7031295498412","19.1022595928954","22.2382713536142","22.271482686717","26.1788902838443","20.3485695627797","23.5277295683526","17.9596634385675"]'/> og <input class='solveme nospaces' size='16' data-answer='["40.4670449581874","49.0722254597917","47.941314229415","44.5138887937954","52.2875012402161","40.0175020520785","49.4842510826695","29.2104780554838","40.5929265524391","37.5867620268333","35.4265054014307","42.4935413884811"]'/>
+b) Hvor mange deltakere var med i studien? <input class='solveme nospaces' size='2' data-answer='["24"]'/>
+c) Hvilke to verdier har variabelen '*gruppe*'? <input class='solveme nospaces' size='5' data-answer='["17.71","17.07","18.27","25.43","32.7","19.1","22.24","22.27","26.18","20.35","23.53","17.96"]'/> og <input class='solveme nospaces' size='5' data-answer='["40.47","49.07","47.94","44.51","52.29","40.02","49.48","29.21","40.59","37.59","35.43","42.49"]'/>
 
 
 ## Gjennomsnitt for de to gruppene
@@ -102,15 +102,15 @@ Koden gir oss følgende tabell:
 \toprule
 gruppe & mean.fremgang.1RM\\
 \midrule
-ett.sett & 21.90013\\
-tre.sett & 42.42450\\
+ett.sett & 21.90083\\
+tre.sett & 42.42417\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
 
-a) Hvilken gruppe hadde mest fremgang?
+d) Hvilken gruppe hadde mest fremgang?
 <select class='solveme' data-answer='["tre.sett"]'> <option></option> <option>ett.sett</option> <option>tre.sett</option></select>`
 
 ## Figur av datasettet
@@ -128,13 +128,14 @@ Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske 
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
 
+b. Hva får du hvis du summerer  all erroren for alle indidene?  <select class='solveme' data-answer='["null","0"]'> <option></option> <option>null</option> <option>0</option> <option>3</option> <option>-3</option></select>. 
 
-a. Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data. 
+e. Stolpediagram er designet for <select class='solveme' data-answer='["kategorisk"]'> <option></option> <option>kontinuerlig</option> <option>kategorisk</option></select> data. 
 
-b. Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+f. Høyden på stolpen representerer <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
 
-c. Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>. 
+g. Et stolpediagram viser ikke <select class='solveme' data-answer='["fordelingen av observasjonene"]'> <option></option> <option>standard error</option> <option>standardavvik</option> <option>CI</option> <option>fordelingen av observasjonene</option></select>, og dette spesielt være problematisk ved <select class='solveme' data-answer='["små"]'> <option></option> <option>store</option> <option>små</option></select>. 
 
-d. Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.
+h. Forfatterne av artikkelen anbefaler mer bruk av <select class='solveme' data-answer='["scatterplot"]'> <option></option> <option>bar graph</option> <option>scatterplot</option></select> for kontinuerlige variabler.
 
-e. Er standard error og standardavvik det samme? <select class='solveme' data-answer='["nei"]'> <option></option> <option>ja</option> <option>nei</option></select>.
+i. Er standard error og standardavvik det samme? <select class='solveme' data-answer='["nei"]'> <option></option> <option>ja</option> <option>nei</option></select>.

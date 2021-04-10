@@ -40,8 +40,8 @@ knitr::kable(
 Du kan få nøyaktig samme datsett ved å klippe ut og lime inn følgende kode i en skript-fil i R (husk å laste inn tidyverse-pakken, library(tidyverse) ). Du kan også laste ned datasettet som en .csv fil fra canvas.
 ```{r echo=TRUE}
 set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
-tre.sett <- rnorm(n = 12, mean = 41, sd = 5) #12 individer
-ett.sett <-rnorm(n = 12, mean = 21, sd = 5) #12 individer
+tre.sett <- round(rnorm(n = 12, mean = 41, sd = 5), 2) #12 individer
+ett.sett <- round(rnorm(n = 12, mean = 21, sd = 5), 2) #12 individer
 
 #lager en tibble fra tidyverse-pakken. Må ha lastet inn tidyverse library(tidyverse) i scriptfilen
 dat <- tibble(individ = seq(1:24),
@@ -54,7 +54,7 @@ dat <- tibble(individ = seq(1:24),
 Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
 
 a) Hvor mange kolonner er det i tabellen over? `r fitb(3)`
-b) Hvor mange deltakere var med i studien? `r fitb(25)`
+b) Hvor mange deltakere var med i studien? `r fitb(24)`
 c) Hvilke to verdier har variabelen '*gruppe*'? `r fitb(ett.sett)` og `r fitb(tre.sett)`
 
 
@@ -69,6 +69,8 @@ mean_rm <- dat %>%
   group_by(gruppe) %>%
   #deretter bruker jeg summarise funksjonen for å regne gjennomsnitt
   summarise(mean.fremgang.1RM = mean(rm))
+
+
 ```
 Koden gir oss følgende tabell:
 ```{r echo=FALSE}
@@ -80,7 +82,7 @@ knitr::kable(
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
 
-a) Hvilken gruppe hadde mest fremgang?
+d) Hvilken gruppe hadde mest fremgang?
 `r mcq(c("ett.sett", answer = "tre.sett"))``
 
 ## Figur av datasettet
@@ -98,13 +100,14 @@ Et stolpediagram er pent å se på, men er egentlig designet for å kategoriske 
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>
 
+b. Hva får du hvis du summerer  all erroren for alle indidene?  `r mcq(c(answer = "null", answer = "0", "3", "-3"))`. 
 
-a. Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
+e. Stolpediagram er designet for `r mcq(c("kontinuerlig", answer = "kategorisk"))` data. 
 
-b. Høyden på stolpen representerer `r fitb("gjennomsnittet")` (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
+f. Høyden på stolpen representerer `r fitb("gjennomsnittet")` (bruk det norske begrepet!), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.
 
-c. Et stolpediagram viser ikke `r mcq(c("standard error", "standardavvik", "CI", answer = "fordelingen av observasjonene"))`, og dette spesielt være problematisk ved `r mcq(c("store", answer = "små"))`. 
+g. Et stolpediagram viser ikke `r mcq(c("standard error", "standardavvik", "CI", answer = "fordelingen av observasjonene"))`, og dette spesielt være problematisk ved `r mcq(c("store", answer = "små"))`. 
 
-d. Forfatterne av artikkelen anbefaler mer bruk av `r mcq(c("bar graph", answer = "scatterplot"))` for kontinuerlige variabler.
+h. Forfatterne av artikkelen anbefaler mer bruk av `r mcq(c("bar graph", answer = "scatterplot"))` for kontinuerlige variabler.
 
-e. Er standard error og standardavvik det samme? `r mcq(c("ja", answer = "nei"))`.
+i. Er standard error og standardavvik det samme? `r mcq(c("ja", answer = "nei"))`.

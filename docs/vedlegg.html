@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 3 Koding av kategoriske prediktorvariabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <title>Kapittel 9 VEDLEGG | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 3 Koding av kategoriske prediktorvariabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 9 VEDLEGG | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 3 Koding av kategoriske prediktorvariabler | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 9 VEDLEGG | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datasett.html"/>
-<link rel="next" href="bygge-statistisk-modeller.html"/>
+<link rel="prev" href="write-up.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -197,185 +197,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="koding-av-kategoriske-prediktorvariabler" class="section level1" number="3">
-<h1><span class="header-section-number">Kapittel 3</span> Koding av kategoriske prediktorvariabler</h1>
-<p>I tabellen på forrige kan du se at vi har en tabell med tre kolonner: en kolonne for hver variabel vi har i vårt datasett.</p>
-<ul>
-<li>Variabelen <strong>gruppe</strong> er en kategorisk vaiabel som har to ulike verdier: “ett.sett” og “tre.sett.” Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles dette for et tekstobjekt, en string eller character. Uansett navn er problemet at vi ikke kan legge ord inn i en statistisk modell. Vi er nødt til å omkode den kategoriske variabelen med tallverdier. Det er flere måter å gjøre dette på, og måten man gjør det på har stor betydning for outfallet av den statistiske analysen.</li>
-</ul>
-<div class="danger">
-<p>De forskjellige måtene å kode kategoriske prediktorvariabler gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke <strong>dummykoding</strong>. Dette kan fungere godt når du bygger enkle statistisk modeller, slik vi skal gjøre nå. Men dummykoding fungerer dårlig når du har mange grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil <strong>kontrastkoding</strong> være bedre egnet.</p>
-<p>SPSS, R, Jamovi bruker dummykoding som standard, og det er viktig når du tolker resultatene fra modellene.</p>
+<div id="vedlegg" class="section level1" number="9">
+<h1><span class="header-section-number">Kapittel 9</span> VEDLEGG</h1>
+<div id="datasett-1" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Datasett</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Hvor mange kolonner er det i tabellen over? svar = 3</li>
+<li>Hvor mange deltakere var med i studien? svar = 24</li>
+<li>Hvilke to verdier har variabelen gruppe? svar = ‘ett.sett’ og ‘tre.sett’</li>
+<li>Hvilken gruppe hadde mest fremgang? svar = tre.sett</li>
+<li>Stolpediagram er designet for (svar = “kategorisk”) data.</li>
+<li>Høyden på stolpen representerer (svar = gjennomsnittet), hvilket vil si at det også må ligge noen observasjoner over og under stolpen.</li>
+<li>Et stolpediagram viser ikke (svar=“fordelingen av observasjonene”), og dette er problematisk ved (svar = “små”)) utvalg</li>
+<li>Forfatterne av artikkelen anbefaler mer bruk av (svar = “scatterplot”)` for kontinuerlige variabler.</li>
+<li>Er standard error og standardavvik det samme? svar = “nei”)</li>
+</ol>
 </div>
-<div id="dummykoding" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Dummykoding</h2>
-<p>En vanlig metode kalles <strong>dummykoding</strong> eller <strong>treatment-koding</strong>. Den går ut på å lage en eller flere variabler med 0 og 1 som de to mulige verdiene. Antall variabler vi trenger avhenger av antall grupper vi vil sammenligne. Siden vårt datasett kun inneholder to grupper, så trenger vi kun en variabel. Vi kan den ene gruppen og den andre 1. Hovedregelen er at vi gir 0 til baselinegruppe og 1 til den eksperimentelle gruppen. Vi gir derfor 0 til 1.sett-gruppen og 1 til 3.sett-gruppen. Gjør dette før du går videre.</p>
-<p>I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruke følgende kode:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="koding-av-kategoriske-prediktorvariabler.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lager et nytt objekt som heter dummykodet.dat</span></span>
-<span id="cb3-2"><a href="koding-av-kategoriske-prediktorvariabler.html#cb3-2" aria-hidden="true" tabindex="-1"></a>dummykodet.dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="koding-av-kategoriske-prediktorvariabler.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># her lager jeg en ny kolonne som heter dummykoder. If gruppe == &#39;ett.sett&#39;, gi verdien 0, else gi de 1.</span></span>
-<span id="cb3-4"><a href="koding-av-kategoriske-prediktorvariabler.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummykodet =</span> <span class="fu">if_else</span>(gruppe <span class="sc">==</span> <span class="st">&quot;ett.sett&quot;</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-4">Table 3.1: </span>Dummykodet datasett</caption>
-<thead>
-<tr class="header">
-<th align="right">individ</th>
-<th align="left">gruppe</th>
-<th align="right">rm</th>
-<th align="right">dummykodet</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">tre.sett</td>
-<td align="right">40.46704</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">tre.sett</td>
-<td align="right">49.07223</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">tre.sett</td>
-<td align="right">47.94131</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">tre.sett</td>
-<td align="right">44.51389</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">tre.sett</td>
-<td align="right">52.28750</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">tre.sett</td>
-<td align="right">40.01750</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">tre.sett</td>
-<td align="right">49.48425</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">tre.sett</td>
-<td align="right">29.21048</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">tre.sett</td>
-<td align="right">40.59293</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">tre.sett</td>
-<td align="right">37.58676</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="left">tre.sett</td>
-<td align="right">35.42651</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="left">tre.sett</td>
-<td align="right">42.49354</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="left">ett.sett</td>
-<td align="right">17.70576</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="left">ett.sett</td>
-<td align="right">17.07181</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="left">ett.sett</td>
-<td align="right">18.26811</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="left">ett.sett</td>
-<td align="right">25.42594</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="left">ett.sett</td>
-<td align="right">32.70313</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="left">ett.sett</td>
-<td align="right">19.10226</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="left">ett.sett</td>
-<td align="right">22.23827</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="left">ett.sett</td>
-<td align="right">22.27148</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">21</td>
-<td align="left">ett.sett</td>
-<td align="right">26.17889</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">22</td>
-<td align="left">ett.sett</td>
-<td align="right">20.34857</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="right">23</td>
-<td align="left">ett.sett</td>
-<td align="right">23.52773</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">24</td>
-<td align="left">ett.sett</td>
-<td align="right">17.95966</td>
-<td align="right">0</td>
-</tr>
-</tbody>
-</table>
-<p>I jamovi ville jeg sett følgende video:</p>
-<iframe width="797" height="457" src="https://www.youtube.com/embed/iITxK27LfZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
+<div id="modellbygging" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Modellbygging</h2>
+<ol style="list-style-type: lower-alpha">
+<li><p>La oss si at vi hatt med et målt et individ sin <strong>X</strong> til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på <em>Y</em>? svar = 9.2</p></li>
+<li><p>La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>? svar = 4.2</p></li>
+<li><p>Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt? svar = “Modellen vår ser ut til å ha en b0 på ~20 og en b1 på ~ 20”</p></li>
+<li><p>Prøv modellen du også: For individ nr. 8, sier modellen at individet hadde en skår på (svar = 32.162“), men denne personen hadde faktisk en skår på svar = 29.210. Modellen bommet derfor med (svar =”-2.952")`.</p></li>
+<li><p>Hvis vi regner ut <strong>Sum of Squared Error</strong> for null-modellen får vi? svar = 3243.784</p></li>
+<li><p>Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler) svar = 42.42</p></li>
+<li><p>Hva hadde individ nr 3 i skår? svar = 47.941</p></li>
+<li><p>hvor mye error blir det? svar = 5.521</p></li>
+<li><p>i Squared Error blir denne erroren? svar = 30.48144</p></li>
+<li><p>nå som du har jobbet med denne modellen, så lurer jeg på om det er noe kjent med disse verdiene i modellen. Svar = dette er mean for 0 gruppen og forskjellene mellom gruppene er b1</p></li>
+<li><p>bo er (svar=gjennomsnittet) (norskt ord) for gruppen som er kodet med 0.</p></li>
+<li><p>b1 er (svar=forskjellen) (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1.</p></li>
+<li><p>b0 + b1 er (svar=gjennomsnittet) (norsk ord) for gruppen som er kodet med 1.</p></li>
+</ol>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ronnestad_dissimilar_2007" class="csl-entry">
+Rønnestad, Bent, Wilhelm Egeland, Nils Kvamme, Per Refsnes, Fawzi Kadi, and Truls Raastad. 2007. <span>“Dissimilar Effects of One- and Three-Set Strength Training on Strength and Muscle Mass Gains in Upper and Lower Body in Untrained Subjects.”</span> <em>The Journal of Strength and Conditioning Research</em> 21: 157–63. <a href="https://doi.org/10.1519/R-19895.1">https://doi.org/10.1519/R-19895.1</a>.
+</div>
+<div id="ref-weissgerber_beyond_2015" class="csl-entry">
+Weissgerber, Tracey L., Natasa M. Milic, Stacey J. Winham, and Vesna D. Garovic. 2015. <span>“Beyond <span>Bar</span> and <span>Line</span> <span>Graphs</span>: <span>Time</span> for a <span>New</span> <span>Data</span> <span>Presentation</span> <span>Paradigm</span>.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
+</div>
 </div>
 </div>
 <div class="psyteachr_footer">
@@ -488,8 +351,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="datasett.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bygge-statistisk-modeller.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-up.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

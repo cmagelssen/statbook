@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen" />
 
 
-<meta name="date" content="2021-04-05" />
+<meta name="date" content="2021-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
 <li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
-<li class="chapter" data-level="9" data-path="visualisering-av-ulike-statistiske-modeller-1.html"><a href="visualisering-av-ulike-statistiske-modeller-1.html"><i class="fa fa-check"></i><b>9</b> Visualisering av ulike statistiske modeller</a></li>
+<li class="chapter" data-level="9" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>9</b> VEDLEGG</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-1"><i class="fa fa-check"></i><b>9.1</b> Datasett</a></li>
+<li class="chapter" data-level="9.2" data-path="vedlegg.html"><a href="vedlegg.html#modellbygging"><i class="fa fa-check"></i><b>9.2</b> Modellbygging</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -214,7 +218,7 @@ data_i = (modell) + error_i
 <div class="info">
 <p>Legg merke til den lille <sub>i</sub>-en som står bak data og error i ligningen. <sub>i</sub>-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte <sub>i</sub>-en med <sub>3</sub> eller <sub>8</sub>. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker <sub>i</sub> for å holde det generelt</p>
 </div>
-<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Ligningen i praksis</span></p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Modellbygging i praksis</span></p>
 <p>Ligningen over blir mer oppklarende om vi bruker et eksempel:</p>
 <p>Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er ~37, så det er naturlig å tenke at du kan bruke 37 som modell.</p>
 <p><span class="math display">\[
@@ -281,7 +285,9 @@ Figur 4.1: Modeller med forskjellig b1
 </p>
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span></p>
-<p><strong>a.</strong> La oss si at vi hatt med et målt et individ sin <strong>X</strong> til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på <em>Y</em>?</p>
+<ol style="list-style-type: lower-alpha">
+<li>La oss si at vi hatt med et målt et individ sin <strong>X</strong> til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på <em>Y</em>?</li>
+</ol>
 <p><input class='solveme nospaces' size='3' data-answer='["9.2"]'/>.</p>
 <p>I figuren ser du tre modeller som har forskjellige b<sub>0</sub>, men samme b<sub>1</sub>. b<sub>0</sub> er verdien på Y når X er 0.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
@@ -291,7 +297,9 @@ Figur 4.2: Modeller med forskjellig b0
 </p>
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Oppgave</span>.</p>
-<p><strong>b.</strong> La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>?</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>?</li>
+</ol>
 <p><input class='solveme nospaces' size='3' data-answer='["4.2"]'/>.</p>
 <p>I figuren under ser du vært datasett. På Y-aksen har vi plottet % fremgang i RM for deltakerne våre. På X-aksen har vi plottet de to gruppene våre som vi har dummykodet med 0 og 1.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
@@ -300,7 +308,9 @@ Figur 4.2: Modeller med forskjellig b0
 Figur 4.3: Vår data
 </p>
 </div>
-<p><strong>c.</strong> Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt?</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Med utgangspunkt i figuren, hvordan vil du omtrent beskrive en modell som kan passe denne dataen godt?</li>
+</ol>
 <p><select class='solveme' data-answer='["Modellen vår ser ut til å ha en b0 på ~20 og en b1 på ~ 20"]'> <option></option> <option>Det er ingen relasjon mellom vår dummykodede variabel og % fremgang 1RM</option> <option>Modellen vår ser ut til å ha en b0 på ~20 og en b1 på ~ 20</option> <option>Modellen vår ser ut til å ha en b0 på ~10 og en b1 på ~ 40</option> <option>Det er en negativ relasjon mellom vår dummykodede variabel og % fremgang 1RM</option></select>.</p>
 </div>
 <div id="modellbygging-med-null-hypothesis-significance-testing-nhst" class="section level2" number="4.3">
@@ -759,7 +769,7 @@ ett.sett
 </tr>
 </tbody>
 </table>
-<p><strong>Oppgave</strong></p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>.</p>
 <p>La oss prøve hvordan denne modellen virker. For individ 1 målte vi en fremgang i 1RM underkropp på <strong>40.467</strong>, men modellen vår sa <strong>32.162</strong>. Så modellen bommet med 8.305, dvs. en error på <strong>8.305</strong>.
 <span class="math display">\[
 fremgang.1RM = (mean) + error
@@ -767,35 +777,27 @@ fremgang.1RM = (mean) + error
 <span class="math display">\[
 40.467 = 32.162 + 8.305
 \]</span></p>
-<ol style="list-style-type: lower-alpha">
+<ol start="4" style="list-style-type: lower-alpha">
 <li>Prøv modellen du også: For individ nr. 8, sier modellen at individet hadde en skår på <input class='solveme nospaces' size='6' data-answer='["32.162"]'/>, men denne personen hadde faktisk en skår på <input class='solveme nospaces' size='6' data-answer='["29.210"]'/>. Modellen bommet derfor med <input class='solveme nospaces' size='6' data-answer='["-2.952"]'/>.</li>
 </ol>
-<blockquote>
-<blockquote>
+<div class="info">
 <p>Vi kan fortsette slik for alle deltakerne vi har hatt med i studien. Husk at vi ikke er interessert i hvir mye bommer for hvert enkelt individ, men for alle indivene.</p>
-</blockquote>
-</blockquote>
-<ol start="2" style="list-style-type: lower-alpha">
+</div>
+<ol start="5" style="list-style-type: lower-alpha">
 <li>Hva får du hvis du summerer all erroren for alle indidene? <select class='solveme' data-answer='["null","0"]'> <option></option> <option>null</option> <option>0</option> <option>3</option> <option>-3</option></select>.</li>
 </ol>
-<blockquote>
-<blockquote>
-<p>tenk over hvorfor du får dette svaret før du leser videre.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<div class="info">
+<p>Tenk over hvorfor du får dette svaret før du leser videre.</p>
 <p>Som du så i forrige oppgave blir det feil å summere alle erroren, vi kan løse dette effektivt ved ved å regne <strong>Sum of Squared Error</strong>. Det vi gjør er å gange error med seg selv (error^2) før vi summerer alt dette sammen.</p>
-</blockquote>
-</blockquote>
-<ol start="3" style="list-style-type: lower-alpha">
+</div>
+<ol start="6" style="list-style-type: lower-alpha">
 <li>Hvis vi regner ut <strong>Sum of Squared Error</strong> for null-modellen fpr vi: <input class='solveme nospaces' size='8' data-answer='["3243.784"]'/></li>
 </ol>
-<blockquote>
-<blockquote>
-<p>Dette tallet er viktig! Dette er null-hypotesen vår! Hvis det ikke er noen forskjell mellom de to treningsgruppene våre er det like greit å bruke denne null-modellen. Men hvis vi finner ut at modellen vår blir bedre (dvs. reduserer Sum of Squared Error) ved å legge til en prediktorvariabel som består er av gruppevariabelen vår, da bør vi gjøre dette.</p>
-</blockquote>
-</blockquote>
+<div class="info">
+<p>Tenk over hvorfor du får dette svaret før du leser videre.</p>
+<p>Dette tallet er viktig! Dette er null-hypotesen vår! Hvis det ikke er noen forskjell mellom de to treningsgruppene våre er det like greit å bruke denne null-modellen. Men hvis vi finner ut at modellen vår blir bedre (dvs. reduserer Sum of Squared Error) ved å legge til en prediktorvariabel som består er av gruppevariabelen vår, da bør vi gjøre dette</p>
+</div>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Bra jobbet!</span>.</p>
 <p>Før du går videre er det greit å visualisere hvordan null-hypotesen ser ut rent visuelt. Den prikkete streken i figuren under representerer modellen vår som er mean. Som du ser, så gjør den ingen justeringer for de ulike individene. Erroren er avstanden fra den linjen og opp til hvert datapunkt. Så hvis vi får til å bygge en bedre modell så vil denne avstanden reduseres for alle individene.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="04-modellbygging_files/figure-html/unnamed-chunk-8-1.png" alt="Modeller med forskjellig b1" width="100%" />
@@ -806,62 +808,64 @@ Figur 4.4: Modeller med forskjellig b1
 </div>
 <div id="alternativ-modell-alternativ-hypotese" class="section level3" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Alternativ modell (alternativ hypotese)</h3>
-<p>I forrige avsnitt sa vi at <strong>null-hypotesen (H0)</strong> reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig av hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.</p>
+<p>I forrige avsnitt sa vi at <strong>null-hypotesen (H0)</strong> reresenterer en en modell som gir samme prediksjon for alle deltakerne som var med i studien uavhengig hvilken treningsgruppe de tilhører. Vi kalte denne for null-modellen. Vi regnet oss også frem til at denne modellen ga oss en Som of Squared error på 3243.784.</p>
 <p>Spørsmålet vi skal stille i dette nå er om vi kan redusere error fra denne ved å benytte en mer kompleks modell som benytter (vår dummykodede kategoriske variabel) som prediktorvariabel:
 <span class="math display">\[
 Y_i = (b_0 + b_1X_i) + error
 \]</span>
-Prediktorvariabelen b1 er en gruppevariabelen vår som vi dummykodet med tallene 0 og 1.</p>
+Prediktorvariabelen b1 er gruppevariabelen vår som vi dummykodet med tallene 0 og 1. Husker du?</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = b_0 + b_1(Gruppe) + error_i
 \]</span>
-For å holde dette på et overordnet nivå, så vil jeg gi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal gå gjennom hvordan vi regner ut disse verdiene. Trykk her hvis du ønsker å finne ut hvoran du regner ut disse verdiene med en gang.</p>
+For å holde dette på et enkelt og overordnet nivå, gir vi dere de estimerte verdiene for b0 og b1. Målet er å vise dere hvordan denne modellen fungerer. Senere skal gå gjennom hvordan vi regner ut disse verdiene.</p>
 <p><span class="math display">\[
-Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
+Fremgang.1RM_i = 21.90 + (20.52*Gruppe) + error_i
 \]</span>
-Modellen sier at vår b0 er 21.90. Dette er den forventede verdien på Y (Fremgang.1RM) når prediktorvariabelen er 0. Modellen sier også at b1 er 20.52. Med andre ord den forventede økning i Y for en enhets økning i X (også kalt stigningstallet). Husk at vi lagde en gruppe-variabel der vi kodet de to gruppene våre med 0 og 1. Så hvis et individ tilhørte gruppe 0, blir vår prediksjon:</p>
+Modellen sier at vår b0 er 21.90. Dette er den forventede verdien på Y (Fremgang.1RM) når prediktorvariabelen er 0. Modellen sier også at b1 er 20.52. Med andre ord den forventede økning i Y for en enhets økning i X, altså stigningstallet. Husk at vi lagde en gruppe-variabel der vi kodet de to gruppene våre med 0 og 1. Så hvis et individ tilhørte gruppe 0, sier modellen at individ som tilhører gruppe 0 har følgende fremgang i 1RM:</p>
 <p><span class="math display">\[
-Fremgang.1RM_i = 21.90 + b_1(20.52*0) + error_i
+Fremgang.1RM_i = 21.90 + (20.52*0) + error_i
 \]</span>
-Fordi 0*20.52 = 0, blir stående igjen med b0. Vår prediksjon av et individ som tilhører gruppe 0 blir</p>
+Fordi 0*20.52 = 0, blir stående igjen med b0. Modellen predikerer derfor at et individ som tilhører gruppe 0 har 21.90 % fremgang i 1RM.</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = 21.90 + 0 + error_i
 \]</span>
 <span class="math display">\[
 Fremgang.1RM_i = 21.90 + error_i
 \]</span>
-Hvis individet derimot tilhører 1 predikerer modellen at individet sin skår blir 42.48.</p>
+Hvis individet derimot tilhører gruppe 1 predikerer modellen at individet sin skår blir 42.48.</p>
 <p><span class="math display">\[
-Fremgang.1RM_i = 21.90 + b1(20.52*1) + error_i
+Fremgang.1RM_i = 21.90 + (20.52*1) + error_i
 \]</span>
 <span class="math display">\[
 Fremgang.1RM_i = 42.48 + error_i
 \]</span>
 Visualisert fremstilt blir modellen vår seendes slik ut:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="04-modellbygging_files/figure-html/unnamed-chunk-9-1.png" alt="Modeller med forskjellig b1" width="100%" />
+<img src="04-modellbygging_files/figure-html/unnamed-chunk-9-1.png" alt="Alternativ modell" width="100%" />
 <p class="caption">
-Figur 4.5: Modeller med forskjellig b1
+Figur 4.5: Alternativ modell
 </p>
 </div>
-<p><strong>Oppgave</strong>
-Tabellen under viser 6 individer som tilhørte treningsgruppe. Du ser deres faktiske fremgang i 1RM kolonnen. La oss bruke det vi har lært til å predikere disse personene sin fremgang. Vi bruker samme modell som over</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>.</p>
+<p>Tabellen under viser 6 individer som tilhørte treningsgruppe. Du ser deres faktiske fremgang i 1RM kolonnen. La oss bruke det vi har lært til å predikere disse individe sin fremgang. Vi bruker samme modell som over</p>
 <p><span class="math display">\[
 Fremgang.1RM_i = b_0(21.90) + b_1(20.52*Gruppe) + error_i
 \]</span>
-a. Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
+g. Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 <p><input class='solveme nospaces' size='5' data-answer='["42.42"]'/></p>
-<p>b, Hva hadde individ nr i skår?</p>
+<ol start="8" style="list-style-type: lower-alpha">
+<li>Hva hadde individ nr i skår?</li>
+</ol>
 <p><input class='solveme nospaces' size='6' data-answer='["47.941"]'/></p>
-<ol start="3" style="list-style-type: lower-alpha">
+<ol style="list-style-type: lower-roman">
 <li>hvor mye error blir det?</li>
 </ol>
 <p><input class='solveme nospaces' size='5' data-answer='["5.521"]'/></p>
-<ol start="4" style="list-style-type: lower-alpha">
+<ol start="10" style="list-style-type: lower-alpha">
 <li>i Squared Error blir denne erroren?</li>
 </ol>
 <p><input class='solveme nospaces' size='8' data-answer='["30.48144"]'/></p>
-<ol start="5" style="list-style-type: lower-alpha">
+<ol start="11" style="list-style-type: lower-alpha">
 <li><p>nå som du har jobbet med denne modellen, så lurer jeg på om det er noe kjent med disse verdiene i modellen. Gå tilbake til [link] hvis du trenger et hint.</p></li>
 <li><p>bo er <input class='solveme nospaces' size='14' data-answer='["gjennomsnittet"]'/> (norskt ord) for gruppen som er kodet med 0.</p></li>
 <li><p>b1 er <input class='solveme nospaces' size='11' data-answer='["forskjellen"]'/> (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1.</p></li>
@@ -919,7 +923,10 @@ a. Hva predikerer modellen at individ nummer 3 hadde i skår? (to desimaler)</p>
 <p>I forrige oppgave regnet du ut error for ett enkelt individ. Men vi er interessert i den totale erroren for modellen. Formelen for denne er:</p>
 <p>total error in den alternative modellen:</p>
 <p>SS_R = <span class="math inline">\(\sum_{n=1}^N (observert_i - modell_i)^2\)</span></p>
-<p>Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa. Bruk formelen til å regne ut dette. (to desimaler</p>
+<p>Med andre ord er det kvadraten av den faktiske observasjonen - hva modellen sa.</p>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>Bruk formelen til å regne ut dette. (to desimaler)</li>
+</ol>
 <p><input class='solveme nospaces' size='7' data-answer='["2527.50"]'/></p>
 
 </div>
