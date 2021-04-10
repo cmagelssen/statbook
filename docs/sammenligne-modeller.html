@@ -4,24 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 5 Sammenligne modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
-  <meta name="description" content="." />
+  <title>Kapittel 5 Sammenligne modeller | Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <meta name="description" content="En interaktiv bok, skrevet i R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 5 Sammenligne modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 5 Sammenligne modeller | Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="." />
+  <meta property="og:description" content="En interaktiv bok, skrevet i R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 5 Sammenligne modeller | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 5 Sammenligne modeller | Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)" />
   
-  <meta name="twitter:description" content="." />
+  <meta name="twitter:description" content="En interaktiv bok, skrevet i R" />
   
 
-<meta name="author" content="Christian Magelssen" />
+<meta name="author" content="Christian Magelssen og Knut Sindre Mølmen" />
 
 
 <meta name="date" content="2021-04-10" />
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Bygge modeller for kategorisk data</a></li>
+<li><a href="./">Bygge modeller med kategoriske prediktorvariabler</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a>
@@ -167,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
-<li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
+<li class="chapter" data-level="8" data-path="skrive-en-t-test.html"><a href="skrive-en-t-test.html"><i class="fa fa-check"></i><b>8</b> Skrive en t-test</a></li>
 <li class="chapter" data-level="9" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>9</b> VEDLEGG</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-1"><i class="fa fa-check"></i><b>9.1</b> Datasett</a></li>
@@ -189,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)</a>
           </h1>
         </div>
 
@@ -463,7 +463,10 @@ b. Regn ut Mean Squared Residual (<span class="math inline">\(MS_R\)</span>) og 
 </tr>
 </tbody>
 </table>
-<p>Vi kan se at vår F-verdi er 77.63, og at p-verdien er &lt; 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved <span class="math inline">\(df_M\)</span> = 1 og <span class="math inline">\(df_R\)</span> = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen. En F-fordeling ser veldig lik ut som en z- og t-fordeling, og fungerer på samme måte: Vi regner ut en F-verdi, og spør om sannsynligheten for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at <span class="math inline">\(R^2\)</span> = 0.</p>
+<p>Vi kan se at vår F-verdi er 77.63. Denne verdien er høyere enn den kritiske verdien for 0.05 ved <span class="math inline">\(df_M\)</span> = 1 og <span class="math inline">\(df_R\)</span> = 22. Dette kan du se i figuren under. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen.</p>
+<div class="info">
+<p>En F-fordeling ser veldig lik ut som en z- og t-fordeling, og fungerer på samme måte: Vi regner ut en F-verdi, og spør om sannsynligheten for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at <span class="math inline">\(R^2\)</span> = 0.</p>
+</div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="05-sammenligne_files/figure-html/unnamed-chunk-4-1.png" alt="F-test" width="60%" />
 <p class="caption">
@@ -478,11 +481,16 @@ Figur 4.3: F-test
 <img src="f.png" alt="" />
 <p class="caption">F-testen</p>
 </div>
-<p>Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
-- <a href="https://www.youtube.com/watch?v=eSJAjlavPwU" class="uri">https://www.youtube.com/watch?v=eSJAjlavPwU</a>
-- <a href="https://www.youtube.com/watch?v=0xWDulRHd9M" class="uri">https://www.youtube.com/watch?v=0xWDulRHd9M</a>
-- <a href="https://www.youtube.com/watch?v=iAE4UeoVE9A" class="uri">https://www.youtube.com/watch?v=iAE4UeoVE9A</a>
-- <a href="https://www.youtube.com/watch?v=OK4Xns4zabs" class="uri">https://www.youtube.com/watch?v=OK4Xns4zabs</a></p>
+<p>Hvis dette ikke var forståelig foreslår jeg følgende tutorials:</p>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=eSJAjlavPwU" class="uri">https://www.youtube.com/watch?v=eSJAjlavPwU</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=0xWDulRHd9M" class="uri">https://www.youtube.com/watch?v=0xWDulRHd9M</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=iAE4UeoVE9A" class="uri">https://www.youtube.com/watch?v=iAE4UeoVE9A</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=OK4Xns4zabs" class="uri">https://www.youtube.com/watch?v=OK4Xns4zabs</a></p></li>
+</ul>
+<div class="info">
+<p>Her kan du se output jeg får hvis jeg gjør den statiske analysen i R. Ser verdiene kjent ut?</p>
+</div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="sammenligne-modeller.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aov er en forkortolse for analysis of variance (ANOVA)</span></span>
 <span id="cb4-2"><a href="sammenligne-modeller.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dette er funksjon som kommer mer R.</span></span>
 <span id="cb4-3"><a href="sammenligne-modeller.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(rm <span class="sc">~</span> dummykodet, dat))</span></code></pre></div>

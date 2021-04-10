@@ -1,6 +1,6 @@
 # Introduksjon {#intro}
 
-I dette kapittelet skal vi lære å bygge statistiske modeller for å undersøke om en avhengig, kontinuerlig variabel (eks. det maksimale oksygenopptaket) er statistisk forskjellig mellom to (eks. kvinner og menn) eller flere grupper (eks. maratonløpere, skiløpere, kulestøtere og inaktive).
+I dette kapittelet skal vi lære å bygge statistiske modeller for **å undersøke om en avhengig, kontinuerlig variabel (eks. det maksimale oksygenopptaket) er statistisk forskjellig mellom to (eks. kvinner og menn) eller flere grupper (eks. maratonløpere, skiløpere, kulestøtere og inaktive).**
 
 En variabel kan sies å være **kontinuerlig** når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontinuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle tid; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.
 
@@ -13,4 +13,7 @@ Andre ganger kan det være interessant å teste om to grupper, som var like før
 <iframe width="600" height="300" src="https://www.youtube.com/embed/jV5d3V31PCA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Om denne boken
-Denne boken er skrevet i R.
+Dette er en interaktiv bok, skrevet i R. Boken består av tekst, videoer, og oppgaver. Vi anbefaler på det sterkste at du løser oppgavene. Boksen lyser grønt om du har riktig svar, og rødt når du svaret er galt eller ikke fylt inn. Du kan også sjekke med fasiten som ligger bakerst i boken. Om du oppdager feil, vennligst si fra.
+
+
+**Lykke til!**

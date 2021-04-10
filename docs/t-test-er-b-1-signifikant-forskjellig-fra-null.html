@@ -4,24 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
-  <meta name="description" content="." />
+  <title>Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <meta name="description" content="En interaktiv bok, skrevet i R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="." />
+  <meta property="og:description" content="En interaktiv bok, skrevet i R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)" />
   
-  <meta name="twitter:description" content="." />
+  <meta name="twitter:description" content="En interaktiv bok, skrevet i R" />
   
 
-<meta name="author" content="Christian Magelssen" />
+<meta name="author" content="Christian Magelssen og Knut Sindre Mølmen" />
 
 
 <meta name="date" content="2021-04-10" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="hvordan-finne-linjen-i-modellen.html"/>
-<link rel="next" href="write-up.html"/>
+<link rel="next" href="skrive-en-t-test.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Bygge modeller for kategorisk data</a></li>
+<li><a href="./">Bygge modeller med kategoriske prediktorvariabler</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a>
@@ -167,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
-<li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
+<li class="chapter" data-level="8" data-path="skrive-en-t-test.html"><a href="skrive-en-t-test.html"><i class="fa fa-check"></i><b>8</b> Skrive en t-test</a></li>
 <li class="chapter" data-level="9" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>9</b> VEDLEGG</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-1"><i class="fa fa-check"></i><b>9.1</b> Datasett</a></li>
@@ -189,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)</a>
           </h1>
         </div>
 
@@ -199,16 +199,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="t-test---er-b_1-signifikant-forskjellig-fra-null" class="section level1" number="7">
 <h1><span class="header-section-number">Kapittel 7</span> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</h1>
-<p>En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart:
-* <strong>er b<sub>1</sub> i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?</strong></p>
+<p>En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart:</p>
+<p><strong>er b<sub>1</sub> i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?</strong></p>
 <div class="info">
-<p>Før du leser videre, forsøk å forestill deg hvordan en modell med en b<sub>1</sub> som er 0 ser ut? Deretter se på figurene under</p>
-</div>
+<p>Før du leser videre, forsøk å forestill deg hvordan en modell med en b<sub>1</sub> som er 0 ser ut?</p>
+<p>Her er svaret:</p>
 <ul>
 <li>Hvis b<sub>1</sub> er 0, er det ingen relasjon mellom disse prediktorvariabelen (x) og utfallsvariabelen (y).</li>
 <li>Hvis b<sub>1</sub> er &gt; enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.</li>
 <li>Hvis b<sub>1</sub> er &lt; enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.</li>
 </ul>
+</div>
 <p>Husk at b<sub>1</sub> i vårt tilfelle representer forskjellene i gjennomsnitt mellom de to gruppene. Det er med andre ord like gyldig å spørre om det er en relasjon mellom variablene som at det er en forskjell i means mellom to grupper.</p>
 <p>Vi kan tydelig se at b<sub>1</sub> er forskjellig fra 0 i vårt utvalg, men husk at denne forskjellen kan skyldes sampling variation som vi kan forvente under null-hypotesen. Vi må derfor teste om de to utvalgene vi har kommer fra samme eller to forskjellige populasjoner (en endring som i så fall har skjedd fordi vi har gitt de to utvalgene forskjellig treningsopplegg). Dette kan vi finne ut ved å kjøre en uavhengig t-test.</p>
 <p><span class="math display">\[
@@ -220,7 +221,8 @@ t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
 \]</span>
 Det som gjenstår er å finne ut hva standard error of b<sub>1</sub> er. Vi har tidligere regnet ut standard error of mean <span class="math inline">\(SD/sqrt(N)\)</span>, og vi kan gjøre noe lignende for å regne ut standard error of b<sub>1</sub>. Men for å fokusere på det store bildet vil jeg gi dere den estimerte standard error of b<sub>1</sub></p>
 <div class="warning">
-<p>Prosedyren for å regne ut standard error of b<sub>1</sub> er ikke vanskelig, men det er en del utregningsledd. Så lenge dere forstå at standard error of b1 er et mål på hvor mye utvalg vil være forskjellige fra hverandre, så tenker jeg at dere ikke vil øke deres forståelse ved å lære å regne standard error of b1, men jeg kan selvfølgelig ta feil. Jeg anbefaler dere på det sterkeste at der ser <a href="https://www.youtube.com/watch?v=3L9ZMdzJyyI">denne videoen</a></p>
+<p>Prosedyren for å regne ut standard error of b<sub>1</sub> er ikke vanskelig, men det er en del utregningsledd. Så lenge dere forstå at standard error of b1 er et mål på hvor mye utvalg vil være forskjellige fra hverandre, så tenker jeg at dere ikke vil øke deres forståelse ved å lære å regne standard error of b1, men jeg kan selvfølgelig ta feil.</p>
+<p>Jeg anbefaler dere på det sterkeste at der ser <a href="https://www.youtube.com/watch?v=3L9ZMdzJyyI">denne videoen</a></p>
 </div>
 <p>Fra mitt output i Jamovi kan jeg lese at standard error of b<sub>1</sub> er <strong>2.33</strong>.</p>
 <div class="figure">
@@ -237,10 +239,7 @@ t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
 <span class="math display">\[
 t.test = 8.806867
 \]</span>
-Vår t-verdi er 8.80. Vi kqn se tydelig se at denne t-verdier er større enn den kritiske verdien på ~ 2, så vi kan konkludere at vi har et signifikant funn; ee to utvalgene vi har med i studien synes å komme fra forskjellig populasjon. Vi kan lese denne t-verdien fra output tabellen fra Jamovi at vår p-verdi er &lt; 0.001.</p>
-<div class="warning">
-<p>En liten notis som er viktig å være observant på.</p>
-</div>
+Vår t-verdi er 8.80. Vi kan tydelig se at denne t-verdier er større enn den kritiske verdien på ~ 2, så vi kan konkludere at vi har et signifikant funn; de to utvalgene vi har med i studien synes å komme fra forskjellige populasjoner. Vi kan lese denne t-verdien fra output-tabellen fra Jamovi at vår p-verdi er &lt; 0.001.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
 <img src="07-ttest_files/figure-html/unnamed-chunk-1-1.png" alt="t-fordelingen og vår t-verdi" width="100%" />
 <p class="caption">
@@ -360,7 +359,7 @@ window.onload = function() {
         </div>
       </div>
 <a href="hvordan-finne-linjen-i-modellen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="write-up.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="skrive-en-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

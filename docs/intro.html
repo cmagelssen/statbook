@@ -4,24 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</title>
-  <meta name="description" content="." />
+  <title>Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)</title>
+  <meta name="description" content="En interaktiv bok, skrevet i R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="." />
+  <meta property="og:description" content="En interaktiv bok, skrevet i R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)" />
   
-  <meta name="twitter:description" content="." />
+  <meta name="twitter:description" content="En interaktiv bok, skrevet i R" />
   
 
-<meta name="author" content="Christian Magelssen" />
+<meta name="author" content="Christian Magelssen og Knut Sindre Mølmen" />
 
 
 <meta name="date" content="2021-04-10" />
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Bygge modeller for kategorisk data</a></li>
+<li><a href="./">Bygge modeller med kategoriske prediktorvariabler</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a>
@@ -167,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
 <li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
-<li class="chapter" data-level="8" data-path="write-up.html"><a href="write-up.html"><i class="fa fa-check"></i><b>8</b> Write-up</a></li>
+<li class="chapter" data-level="8" data-path="skrive-en-t-test.html"><a href="skrive-en-t-test.html"><i class="fa fa-check"></i><b>8</b> Skrive en t-test</a></li>
 <li class="chapter" data-level="9" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>9</b> VEDLEGG</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-1"><i class="fa fa-check"></i><b>9.1</b> Datasett</a></li>
@@ -189,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)</a>
           </h1>
         </div>
 
@@ -198,13 +198,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)</h1>
-<p class="author"><em>Christian Magelssen</em></p>
+<h1 class="title">Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)</h1>
+<p class="author"><em>Christian Magelssen og Knut Sindre Mølmen</em></p>
 <p class="date"><em>2021-04-10</em></p>
 </div>
 <div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">Kapittel 1</span> Introduksjon</h1>
-<p>I dette kapittelet skal vi lære å bygge statistiske modeller for å undersøke om en avhengig, kontinuerlig variabel (eks. det maksimale oksygenopptaket) er statistisk forskjellig mellom to (eks. kvinner og menn) eller flere grupper (eks. maratonløpere, skiløpere, kulestøtere og inaktive).</p>
+<p>I dette kapittelet skal vi lære å bygge statistiske modeller for <strong>å undersøke om en avhengig, kontinuerlig variabel (eks. det maksimale oksygenopptaket) er statistisk forskjellig mellom to (eks. kvinner og menn) eller flere grupper (eks. maratonløpere, skiløpere, kulestøtere og inaktive).</strong></p>
 <p>En variabel kan sies å være <strong>kontinuerlig</strong> når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontinuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle tid; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.</p>
 <p><strong>Grupper</strong> defineres i psykologifaget som en samling mennesker som deler bestemte karakteristikker. Det kan være spillere på et fotballag, individer på et treningssenter, eller menn og kvinner. Dette er også eksempler på naturlig inndelte grupper i samfunnet. Noen ganger kan det være interessant å se om disse gruppene er forskjellige. For eksempel kan det være interessant å se om individer som trener på treningssenter er sterkere enn de som ikke trener på treningssenter.</p>
 <p>Andre ganger kan det være interessant å teste om to grupper, som var like før et eksperiment, har blitt forskjellige fordi vi har behandlet dem ulikt. Vi randomiserer individer i to ulike grupper, slik at vi sikrer at vi blander disse individene godt (f.eks kjønn, motivasjon, interesser). Hvis eksperimentet har blitt gjennomført godt, dvs. at det ikke er noen andre forklaringer på at disse to gruppene har blitt forskjellige etter intervensjonsperioden, så kan vi trekke en slutning om at disse to gruppene trolig ikke kommer fra samme populasjon lenger; altså at gruppene har blitt ulike.</p>
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </iframe>
 <div id="om-denne-boken" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Om denne boken</h2>
-<p>Denne boken er skrevet i R.</p>
+<p>Dette er en interaktiv bok, skrevet i R. Boken består av tekst, videoer, og oppgaver. Vi anbefaler på det sterkste at du løser oppgavene. Boksen lyser grønt om du har riktig svar, og rødt når du svaret er galt eller ikke fylt inn. Du kan også sjekke med fasiten som ligger bakerst i boken. Om du oppdager feil, vennligst si fra.</p>
+<p><strong>Lykke til!</strong></p>
 
 </div>
 </div>

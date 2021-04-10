@@ -1,7 +1,7 @@
 # Datasett {#datasett}
 
 ## Bør man trene med ett eller flere sett i styrketrening?
-Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er  tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad [@ronnestad_dissimilar_2007]
+Mange utrente lurer på hvor mange serier de bør gjennomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et større treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke dette var Bent Rønnestad [@ronnestad_dissimilar_2007]
 
 Eksperimentet ble gjennomført som et **between-subject design** med to grupper:
 * en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen
@@ -9,10 +9,10 @@ Eksperimentet ble gjennomført som et **between-subject design** med to grupper:
 
 Disse gruppene kalte han henholdsvis **1L-3U** og **3L-1U** (L=lower; U=Upper). 
 
-De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1RM på underkroppsøvelser. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser.
+De to gruppene trente 3 økter i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1 repetisjon maksimum (1RM) på underkroppsøvelser. Den avhengige variabelen ble derfor %-fremgang på 1RM på underkroppsøvelser.
 
 ![Slik designet Rønnestad et al. (2007) sin studie](design.png)
-Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i R basert på verdiene som ble oppgitt i artikkelen. Datasettet blir tilnærmet likt, men siden det er en simulering blir det aldri helt identisk.  Datasettet ser du i tabellen under.
+Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i R basert på verdiene som ble oppgitt i artikkelen. Datasettet blir tilnærmet likt, men siden det er en simulering blir det aldri helt identisk. Datasettet ser du i tabellen under.
 
 ```{r echo=FALSE, include=FALSE}
 library(tidyverse)
@@ -59,7 +59,7 @@ c) Hvilke to verdier har variabelen '*gruppe*'? `r fitb(ett.sett)` og `r fitb(tr
 
 
 ## Gjennomsnitt for de to gruppene
-Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene ("tre.sett" vs. ett.sett) på % fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å løse dette i R:
+Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller i prosentvis styrkefremgang fra pre- til posttest mellom de to gruppene (“tre.sett” vs. ett.sett). Vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene. Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å løse dette i R:
 
 ```{r}
 #jeg lager et oobjekt som heter mean_rm 

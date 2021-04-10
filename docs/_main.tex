@@ -37,8 +37,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)},
-  pdfauthor={Christian Magelssen},
+  pdftitle={Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)},
+  pdfauthor={Christian Magelssen og Knut Sindre Mølmen},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -148,8 +148,8 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Bygge statistisk modeller med kategoriske variabler (ANOVA, t-test)}
-\author{Christian Magelssen}
+\title{Bygge statistiske modeller med kategoriske variabler (ANOVA, t-test)}
+\author{Christian Magelssen og Knut Sindre Mølmen}
 \date{2021-04-10}
 
 \begin{document}
@@ -162,7 +162,7 @@
 \hypertarget{intro}{%
 \chapter{Introduksjon}\label{intro}}
 
-I dette kapittelet skal vi lære å bygge statistiske modeller for å undersøke om en avhengig, kontinuerlig variabel (eks. det maksimale oksygenopptaket) er statistisk forskjellig mellom to (eks. kvinner og menn) eller flere grupper (eks. maratonløpere, skiløpere, kulestøtere og inaktive).
+I dette kapittelet skal vi lære å bygge statistiske modeller for \textbf{å undersøke om en avhengig, kontinuerlig variabel (eks. det maksimale oksygenopptaket) er statistisk forskjellig mellom to (eks. kvinner og menn) eller flere grupper (eks. maratonløpere, skiløpere, kulestøtere og inaktive).}
 
 En variabel kan sies å være \textbf{kontinuerlig} når vi kan bestemme hvor presist vi ønsker å måle den. For eksempel regnes tid som en kontinuerlig variabel fordi det (i prinsippet) ikke finnes noen grenser hvor presist vi kan måle tid; vi kan måle det i år, måneder, uker, dager, timer, minutter, sekunder, tideler, hundredeler eller tusendeler.
 
@@ -173,7 +173,9 @@ Andre ganger kan det være interessant å teste om to grupper, som var like før
 \hypertarget{om-denne-boken}{%
 \section{Om denne boken}\label{om-denne-boken}}
 
-Denne boken er skrevet i R.
+Dette er en interaktiv bok, skrevet i R. Boken består av tekst, videoer, og oppgaver. Vi anbefaler på det sterkste at du løser oppgavene. Boksen lyser grønt om du har riktig svar, og rødt når du svaret er galt eller ikke fylt inn. Du kan også sjekke med fasiten som ligger bakerst i boken. Om du oppdager feil, vennligst si fra.
+
+\textbf{Lykke til!}
 
 \hypertarget{datasett}{%
 \chapter{Datasett}\label{datasett}}
@@ -181,7 +183,7 @@ Denne boken er skrevet i R.
 \hypertarget{buxf8r-man-trene-med-ett-eller-flere-sett-i-styrketrening}{%
 \section{Bør man trene med ett eller flere sett i styrketrening?}\label{buxf8r-man-trene-med-ett-eller-flere-sett-i-styrketrening}}
 
-Mange utrente lurer på hvor mange serier de bør gjennnomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et hardere treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke var Bent Rønnestad \citep{ronnestad_dissimilar_2007}
+Mange utrente lurer på hvor mange serier de bør gjennomføre for å oppnå maksimal treningseffekt i styrketrening. Noen føler at de blir slitne etter ett sett og at dette derfor er tilstrekkelig. Andre mener at et større treningstimuli er nødvendig, selv om man er utrent, og at to eller flere sett derfor er bedre. En forsker som var tidlig ute med å undersøke dette var Bent Rønnestad \citep{ronnestad_dissimilar_2007}
 
 Eksperimentet ble gjennomført som et \textbf{between-subject design} med to grupper:
 * en gruppe trente 1 sett på underkroppen og 3 sett på overkroppen
@@ -189,7 +191,7 @@ Eksperimentet ble gjennomført som et \textbf{between-subject design} med to gru
 
 Disse gruppene kalte han henholdsvis \textbf{1L-3U} og \textbf{3L-1U} (L=lower; U=Upper).
 
-De to gruppene trente 3 ganger i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1RM på underkroppsøvelser. Den avhengige variabelen ble derfor \%-fremgang på 1RM på underkroppsøvelser.
+De to gruppene trente 3 økter i uken i totalt 11 uker. Forskergruppen ville så se hva som ga mest fremgang i 1 repetisjon maksimum (1RM) på underkroppsøvelser. Den avhengige variabelen ble derfor \%-fremgang på 1RM på underkroppsøvelser.
 
 \includegraphics{design.png}
 Vi har ikke tilgang til dette datasettet, men vi har simulert dette datasettet i R basert på verdiene som ble oppgitt i artikkelen. Datasettet blir tilnærmet likt, men siden det er en simulering blir det aldri helt identisk. Datasettet ser du i tabellen under.
@@ -267,7 +269,7 @@ Før du går videre er det greit at du gjør deg kjent med datasettet som vi har
 \hypertarget{gjennomsnitt-for-de-to-gruppene}{%
 \section{Gjennomsnitt for de to gruppene}\label{gjennomsnitt-for-de-to-gruppene}}
 
-Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller mellom de to gruppene (``tre.sett'' vs.~ett.sett) på \% fremgang fra pre- til post-test. Så kanskje vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene? Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å løse dette i R:
+Bra! Det er alltid viktig å bli kjent med sitt eget datasett, men nå som du har det kan vi gå videre. Vi er interessert i om det er forskjeller i prosentvis styrkefremgang fra pre- til posttest mellom de to gruppene (``tre.sett'' vs.~ett.sett). Vi kan starte med å se om det er forskjeller i gjennomsnitt mellom to gruppene. Dette kan enkelt gjøres i R, Jamovi eller excel. Her er en kode for å løse dette i R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -352,17 +354,17 @@ I tabellen på forrige kan du se at vi har en tabell med tre kolonner: en kolonn
 \begin{itemize}
 \tightlist
 \item
-  Variabelen \textbf{gruppe} er en kategorisk vaiabel som har to ulike verdier: ``ett.sett'' og ``tre.sett''. Dette er de to gruppene som vi skal teste om er forskjellige. I programmeringsverdenen kalles dette for et tekstobjekt, en string eller character. Uansett navn er problemet at vi ikke kan legge ord inn i en statistisk modell. Vi er nødt til å omkode den kategoriske variabelen med tallverdier. Det er flere måter å gjøre dette på, og måten man gjør det på har stor betydning for outfallet av den statistiske analysen.
+  Variabelen gruppe er en kategorisk variabel som har to ulike verdier: ``ett.sett'' og ``tre.sett.'' Dette er de to gruppene som vi skal teste om er forskjellige fra hverandre. I programmeringsverdenen kalles dette for et «tekstobjekt», en «string» eller «character». Uansett navn er problemet at vi ikke kan legge ord inn i en statistisk modell. Vi er nødt til å omkode den kategoriske variabelen med tallverdier. Det er flere måter å gjøre dette på, og måten man gjør det på har stor betydning for utfallet av den statistiske analysen.
 \end{itemize}
 
-De forskjellige måtene å kode kategoriske prediktorvariabler gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke \textbf{dummykoding}. Dette kan fungere godt når du bygger enkle statistisk modeller, slik vi skal gjøre nå. Men dummykoding fungerer dårlig når du har mange grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline gruppe. Da vil \textbf{kontrastkoding} være bedre egnet.
+De forskjellige måtene å kode kategoriske prediktorvariabler gir forskjellige resultater. En veldig vanlig måte å gjøre dette på er å bruke dummykoding. Dette kan fungere godt når du bygger enkle statistiske modeller, slik vi skal gjøre nå. Imidlertid, dummykoding fungerer dårlig hvis du har mange grupper du ønsker å sammenligne, og du ikke ønsker å sammenligne disse gruppene mot en baseline/kontroll-gruppe. Da vil kontrastkoding være bedre egnet.
 
-SPSS, R, Jamovi bruker dummykoding som standard, og det er viktig når du tolker resultatene fra modellene.
+SPSS, R, Jamovi bruker dummykoding som standard, og det er viktig å ha i bakhodet når du tolker resultatene fra modellene.
 
 \hypertarget{dummykoding}{%
 \section{Dummykoding}\label{dummykoding}}
 
-En vanlig metode kalles \textbf{dummykoding} eller \textbf{treatment-koding}. Den går ut på å lage en eller flere variabler med 0 og 1 som de to mulige verdiene. Antall variabler vi trenger avhenger av antall grupper vi vil sammenligne. Siden vårt datasett kun inneholder to grupper, så trenger vi kun en variabel. Vi kan den ene gruppen og den andre 1. Hovedregelen er at vi gir 0 til baselinegruppe og 1 til den eksperimentelle gruppen. Vi gir derfor 0 til 1.sett-gruppen og 1 til 3.sett-gruppen. Gjør dette før du går videre.
+Den vanligste metoden kalles \textbf{dummykoding} eller treatment-koding. Den går ut på å lage en eller flere variabler med 0 og 1 som de to mulige verdiene. Antall variabler vi trenger avhenger av antall grupper vi vil sammenligne. Siden vårt datasett kun inneholder to grupper, så trenger vi kun en variabel. Vi kan kalle den ene gruppen «0» og den andre «1». Hovedregelen er at vi gir 0 til baseline/kontroll-gruppen og 1 til den eksperimentelle gruppen. Vi gir derfor 0 til 1.sett-gruppen og 1 til 3.sett-gruppen. Gjør dette før du går videre.
 
 I R og Jamovi kan du gjøre det med følgende if/else statement. I R kan du bruke følgende kode:
 
@@ -423,7 +425,7 @@ I jamovi ville jeg sett følgende video:
 \hypertarget{introduksjon-til-modellbygging}{%
 \section{Introduksjon til modellbygging}\label{introduksjon-til-modellbygging}}
 
-Når vi har samlet inn dataen vi trenger blir vår neste oppgave å bygge statistiske modeller som representerer denne dataen. Fordelen med disse modellene er at den gjør dataen mer forståelig. For eksempel er det mye enklere å si hva gjennomsnittet var i en treningsgruppe enn å ramse opp alle de enkelte observasjonene i datasettet. Forståelig nok ønsker vi å bygge modeller som representerer dataen godt, og vi vil bruke helt eksplisitte kriterier for å vurdere disse modellene
+Når vi har samlet inn dataene vi trenger blir neste oppgave å bygge statistiske modeller som representerer dette datasettet. Fordelen med disse modellene er at den gjør datasettet mer forståelig. For eksempel er det mye enklere å si hva gjennomsnittet var i en treningsgruppe enn å ramse opp alle de enkelte observasjonene i datasettet. Forståelig nok ønsker vi å bygge modeller som representerer datasettet godt, og vi vil bruke helt eksplisitte kriterier for å vurdere disse modellene.
 
 Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare bytter ut det i parantesen med en spesifikk modell som vi ønsker å bygge.
 
@@ -431,17 +433,17 @@ Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare 
 data_i = (modell) + error_i
 \]
 
-Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det. Vi kommer til å bruke den samme ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre.
+Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det. Vi kommer til å bruke den samme ligningen til alle våre statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre.
 
 La oss bryte denne ligningen over:
 
 \begin{itemize}
 \item
-  \textbf{Data} er den faktiske observasjonen et individ har på den avhengige variablen, som i vårt tilfelle \% fremgang i 1RM underkroppsøvelser.
+  \textbf{Data} er den faktiske observasjonen (eller målingen) et individ har av den avhengige variabelen, som i vårt tilfelle er \% fremgang i 1RM underkroppsøvelser.
 \item
-  \textbf{Modell} er egentlig bare en representasjon av denne dataen-
+  \textbf{Modell} er egentlig bare en representasjon av disse dataene.
 \item
-  \textbf{Error} er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).
+  \textbf{Error} er hvor mye modellen bommer fra den faktiske observasjonen (dvs. data).
 \end{itemize}
 
 Legg merke til den lille i-en som står bak data og error i ligningen. i-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte i-en med 3 eller 8. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker i for å holde det generelt
@@ -450,7 +452,7 @@ Legg merke til den lille i-en som står bak data og error i ligningen. i-en bety
 
 Ligningen over blir mer oppklarende om vi bruker et eksempel:
 
-Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er \textasciitilde37, så det er naturlig å tenke at du kan bruke 37 som modell.
+Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er \textasciitilde37°C, så det er naturlig å tenke at du kan bruke 37°C som modell.
 
 \[
 kroppstemperatur_i = 37 + error_i
@@ -481,7 +483,8 @@ error_i = data_i - modell
 
 Du har bygget din første modell. Modellen var riktignok enkel, men du vil snart se at de andre modellene vi skal bygge er veldig like. Den største forskjellen er at modellen ikke blir bygget for å passe perfekt til ett enkelt individ, men til et helt datasett. \textbf{Dette er viktig!} I en studie hvor du har mange deltakere med, ønsker vi at modellen skal være en god representasjon av alle disse individene. Med andre ord bør erroren i modell være så liten som mulig
 
-{Modeller}
+{Modeller}.
+
 Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:
 
 Vi kommer til å benytte denne måten å skrive på fordi det er den dere ser i statistikkbøker og artikler. Tolkningen er akkurat lik.
@@ -492,7 +495,7 @@ data_i = (modell) + error_i
 \[
 Y_i = (b_0) + error_i
 \]
-Her er \(Y_i\) den avhengige variabelen for et individ, \emph{i}. Hvis det kun står \(b_0\), så betyr det at vi kun estimerer ett enkelt parameter. I slike tilfeller bruker vi kun ett enkelt parameter til å si noe om hva det enkelte individ hadde i observasjon på den avhengig variabelen, og da predikerer modellen likt for alle individene.
+Her er \(Y_i\) den avhengige variabelen for et individ, \emph{i}. Hvis det kun står \(b_0\), så betyr det at vi kun estimerer ett enkelt parameter (f.eks. et gjennomsnitt, eller median). I slike tilfeller bruker vi kun ett enkelt parameter til å si noe om hva det enkelte individ hadde i observasjon på den avhengig variabelen, og da predikerer modellen likt for alle individene. Det beste eksempelet vi har til dere er å bruke gjennomsnittet.
 
 Vi kan også bruke en mer kompleks modell, som i ligningen under:
 
@@ -501,7 +504,7 @@ Y_i = (b_0 + b_1X_i) + error
 \]
 \textbf{X\_i} er dette individets faktiske måling på variabel, X, som vi ofte kaller for prediktorvariabel. Prediktorvariabelen har også \(b_1\) hektet på seg. Denne forteller oss forholdet mellom prediktorvariabelen (Xi) og den avhengig variabelen (Yi). b\_0 blir her vår prediksjon når Xi er \textbf{null} og \textbf{0}.
 
-,,,
+Gjør deg kjent med denne ligningen!
 
 \hypertarget{visualisering-av-ulike-statistiske-modeller}{%
 \section{Visualisering av ulike statistiske modeller}\label{visualisering-av-ulike-statistiske-modeller}}
@@ -1292,7 +1295,9 @@ The total sum of squares (SST) & 3243.784 & & & &\tabularnewline
 \bottomrule
 \end{longtable}
 
-Vi kan se at vår F-verdi er 77.63, og at p-verdien er \textless{} 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved \(df_M\) = 1 og \(df_R\) = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen. En F-fordeling ser veldig lik ut som en z- og t-fordeling, og fungerer på samme måte: Vi regner ut en F-verdi, og spør om sannsynligheten for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at \(R^2\) = 0.
+Vi kan se at vår F-verdi er 77.63. Denne verdien er høyere enn den kritiske verdien for 0.05 ved \(df_M\) = 1 og \(df_R\) = 22. Dette kan du se i figuren under. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen.
+
+En F-fordeling ser veldig lik ut som en z- og t-fordeling, og fungerer på samme måte: Vi regner ut en F-verdi, og spør om sannsynligheten for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at \(R^2\) = 0.
 
 \begin{figure}
 
@@ -1314,10 +1319,19 @@ Da er det bare å sette seg tilbake å nyte denne sangen:
 \end{figure}
 
 Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
-- \url{https://www.youtube.com/watch?v=eSJAjlavPwU}
-- \url{https://www.youtube.com/watch?v=0xWDulRHd9M}
-- \url{https://www.youtube.com/watch?v=iAE4UeoVE9A}
-- \url{https://www.youtube.com/watch?v=OK4Xns4zabs}
+
+\begin{itemize}
+\item
+  \url{https://www.youtube.com/watch?v=eSJAjlavPwU}
+\item
+  \url{https://www.youtube.com/watch?v=0xWDulRHd9M}
+\item
+  \url{https://www.youtube.com/watch?v=iAE4UeoVE9A}
+\item
+  \url{https://www.youtube.com/watch?v=OK4Xns4zabs}
+\end{itemize}
+
+Her kan du se output jeg får hvis jeg gjør den statiske analysen i R. Ser verdiene kjent ut?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1436,9 +1450,12 @@ Men må ligningen med verdier. Og da bruker man gjennomsnittet for Y variabelen 
 \chapter{\texorpdfstring{T-test - er \(b_1\) signifikant forskjellig fra null?}{T-test - er b\_1 signifikant forskjellig fra null?}}\label{t-test---er-b_1-signifikant-forskjellig-fra-null}}
 
 En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart:
-* \textbf{er b1 i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?}
 
-Før du leser videre, forsøk å forestill deg hvordan en modell med en b1 som er 0 ser ut? Deretter se på figurene under
+\textbf{er b1 i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?}
+
+Før du leser videre, forsøk å forestill deg hvordan en modell med en b1 som er 0 ser ut?
+
+Her er svaret:
 
 \begin{itemize}
 \tightlist
@@ -1464,7 +1481,9 @@ t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
 \]
 Det som gjenstår er å finne ut hva standard error of b1 er. Vi har tidligere regnet ut standard error of mean \(SD/sqrt(N)\), og vi kan gjøre noe lignende for å regne ut standard error of b1. Men for å fokusere på det store bildet vil jeg gi dere den estimerte standard error of b1
 
-Prosedyren for å regne ut standard error of b1 er ikke vanskelig, men det er en del utregningsledd. Så lenge dere forstå at standard error of b1 er et mål på hvor mye utvalg vil være forskjellige fra hverandre, så tenker jeg at dere ikke vil øke deres forståelse ved å lære å regne standard error of b1, men jeg kan selvfølgelig ta feil. Jeg anbefaler dere på det sterkeste at der ser \href{https://www.youtube.com/watch?v=3L9ZMdzJyyI}{denne videoen}
+Prosedyren for å regne ut standard error of b1 er ikke vanskelig, men det er en del utregningsledd. Så lenge dere forstå at standard error of b1 er et mål på hvor mye utvalg vil være forskjellige fra hverandre, så tenker jeg at dere ikke vil øke deres forståelse ved å lære å regne standard error of b1, men jeg kan selvfølgelig ta feil.
+
+Jeg anbefaler dere på det sterkeste at der ser \href{https://www.youtube.com/watch?v=3L9ZMdzJyyI}{denne videoen}
 
 Fra mitt output i Jamovi kan jeg lese at standard error of b1 er \textbf{2.33}.
 
@@ -1486,9 +1505,7 @@ t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
 \[
 t.test = 8.806867
 \]
-Vår t-verdi er 8.80. Vi kqn se tydelig se at denne t-verdier er større enn den kritiske verdien på \textasciitilde{} 2, så vi kan konkludere at vi har et signifikant funn; ee to utvalgene vi har med i studien synes å komme fra forskjellig populasjon. Vi kan lese denne t-verdien fra output tabellen fra Jamovi at vår p-verdi er \textless{} 0.001.
-
-En liten notis som er viktig å være observant på.
+Vår t-verdi er 8.80. Vi kan tydelig se at denne t-verdier er større enn den kritiske verdien på \textasciitilde{} 2, så vi kan konkludere at vi har et signifikant funn; de to utvalgene vi har med i studien synes å komme fra forskjellige populasjoner. Vi kan lese denne t-verdien fra output-tabellen fra Jamovi at vår p-verdi er \textless{} 0.001.
 
 \begin{figure}
 
@@ -1499,12 +1516,14 @@ En liten notis som er viktig å være observant på.
 \caption{t-fordelingen og vår t-verdi}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-\hypertarget{write-up}{%
-\chapter{Write-up}\label{write-up}}
+\hypertarget{skrive-en-t-test}{%
+\chapter{Skrive en t-test}\label{skrive-en-t-test}}
 
-Det er en ganske standardiser måte å rapporte en statistisk test på. Først skriver du hva har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre.
+Det er en ganske standardisert måte å rapporte en statistisk test på. Først skriver du hva du har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre.
 
 'Deltakerne i 1L-3U 3L-1U-gruppen hadde i gjennomsnitt mindre større en lavere \% fremgang 1RM, på underkroppsøvelser (M=,SD=), enn som {[}{]}. Denne forskjellen, {[}{]}, CI {[}{]}, var signifikant, \emph{t}({[}{]}) = {[}{]}, p = {[}{]}, d={[}{]}.
+
+Det eneste vi ikke er regnet er d.~Dette er cohen's d, og er et mål på effektstørrelse. Du får oppgitt denne i Jamovi.
 
 \hypertarget{vedlegg}{%
 \chapter{VEDLEGG}\label{vedlegg}}

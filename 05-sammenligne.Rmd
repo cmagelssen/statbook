@@ -236,7 +236,12 @@ The model sum of squares (SS<sub>M</sub>) | 2527.5 | 1 | 2527.5 | `r fitb(77.63)
 The residual sum of squares (SS<sub>R</sub>) | 716.2875 | 22 | 32.55852 |  | |
 The total sum of squares (SS<sub>T</sub>) | 3243.784 | | | | |
 
-Vi kan se at vår F-verdi er 77.63, og at p-verdien er < 0.001. Denne verdien (vises kke i figuren under pga. størrelsen) er høyere enn vår kritiske verdi (den røde streken) for 0.05 ved $df_M$ = 1 og $df_R$ = 22. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen. En F-fordeling ser veldig lik ut som en z- og t-fordeling, og fungerer på samme måte: Vi regner ut en F-verdi, og spør om sannsynligheten  for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at $R^2$ = 0.
+Vi kan se at vår F-verdi er 77.63. Denne verdien er høyere enn den kritiske verdien for 0.05 ved $df_M$ = 1 og $df_R$ = 22. Dette kan du se i figuren under. Vi sier derfor at vår modell er signifikant, hvilket vil si at den har forbedret vår evne til å predikere utfallsvariabelen. 
+
+<div class="info">
+En F-fordeling ser veldig lik ut som en z- og t-fordeling, og fungerer på samme måte: Vi regner ut en F-verdi, og spør om sannsynligheten  for å oppnå en slik verdi gitt at null-hypotesen er sann. Null-hypotesen i en F-test er at den alternative modellen ikke forklarer noe varians. Med andre ord at $R^2$ = 0.
+</div>
+
 
 ```{r echo=FALSE, fig.width=5, fig.height=4, out.width='60%', fig.cap='F-test'}
 data.frame(f = 0:1000 / 100) %>% 
@@ -263,10 +268,19 @@ Da er det bare å sette seg tilbake å nyte denne sangen:
 
 
 Hvis dette ikke var forståelig foreslår jeg følgende tutorials:
+
 - https://www.youtube.com/watch?v=eSJAjlavPwU
+
 - https://www.youtube.com/watch?v=0xWDulRHd9M
+
 - https://www.youtube.com/watch?v=iAE4UeoVE9A
+
 - https://www.youtube.com/watch?v=OK4Xns4zabs
+
+
+<div class="info">
+Her kan du se output jeg får hvis jeg gjør den statiske analysen i R. Ser verdiene kjent ut?
+</div>
 
 
 

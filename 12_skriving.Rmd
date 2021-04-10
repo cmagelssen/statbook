@@ -1,5 +1,8 @@
-# Write-up
+# Skrive en t-test
 
-Det er en ganske standardiser måte å rapporte en statistisk test på. Først skriver du hva har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre. 
+Det er en ganske standardisert måte å rapporte en statistisk test på. Først skriver du hva du har testet. Husk at du bare har gitt statistikprogrammet noen tall og fått et resultat. Nå må du kommunisere til andre. 
 
 'Deltakerne i `r mcq(c("1L-3U", answer = "3L-1U"))`-gruppen hadde i gjennomsnitt `r mcq(c("mindre", answer = "større"))` en lavere % fremgang 1RM, på underkroppsøvelser (M=,SD=), enn som []. Denne forskjellen, [], CI [], var signifikant, *t*([]) = [], p = [], d=[].
+
+
+Det eneste vi ikke er regnet er d. Dette er cohen's d, og er et mål på effektstørrelse. Du får oppgitt denne i Jamovi.

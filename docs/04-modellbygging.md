@@ -4,9 +4,10 @@
 
 ## Introduksjon til modellbygging
 
-Når vi har samlet inn dataen vi trenger blir vår neste oppgave å bygge statistiske modeller som representerer denne dataen. Fordelen med disse modellene er at den gjør dataen mer forståelig. For eksempel er det mye enklere å si hva gjennomsnittet var i en treningsgruppe enn å ramse opp alle de enkelte observasjonene i datasettet. Forståelig nok ønsker vi å bygge modeller som representerer dataen godt, og vi vil bruke helt eksplisitte kriterier for å vurdere disse modellene 
+Når vi har samlet inn dataene vi trenger blir neste oppgave å bygge statistiske modeller som representerer dette datasettet. Fordelen med disse modellene er at den gjør datasettet mer forståelig. For eksempel er det mye enklere å si hva gjennomsnittet var i en treningsgruppe enn å ramse opp alle de enkelte observasjonene i datasettet. Forståelig nok ønsker vi å bygge modeller som representerer datasettet godt, og vi vil bruke helt eksplisitte kriterier for å vurdere disse modellene.
 
 Modellene vi skal bygge vil alltid være en variant av ligningen under. Vi bare bytter ut det i parantesen med en spesifikk modell som vi ønsker å bygge.
+
 
 $$
 data_i = (modell) + error_i
@@ -14,17 +15,17 @@ $$
 
 
 <div class="warning">
-Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det. Vi kommer til å bruke den samme ligningen til alle være statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre.
+Mange frykter ligninger. Vi også. Men det er ikke så ille når man blir vant til det. Vi kommer til å bruke den samme ligningen til alle våre statistiske tester. Dessuten hjelper ligninger oss til å huske informasjon bedre.
 
 </div>
 
 La oss bryte denne ligningen over:
 
-* **Data** er den faktiske observasjonen et individ har på den avhengige variablen, som i vårt tilfelle % fremgang i 1RM underkroppsøvelser. 
+* **Data** er den faktiske observasjonen (eller målingen) et individ har av den avhengige variabelen, som i vårt tilfelle er % fremgang i 1RM underkroppsøvelser.
 
-* **Modell** er egentlig bare en representasjon av denne dataen-
+* **Modell** er egentlig bare en representasjon av disse dataene.
 
-* **Error** er hvor mye modellen bommer fra den faktisk observasjonen (dvs. data).
+* **Error** er hvor mye modellen bommer fra den faktiske observasjonen (dvs. data).
 
 <div class="info">
 Legg merke til den lille <sub>i</sub>-en som står bak data og error i ligningen. <sub>i</sub>-en betyr individ og betyr bare at vi kan bruke en modell til å si noe om hva et individ hadde på den avhengige variabelen. Vi kan erstatte <sub>i</sub>-en med <sub>3</sub> eller <sub>8</sub>. Da betyr det bare at vi kan bruke en modell til å si noe om individ 3 og 8. Vi bruker <sub>i</sub> for å holde det generelt
@@ -35,7 +36,7 @@ Legg merke til den lille <sub>i</sub>-en som står bak data og error i ligningen
 
 Ligningen over blir mer oppklarende om vi bruker et eksempel:
 
-Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er ~37, så det er naturlig å tenke at du kan bruke 37 som modell.
+Forestill deg at du er lege, og at du får inn en pasient som sier hun har feber. Du vet at den normale kroppstemperaturen i populasjonen er ~37°C, så det er naturlig å tenke at du kan bruke 37°C som modell.
 
 $$
 kroppstemperatur_i = 37 + error_i
@@ -66,7 +67,8 @@ $$
 
 Du har bygget din første modell. Modellen var riktignok enkel, men du vil snart se at de andre modellene vi skal bygge er veldig like. Den største forskjellen er at modellen ikke blir bygget for å passe perfekt til ett enkelt individ, men til et helt datasett. **Dette er viktig!** I en studie hvor du har mange deltakere med, ønsker vi at modellen skal være en god representasjon av alle disse individene. Med andre ord bør erroren i modell være så liten som mulig
 
-<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Modeller</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Modeller</span>.
+
 Det er en mer korrekt og presis måte å skrive ligningen under på, og som du ofte ser i artikler og statistikkbøker:
 
 
@@ -80,7 +82,7 @@ $$
 $$
 Y_i = (b_0) + error_i
 $$
-Her er $Y_i$ den avhengige variabelen for et individ, *i*. Hvis det kun står $b_0$, så betyr det at vi kun estimerer ett enkelt parameter. I slike tilfeller bruker vi kun ett enkelt parameter til å si noe om hva det enkelte individ hadde i observasjon på den avhengig variabelen, og da predikerer modellen likt for alle individene. 
+Her er $Y_i$ den avhengige variabelen for et individ, *i*. Hvis det kun står $b_0$, så betyr det at vi kun estimerer ett enkelt parameter (f.eks. et gjennomsnitt, eller median). I slike tilfeller bruker vi kun ett enkelt parameter til å si noe om hva det enkelte individ hadde i observasjon på den avhengig variabelen, og da predikerer modellen likt for alle individene. Det beste eksempelet vi har til dere er å bruke gjennomsnittet.
 
 Vi kan også bruke en mer kompleks modell, som i ligningen under:
 
@@ -89,8 +91,8 @@ Y_i = (b_0 + b_1X_i) + error
 $$
 **X_i** er dette individets faktiske måling på variabel, X, som vi ofte kaller for prediktorvariabel. Prediktorvariabelen har også $b_1$ hektet på seg. Denne forteller oss forholdet mellom prediktorvariabelen (X<sub>i</sub>) og den avhengig variabelen (Yi). b_0 blir her vår prediksjon når X<sub>i</sub> er **null** og **0**. 
 
-<div class="info">
-,,,
+<div class="warning">
+Gjør deg kjent med denne ligningen!
 </div>
 
 
