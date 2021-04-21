@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapittel 9 Sammenligne flere grupper | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)</title>
+  <meta name="description" content="En interaktiv bok, skrevet i R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapittel 9 Sammenligne flere grupper | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="En interaktiv bok, skrevet i R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapittel 9 Sammenligne flere grupper | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
+  
+  <meta name="twitter:description" content="En interaktiv bok, skrevet i R" />
+  
+
+<meta name="author" content="Christian Magelssen og Knut Sindre Mølmen" />
+
+
+<meta name="date" content="2021-04-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="skrive-en-t-test.html"/>
+<link rel="next" href="vedlegg.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="Christian Magelssen">
+<meta property="og:description" content="Statistikkbok">
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bygge modeller med kategoriske prediktorvariabler</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduksjon</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#om-denne-boken"><i class="fa fa-check"></i><b>1.1</b> Om denne boken</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datasett.html"><a href="datasett.html"><i class="fa fa-check"></i><b>2</b> Datasett</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="datasett.html"><a href="datasett.html#bør-man-trene-med-ett-eller-flere-sett-i-styrketrening"><i class="fa fa-check"></i><b>2.1</b> Bør man trene med ett eller flere sett i styrketrening?</a></li>
+<li class="chapter" data-level="2.2" data-path="datasett.html"><a href="datasett.html#gjennomsnitt-for-de-to-gruppene"><i class="fa fa-check"></i><b>2.2</b> Gjennomsnitt for de to gruppene</a></li>
+<li class="chapter" data-level="2.3" data-path="datasett.html"><a href="datasett.html#figur-av-datasettet"><i class="fa fa-check"></i><b>2.3</b> Figur av datasettet</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="koding-av-kategoriske-prediktorvariabler.html"><a href="koding-av-kategoriske-prediktorvariabler.html"><i class="fa fa-check"></i><b>3</b> Koding av kategoriske prediktorvariabler</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="koding-av-kategoriske-prediktorvariabler.html"><a href="koding-av-kategoriske-prediktorvariabler.html#dummykoding"><i class="fa fa-check"></i><b>3.1</b> Dummykoding</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html"><i class="fa fa-check"></i><b>4</b> Bygge statistisk modeller</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#introduksjon-til-modellbygging"><i class="fa fa-check"></i><b>4.1</b> Introduksjon til modellbygging</a></li>
+<li class="chapter" data-level="4.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#visualisering-av-ulike-statistiske-modeller"><i class="fa fa-check"></i><b>4.2</b> Visualisering av ulike statistiske modeller</a></li>
+<li class="chapter" data-level="4.3" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#modellbygging-med-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>4.3</b> Modellbygging med ‘Null-Hypothesis Significance Testing (NHST)’</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#null-modellen-null-hypotesen"><i class="fa fa-check"></i><b>4.3.1</b> Null-modellen (null-hypotesen)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="bygge-statistisk-modeller.html"><a href="bygge-statistisk-modeller.html#alternativ-modell-alternativ-hypotese"><i class="fa fa-check"></i><b>4.3.2</b> Alternativ modell (alternativ hypotese)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html"><i class="fa fa-check"></i><b>5</b> Sammenligne modeller</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#anova-tabell-variansanalyse"><i class="fa fa-check"></i><b>5.1</b> ANOVA-tabell (variansanalyse)</a></li>
+<li class="chapter" data-level="5.2" data-path="sammenligne-modeller.html"><a href="sammenligne-modeller.html#teste-statistisk-om-vår-alternative-modell-forklarer-mer-varians-enn-null-modellen"><i class="fa fa-check"></i><b>5.2</b> Teste (statistisk) om vår alternative modell forklarer mer varians enn null-modellen</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hvordan-finne-linjen-i-modellen.html"><a href="hvordan-finne-linjen-i-modellen.html"><i class="fa fa-check"></i><b>6</b> Hvordan finne linjen i modellen?</a></li>
+<li class="chapter" data-level="7" data-path="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><a href="t-test-er-b-1-signifikant-forskjellig-fra-null.html"><i class="fa fa-check"></i><b>7</b> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</a></li>
+<li class="chapter" data-level="8" data-path="skrive-en-t-test.html"><a href="skrive-en-t-test.html"><i class="fa fa-check"></i><b>8</b> Skrive en t-test</a></li>
+<li class="chapter" data-level="9" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html"><i class="fa fa-check"></i><b>9</b> Sammenligne flere grupper</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html#datasett-1"><i class="fa fa-check"></i><b>9.1</b> Datasett</a></li>
+<li class="chapter" data-level="9.2" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html#oppsummere-og-visualisere-dataen"><i class="fa fa-check"></i><b>9.2</b> Oppsummere og visualisere dataen</a></li>
+<li class="chapter" data-level="9.3" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html#dummykoding-1"><i class="fa fa-check"></i><b>9.3</b> Dummykoding</a></li>
+<li class="chapter" data-level="9.4" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html#anova---er-modellen-vår-bedre-enn-null-modellen"><i class="fa fa-check"></i><b>9.4</b> ANOVA - er modellen vår bedre enn null-modellen?</a></li>
+<li class="chapter" data-level="9.5" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html#hvilke-grupper-er-forskjellige-post-hoc-testing"><i class="fa fa-check"></i><b>9.5</b> Hvilke grupper er forskjellige? (post-hoc testing)</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>10</b> VEDLEGG</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-2"><i class="fa fa-check"></i><b>10.1</b> Datasett</a></li>
+<li class="chapter" data-level="10.2" data-path="vedlegg.html"><a href="vedlegg.html#modellbygging"><i class="fa fa-check"></i><b>10.2</b> Modellbygging</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="cmagelssen.bo" target="blank">cmagelssen</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sammenligne-flere-grupper" class="section level1" number="9">
+<h1><span class="header-section-number">Kapittel 9</span> Sammenligne flere grupper</h1>
+<p>Nå har sett om det er forskjeller mellom to grupper på èn kontinuerlig, avhengig variabel, men i flere sammenhenger ønsker vi å studere om det er <strong>forskjeller mellom flere grupper</strong>. Kanskje har vi gjort et eksperiment der en gruppe ikke har trent (gruppe 1), en gruppe som har trent middels mye (gruppe 2) og en tredje gruppe som har trent kjempemye (gruppe 3). Vi kan i prinsippet ha så mange grupper vi bare vil.</p>
+<p>For å finne ut av dette kan vi bruke en <strong>ANOVA</strong>. Dere er allerede kjent med ANOVA, så jeg kommer ikke til å introdusere dere for noe nytt. Eller, jo, en liten ting, en det kommer jeg tilbake til.</p>
+<iframe width="600" height="300" src="https://www.youtube.com/watch?v=98KoXQiSiDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<div class="info">
+<p>Siden vi har lært å bruke en lineær modell, så slipper vi å lære oss noe nytt når vi nå skal sammenligne flere grupper. Teknikken vi allerede har lært oss kan enkelt brukes til andre formål</p>
+<p>Når dere leser dette, vennligst ofre en liten tanke til de stakkarene som må lære seg ANOVA, t-test, ANCOVA osv., som helt forskjellige statistiske tester! Da blir det mange formler å lære seg.</p>
+</div>
+<div id="datasett-1" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Datasett</h2>
+<p>Fordi vi nå skal undersøke om tre grupper er forskjellige, trenger vi et nytt datasett. Datasettet vi skal bruke er hentet fra masteroppgaven til Varpestuensom han leverte i 2020. Tittelen på oppgaven var:</p>
+<p><em>Effekter av 7 uker styrketrening med høyt og moderat volum på muskelstyrke, muskeltykkelse og total-RNA hos unge voksne</em></p>
+<p>Det er en veldig interessant studie der han undersøkte effekten av å trene med moderat og høyt volum på muskelstyrke, muskeltykkelse og total-RNA.</p>
+<p><strong>Eksperimentet ble gjennomført som et between-subject design med tre grupper:</strong></p>
+<ul>
+<li>en gruppe som ikke trente styrketrening (<em>null.sett</em>)</li>
+<li>en gruppe trente tre sett med styrketrening (<em>tre.sett</em>)</li>
+<li>en gruppe som trente seks sett med styrketrening (<em>seks-sett</em>)</li>
+</ul>
+<p>Vi har ikke tilgang på dette datasettet, men vi simulert datasettet i R. Se tabellen under. Som dere kan lese fra tittelen til oppgaven, har Varpestuen undersøkt effekten av 7 uker styrketrening på <strong>muskelstyrke</strong>, <strong>muskeltykkelse</strong> og <strong>total-RNA</strong> i vastus lateralis hos unge voksne. Det er altså flere avhengige variabler i studien hans, men for å gjøre dette enkelt, skal vi konsentrere oss om <strong>muskeltykkelse</strong>. Vi kan lese i metodekapittelet at han brukte ultralyd for å måle dette og at han rapporterte dette i mm. Men siden han ville se på fremgang regnet han om dette til % frengang fra første treningsuke.</p>
+<p>Her ser dere datasettet som vi har simulert:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-2">Table 6.1: </span>Simulert datasett (Varpestuen 2020)</caption>
+<thead>
+<tr class="header">
+<th align="right">individ</th>
+<th align="left">gruppe</th>
+<th align="right">vl_tykkelse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">null.sett</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">null.sett</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">null.sett</td>
+<td align="right">-2</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">null.sett</td>
+<td align="right">-5</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">null.sett</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">null.sett</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">null.sett</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">null.sett</td>
+<td align="right">-2</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="left">null.sett</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="left">null.sett</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="left">null.sett</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="left">null.sett</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="left">null.sett</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="left">null.sett</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="left">null.sett</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="left">tre.sett</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="left">tre.sett</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="right">23</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="left">tre.sett</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">25</td>
+<td align="left">tre.sett</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="right">26</td>
+<td align="left">tre.sett</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="right">27</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="right">28</td>
+<td align="left">tre.sett</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="right">29</td>
+<td align="left">tre.sett</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="right">30</td>
+<td align="left">tre.sett</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="right">31</td>
+<td align="left">tre.sett</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="right">32</td>
+<td align="left">tre.sett</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">33</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="right">34</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="right">35</td>
+<td align="left">tre.sett</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="right">36</td>
+<td align="left">tre.sett</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="right">37</td>
+<td align="left">tre.sett</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="right">38</td>
+<td align="left">tre.sett</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="right">39</td>
+<td align="left">tre.sett</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">40</td>
+<td align="left">tre.sett</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="right">41</td>
+<td align="left">seks.sett</td>
+<td align="right">17</td>
+</tr>
+<tr class="even">
+<td align="right">42</td>
+<td align="left">seks.sett</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="right">43</td>
+<td align="left">seks.sett</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="right">44</td>
+<td align="left">seks.sett</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">45</td>
+<td align="left">seks.sett</td>
+<td align="right">29</td>
+</tr>
+<tr class="even">
+<td align="right">46</td>
+<td align="left">seks.sett</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="right">47</td>
+<td align="left">seks.sett</td>
+<td align="right">26</td>
+</tr>
+<tr class="even">
+<td align="right">48</td>
+<td align="left">seks.sett</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="right">49</td>
+<td align="left">seks.sett</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+<td align="left">seks.sett</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">seks.sett</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="right">52</td>
+<td align="left">seks.sett</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="right">53</td>
+<td align="left">seks.sett</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="right">54</td>
+<td align="left">seks.sett</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="right">55</td>
+<td align="left">seks.sett</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="right">56</td>
+<td align="left">seks.sett</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">57</td>
+<td align="left">seks.sett</td>
+<td align="right">30</td>
+</tr>
+<tr class="even">
+<td align="right">58</td>
+<td align="left">seks.sett</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="right">59</td>
+<td align="left">seks.sett</td>
+<td align="right">19</td>
+</tr>
+<tr class="even">
+<td align="right">60</td>
+<td align="left">seks.sett</td>
+<td align="right">19</td>
+</tr>
+</tbody>
+</table>
+<p>Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Hvor mange kolonner er det i tabellen over? <input class='solveme nospaces' size='1' data-answer='["3"]'/></li>
+<li>Hvor mange deltakere var med i studien? <input class='solveme nospaces' size='2' data-answer='["60"]'/></li>
+</ol>
+</div>
+<div id="oppsummere-og-visualisere-dataen" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Oppsummere og visualisere dataen</h2>
+<p>Det er alltid lurt å starte med å visualisere dataen.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="13_fleregrupper_files/figure-html/unnamed-chunk-3-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figur 4.2: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Hvem hadde mest fremgang <select class='solveme' data-answer='["seks.sett"]'> <option></option> <option>tre.sett</option> <option>seks.sett</option></select></li>
+</ol>
+</div>
+<div id="dummykoding-1" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Dummykoding</h2>
+<p>Vi sa at vi ikke skulle introdusere dere for noe nytt. Vi løy. En ting er forskjellig når vi skal bruke en ANOVA til å sammenligne flere grupper, og det er hvordan vi skal kode variablene. Dere husker kanskje at vi ikke kunne legge tekst inn i de statistiske modellene våre? Derfor bruke vi <strong>dummykoding</strong>. Da vi brukte dummykoding sist, ga lagde vi en dummyvariabel der vi ga baseline-gruppen verdien 0, mens vi ga treatment-gruppen verdien 1. Dere tror kanskje at det bare er å fortsette denne prosedyren slik at vi gir den siste gruppen verdien 2? Feil. Dummykoding tillater ikke dette. Grunnen er at da at vi antar at det er et lineært forhold mellom disse gruppene, hvilket det kanskje ikke er. Dummykoding sier at vi må løse denne på følgende måte: <strong>VI MÅ LAGE EN DUMMYVARIABEL TIL</strong>. Det vil si at vi har to Dummyvariabler. I tabellen under ser du oppsettet vi skal bruke:</p>
+<p><strong>Dummykoding</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Treningsgruppe</th>
+<th>Dummy1</th>
+<th>Dummy2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Null sett</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Tre sett</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Seks sett</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Hva har vi kodet null.sett gruppen med på Dummyvariabel 1? <select class='solveme' data-answer='["0"]'> <option></option> <option>1</option> <option>0</option></select></li>
+<li>Hva har vi kodet null.sett gruppen med på Dummyvariabel 2? <select class='solveme' data-answer='["0"]'> <option></option> <option>1</option> <option>0</option></select></li>
+<li>Hva har vi kodet tre.sett gruppen med på Dummyvariabel 2? <select class='solveme' data-answer='["0"]'> <option></option> <option>1</option> <option>0</option></select></li>
+<li>Hva har vi kodet seks.sett gruppen med på Dummyvariabel 2? <select class='solveme' data-answer='["1"]'> <option></option> <option>0</option> <option>1</option></select></li>
+<li>Hva har vi kodet seks.sett gruppen med på Dummyvariabel 1? <select class='solveme' data-answer='["0"]'> <option></option> <option>1</option> <option>0</option></select></li>
+</ol>
+<p>La oss ta en titt hvordan dette ser ut i tabellen vår:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 9.1: </span>Dummykoding</caption>
+<thead>
+<tr class="header">
+<th align="right">individ</th>
+<th align="left">gruppe</th>
+<th align="right">vl_tykkelse</th>
+<th align="right">dummy1</th>
+<th align="right">dummy2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">null.sett</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">null.sett</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">null.sett</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">null.sett</td>
+<td align="right">-5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">null.sett</td>
+<td align="right">7</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">null.sett</td>
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">null.sett</td>
+<td align="right">9</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">null.sett</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="left">null.sett</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="left">null.sett</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="left">null.sett</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="left">null.sett</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="left">null.sett</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="left">null.sett</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="left">null.sett</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="left">null.sett</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="left">tre.sett</td>
+<td align="right">18</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="left">tre.sett</td>
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">23</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="left">tre.sett</td>
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">25</td>
+<td align="left">tre.sett</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">26</td>
+<td align="left">tre.sett</td>
+<td align="right">11</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">27</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">28</td>
+<td align="left">tre.sett</td>
+<td align="right">14</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">29</td>
+<td align="left">tre.sett</td>
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">30</td>
+<td align="left">tre.sett</td>
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">31</td>
+<td align="left">tre.sett</td>
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">32</td>
+<td align="left">tre.sett</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">33</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">34</td>
+<td align="left">tre.sett</td>
+<td align="right">16</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">35</td>
+<td align="left">tre.sett</td>
+<td align="right">15</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">36</td>
+<td align="left">tre.sett</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">37</td>
+<td align="left">tre.sett</td>
+<td align="right">14</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">38</td>
+<td align="left">tre.sett</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">39</td>
+<td align="left">tre.sett</td>
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">40</td>
+<td align="left">tre.sett</td>
+<td align="right">11</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">41</td>
+<td align="left">seks.sett</td>
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">42</td>
+<td align="left">seks.sett</td>
+<td align="right">26</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">43</td>
+<td align="left">seks.sett</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">44</td>
+<td align="left">seks.sett</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">45</td>
+<td align="left">seks.sett</td>
+<td align="right">29</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">46</td>
+<td align="left">seks.sett</td>
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">47</td>
+<td align="left">seks.sett</td>
+<td align="right">26</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">48</td>
+<td align="left">seks.sett</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">49</td>
+<td align="left">seks.sett</td>
+<td align="right">18</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+<td align="left">seks.sett</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">51</td>
+<td align="left">seks.sett</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">52</td>
+<td align="left">seks.sett</td>
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">53</td>
+<td align="left">seks.sett</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">54</td>
+<td align="left">seks.sett</td>
+<td align="right">14</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">55</td>
+<td align="left">seks.sett</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">56</td>
+<td align="left">seks.sett</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">57</td>
+<td align="left">seks.sett</td>
+<td align="right">30</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">58</td>
+<td align="left">seks.sett</td>
+<td align="right">16</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">59</td>
+<td align="left">seks.sett</td>
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">60</td>
+<td align="left">seks.sett</td>
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+La samme oppsett selv, men husk at dere egentlig ikke trenger å gjøre dette fordi Jamovi gjør dette automatisk for dere, enten dere vil eller ikke.</p>
+</div>
+<div id="anova---er-modellen-vår-bedre-enn-null-modellen" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> ANOVA - er modellen vår bedre enn null-modellen?</h2>
+<p>Denne gangen starter vi må å teste om modellen vår, som består av de to Dummykodede prediktorvariablene Dummy1 og Dummy2, er en bedre enn null-modellen som sier at vi like greit kan bruke gjennomsnittet for de 60 individene til å predikere en person sin skår. Her har jeg gjort dette for dette i R:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="sammenligne-flere-grupper.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(vl_tykkelse <span class="sc">~</span> gruppe, dat))</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## gruppe       2   2403  1201.7    49.3 3.72e-13 ***
+## Residuals   57   1389    24.4                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Hva er f-verdien? <input class='solveme nospaces' size='4' data-answer='["49.3"]'/></li>
+<li>Er modellen vår signifikant? <select class='solveme' data-answer='["Ja"]'> <option></option> <option>Nei</option> <option>Ja</option></select></li>
+<li>Hvor mye error er det i null-modellen? <input class='solveme nospaces' size='4' data-answer='["3792"]'/> (hint: her må du legge sammen to verdier)</li>
+</ol>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Gratulerer</span></p>
+<p>Yes! Vår modell er bedre enn null-modellen fordi denne var signifikant. Med andre ord, hvis hadde dyttet en helt random prediktorvariabel i modellen vår, så er det veldig usannsynlig å få en så stor som F-verdi som det vi har fått. Kult, la oss feire! <strong>VENT</strong> <strong>VENT</strong> <strong>VENT</strong>. Vi vet jo ikke hvilke grupper som er forskjellige. Det må vi også finne ut.</p>
+</div>
+<div id="hvilke-grupper-er-forskjellige-post-hoc-testing" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Hvilke grupper er forskjellige? (post-hoc testing)</h2>
+<p>For å finne ut av dette må vi kjøre en en post-hoc prosedyre. Outputen under burde se veldig kjent ut, hvis ikke bør dere virkelig gå tilbake til forelesninger eller lese boken</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="sammenligne-flere-grupper.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(vl_tykkelse <span class="sc">~</span> dummy1 <span class="sc">+</span> dummy2, dat))</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = vl_tykkelse ~ dummy1 + dummy2, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -13.100  -2.600  -0.350   3.025  10.900 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    3.600      1.104   3.261  0.00188 ** 
+## dummy11        8.000      1.561   5.124  3.7e-06 ***
+## dummy21       15.500      1.561   9.928  4.9e-14 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.937 on 57 degrees of freedom
+## Multiple R-squared:  0.6337, Adjusted R-squared:  0.6208 
+## F-statistic:  49.3 on 2 and 57 DF,  p-value: 3.719e-13</code></pre>
+<p>Det første dere ser er hvilken modell vi har kjørt. Denne sier at vi predikerer vl_tykkelse med de to Dummykodede prediktorvariablene våre. Testen sier at vår F-verdie er 49., og at vår <span class="math inline">\(R^2\)</span> er 0.6337. Med andre ord: vår modell forklarer hele 63 % av erroren i dataen. Det er mye! Videre sier den at den estimerer de ulike koeffisientene våre til å være 8 og 15.5. Og at intercepten er 3.600. Alle disse var signifikante ved t-tester. Men hva er egentlig disse verdiene for noe?</p>
+<div class="info">
+<p>Tenk over hva 3.6, 8.0 og 15.5 er for noe før du leser videre.</p>
+</div>
+<p>8.0 og 15.5 er stigningstallene i modellen, mens 3.6 er intercepten i modellen vår. La oss se hvordan disse koeffisientene virker i praksis. La oss si at vi ønsker å predikere en person som trente med tre sett sin skår.</p>
+<p><span class="math display">\[
+\text{fremgang muskeltykkelse } = b_0 + b_1(Dummy_1i) + b_1(Dummy_2i) + error_i
+\]</span>
+Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og vi ga denne gruppen 1 på Dummyvariabel 1 og 0 på Dummyvariabel 0, blir vår prediksjon:</p>
+<p><span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 1) + (15.5 * 0)  + error_i
+\]</span>
+<span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 1) + (15.5 * 0)  + error_i
+\]</span>
+<span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + 8  + error_i
+\]</span>
+<span class="math display">\[
+\text{fremgang muskeltykkelse } = 11.6  + error_i
+\]</span></p>
+<p>Vi tar et eksempel til. Hva hvis personen trente med seks sett? Denne dummykodet vi med 1 på Dymmyvariabel 1 og 0 på Dummyvariabel 1. Derfor blir vår prediksjon:</p>
+<p><span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 1)  + error_i
+\]</span>
+<span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + (15.5 * 1)  + error_i
+\]</span>
+<span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + 15.5  + error_i
+\]</span>
+<span class="math display">\[
+\text{fremgang muskeltykkelse } = 19.1 + error_i
+\]</span></p>
+<p>Dette er gjennomsnittet i gruppen som trente med seks sett. Til slutt: hva hvis du tilhørte gruppen som trente null sett?</p>
+<p><span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 0)  + error_i
+\]</span></p>
+<p><span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 0)  + error_i
+\]</span></p>
+<p><span class="math display">\[
+\text{fremgang muskeltykkelse } = 3.6  + error_i
+\]</span></p>
+Dette er gjennomsnittet i gruppen som trente med null sett. Som dere ser fra outputen over, så var denne også signifikant. I figurene under har jeg forsøkt å vise visuelt hva disse verdiene er for noe. Jeg skulle gjerne fått alt sammen i en figur, men det har jeg ikke klart å få til. Men hvis du ser i figur A, så ser du <span class="math inline">\(b_0\)</span>, som er gjennomsnittet i null.sett-gruppen. Stigningstallet 8.0 reprenterer forskjellen mellom null.sett-gruppen og tre.sett-gruppen. Hvis du ser i figur B, så ser du <span class="math inline">\(b_0\)</span>, som igjen er gjennomsnittet for null.sett-gruppen. Det er her linjen starter. Selve linjen representerer stigningstallet og er forskjellen mellom null.sett-gruppen og tre.sett-gruppen.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="13_fleregrupper_files/figure-html/unnamed-chunk-9-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figur 4.5: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<div class="warning">
+<p>Når vi har dummykodet variablene våre sammenligner vi alt med en baseline-gruppe. Men vi skulle gjerne sammenlignet seks.sett gruppen med null.sett-gruppen, skulle vi ikke? Det får vi ikke gjort med dummykoding. Det er sikkert post-hoc prosedyrer som gjør dette mulig, men ingen av disse står i boken. MEN, det går an å bruke kontrastkoding. Andy Field har en fin video om dette.</p>
+</div>
+
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol>0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="skrive-en-t-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vedlegg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1.5
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

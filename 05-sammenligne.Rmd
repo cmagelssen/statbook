@@ -60,9 +60,6 @@ b <- ggplot(dat, aes(dummykodet, rm, color=dummykodet)) +
 library(cowplot)
 
 plot_grid(a, b, nrow = 1)
-
-
-
 ````
 ## ANOVA-tabell (variansanalyse)
 En måte vi kan sammenligne modeller på er å bruke en ANOVA-tabell, der vi legger inn erroren vi har regnet for de ulike modellene. Dette er en ganske vanlig tabell som dere kommer til å se flere ganger. 

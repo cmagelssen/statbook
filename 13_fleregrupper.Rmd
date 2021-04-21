@@ -1,0 +1,276 @@
+# Sammenligne flere grupper
+
+Nå har sett om det er forskjeller mellom to grupper på èn kontinuerlig, avhengig variabel, men i flere sammenhenger ønsker vi å studere om det er **forskjeller mellom flere grupper**. Kanskje har vi gjort et eksperiment der en gruppe ikke har trent (gruppe 1), en gruppe som har trent middels mye (gruppe 2) og en tredje gruppe som har trent kjempemye (gruppe 3). Vi kan i prinsippet ha så mange grupper vi bare vil. 
+
+For å finne ut av dette kan vi bruke en **ANOVA**. Dere er allerede kjent med ANOVA, så jeg kommer ikke til å introdusere dere for noe nytt. Eller, jo, en liten ting, en det kommer jeg tilbake til.
+
+
+<iframe width="600" height="300" src="https://www.youtube.com/watch?v=98KoXQiSiDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+<div class="info">
+Siden vi har lært å bruke en lineær modell, så slipper vi å lære oss noe nytt når vi nå skal sammenligne flere grupper. Teknikken vi allerede har lært oss kan enkelt brukes til andre formål
+
+Når dere leser dette, vennligst ofre en liten tanke til de stakkarene som må lære seg ANOVA, t-test, ANCOVA osv., som helt forskjellige statistiske tester! Da blir det mange formler å lære seg. 
+
+</div>
+
+
+
+
+## Datasett
+
+Fordi vi nå skal undersøke om tre grupper er forskjellige, trenger vi et nytt datasett. Datasettet vi skal bruke er hentet fra masteroppgaven til Varpestuensom han leverte i 2020. Tittelen på oppgaven var:
+
+*Effekter av 7 uker styrketrening med høyt og moderat volum på muskelstyrke, muskeltykkelse og total-RNA hos unge voksne*
+
+
+Det er en veldig interessant studie der han undersøkte effekten av å trene med moderat og høyt volum på muskelstyrke, muskeltykkelse og total-RNA. 
+
+**Eksperimentet ble gjennomført som et between-subject design med tre grupper:**
+
+* en gruppe som ikke trente styrketrening (*null.sett*)
+* en gruppe trente tre sett med styrketrening (*tre.sett*)
+* en gruppe som trente seks sett med styrketrening (*seks-sett*)
+
+
+Vi har ikke tilgang på dette datasettet, men vi simulert datasettet i R. Se tabellen under. Som dere kan lese fra tittelen til oppgaven, har Varpestuen undersøkt effekten av 7 uker styrketrening på **muskelstyrke**, **muskeltykkelse** og **total-RNA** i vastus lateralis hos unge voksne. Det er altså flere avhengige variabler i studien hans, men for å gjøre dette enkelt, skal vi konsentrere oss om **muskeltykkelse**. Vi kan lese i metodekapittelet at han brukte ultralyd for å måle dette og at han rapporterte dette i mm. Men siden han ville se på fremgang regnet han om dette til % frengang fra første treningsuke. 
+
+
+Her ser dere datasettet som vi har simulert:
+
+```{r echo=FALSE}
+library(tidyverse)
+
+set.seed(2002) #viktig å ha med denne for å få nøyaktig samme datasett
+seks.sett <- ceiling(rnorm(n = 20, mean = 17.5, sd = 5)) #20 individer
+tre.sett <- ceiling(rnorm(n = 20, mean = 12.5, sd = 5)) #20 individer
+null.sett <- ceiling(rnorm(n = 20, mean = 3, sd = 5)) #20 individer
+
+
+
+
+#lager en tibble fra tidyverse-pakken. Må ha lastet inn tidyverse library(tidyverse) i scriptfilen
+dat <- tibble(individ = seq(1:60),
+              gruppe = rep(c( "null.sett", "tre.sett", "seks.sett"), c(length(null.sett), length(tre.sett), length(seks.sett))),
+              vl_tykkelse = c(null.sett, tre.sett, seks.sett))
+```
+
+```{r echo=FALSE, tidy=FALSE}
+knitr::kable(
+  dat, booktabs = TRUE,
+  caption = 'Simulert datasett (Varpestuen 2020)'
+)
+```
+
+Før du går videre er det greit at du gjør deg kjent med datasettet som vi har generert. Studer datasettet og svar på følgende spørsmål:
+
+a) Hvor mange kolonner er det i tabellen over? `r fitb(3)`
+b) Hvor mange deltakere var med i studien? `r fitb(60)`
+
+
+## Oppsummere og visualisere dataen
+Det er alltid lurt å starte med å visualisere dataen. 
+
+```{r echo=FALSE}
+ggplot(dat, aes(gruppe,vl_tykkelse, color=gruppe)) +
+  geom_point()+
+  scale_y_continuous(breaks = seq(0, 35, 5)) +
+  coord_cartesian(ylim = c(0, 35)) +
+  geom_jitter(width = 0.2) + 
+  labs(y="%-endring muskeltykkelse", x="Treningsgrupper") +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2, color="black") +
+  guides(fill=FALSE) +
+  theme_bw()
+```
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+
+a) Hvem hadde mest fremgang  `r mcq(c("tre.sett", answer = "seks.sett"))`
+
+
+## Dummykoding
+Vi sa at vi ikke skulle introdusere dere for noe nytt. Vi løy. En ting er forskjellig når vi skal bruke en ANOVA til å sammenligne flere grupper, og det er hvordan vi skal kode variablene. Dere husker kanskje at vi ikke kunne legge tekst inn i de statistiske modellene våre? Derfor bruke vi **dummykoding**. Da vi brukte dummykoding sist, ga lagde vi en dummyvariabel der vi ga baseline-gruppen verdien 0, mens vi ga treatment-gruppen verdien 1. Dere tror kanskje at det bare er å fortsette denne prosedyren slik at vi gir den siste gruppen verdien 2? Feil. Dummykoding tillater ikke dette. Grunnen er at da at vi antar at det er et lineært forhold mellom disse gruppene, hvilket det kanskje ikke er. Dummykoding sier at vi må løse denne på følgende måte: **VI MÅ LAGE EN DUMMYVARIABEL TIL**. Det vil si at vi har to Dummyvariabler. I tabellen under ser du oppsettet vi skal bruke:
+
+**Dummykoding**
+
+Treningsgruppe | Dummy1 | Dummy2 
+------------- | ------------- | ------------- 
+Null sett | 0 | 0 |
+Tre sett | 1 | 0 |
+Seks sett  | 0| 1 |
+
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+
+a) Hva har vi kodet  null.sett gruppen med på Dummyvariabel 1?  `r mcq(c("1", answer = "0"))`
+b) Hva har vi kodet  null.sett gruppen med på Dummyvariabel 2?  `r mcq(c("1", answer = "0"))`
+c) Hva har vi kodet  tre.sett gruppen med på Dummyvariabel 2?  `r mcq(c("1", answer = "0"))`
+d) Hva har vi kodet  seks.sett gruppen med på Dummyvariabel 2?  `r mcq(c("0", answer = "1"))`
+e) Hva har vi kodet  seks.sett gruppen med på Dummyvariabel 1?  `r mcq(c("1", answer = "0"))`
+
+
+La oss ta en titt hvordan dette ser ut i tabellen vår:
+
+```{r echo=FALSE}
+
+
+dat <- dat %>%
+  # her lager jeg en ny kolonne som heter dummykoder. If gruppe == 'ett.sett', gi verdien 0, else gi de 1.
+  mutate(dummy1 = if_else(gruppe == "tre.sett", 1, 0)
+  )
+
+dat <- dat %>%
+  # her lager jeg en ny kolonne som heter dummykoder. If gruppe == 'ett.sett', gi verdien 0, else gi de 1.
+  mutate(dummy2 = if_else(gruppe == "seks.sett", 1, 0)
+  )
+
+```
+
+```{r echo=FALSE}
+knitr::kable(
+  dat, booktabs = TRUE,
+  caption = 'Dummykoding'
+)
+```
+
+
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+La samme oppsett selv, men husk at dere egentlig ikke trenger å gjøre dette fordi Jamovi gjør dette automatisk for dere, enten dere vil eller ikke. 
+
+
+## ANOVA - er modellen vår bedre enn null-modellen?
+Denne gangen starter vi må å teste om modellen vår, som består av de to Dummykodede prediktorvariablene Dummy1 og Dummy2, er en bedre enn null-modellen som sier at vi like greit kan bruke gjennomsnittet for de 60 individene til å predikere en person sin skår. Her har jeg gjort dette for dette i R:
+
+```{r echo=FALSE}
+dat <- dat %>%
+  mutate(
+    vl_tykkelse = as.integer(vl_tykkelse),
+    dummy1 = as.factor(dummy1),
+    dummy2 = as.factor(dummy2),
+    gruppe = as.factor(gruppe))
+```
+
+```{r}
+summary(aov(vl_tykkelse ~ gruppe, dat))
+```
+
+
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Oppgave</span>
+
+a) Hva er f-verdien? `r fitb(49.3)`
+b) Er modellen vår signifikant?  `r mcq(c("Nei", answer = "Ja"))`
+c) Hvor mye error er det i null-modellen? `r fitb(3792)` (hint: her må du legge sammen to verdier)
+
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Gratulerer</span>
+
+Yes! Vår modell er bedre enn null-modellen fordi denne var signifikant. Med andre ord, hvis hadde dyttet en helt random prediktorvariabel i modellen vår, så er det veldig usannsynlig å få en så stor som F-verdi som det vi har fått. Kult, la oss feire! **VENT** **VENT** **VENT**. Vi vet jo ikke hvilke grupper som er forskjellige. Det må vi også finne ut.
+
+## Hvilke grupper er forskjellige? (post-hoc testing)
+For å finne ut av dette må vi kjøre en en post-hoc prosedyre. Outputen under burde se veldig kjent ut, hvis ikke bør dere virkelig gå tilbake til forelesninger eller lese boken
+
+```{r}
+summary(lm(vl_tykkelse ~ dummy1 + dummy2, dat))
+```
+Det første dere ser er hvilken modell vi har kjørt. Denne sier at vi predikerer vl_tykkelse med de to Dummykodede prediktorvariablene våre. Testen sier at vår F-verdie er 49., og at vår $R^2$ er 0.6337. Med andre ord: vår modell forklarer hele 63 % av erroren i dataen. Det er mye! Videre sier den at den estimerer de ulike koeffisientene våre til å være 8 og 15.5. Og at intercepten er 3.600. Alle disse var signifikante ved t-tester. Men hva er egentlig disse verdiene for noe? 
+
+<div class="info">
+Tenk over hva 3.6, 8.0 og 15.5 er for noe før du leser videre. 
+</div>
+
+8.0 og 15.5 er stigningstallene i modellen, mens 3.6 er intercepten i modellen vår. La oss se hvordan disse koeffisientene virker i praksis. La oss si at vi ønsker å predikere en person som trente med tre sett sin skår.
+
+
+$$
+\text{fremgang muskeltykkelse } = b_0 + b_1(Dummy_1i) + b_1(Dummy_2i) + error_i
+$$ 
+Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og vi ga denne gruppen 1 på Dummyvariabel 1 og 0 på Dummyvariabel 0, blir vår prediksjon:
+
+$$
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 1) + (15.5 * 0)  + error_i
+$$ 
+$$
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 1) + (15.5 * 0)  + error_i
+$$ 
+$$
+\text{fremgang muskeltykkelse } = 3.6 + 8  + error_i
+$$ 
+$$
+\text{fremgang muskeltykkelse } = 11.6  + error_i
+$$ 
+
+Vi tar et eksempel til. Hva hvis personen trente med seks sett? Denne dummykodet vi med 1 på Dymmyvariabel 1 og 0 på Dummyvariabel 1. Derfor blir vår prediksjon:
+
+$$
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 1)  + error_i
+$$ 
+$$
+\text{fremgang muskeltykkelse } = 3.6 + (15.5 * 1)  + error_i
+$$ 
+$$
+\text{fremgang muskeltykkelse } = 3.6 + 15.5  + error_i
+$$ 
+$$
+\text{fremgang muskeltykkelse } = 19.1 + error_i
+$$ 
+
+Dette er gjennomsnittet i gruppen som trente med seks sett. Til slutt: hva hvis du tilhørte gruppen som trente null sett? 
+
+$$
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 0)  + error_i
+$$ 
+
+$$
+\text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 0)  + error_i
+$$ 
+
+
+$$
+\text{fremgang muskeltykkelse } = 3.6  + error_i
+$$
+
+Dette er gjennomsnittet i gruppen som trente med null sett. Som dere ser fra outputen over, så var denne også signifikant. I figurene under har jeg forsøkt å vise visuelt hva disse verdiene er for noe. Jeg skulle gjerne fått alt sammen i en figur, men det har jeg ikke klart å få til. Men hvis du ser i figur A, så ser du $b_0$, som er gjennomsnittet i null.sett-gruppen. Stigningstallet 8.0 reprenterer forskjellen mellom null.sett-gruppen og tre.sett-gruppen. Hvis du ser i figur B, så ser du $b_0$, som igjen er gjennomsnittet for null.sett-gruppen. Det er her linjen starter. Selve linjen representerer stigningstallet og er forskjellen mellom null.sett-gruppen og tre.sett-gruppen.
+```{r echo=FALSE}
+
+gr1 <- dat %>%
+  filter(gruppe == 'null.sett' | gruppe == 'tre.sett')
+
+gr2 <- dat %>%
+  filter(gruppe == 'null.sett' | gruppe == 'seks.sett')
+
+
+
+b <- ggplot(gr1, aes(gruppe, vl_tykkelse, color=gruppe)) +
+  geom_point()+
+  scale_y_continuous(breaks = seq(0, 35, 5)) +
+  coord_cartesian(ylim = c(0, 35)) +
+  geom_jitter(width = 0.2) + 
+  stat_summary(geom = "line", fun = mean, group = 1, color="black") +
+  stat_summary(geom = "line", fun = mean, group = 2, color="black") +
+  labs(y="% fremgang 1RM underkropp", x="Dummykodet variabel") +
+  theme_bw()
+
+
+c <- ggplot(gr2, aes(gruppe, vl_tykkelse, color=gruppe)) +
+  geom_point()+
+  scale_y_continuous(breaks = seq(0, 35, 5)) +
+  coord_cartesian(ylim = c(0, 35)) +
+  geom_jitter(width = 0.2) + 
+  stat_summary(geom = "line", fun = mean, group = 1, color="black") +
+  stat_summary(geom = "line", fun = mean, group = 2, color="black") +
+  labs(y="% fremgang 1RM underkropp", x="Dummykodet variabel") +
+  theme_bw()
+
+library(cowplot)
+
+plot_grid(b, c, nrow = 1, labels = "AUTO")
+
+
+
+
+
+```
+<div class="warning">
+Når vi har dummykodet variablene våre sammenligner vi alt med en baseline-gruppe. Men vi skulle gjerne sammenlignet seks.sett gruppen med null.sett-gruppen, skulle vi ikke? Det får vi ikke gjort med dummykoding. Det er sikkert post-hoc prosedyrer som gjør dette mulig, men ingen av disse står i boken. MEN, det går an å bruke kontrastkoding. Andy Field har en fin video om dette.
+
+</div>

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.6)  10 APR 2021 21:19
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.19)  21 APR 2021 18:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,6 +449,15 @@ LaTeX Warning: Label `fig:unnamed-chunk-4' multiply defined.
 
 
 LaTeX Warning: Label `fig:unnamed-chunk-1' multiply defined.
+
+
+LaTeX Warning: Label `tab:unnamed-chunk-2' multiply defined.
+
+
+LaTeX Warning: Label `fig:unnamed-chunk-3' multiply defined.
+
+
+LaTeX Warning: Label `fig:unnamed-chunk-9' multiply defined.
 
 )
 \openout1 = `_main.aux'.
@@ -982,22 +991,44 @@ Chapter 8.
 
 ]
 Chapter 9.
-[49] (./_main.bbl [50]) [51
+[49]
+
+LaTeX Warning: Float too large for page by 277.65094pt on input line 1645.
+
+File: 13_fleregrupper_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
+pe pdf)
+<use 13_fleregrupper_files/figure-latex/unnamed-chunk-3-1.pdf>
+[50] [51]
+
+LaTeX Warning: Float too large for page by 277.09094pt on input line 1799.
+
+
+Overfull \vbox (247.43094pt too high) has occurred while \output is active []
+
+[52] [53] [54] [55]
+File: 13_fleregrupper_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (ty
+pe pdf)
+<use 13_fleregrupper_files/figure-latex/unnamed-chunk-9-1.pdf>
+[56]
+Chapter 10.
+[57
+
+] (./_main.bbl [58]) [59
 
 ] (./_main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 855A2287CBD64D3B0CA06238CD11E9B4;4293.
+(rerunfilecheck)             Checksum: 5FD9C4B4ACB8BF0EEBB019F4707F09EE;5547.
  ) 
 Here is how much of TeX's memory you used:
- 16459 strings out of 478918
- 295784 string characters out of 5865692
- 760739 words of memory out of 5000000
- 36071 multiletter control sequences out of 15000+600000
+ 16477 strings out of 478918
+ 296522 string characters out of 5865603
+ 770174 words of memory out of 5000000
+ 36092 multiletter control sequences out of 15000+600000
  409092 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,8n,122p,1031b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (51 pages).
+Output written on _main.pdf (59 pages).
