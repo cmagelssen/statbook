@@ -5,7 +5,7 @@ Nå har sett om det er forskjeller mellom to grupper på èn kontinuerlig, avhen
 For å finne ut av dette kan vi bruke en **ANOVA**. Dere er allerede kjent med ANOVA, så jeg kommer ikke til å introdusere dere for noe nytt. Eller, jo, en liten ting, en det kommer jeg tilbake til.
 
 
-<iframe width="600" height="300" src="https://www.youtube.com/watch?v=98KoXQiSiDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="600" height="400" src="https://www.youtube.com/embed/98KoXQiSiDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
