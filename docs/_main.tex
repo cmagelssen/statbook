@@ -150,7 +150,7 @@
 
 \title{Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)}
 \author{Christian Magelssen og Knut Sindre Mølmen}
-\date{2021-04-21}
+\date{2021-04-22}
 
 \begin{document}
 \maketitle
@@ -1870,7 +1870,7 @@ For å finne ut av dette må vi kjøre en en post-hoc prosedyre. Outputen under 
 ## F-statistic:  49.3 on 2 and 57 DF,  p-value: 3.719e-13
 \end{verbatim}
 
-Det første dere ser er hvilken modell vi har kjørt. Denne sier at vi predikerer vl\_tykkelse med de to Dummykodede prediktorvariablene våre. Testen sier at vår F-verdie er 49., og at vår \(R^2\) er 0.6337. Med andre ord: vår modell forklarer hele 63 \% av erroren i dataen. Det er mye! Videre sier den at den estimerer de ulike koeffisientene våre til å være 8 og 15.5. Og at intercepten er 3.600. Alle disse var signifikante ved t-tester. Men hva er egentlig disse verdiene for noe?
+Det første dere ser er hvilken modell vi har kjørt. Denne sier at vi predikerer vl\_tykkelse med de to Dummykodede prediktorvariablene våre. Testen sier at vår F-verdi er 49.3, og at vår \(R^2\) er 0.6337. Med andre ord forklarer vår modell forklarer hele 63 \% av erroren i dataen. Det er mye! Videre sier den at den estimerer de ulike koeffisientene våre til å være 8 og 15.5. Og at intercepten er 3.600. Alle disse var signifikante ved t-tester. Men hva er egentlig disse verdiene for noe?
 
 Tenk over hva 3.6, 8.0 og 15.5 er for noe før du leser videre.
 
@@ -1879,7 +1879,7 @@ Tenk over hva 3.6, 8.0 og 15.5 er for noe før du leser videre.
 \[
 \text{fremgang muskeltykkelse } = b_0 + b_1(Dummy_1i) + b_1(Dummy_2i) + error_i
 \]
-Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og vi ga denne gruppen 1 på Dummyvariabel 1 og 0 på Dummyvariabel 0, blir vår prediksjon:
+Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og vi ga denne gruppen 1 på Dummyvariabel 1 og 0 på Dummyvariabel 2, blir vår prediksjon:
 
 \[
 \text{fremgang muskeltykkelse } = 3.6 + (8.0 * 1) + (15.5 * 0)  + error_i
@@ -1894,7 +1894,7 @@ Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og
 \text{fremgang muskeltykkelse } = 11.6  + error_i
 \]
 
-Vi tar et eksempel til. Hva hvis personen trente med seks sett? Denne dummykodet vi med 1 på Dymmyvariabel 1 og 0 på Dummyvariabel 1. Derfor blir vår prediksjon:
+Vi tar et eksempel til. Hva hvis personen trente med seks sett? Denne dummykodet vi med 1 på Dymmyvariabel 1 og 0 på Dummyvariabel 2. Derfor blir vår prediksjon:
 
 \[
 \text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 1)  + error_i
@@ -1934,7 +1934,9 @@ Dette er gjennomsnittet i gruppen som trente med null sett. Som dere ser fra out
 \caption{**CAPTION THIS FIGURE!!**}\label{fig:unnamed-chunk-9}
 \end{figure}
 
-Når vi har dummykodet variablene våre sammenligner vi alt med en baseline-gruppe. Men vi skulle gjerne sammenlignet seks.sett gruppen med null.sett-gruppen, skulle vi ikke? Det får vi ikke gjort med dummykoding. Det er sikkert post-hoc prosedyrer som gjør dette mulig, men ingen av disse står i boken. MEN, det går an å bruke kontrastkoding. Andy Field har en fin video om dette.
+Når vi har dummykodet variablene våre sammenligner vi alt med en baseline-gruppe. Men vi skulle gjerne sammenlignet seks.sett gruppen med tre.sett-gruppen, skulle vi ikke? Det får vi ikke gjort med dummykoding. Det er sikkert post-hoc prosedyrer som gjør dette mulig, men ingen av disse står i boken. MEN, det går an å bruke kontrastkoding. Andy Field har en fin video om dette.
+
+\url{https://www.youtube.com/watch?v=fXDNBeY2qp0}
 
 \hypertarget{vedlegg}{%
 \chapter{VEDLEGG}\label{vedlegg}}

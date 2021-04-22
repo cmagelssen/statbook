@@ -24,7 +24,7 @@
 <meta name="author" content="Christian Magelssen og Knut Sindre Mølmen" />
 
 
-<meta name="date" content="2021-04-21" />
+<meta name="date" content="2021-04-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1077,7 +1077,7 @@ La samme oppsett selv, men husk at dere egentlig ikke trenger å gjøre dette fo
 ## Residual standard error: 4.937 on 57 degrees of freedom
 ## Multiple R-squared:  0.6337, Adjusted R-squared:  0.6208 
 ## F-statistic:  49.3 on 2 and 57 DF,  p-value: 3.719e-13</code></pre>
-<p>Det første dere ser er hvilken modell vi har kjørt. Denne sier at vi predikerer vl_tykkelse med de to Dummykodede prediktorvariablene våre. Testen sier at vår F-verdie er 49., og at vår <span class="math inline">\(R^2\)</span> er 0.6337. Med andre ord: vår modell forklarer hele 63 % av erroren i dataen. Det er mye! Videre sier den at den estimerer de ulike koeffisientene våre til å være 8 og 15.5. Og at intercepten er 3.600. Alle disse var signifikante ved t-tester. Men hva er egentlig disse verdiene for noe?</p>
+<p>Det første dere ser er hvilken modell vi har kjørt. Denne sier at vi predikerer vl_tykkelse med de to Dummykodede prediktorvariablene våre. Testen sier at vår F-verdi er 49.3, og at vår <span class="math inline">\(R^2\)</span> er 0.6337. Med andre ord forklarer vår modell forklarer hele 63 % av erroren i dataen. Det er mye! Videre sier den at den estimerer de ulike koeffisientene våre til å være 8 og 15.5. Og at intercepten er 3.600. Alle disse var signifikante ved t-tester. Men hva er egentlig disse verdiene for noe?</p>
 <div class="info">
 <p>Tenk over hva 3.6, 8.0 og 15.5 er for noe før du leser videre.</p>
 </div>
@@ -1085,7 +1085,7 @@ La samme oppsett selv, men husk at dere egentlig ikke trenger å gjøre dette fo
 <p><span class="math display">\[
 \text{fremgang muskeltykkelse } = b_0 + b_1(Dummy_1i) + b_1(Dummy_2i) + error_i
 \]</span>
-Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og vi ga denne gruppen 1 på Dummyvariabel 1 og 0 på Dummyvariabel 0, blir vår prediksjon:</p>
+Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og vi ga denne gruppen 1 på Dummyvariabel 1 og 0 på Dummyvariabel 2, blir vår prediksjon:</p>
 <p><span class="math display">\[
 \text{fremgang muskeltykkelse } = 3.6 + (8.0 * 1) + (15.5 * 0)  + error_i
 \]</span>
@@ -1098,7 +1098,7 @@ Vi kan legge inn tallene i modellen vår. Siden personen trente med tre sett, og
 <span class="math display">\[
 \text{fremgang muskeltykkelse } = 11.6  + error_i
 \]</span></p>
-<p>Vi tar et eksempel til. Hva hvis personen trente med seks sett? Denne dummykodet vi med 1 på Dymmyvariabel 1 og 0 på Dummyvariabel 1. Derfor blir vår prediksjon:</p>
+<p>Vi tar et eksempel til. Hva hvis personen trente med seks sett? Denne dummykodet vi med 1 på Dymmyvariabel 1 og 0 på Dummyvariabel 2. Derfor blir vår prediksjon:</p>
 <p><span class="math display">\[
 \text{fremgang muskeltykkelse } = 3.6 + (8.0 * 0) + (15.5 * 1)  + error_i
 \]</span>
@@ -1129,7 +1129,8 @@ Figur 4.5: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div class="warning">
-<p>Når vi har dummykodet variablene våre sammenligner vi alt med en baseline-gruppe. Men vi skulle gjerne sammenlignet seks.sett gruppen med null.sett-gruppen, skulle vi ikke? Det får vi ikke gjort med dummykoding. Det er sikkert post-hoc prosedyrer som gjør dette mulig, men ingen av disse står i boken. MEN, det går an å bruke kontrastkoding. Andy Field har en fin video om dette.</p>
+<p>Når vi har dummykodet variablene våre sammenligner vi alt med en baseline-gruppe. Men vi skulle gjerne sammenlignet seks.sett gruppen med tre.sett-gruppen, skulle vi ikke? Det får vi ikke gjort med dummykoding. Det er sikkert post-hoc prosedyrer som gjør dette mulig, men ingen av disse står i boken. MEN, det går an å bruke kontrastkoding. Andy Field har en fin video om dette.</p>
+<p><a href="https://www.youtube.com/watch?v=fXDNBeY2qp0" class="uri">https://www.youtube.com/watch?v=fXDNBeY2qp0</a></p>
 </div>
 
 </div>
