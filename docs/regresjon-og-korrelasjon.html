@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)</title>
+  <title>Kapittel 10 Regresjon og korrelasjon | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)</title>
   <meta name="description" content="En interaktiv bok, skrevet i R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 10 Regresjon og korrelasjon | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 7 T-test - er \(b_1\) signifikant forskjellig fra null? | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 10 Regresjon og korrelasjon | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="En interaktiv bok, skrevet i R" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hvordan-finne-linjen-i-modellen.html"/>
-<link rel="next" href="skrive-en-t-test.html"/>
+<link rel="prev" href="sammenligne-flere-grupper.html"/>
+<link rel="next" href="vedlegg.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -213,56 +213,261 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="t-test---er-b_1-signifikant-forskjellig-fra-null" class="section level1" number="7">
-<h1><span class="header-section-number">Kapittel 7</span> T-test - er <span class="math inline">\(b_1\)</span> signifikant forskjellig fra null?</h1>
-<p>En F-test tester om vår alternative modell er en bedre modell enn null-modellen, totalsett. Men det kanskje mest interessante spørsmålet er fremdeles er fremdeles delvis ubesvart:</p>
-<p><strong>er b<sub>1</sub> i modellen vår, altså vårt stigningstall som representer den forventede endringen i utfallet for en enhets endring i prediktorvariablen, signifikant forskjellig fra null?</strong></p>
-<div class="info">
-<p>Før du leser videre, forsøk å forestill deg hvordan en modell med en b<sub>1</sub> som er 0 ser ut?</p>
-<p>Her er svaret:</p>
-<ul>
-<li>Hvis b<sub>1</sub> er 0, er det ingen relasjon mellom disse prediktorvariabelen (x) og utfallsvariabelen (y).</li>
-<li>Hvis b<sub>1</sub> er &gt; enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.</li>
-<li>Hvis b<sub>1</sub> er &lt; enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.</li>
-</ul>
-</div>
-<p>Husk at b<sub>1</sub> i vårt tilfelle representer forskjellene i gjennomsnitt mellom de to gruppene. Det er med andre ord like gyldig å spørre om det er en relasjon mellom variablene som at det er en forskjell i means mellom to grupper.</p>
-<p>Vi kan tydelig se at b<sub>1</sub> er forskjellig fra 0 i vårt utvalg, men husk at denne forskjellen kan skyldes sampling variation som vi kan forvente under null-hypotesen. Vi må derfor teste om de to utvalgene vi har kommer fra samme eller to forskjellige populasjoner (en endring som i så fall har skjedd fordi vi har gitt de to utvalgene forskjellig treningsopplegg). Dette kan vi finne ut ved å kjøre en uavhengig t-test.</p>
-<p><span class="math display">\[
-t.test = \frac{(b_1observert - b_1forventet)}{\text{standard error of } b_1}
-\]</span>
-Vi vet allerede b<sub>1</sub>observert (den observerte forskjellen mellom de to utvalgene) og b<sub>1</sub>forventet (null-hypotesen er at det ikke er noen relasjon mellom disse variablene, så denne blir null. Så vi kan plotte inn disse verdiene.</p>
-<p><span class="math display">\[
-t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
-\]</span>
-Det som gjenstår er å finne ut hva standard error of b<sub>1</sub> er. Vi har tidligere regnet ut standard error of mean <span class="math inline">\(SD/sqrt(N)\)</span>, og vi kan gjøre noe lignende for å regne ut standard error of b<sub>1</sub>. Men for å fokusere på det store bildet vil jeg gi dere den estimerte standard error of b<sub>1</sub></p>
-<div class="warning">
-<p>Prosedyren for å regne ut standard error of b<sub>1</sub> er ikke vanskelig, men det er en del utregningsledd. Så lenge dere forstå at standard error of b1 er et mål på hvor mye utvalg vil være forskjellige fra hverandre, så tenker jeg at dere ikke vil øke deres forståelse ved å lære å regne standard error of b1, men jeg kan selvfølgelig ta feil.</p>
-<p>Jeg anbefaler dere på det sterkeste at der ser <a href="https://www.youtube.com/watch?v=3L9ZMdzJyyI">denne videoen</a></p>
-</div>
-<p>Fra mitt output i Jamovi kan jeg lese at standard error of b<sub>1</sub> er <strong>2.33</strong>.</p>
-<div class="figure">
-<img src="output.png" alt="" />
-<p class="caption">ny</p>
-</div>
-<p>Så jeg kan bruke dette i utregningen av t.</p>
-<p><span class="math display">\[
-t.test = \frac{(20.52 - 0)}{2.33}
-\]</span></p>
-<p><span class="math display">\[
-t.test = \frac{(20.52 - 0)}{\text{standard error of } b_1}
-\]</span>
-<span class="math display">\[
-t.test = 8.806867
-\]</span>
-Vår t-verdi er 8.80. Vi kan tydelig se at denne t-verdier er større enn den kritiske verdien på ~ 2, så vi kan konkludere at vi har et signifikant funn; de to utvalgene vi har med i studien synes å komme fra forskjellige populasjoner. Vi kan lese denne t-verdien fra output-tabellen fra Jamovi at vår p-verdi er &lt; 0.001.</p>
+<div id="regresjon-og-korrelasjon" class="section level1" number="10">
+<h1><span class="header-section-number">Kapittel 10</span> Regresjon og korrelasjon</h1>
+<p>I dette kapittelet skal vi lære hvordan vi kan se om det er en relasjon mellom to kontinuerlige variabler. Tidligere har vi sett om det er relasjoner mellom en avhengig variabel som er kontinuerlig og en variabel som er kategorisk. Men nå skal altså begge være kontinuerlige.</p>
+<iframe width="600" height="400" src="https://www.youtube.com/embed/t-wemxX4O6A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Før vi begynner, la oss repetere hvordan vi kan se om det er en relasjon mellom to variabler. Ta en titt i figuren under:</p>
+<p><span style="font-size: 16px; font-weight: bold; color: var(--pink);"> - I figur A er det en positiv relasjon mellom X og Y. For hver enhets økning i X, så stiger den forventede verdien av Y med 0.4</span></p>
+<p><span style="font-size: 16px; font-weight: bold; color: var(--pink);">- I figur B er det ingen relasjon mellom X og Y. Linjen er helt flat</span></p>
+<p><span style="font-size: 16px; font-weight: bold; color: var(--pink);">- I figur C er det en negativ relasjon mellom X og Y. For hver enhets økning i X, så faller den forventede verdien av Y med -0.4. </span></p>
+<p>Enig? Dette bør være kjent stoff.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="07-ttest_files/figure-html/unnamed-chunk-1-1.png" alt="t-fordelingen og vår t-verdi" width="100%" />
+<img src="14_relasjoner_files/figure-html/unnamed-chunk-1-1.png" alt="Modeller med forskjellig b1" width="100%" />
 <p class="caption">
-Figur 6.1: t-fordelingen og vår t-verdi
+Figur 6.1: Modeller med forskjellig b1
 </p>
 </div>
+<div id="datasett-2" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Datasett</h2>
+<p>Før vi begynner med korrelasjon og regresjon, trenger vi et nytt datasett. Datasettet jeg har fisket opp kommer fra <em>Camus et al. 1992</em> og inneholder 21 personer sin vo2-maks og tid på 800 meter. Hva tror dere, er det en sammenheng mellom disse variablene?</p>
+<p>Her er datasettet:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="regresjon-og-korrelasjon.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-2"><a href="regresjon-og-korrelasjon.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Vo2-maks</span></span>
+<span id="cb10-3"><a href="regresjon-og-korrelasjon.html#cb10-3" aria-hidden="true" tabindex="-1"></a>vo2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">52.5</span>, <span class="dv">50</span>, <span class="fl">56.75</span>, <span class="dv">57</span>, <span class="fl">57.5</span>,<span class="dv">58</span>,<span class="fl">60.75</span>, <span class="fl">60.5</span>,<span class="dv">60</span>,<span class="dv">63</span>,<span class="dv">61</span>,<span class="fl">64.5</span>,<span class="dv">64</span>,<span class="fl">65.75</span>,<span class="fl">66.75</span>,<span class="dv">66</span>,<span class="fl">68.25</span>,<span class="dv">68</span>,<span class="fl">70.5</span>,<span class="fl">73.25</span>, <span class="dv">74</span>)</span>
+<span id="cb10-4"><a href="regresjon-og-korrelasjon.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidene på 800m</span></span>
+<span id="cb10-5"><a href="regresjon-og-korrelasjon.html#cb10-5" aria-hidden="true" tabindex="-1"></a>lopsprestasjon <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">159</span>,<span class="dv">147</span>,<span class="dv">153</span>,<span class="dv">160</span>,<span class="dv">143</span>,<span class="dv">132</span>,<span class="dv">130</span>,<span class="dv">135</span>,<span class="dv">137</span>,<span class="dv">128</span>,<span class="dv">121</span>,<span class="dv">125</span>,<span class="dv">130</span>,<span class="dv">137</span>,<span class="dv">141</span>,<span class="dv">136</span>,<span class="dv">122</span>,<span class="dv">117</span>,<span class="dv">119</span>,<span class="dv">121</span>,<span class="dv">116</span>)</span>
+<span id="cb10-6"><a href="regresjon-og-korrelasjon.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Individene</span></span>
+<span id="cb10-7"><a href="regresjon-og-korrelasjon.html#cb10-7" aria-hidden="true" tabindex="-1"></a>individ <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">length</span>(lopsprestasjon))</span>
+<span id="cb10-8"><a href="regresjon-og-korrelasjon.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Setter dette inn i en dataframe</span></span>
+<span id="cb10-9"><a href="regresjon-og-korrelasjon.html#cb10-9" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(individ, vo2, lopsprestasjon)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-3">Table 2.1: </span>Vo2maks og 800meter tid for 21 personer</caption>
+<thead>
+<tr class="header">
+<th align="right">individ</th>
+<th align="right">vo2</th>
+<th align="right">lopsprestasjon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">52.50</td>
+<td align="right">159</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">50.00</td>
+<td align="right">147</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">56.75</td>
+<td align="right">153</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">57.00</td>
+<td align="right">160</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">57.50</td>
+<td align="right">143</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">58.00</td>
+<td align="right">132</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">60.75</td>
+<td align="right">130</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">60.50</td>
+<td align="right">135</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">60.00</td>
+<td align="right">137</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">63.00</td>
+<td align="right">128</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">61.00</td>
+<td align="right">121</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">64.50</td>
+<td align="right">125</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">64.00</td>
+<td align="right">130</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">65.75</td>
+<td align="right">137</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">66.75</td>
+<td align="right">141</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">66.00</td>
+<td align="right">136</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="right">68.25</td>
+<td align="right">122</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">68.00</td>
+<td align="right">117</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="right">70.50</td>
+<td align="right">119</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">73.25</td>
+<td align="right">121</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="right">74.00</td>
+<td align="right">116</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="visualisering-av-dataen" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Visualisering av dataen</h2>
+<p>Det første vi bør gjøre er å visualisere dataen for å se om vi har uteliggere, og for å få et inntrykk av dataen. For data der begge variablene er kontinuerlige er det fint å bruke et <strong>scatterplot</strong>. Dette viser hvert individ sin observasjon på X og Y variabelen.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="regresjon-og-korrelasjon.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(vo2, lopsprestasjon)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="regresjon-og-korrelasjon.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># legger på punkter (de stort prikkene)</span></span>
+<span id="cb11-3"><a href="regresjon-og-korrelasjon.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="regresjon-og-korrelasjon.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Vo2.maks&quot;</span>, <span class="at">y=</span><span class="st">&quot;800meter løp&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="regresjon-og-korrelasjon.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="14_relasjoner_files/figure-html/unnamed-chunk-4-1.png" alt="løpsprestasjon" width="100%" />
+<p class="caption">
+Figur 4.3: løpsprestasjon
+</p>
+</div>
+</div>
+<div id="pearsons-korrelasjonskoeffisient-r" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Pearson’s korrelasjonskoeffisient (<em>r</em>)</h2>
+<p>For å finne ut om det er en relasjon mellom to variabler, kan vi bruke Pearson’s korrelasjonskoeffisient (<em>r</em>). Det er flere måter å regne ut <em>r</em> på, men jeg kommer til å bruke formelen som står i boken deres:</p>
+<p><span class="math display">\[
+r = \frac{\sum_{i=1}^{n}(x_i -\bar{x})(y_i -\bar{y})} {(N-1)sd_xsd_y}
+\]</span>
+Vi begynner med det som står i telleren <span class="math inline">\((x_i -\bar{x})(y_i -\bar{y})\)</span>. Dette kalles <strong>cross-product deviations</strong>. Det vi er interessert i å finne ut er om en person sin skår på en variabel er over eller under gjennomsnittet på denne variabelen. Det er dette <span class="math inline">\((x_i -\bar{x})\)</span> forteller oss. Men samtidig ønsker vi å se om denne personen er over eller under gjennomsnittet på den andre variabelen <span class="math inline">\((y_i -\bar{y})\)</span>. For å finne ut av denne multipliserer vi de to, eller vi regner ut kryssproduktet.</p>
+<ul>
+<li>Hvis det er en positiv relasjon mellom to variabler skal en person sin skår på x-variabelen være høyere enn gjennomsnittet å x-variabelen og samtidig være høyere enn gjennomsnittet på y-variabelen</li>
+<li>Hvis det er en negativ relasjon mellom to variabler skal en person sin skår på x-variabelen være høyere enn gjennomsnittet på x-varianelen og samtidig være lavere enn gjennomsnittet på y-variabelen</li>
+</ul>
+<p>Det er enklere å se dette visuelt. I figuren under har jeg lagt på linjer som viser gjennomsnittet. Studer figuren <strong>nøye</strong>. Studer hvordan individene er plassert i forhold til linjene.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="14_relasjoner_files/figure-html/unnamed-chunk-5-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figur 10.1: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p>Videre forteller formelen at vi skal summere all cross-production deviations, så vi gjøre dette:</p>
+<p><span class="math display">\[
+r = \frac{\sum_{i=1}^{n}(x_i -\bar{x})(y_i -\bar{y})} {(N-1)sd_xsd_y} = \frac{-1292.19} {(N-1)sd_xsd_y}
+\]</span>
+Deretter sier formelen at vi skal dele antall N-1, multiplisert med standardavviket for x og standardavviket for y. Grunnen til at vi gjør dette er for å få en standardisert relasjon som vi kan sammenligne på tvers av studier. Legg merke til at vi også må multiplisere de to standardavvikene med hverandre før vi deler.</p>
+<p><span class="math display">\[
+r = \frac{\sum_{i=1}^{n}(x_i -\bar{x})(y_i -\bar{y})} {(N-1)sd_xsd_y} = \frac{-1292.19} {(20)1664.213} = -0.7764574 
+\]</span></p>
+<p>Jeg kan bekrefte at denne korrelasjonen stemmer.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="regresjon-og-korrelasjon.html#cb12-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(dat<span class="sc">$</span>vo2, dat<span class="sc">$</span>lopsprestasjon, <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb12-2"><a href="regresjon-og-korrelasjon.html#cb12-2" aria-hidden="true" tabindex="-1"></a>r</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  dat$vo2 and dat$lopsprestasjon
+## t = -5.3708, df = 19, p-value = 3.497e-05
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.9048506 -0.5185974
+## sample estimates:
+##        cor 
+## -0.7764574</code></pre>
+<p>Vi kan rapportere dere på følgende måte:</p>
+<p>Det var en signifikant relasjon negativ relasjon mellom vo2maks og tid på 800 meter , <em>r</em> = −.77, 95% CI [−.90, .52], <em>p</em> = &lt; .001</p>
+<div class="warning">
+<p>En ting som er viktig å vite er at r kun kan variere mellom -1 og 1, aldri mer. Så en r på −.77 er en stor effekt.</p>
+<p>Spill dette spill til dere skjønner korrelasjon:
+<a href="http://guessthecorrelation.com/" class="uri">http://guessthecorrelation.com/</a></p>
+</div>
+</div>
+<div id="regresjon" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Regresjon</h2>
+<p>Vi kan også gjøre en regresjonsanalyse på samme datasett. Korrelasjon spør om det er en sammenheng eller en relasjon mellom to variabler, mens en regresjon spør om vi kan predikere noe. De to teknikkene er veldig relatert til hverandre. Alt vi har gjort i dette faget er egentlig regresjon, så det er ingenting nytt jeg kommer med nå. Vi skal regresjonsmodell for å spørre om vi kan predikere en person sin løpstid på 800meter basert på deres vo2.maks. Vi har derfor to kontinuerlige variabler som vi kan sette opp med følgende ligning:</p>
+<p><span class="math display">\[
+lopstid= b_0 + b_1(vo2maks_i) + error 
+\]</span>
+For å undersøke om vi kan bruke vo2maks til å predikere tid på 800meter, må vi bygge to modeller:
+- <strong>NULL-modellen</strong> (null-hypotesen som sier at vi kun trenger gjennomsnittet til å predikere tid på 800m)
+- <strong>Alternative modellen</strong>(modellen vår som sier at kan bruke vo2maks til å predikere tid på 800m)</p>
+<p>Disse modellene kan du se i figuren under. Figur A er null-modellen og figure B er den alternative modellen.</p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="14_relasjoner_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figur 4.4: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p>For å sammenligne disse modellene bruker vi nøyaktig samme prosedyre som har gjort tidligere. Gå tilbake til de andre kapitlene i boken om du ikke husker dette. Jeg kjører derfor bare modellen i R for dere.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="regresjon-og-korrelasjon.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lm står for linear model</span></span>
+<span id="cb15-2"><a href="regresjon-og-korrelasjon.html#cb15-2" aria-hidden="true" tabindex="-1"></a>alternativ_modell <span class="ot">&lt;-</span> <span class="fu">lm</span>(lopsprestasjon <span class="sc">~</span> vo2, dat)</span>
+<span id="cb15-3"><a href="regresjon-og-korrelasjon.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(alternativ_modell)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = lopsprestasjon ~ vo2, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.603  -5.960  -1.766   7.459  16.948 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 234.9559    18.9327  12.410 1.47e-10 ***
+## vo2          -1.6123     0.3002  -5.371 3.50e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.499 on 19 degrees of freedom
+## Multiple R-squared:  0.6029, Adjusted R-squared:  0.582 
+## F-statistic: 28.85 on 1 and 19 DF,  p-value: 3.497e-05</code></pre>
+</div>
+<div id="rapportering-av-regresjon" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Rapportering av regresjon</h2>
+<p>Vi fant at vo2.maks predikerte løpstid på 800m, <em>b</em> = –.161, <em>t</em> (19) = -5.37, <em>p</em> &lt; .001. vo2 maks forklarte også en signifikant andel av variansen i løpsprestasjon, <span class="math inline">\(R^2\)</span> = .60, F(1, 19) = 28.85, <em>p</em> &lt; .001.</p>
 
+</div>
 </div>
 <div class="psyteachr_footer">
   
@@ -374,8 +579,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="hvordan-finne-linjen-i-modellen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="skrive-en-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sammenligne-flere-grupper.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vedlegg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

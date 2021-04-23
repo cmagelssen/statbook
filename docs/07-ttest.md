@@ -12,8 +12,6 @@ Her er svaret:
 * Hvis b<sub>1</sub> er > enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.
 * Hvis b<sub>1</sub> er < enn 0, er det en positiv relasjon mellom vår prediktovariabel og utfallsvariabelen.
 
-
-
 </div>
 
 Husk at  b<sub>1</sub> i vårt tilfelle representer forskjellene i gjennomsnitt mellom de to gruppene. Det er med andre ord like gyldig å spørre om det er en relasjon mellom variablene som at det er en forskjell i means mellom to grupper.

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kapittel 10 VEDLEGG | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)</title>
+  <title>Kapittel 11 VEDLEGG | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)</title>
   <meta name="description" content="En interaktiv bok, skrevet i R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kapittel 10 VEDLEGG | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
+  <meta property="og:title" content="Kapittel 11 VEDLEGG | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kapittel 10 VEDLEGG | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
+  <meta name="twitter:title" content="Kapittel 11 VEDLEGG | Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)" />
   
   <meta name="twitter:description" content="En interaktiv bok, skrevet i R" />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Christian Magelssen og Knut Sindre Mølmen" />
 
 
-<meta name="date" content="2021-04-22" />
+<meta name="date" content="2021-04-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sammenligne-flere-grupper.html"/>
+<link rel="prev" href="regresjon-og-korrelasjon.html"/>
 
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -176,10 +176,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html#anova---er-modellen-vår-bedre-enn-null-modellen"><i class="fa fa-check"></i><b>9.4</b> ANOVA - er modellen vår bedre enn null-modellen?</a></li>
 <li class="chapter" data-level="9.5" data-path="sammenligne-flere-grupper.html"><a href="sammenligne-flere-grupper.html#hvilke-grupper-er-forskjellige-post-hoc-testing"><i class="fa fa-check"></i><b>9.5</b> Hvilke grupper er forskjellige? (post-hoc testing)</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>10</b> VEDLEGG</a>
+<li class="chapter" data-level="10" data-path="regresjon-og-korrelasjon.html"><a href="regresjon-og-korrelasjon.html"><i class="fa fa-check"></i><b>10</b> Regresjon og korrelasjon</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-2"><i class="fa fa-check"></i><b>10.1</b> Datasett</a></li>
-<li class="chapter" data-level="10.2" data-path="vedlegg.html"><a href="vedlegg.html#modellbygging"><i class="fa fa-check"></i><b>10.2</b> Modellbygging</a></li>
+<li class="chapter" data-level="10.1" data-path="regresjon-og-korrelasjon.html"><a href="regresjon-og-korrelasjon.html#datasett-2"><i class="fa fa-check"></i><b>10.1</b> Datasett</a></li>
+<li class="chapter" data-level="10.2" data-path="regresjon-og-korrelasjon.html"><a href="regresjon-og-korrelasjon.html#visualisering-av-dataen"><i class="fa fa-check"></i><b>10.2</b> Visualisering av dataen</a></li>
+<li class="chapter" data-level="10.3" data-path="regresjon-og-korrelasjon.html"><a href="regresjon-og-korrelasjon.html#pearsons-korrelasjonskoeffisient-r"><i class="fa fa-check"></i><b>10.3</b> Pearson’s korrelasjonskoeffisient (<em>r</em>)</a></li>
+<li class="chapter" data-level="10.4" data-path="regresjon-og-korrelasjon.html"><a href="regresjon-og-korrelasjon.html#regresjon"><i class="fa fa-check"></i><b>10.4</b> Regresjon</a></li>
+<li class="chapter" data-level="10.5" data-path="regresjon-og-korrelasjon.html"><a href="regresjon-og-korrelasjon.html#rapportering-av-regresjon"><i class="fa fa-check"></i><b>10.5</b> Rapportering av regresjon</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="vedlegg.html"><a href="vedlegg.html"><i class="fa fa-check"></i><b>11</b> VEDLEGG</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="vedlegg.html"><a href="vedlegg.html#datasett-3"><i class="fa fa-check"></i><b>11.1</b> Datasett</a></li>
+<li class="chapter" data-level="11.2" data-path="vedlegg.html"><a href="vedlegg.html#modellbygging"><i class="fa fa-check"></i><b>11.2</b> Modellbygging</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
@@ -205,10 +213,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="vedlegg" class="section level1" number="10">
-<h1><span class="header-section-number">Kapittel 10</span> VEDLEGG</h1>
-<div id="datasett-2" class="section level2" number="10.1">
-<h2><span class="header-section-number">10.1</span> Datasett</h2>
+<div id="vedlegg" class="section level1" number="11">
+<h1><span class="header-section-number">Kapittel 11</span> VEDLEGG</h1>
+<div id="datasett-3" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Datasett</h2>
 <ol style="list-style-type: lower-alpha">
 <li>Hvor mange kolonner er det i tabellen over? svar = 3</li>
 <li>Hvor mange deltakere var med i studien? svar = 24</li>
@@ -221,8 +229,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Er standard error og standardavvik det samme? svar = “nei”)</li>
 </ol>
 </div>
-<div id="modellbygging" class="section level2" number="10.2">
-<h2><span class="header-section-number">10.2</span> Modellbygging</h2>
+<div id="modellbygging" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Modellbygging</h2>
 <ol style="list-style-type: lower-alpha">
 <li><p>La oss si at vi hatt med et målt et individ sin <strong>X</strong> til å være 8. Hvis du bruker modell A, hva vil du forvente at denne personen har på <em>Y</em>? svar = 9.2</p></li>
 <li><p>La oss si at vi hatt med et målt et individ sin <strong>X</strong> og <strong>Y</strong> (du kan bytte ut X og Y med hvilken som helst variabel (f.eks. høyde, vekt), hvis du vil). Individet sitt mål på X er 3. Hvis du bruker modell B, hva vil du forvente at denne personen har på <em>Y</em>? svar = 4.2</p></li>
@@ -359,7 +367,7 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="sammenligne-flere-grupper.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresjon-og-korrelasjon.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
