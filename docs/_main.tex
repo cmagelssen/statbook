@@ -150,7 +150,7 @@
 
 \title{Bygge statistiske modeller med kategoriske prediktorvariabler (ANOVA, t-test)}
 \author{Christian Magelssen og Knut Sindre Mølmen}
-\date{2021-04-23}
+\date{2021-05-02}
 
 \begin{document}
 \maketitle
@@ -1155,7 +1155,7 @@ Det er ønskelig at SSM er stor fordi det betyr at den alternative modellen vår
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{4}
+\setcounter{enumi}{3}
 \tightlist
 \item
   Hvis du sammenligner med figuren til venstre (vår modell) med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?
@@ -1165,7 +1165,7 @@ ja nei.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{3}
+\setcounter{enumi}{4}
 \tightlist
 \item
   Hva er (SST) - (SSR)?
@@ -1173,7 +1173,7 @@ ja nei.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{4}
+\setcounter{enumi}{5}
 \tightlist
 \item
   Hva er (SSR) + (SSM)?
@@ -2239,6 +2239,25 @@ Vi fant at vo2.maks predikerte løpstid på 800m, \emph{b} = --.161, \emph{t} (1
   b1 er (svar=forskjellen) (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1.
 \item
   b0 + b1 er (svar=gjennomsnittet) (norsk ord) for gruppen som er kodet med 1.
+\end{enumerate}
+
+\hypertarget{sammenligne-modeller-1}{%
+\section{Sammenligne modeller}\label{sammenligne-modeller-1}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Hva er sum of squared error for null-modellen? svar = 3243.784
+\item
+  Hva er sum of squared error for den alternative modellen? svar = 716.2875
+\item
+  Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen? svar = 2527.5
+\item
+  Hvis du sammenligner med figuren til venstre (vår modell) med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god? svar = ja
+\item
+  Hva er (SST) - (SSR)? svar = 2527.5
+\item
+  Hva er (SSR) + (SSM)? svar = 3243.784
 \end{enumerate}
 
   \bibliography{book.bib,packages.bib}

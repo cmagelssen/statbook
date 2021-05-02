@@ -66,15 +66,15 @@ Det er ønskelig at SS<sub>M</sub> er stor fordi det betyr at den alternative mo
 * SS<sub>M</sub> er hvor mye error som modellen vår klarte å forklare. 
 
 
-e. Hvis du sammenligner med figuren til venstre (vår modell) med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?
+d. Hvis du sammenligner med figuren til venstre (vår modell) med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god?
 
 <select class='solveme' data-answer='["ja"]'> <option></option> <option>ja</option> <option>nei</option></select>. 
 
-d. Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)? 
+e. Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)? 
 
 <input class='solveme nospaces' size='6' data-answer='["2527.5"]'/>
 
-e. Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)? 
+f. Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)? 
 
 <input class='solveme nospaces' size='8' data-answer='["3243.784"]'/>
 

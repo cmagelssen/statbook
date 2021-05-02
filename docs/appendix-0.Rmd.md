@@ -41,3 +41,22 @@ k. bo er (svar=gjennomsnittet) (norskt ord) for gruppen som er kodet med 0.
 l. b1 er (svar=forskjellen) (norsk ord) mellom gruppen som er kodet med 0 og gruppen som er kodet med 1. 
 
 m. b0 + b1 er (svar=gjennomsnittet) (norsk ord) for gruppen som er kodet med 1.
+
+
+## Sammenligne modeller
+
+
+a. Hva er sum of squared error for null-modellen? svar = 3243.784
+
+
+b. Hva er sum of squared error for den alternative modellen? svar = 716.2875
+
+
+c. Hvor mye sum of squared error er redusert ved å bruke den alternative modellen i forhold null-modellen? svar = 2527.5
+
+
+d. Hvis du sammenligner med figuren til venstre (vår modell) med figuren til høyre (som kun er brukt et eksempel), vil du si at vår alternative modell er god? svar = ja
+
+e. Hva er (SS<sub>T</sub>) - (SS<sub>R</sub>)? svar = 2527.5
+
+f. Hva er (SS<sub>R</sub>) + (SS<sub>M</sub>)? svar = 3243.784
